@@ -1,0 +1,26 @@
+<div class="dream">
+    <% if (theme.dream.showTitle) { %>
+    <div class="title center-align">
+        <i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;<%- theme.dream.title %>
+    </div>
+    <% } %>
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            <!-- <%- theme.dream.text %> -->
+            <h3 id="hitokoto"></h3>
+            <script>
+                var xhr = new XMLHttpRequest();
+                xhr.open('get', 'https://v1.hitokoto.cn?c=d');
+                xhr.onreadystatechange = function () {
+                  if (xhr.readyState === 4) {
+                    var data = JSON.parse(xhr.responseText);
+                    var hitokoto = document.getElementById('hitokoto');
+                    var text = data.hitokoto + '  ---' + data.from;
+                    hitokoto.innerText = text;
+                  }
+                }
+                xhr.send();
+              </script>
+        </div>
+    </div>
+</div>
