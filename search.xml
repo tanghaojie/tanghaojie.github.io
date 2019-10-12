@@ -4,11 +4,141 @@
   
     
     <entry>
+      <title>网站收录</title>
+      <link href="/2019/10/12/website/"/>
+      <url>/2019/10/12/website/</url>
+      
+        <content type="html"><![CDATA[<ol><li><a href="https://experiments.withgoogle.com/" target="_blank" rel="noopener">Google探索实验室</a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> website </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> website </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>地理信息相关标准</title>
+      <link href="/2019/10/12/gisstandard/"/>
+      <url>/2019/10/12/gisstandard/</url>
+      
+        <content type="html"><![CDATA[<ol><li><a href="https://www.opengeospatial.org/standards" target="_blank" rel="noopener">OGC</a><blockquote><p>开放地理空间信息联盟(Open Geospatial Consortium),是一个非盈利的国际标准组织，它制定了数据和服务的一系列标准，GIS厂商按照这个标准进行开发可保证空间数据的互操作。</p></blockquote></li></ol><hr><ol start="2"><li><a href="https://spatialreference.org/" target="_blank" rel="noopener">Spatial reference</a><blockquote><p>坐标系统收录、查询、上传、教育。</p></blockquote></li></ol><hr><ol start="3"><li><a href="https://gdal.org/" target="_blank" rel="noopener">GDal</a><blockquote><p>GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库。它利用抽象数据模型来表达所支持的各种文件格式。它还有一系列命令行工具来进行数据转换和处理。OGR是GDAL项目的一个分支，功能与GDAL类似，只不过它提供对矢量数据的支持。</p></blockquote></li></ol><hr><ol start="4"><li><a href="http://epsg.io/" target="_blank" rel="noopener">epsg</a><blockquote><p>全球坐标系统</p></blockquote></li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> gis </category>
+          
+          <category> tips </category>
+          
+          <category> website </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tips </tag>
+            
+            <tag> gis </tag>
+            
+            <tag> website </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>地理地图数据提供网站</title>
+      <link href="/2019/10/12/gisdatawebsites/"/>
+      <url>/2019/10/12/gisdatawebsites/</url>
+      
+        <content type="html"><![CDATA[<ol><li><a href="https://www.osgeo.cn/data/" target="_blank" rel="noopener">OSGeo中国</a><blockquote><p>开放地理空间信息科学：技术、数据、知识共享。</p></blockquote></li></ol><hr><ol start="2"><li><a href="http://spatialhadoop.cs.umn.edu/index.html" target="_blank" rel="noopener">spatial hadoop</a><blockquote><p>一个为空间数据设计的map reduce框架，有很多超大的数据集提供下载。</p></blockquote></li></ol><hr><ol start="3"><li><a href="http://www.webmap.cn/main.do?method=index" target="_blank" rel="noopener">全国地理信息资源目录服务</a><blockquote><p>国家基础地理信息中心提供的资源查询和下载服务。</p></blockquote></li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> gis </category>
+          
+          <category> tips </category>
+          
+          <category> website </category>
+          
+          <category> data </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tips </tag>
+            
+            <tag> gis </tag>
+            
+            <tag> website </tag>
+            
+            <tag> data </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一些好玩的地理网站</title>
+      <link href="/2019/10/12/gisForFunWebsites/"/>
+      <url>/2019/10/12/gisForFunWebsites/</url>
+      
+        <content type="html"><![CDATA[<ol><li><a href="https://www.openstreetmap.org" target="_blank" rel="noopener">Open Street Map</a><blockquote><p>人人都可编辑的世界地图，一个网上地图协作计划的产物。</p></blockquote></li></ol><hr><ol start="2"><li><a href="https://lines.chromeexperiments.com" target="_blank" rel="noopener">Land Lines</a><blockquote><p>Google Creative Lab 提交的一个 Chrome Experiments 项目，基于深度学习。</p></blockquote></li></ol><hr><ol start="3"><li><a href="https://geoguessr.com/" target="_blank" rel="noopener">GeoGuessr</a><blockquote><p>这是一个真实的「情景判断游戏」。开局就是随便把玩家落在 Google 街景中的某一处，你可以在街景地图中一路游走，然后根据周遭信息，判断出身处何处。</p></blockquote></li></ol><hr><ol start="4"><li><a href="https://experiments.withgoogle.com/chrome/globe" target="_blank" rel="noopener">The WebGL Globe</a><blockquote><p>The WebGL Globe 是一个使数据地理可视化的平台。利用这个项目提供的开源代码，我们可以制作属于自己的数据地球。在项目网站上有不少网友提交的实验，根据人口变化、火山活动、各地维基百科篇目等方方面面的数据产生不同的可视化地球。</p></blockquote></li></ol><hr><ol start="5"><li><a href="https://ojack.github.io/ghost-map/" target="_blank" rel="noopener">Ghost Map</a><blockquote><p>Ghost Map收录了各个城市的街道路线，将其隐藏在黑暗中。通过移动鼠标，光亮像细流入川一般流淌到附近街道上，灯火明亮，车水马龙，勾勒出这座城市的建筑与街道规划。当鼠标指针停止移动，万物歇息，一切又沉入黑暗。</p></blockquote></li></ol><hr><ol start="6"><li><a href="https://snazzymaps.com" target="_blank" rel="noopener">SNAZZY MAPS</a><blockquote><p>在线Google Maps配图。自带多种风格自由选择，而且都可以自定义。</p></blockquote></li></ol><hr><ol start="7"><li><a href="http://pixelmap.amcharts.com/" target="_blank" rel="noopener">Pixel Map</a><blockquote><p>在线像素地图生成。</p></blockquote></li></ol><hr><ol start="8"><li><a href="http://www.dituhui.com/" target="_blank" rel="noopener">地图慧</a><blockquote><p>在线地图制作，上传自己的数据，可以做热力图、流向图等等各种专题地图。</p></blockquote></li></ol><hr><ol start="9"><li><a href="https://stamen.com" target="_blank" rel="noopener">stamen</a><blockquote><p>地图与制图、数据可视化。</p></blockquote></li></ol><hr><ol start="10"><li><a href="https://www.mapbox.com/" target="_blank" rel="noopener">Map Box</a><blockquote><p>在线地图制图。</p></blockquote></li></ol><hr><ol start="11"><li><a href="http://mapstack.stamen.com/" target="_blank" rel="noopener">Map Stack</a><blockquote><p>使设计地图免费,简单,有趣。</p></blockquote></li></ol><hr><ol start="12"><li><a href="https://cadmapper.com/" target="_blank" rel="noopener">CAD Mapper</a><blockquote><p>cad su 等格式的模型下载。</p></blockquote></li></ol><hr><ol start="13"><li><a href="https://www.ageeye.cn/" target="_blank" rel="noopener">发现中国</a><blockquote><p>中国历史地图、古地图。</p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> gis </category>
+          
+          <category> tips </category>
+          
+          <category> website </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tips </tag>
+            
+            <tag> fun </tag>
+            
+            <tag> gis </tag>
+            
+            <tag> website </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>News</title>
       <link href="/2019/10/11/News/"/>
       <url>/2019/10/11/News/</url>
       
-        <content type="html"><![CDATA[<pre class="line-numbers language-C#"><code class="language-C#">var x = 0;var y=1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><hr><p>版权声明：</p><h2 id="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"><a href="#除非注明，本博文章均为原创，转载请以链接形式标明本文地址。" class="headerlink" title="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"></a>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<pre class="line-numbers language-C#"><code class="language-C#">var x = 0;var y=1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><hr><p>版权声明：</p><h2 id="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"><a href="#除非注明，本博文章均为原创，转载请以链接形式标明本文地址。" class="headerlink" title="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"></a>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</h2>]]></content>
       
       
       
