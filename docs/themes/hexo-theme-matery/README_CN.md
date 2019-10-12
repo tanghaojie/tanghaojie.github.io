@@ -434,7 +434,7 @@ music:
   title: 听听音乐
   fixed: false # 是否开启吸底模式
   autoplay: false # 是否自动播放
-  theme: '#42b983'
+  theme: '#1976d2'
   loop: 'all' # 音频循环播放, 可选值: 'all', 'one', 'none'
   order: 'list' # 音频循环顺序, 可选值: 'list', 'random'
   preload: 'auto' # 预加载，可选值: 'none', 'metadata', 'auto'
@@ -549,7 +549,7 @@ tags:
 ```css
 /* 整体背景颜色，包括导航、移动端的导航、页尾、标签页等的背景颜色. */
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #4cbf30 0%, #1565c0 100%);
 }
 
 @-webkit-keyframes rainbow {

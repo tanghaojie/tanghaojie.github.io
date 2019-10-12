@@ -427,7 +427,7 @@ music:
   title: Listen to music
   fixed: false # enable fixed mode
   autoplay: false # audio autoplay
-  theme: '#42b983'
+  theme: '#1976d2'
   loop: 'all' # player loop play, values: 'all', 'one', 'none'
   order: 'list' # player play order, values: 'list', 'random'
   preload: 'auto' # values: 'none', 'metadata', 'auto'
@@ -544,7 +544,7 @@ Search `.bg-color` to modify background color in `/source/css/matery.css` in the
 ```css
 /* The overall background color, including navigation, mobile navigation, footer, tab, etc.. */
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #4cbf30 0%, #1565c0 100%);
 }
 
 @-webkit-keyframes rainbow {
