@@ -421,16 +421,16 @@ Google Creative Lab 提交的一个 Chrome Experiments 项目，基于深度学�
                                 <span class="chip bg-color">tips</span>
                             </a>
                         
-                            <a href="/tags/fun/" target="_blank">
-                                <span class="chip bg-color">fun</span>
-                            </a>
-                        
                             <a href="/tags/gis/" target="_blank">
                                 <span class="chip bg-color">gis</span>
                             </a>
                         
                             <a href="/tags/website/" target="_blank">
                                 <span class="chip bg-color">website</span>
+                            </a>
+                        
+                            <a href="/tags/fun/" target="_blank">
+                                <span class="chip bg-color">fun</span>
                             </a>
                         
                     </div>
@@ -468,7 +468,7 @@ Google Creative Lab 提交的一个 Chrome Experiments 项目，基于深度学�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        424
+                        476
                     </div>
                     
 
@@ -581,7 +581,25 @@ Google Creative Lab 提交的一个 Chrome Experiments 项目，基于深度学�
 </blockquote>
 </li>
 </ol>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -875,6 +893,8 @@ var y=1;
 
 版权声明：
 除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+        document.querySelectorAll('.github-emoji')
+          .f
                         
                     </div>
                     <div class="publish-info">
@@ -1006,7 +1026,7 @@ var y=1;
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">738</span>&nbsp;字
+                class="white-color">998</span>&nbsp;字
             
             <br>
             

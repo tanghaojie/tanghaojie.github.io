@@ -314,7 +314,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <div class="card-content">
                 <div class="card-content article-card-content">
                     <div id="articleContent" data-aos="fade-up">
-                        
+                        <script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
                     </div>
                 </div>
             </div>
@@ -342,7 +360,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">738</span>&nbsp;字
+                class="white-color">998</span>&nbsp;字
             
             <br>
             
