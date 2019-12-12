@@ -4,20 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="网站收录, JT">
-    <meta name="description" content="
-Google探索实验室
-
-
-
-
-
-
-
-
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.d">
+    <meta name="keywords" content="Postgis和EntityFrameworkCore的关系映射，几何字段映射, JT">
+    <meta name="description" content="这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +13,7 @@ Google探索实验室
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>网站收录 | JT</title>
+    <title>Postgis和EntityFrameworkCore的关系映射，几何字段映射 | JT</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -298,13 +286,13 @@ Google探索实验室
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        网站收录
+                        Postgis和EntityFrameworkCore的关系映射，几何字段映射
                     </div>
                 </div>
             </div>
@@ -413,25 +401,12 @@ Google探索实验室
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/website/" target="_blank">
-                                <span class="chip bg-color">website</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/website/" class="post-category" target="_blank">
-                                website
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -439,21 +414,21 @@ Google探索实验室
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-12
+                    2019-12-12
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        58
+                        872
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -469,16 +444,32 @@ Google探索实验室
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li><a href="https://experiments.withgoogle.com/" target="_blank" rel="noopener">Google探索实验室</a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-</ol>
-<script>
+                <p><em><code>这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证</code><br>  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直接用odbc原生Sql操作了；或者是业务部分EF+空间几何Sql这么来操作。这两个方案实现起来确实没什么问题，但前者用起来实在麻烦，很多简单的东西就搞复杂了，要么统一封装一下的话就又回到Orm的路子上；后者是最灵活的一种方案了，任何需求都可以用这个办法来解决，但问题就是整个软件的框架会显得很混乱，新人来了经常问为啥要这样搞，思维切换起来很麻烦，如果要改需求还涉及到空间几何的话，那只能打一架好了…<br>  之前的DotnetFramework+Npgsql+EF是不支持使用PostGIS扩展的，官方一直也没明确表态后续规划什么的，直到最近在github上看到开发者说以后应该不会支持了，会把重心放到EF Core上。因此，想要直接映射几何字段几乎变成了不可能的事情。<br>*网上有用SharpMap做映射的解决方案，但是我一直没有测试成功过</em><br><em>官方的数据类型映射表里面也写了System.Data.Spatial.DbGeometry可以映射到Geometry类型。这个能在CodeFirst下识别，但生成的字段类型并不是Geometry，而是Byte[]，我也不知道哪错了，诶..</em><br>  直到最近我打算把平台切换到.NetCore，然后去研究了一下，整个人就豁然开朗了啊。1.微软官方明确表态实现几何类型的字段。2.Npgsql的Core版本确实在实现Postgis的东西，而且进度神速。那么，就用呗~<br>依赖很简单，就两个包：</p>
+<pre><code>1.Npgsql.EntityFrameworkCore.PostgreSQL
+2.Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite</code></pre><p>然后是配置，首先数据库里面要启用Postgis，简单：<code>Create Extension Postgis;</code><br>EFCore框架：</p>
+<pre class="line-numbers language-C#"><code class="language-C#">dbContextOptions.UseNpgsql(connectionString, o => o.UseNetTopologySuite()); //这在哪自己找一下
+
+//这在你的DbContext里面
+protected override void OnModelCreating(ModelBuilder builder)
+{
+    builder.HasPostgresExtension("postgis"); //启用postgis扩展，需要手动写扩展名也是有原因的哦
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>齐活了，就这么简单。<br>使用的话就很简单了：</p>
+<pre class="line-numbers language-C#"><code class="language-C#">using NetTopologySuite.Geometries;
+public class TestGeometry{
+  [Column(TypeName = "geometry (MultiLineString)")] //可以指定类型、维度、坐标系
+  public MultiLineString Geom { get; set; }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>有了这个后续的操作就简单多了：</p>
+<pre class="line-numbers language-C#"><code class="language-C#">Geom.Area //面积
+Geom.AsBinary() //转wkb
+Geom.AsText() //同ToString()，转wkt
+...
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>就不一一列举了，官方文档很全面的。</p>
+<h3 id="补充一下其他的坑吧，转-Net-Core以后，Gdal会成为一个很大的问题，这个需要好好的评估一下，Gdal目前还没有官方做Core的适配，这个影响挺大的。当然Gdal的功能也有相应各个独立的库能替换的，但始终不会像Gdal这么得心应手，一定要注意评估这一点！！！"><a href="#补充一下其他的坑吧，转-Net-Core以后，Gdal会成为一个很大的问题，这个需要好好的评估一下，Gdal目前还没有官方做Core的适配，这个影响挺大的。当然Gdal的功能也有相应各个独立的库能替换的，但始终不会像Gdal这么得心应手，一定要注意评估这一点！！！" class="headerlink" title="补充一下其他的坑吧，转 .Net Core以后，Gdal会成为一个很大的问题，这个需要好好的评估一下，Gdal目前还没有官方做Core的适配，这个影响挺大的。当然Gdal的功能也有相应各个独立的库能替换的，但始终不会像Gdal这么得心应手，一定要注意评估这一点！！！"></a>补充一下其他的坑吧，转 .Net Core以后，Gdal会成为一个很大的问题，这个需要好好的评估一下，Gdal目前还没有官方做Core的适配，这个影响挺大的。当然Gdal的功能也有相应各个独立的库能替换的，但始终不会像Gdal这么得心应手，一定要注意评估这一点！！！</h3><hr>
+<p>版权声明：</p>
+<h2 id="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"><a href="#除非注明，本博文章均为原创，转载请以链接形式标明本文地址。" class="headerlink" title="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"></a>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -654,9 +645,9 @@ Google探索实验室
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《网站收录》
+                    《Postgis和EntityFrameworkCore的关系映射，几何字段映射》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/12/website/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/12/entityframeworkcorewithpostgis/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -696,9 +687,10 @@ Google探索实验室
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/12/12/entityframeworkcorewithpostgis/">
                     <div class="card-image">
@@ -716,9 +708,9 @@ Google探索实验室
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -727,6 +719,7 @@ Google探索实验室
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -737,19 +730,31 @@ Google探索实验室
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/12/gisstandard/">
+                <a href="/2019/10/12/website/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="地理信息相关标准">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="网站收录">
                         
-                        <span class="card-title">地理信息相关标准</span>
+                        <span class="card-title">网站收录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            地理信息标准的收录
+                            
+Google探索实验室
+
+
+
+
+
+
+
+
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.d
                         
                     </div>
                     <div class="publish-info">
@@ -760,15 +765,7 @@ Google探索实验室
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/gis/" class="post-category" target="_blank">
-                                    gis
-                                </a>
-                            
-                            <a href="/categories/gis/tips/" class="post-category" target="_blank">
-                                    tips
-                                </a>
-                            
-                            <a href="/categories/gis/tips/website/" class="post-category" target="_blank">
+                            <a href="/categories/website/" class="post-category" target="_blank">
                                     website
                                 </a>
                             
@@ -778,14 +775,6 @@ Google探索实验室
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
-                    </a>
-                    
-                    <a href="/tags/gis/" target="_blank">
-                        <span class="chip bg-color">gis</span>
-                    </a>
                     
                     <a href="/tags/website/" target="_blank">
                         <span class="chip bg-color">website</span>
