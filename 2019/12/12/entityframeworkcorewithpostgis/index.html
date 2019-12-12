@@ -5,7 +5,8 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Postgis和EntityFrameworkCore的关系映射，几何字段映射, JT">
-    <meta name="description" content="这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直">
+    <meta name="description" content="*这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证
+  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -444,7 +445,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><em><code>这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证</code><br>  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直接用odbc原生Sql操作了；或者是业务部分EF+空间几何Sql这么来操作。这两个方案实现起来确实没什么问题，但前者用起来实在麻烦，很多简单的东西就搞复杂了，要么统一封装一下的话就又回到Orm的路子上；后者是最灵活的一种方案了，任何需求都可以用这个办法来解决，但问题就是整个软件的框架会显得很混乱，新人来了经常问为啥要这样搞，思维切换起来很麻烦，如果要改需求还涉及到空间几何的话，那只能打一架好了…<br>  之前的DotnetFramework+Npgsql+EF是不支持使用PostGIS扩展的，官方一直也没明确表态后续规划什么的，直到最近在github上看到开发者说以后应该不会支持了，会把重心放到EF Core上。因此，想要直接映射几何字段几乎变成了不可能的事情。<br>*网上有用SharpMap做映射的解决方案，但是我一直没有测试成功过</em><br><em>官方的数据类型映射表里面也写了System.Data.Spatial.DbGeometry可以映射到Geometry类型。这个能在CodeFirst下识别，但生成的字段类型并不是Geometry，而是Byte[]，我也不知道哪错了，诶..</em><br>  直到最近我打算把平台切换到.NetCore，然后去研究了一下，整个人就豁然开朗了啊。1.微软官方明确表态实现几何类型的字段。2.Npgsql的Core版本确实在实现Postgis的东西，而且进度神速。那么，就用呗~<br>依赖很简单，就两个包：</p>
+                <p>*<code>这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证</code></p>
+<p>  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直接用odbc原生Sql操作了；或者是业务部分EF+空间几何Sql这么来操作。这两个方案实现起来确实没什么问题，但前者用起来实在麻烦，很多简单的东西就搞复杂了，要么统一封装一下的话就又回到Orm的路子上；后者是最灵活的一种方案了，任何需求都可以用这个办法来解决，但问题就是整个软件的框架会显得很混乱，新人来了经常问为啥要这样搞，思维切换起来很麻烦，如果要改需求还涉及到空间几何的话，那只能打一架好了…</p>
+<p>  之前的DotnetFramework+Npgsql+EF是不支持使用PostGIS扩展的，官方一直也没明确表态后续规划什么的，直到最近在github上看到开发者说以后应该不会支持了，会把重心放到EF Core上。因此，想要直接映射几何字段几乎变成了不可能的事情。</p>
+<blockquote>
+<p><em>网上有用SharpMap做映射的解决方案，但是我一直没有测试成功过</em><br><em>官方的数据类型映射表里面也写了System.Data.Spatial.DbGeometry可以映射到Geometry类型。这个能在CodeFirst下识别，但生成的字段类型并不是Geometry，而是Byte[]，我也不知道哪错了，诶</em></p>
+</blockquote>
+<p>  直到最近我打算把平台切换到.NetCore，然后去研究了一下，整个人就豁然开朗了啊。1.微软官方明确表态实现几何类型的字段。2.Npgsql的Core版本确实在实现Postgis的东西，而且进度神速。那么，就用呗~</p>
+<p>依赖很简单，就两个包：</p>
 <pre><code>1.Npgsql.EntityFrameworkCore.PostgreSQL
 2.Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite</code></pre><p>然后是配置，首先数据库里面要启用Postgis，简单：<code>Create Extension Postgis;</code><br>EFCore框架：</p>
 <pre class="line-numbers language-C#"><code class="language-C#">dbContextOptions.UseNpgsql(connectionString, o => o.UseNetTopologySuite()); //这在哪自己找一下
@@ -706,7 +714,8 @@ Geom.AsText() //同ToString()，转wkt
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直
+                            *这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证
+  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么
                         
                     </div>
                     <div class="publish-info">
