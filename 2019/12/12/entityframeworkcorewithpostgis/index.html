@@ -5,8 +5,8 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Postgis和EntityFrameworkCore的关系映射，几何字段映射, JT">
-    <meta name="description" content="*这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证
-  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么">
+    <meta name="description" content="这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证
+  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -402,9 +402,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/gis/" target="_blank">
+                                <span class="chip bg-color">gis</span>
+                            </a>
+                        
+                            <a href="/tags/entityframework/" target="_blank">
+                                <span class="chip bg-color">entityframework</span>
+                            </a>
+                        
+                            <a href="/tags/net-core/" target="_blank">
+                                <span class="chip bg-color">.net core</span>
+                            </a>
+                        
+                            <a href="/tags/postgis/" target="_blank">
+                                <span class="chip bg-color">postgis</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -445,7 +461,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>*<code>这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证</code></p>
+                <p><code>这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证</code></p>
 <p>  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直接用odbc原生Sql操作了；或者是业务部分EF+空间几何Sql这么来操作。这两个方案实现起来确实没什么问题，但前者用起来实在麻烦，很多简单的东西就搞复杂了，要么统一封装一下的话就又回到Orm的路子上；后者是最灵活的一种方案了，任何需求都可以用这个办法来解决，但问题就是整个软件的框架会显得很混乱，新人来了经常问为啥要这样搞，思维切换起来很麻烦，如果要改需求还涉及到空间几何的话，那只能打一架好了…</p>
 <p>  之前的DotnetFramework+Npgsql+EF是不支持使用PostGIS扩展的，官方一直也没明确表态后续规划什么的，直到最近在github上看到开发者说以后应该不会支持了，会把重心放到EF Core上。因此，想要直接映射几何字段几乎变成了不可能的事情。</p>
 <blockquote>
@@ -714,8 +730,8 @@ Geom.AsText() //同ToString()，转wkt
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            *这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证
-  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么
+                            这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证
+  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就
                         
                     </div>
                     <div class="publish-info">
@@ -731,6 +747,26 @@ Geom.AsText() //同ToString()，转wkt
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/gis/" target="_blank">
+                        <span class="chip bg-color">gis</span>
+                    </a>
+                    
+                    <a href="/tags/entityframework/" target="_blank">
+                        <span class="chip bg-color">entityframework</span>
+                    </a>
+                    
+                    <a href="/tags/net-core/" target="_blank">
+                        <span class="chip bg-color">.net core</span>
+                    </a>
+                    
+                    <a href="/tags/postgis/" target="_blank">
+                        <span class="chip bg-color">postgis</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
