@@ -4,16 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="地理信息相关标准, JT">
-    <meta name="description" content="
-OGC
-开放地理空间信息联盟(Open Geospatial Consortium),是一个非盈利的国际标准组织，它制定了数据和服务的一系列标准，GIS厂商按照这个标准进行开发可保证空间数据的互操作。
-
-
-
-
-
-Spatial refer">
+    <meta name="keywords" content="office2016零售版转VOL版, JT">
+    <meta name="description" content="以下代码复制为：.bat文件
+@ECHO OFF&amp;amp;PUSHD %~DP0
+setlocal EnableDelayedExpansion&amp;amp;color 3e &amp;amp; cd /d &#34;%~dp0&#34;
+title office20">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +16,7 @@ Spatial refer">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>地理信息相关标准 | JT</title>
+    <title>office2016零售版转VOL版 | JT</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -294,13 +289,13 @@ Spatial refer">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        地理信息相关标准
+                        office2016零售版转VOL版
                     </div>
                 </div>
             </div>
@@ -409,41 +404,12 @@ Spatial refer">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/tips/" target="_blank">
-                                <span class="chip bg-color">tips</span>
-                            </a>
-                        
-                            <a href="/tags/gis/" target="_blank">
-                                <span class="chip bg-color">gis</span>
-                            </a>
-                        
-                            <a href="/tags/website/" target="_blank">
-                                <span class="chip bg-color">website</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/gis/" class="post-category" target="_blank">
-                                gis
-                            </a>
-                        
-                            <a href="/categories/gis/tips/" class="post-category" target="_blank">
-                                tips
-                            </a>
-                        
-                            <a href="/categories/gis/tips/website/" class="post-category" target="_blank">
-                                website
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -451,21 +417,21 @@ Spatial refer">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-12
+                    2020-03-19
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        240
+                        557
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -481,33 +447,70 @@ Spatial refer">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li><a href="https://www.opengeospatial.org/standards" target="_blank" rel="noopener">OGC</a><blockquote>
-<p>开放地理空间信息联盟(Open Geospatial Consortium),是一个非盈利的国际标准组织，它制定了数据和服务的一系列标准，GIS厂商按照这个标准进行开发可保证空间数据的互操作。</p>
-</blockquote>
-</li>
-</ol>
+                <p>以下代码复制为：.bat文件</p>
+<pre><code>@ECHO OFF&amp;PUSHD %~DP0
+setlocal EnableDelayedExpansion&amp;color 3e &amp; cd /d "%~dp0"
+title office2016 retail转换vol版
+%1 %2
+mshta vbscript:createobject("shell.application").shellexecute("%~s0","goto :runas","","runas",1)(window.close)&amp;goto :eof
+:runas
+if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
+:WH
+cls
+echo.
+echo 选择需要转化的office版本序号
+echo.
+echo --------------------------------------------------------------------------------
+echo 1. 零售版 Office Pro Plus 2016 转化为VOL版
+echo.
+echo 2. 零售版 Office Visio Pro 2016 转化为VOL版
+echo.
+echo 3. 零售版 Office Project Pro 2016 转化为VOL版
+echo.
+echo. --------------------------------------------------------------------------------
+
+set /p tsk="请输入需要转化的office版本序号【回车】确认（1-3）: "
+if not defined tsk goto:err
+if %tsk%==1 goto:1
+if %tsk%==2 goto:2
+if %tsk%==3 goto:3
+:err
+goto:WH
+:1
+cls
+echo 正在安装 KMS 许可证...
+for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
+echo 正在安装 MAK 许可证...
+for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
+set /p y=请输入激活密钥，按回车确定:
+cscript ospp.vbs /inpkey:%y%
+goto :e
+:2
+cls
+echo 正在安装 KMS 许可证...
+for /f %%x in ('dir /b ..\root\Licenses16\visio???vl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
+echo 正在安装 MAK 许可证...
+for /f %%x in ('dir /b ..\root\Licenses16\visio???vl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
+set /p y=请输入激活密钥，按回车确定:
+cscript ospp.vbs /inpkey:%y%
+goto :e
+:3
+cls
+echo 正在安装 KMS 许可证...
+for /f %%x in ('dir /b ..\root\Licenses16\project???vl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
+echo 正在安装 MAK 许可证...
+for /f %%x in ('dir /b ..\root\Licenses16\project???vl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
+set /p y=请输入激活密钥，按回车确定:
+cscript ospp.vbs /inpkey:%y%
+goto :e
+:e
+echo.
+echo 转化完成，按任意键退出！
+pause &gt;nul
+exit</code></pre><p>让填写秘钥时，输入 XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99</p>
 <hr>
-<ol start="2">
-<li><a href="https://spatialreference.org/" target="_blank" rel="noopener">Spatial reference</a><blockquote>
-<p>坐标系统收录、查询、上传、教育。</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<ol start="3">
-<li><a href="https://gdal.org/" target="_blank" rel="noopener">GDal</a><blockquote>
-<p>GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库。它利用抽象数据模型来表达所支持的各种文件格式。它还有一系列命令行工具来进行数据转换和处理。OGR是GDAL项目的一个分支，功能与GDAL类似，只不过它提供对矢量数据的支持。</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<ol start="4">
-<li><a href="http://epsg.io/" target="_blank" rel="noopener">epsg</a><blockquote>
-<p>全球坐标系统</p>
-</blockquote>
-</li>
-</ol>
+<p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -685,9 +688,9 @@ Spatial refer">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《地理信息相关标准》
+                    《office2016零售版转VOL版》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/12/gisstandard/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/03/19/office2016ToVol/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -727,61 +730,42 @@ Spatial refer">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/12/website/">
+                <a href="/2020/03/19/office2016ToVol/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="网站收录">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="office2016零售版转VOL版">
                         
-                        <span class="card-title">网站收录</span>
+                        <span class="card-title">office2016零售版转VOL版</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-Google探索实验室
-
-
-
-
-
-
-
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.d
+                            以下代码复制为：.bat文件
+@ECHO OFF&amp;PUSHD %~DP0
+setlocal EnableDelayedExpansion&amp;color 3e &amp; cd /d "%~dp0"
+title office20
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-19
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/website/" class="post-category" target="_blank">
-                                    website
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jackie Tang(唐浩桀)
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/website/" target="_blank">
-                        <span class="chip bg-color">website</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -792,68 +776,34 @@ Google探索实验室
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/12/gisdatawebsites/">
+                <a href="/2020/03/12/vueVideo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="地理地图数据提供网站">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vue use video.js support flash rtmp">
                         
-                        <span class="card-title">地理地图数据提供网站</span>
+                        <span class="card-title">vue use video.js support flash rtmp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            涉密的原因，很多地理数据其实不能拿来直接用，收集一些免费的地理数据供应网站。
+                            在Vue中使用video.js，兼容flash视频，研究了一天，简单记录一下。1.包安装
+npm install --save videojs
+npm install --save videojs-flash //如果需要用flash的话2
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/gis/" class="post-category" target="_blank">
-                                    gis
-                                </a>
-                            
-                            <a href="/categories/gis/tips/" class="post-category" target="_blank">
-                                    tips
-                                </a>
-                            
-                            <a href="/categories/gis/tips/website/" class="post-category" target="_blank">
-                                    website
-                                </a>
-                            
-                            <a href="/categories/gis/tips/website/data/" class="post-category" target="_blank">
-                                    data
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jackie Tang(唐浩桀)
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
-                    </a>
-                    
-                    <a href="/tags/gis/" target="_blank">
-                        <span class="chip bg-color">gis</span>
-                    </a>
-                    
-                    <a href="/tags/website/" target="_blank">
-                        <span class="chip bg-color">website</span>
-                    </a>
-                    
-                    <a href="/tags/data/" target="_blank">
-                        <span class="chip bg-color">data</span>
-                    </a>
-                    
                 </div>
                 
             </div>
