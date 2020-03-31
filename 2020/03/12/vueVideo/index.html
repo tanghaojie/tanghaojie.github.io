@@ -4,10 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="vue use video.js support flash rtmp, JT">
+    <meta name="keywords" content="vue use video.js support flash rtmp, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="在Vue中使用video.js，兼容flash视频，研究了一天，简单记录一下。1.包安装
 npm install --save videojs
-npm install --save videojs-flash //如果需要用flash的话2">
+npm install --save videojs-flash //如果需要用flash的话
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +16,7 @@ npm install --save videojs-flash //如果需要用flash的话2">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue use video.js support flash rtmp | JT</title>
+    <title>vue use video.js support flash rtmp | JT（唐浩桀）</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -44,7 +45,7 @@ npm install --save videojs-flash //如果需要用flash的话2">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">JT</span>
+                    <span class="logo-span">JT（唐浩桀）</span>
                 </a>
             </div>
             
@@ -131,7 +132,7 @@ npm install --save videojs-flash //如果需要用flash的话2">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">JT</div>
+        <div class="logo-name">JT（唐浩桀）</div>
         <div class="logo-desc">
             
             Here is a GISer
@@ -423,14 +424,14 @@ npm install --save videojs-flash //如果需要用flash的话2">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        373
+                        342
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -447,86 +448,84 @@ npm install --save videojs-flash //如果需要用flash的话2">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>在Vue中使用video.js，兼容flash视频，研究了一天，简单记录一下。<br>1.包安装</p>
-<pre><code>npm install --save videojs
-npm install --save videojs-flash //如果需要用flash的话</code></pre><p>2.实现vue-video.vue文件</p>
-<pre><code>&lt;template&gt;
-  &lt;div&gt;
-    &lt;video ref="videoPlayer" class="video-js"&gt;&lt;/video&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+<pre class="line-numbers language-shell"><code class="language-shell">npm install --save videojs
+npm install --save videojs-flash //如果需要用flash的话<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>2.实现vue-video.vue文件</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>video ref<span class="token operator">=</span><span class="token string">"videoPlayer"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"video-js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>video<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-&lt;script&gt;
-import videojs from 'video.js'
-import 'videojs-flash'                                // if use flash
-import SWF_PATH from 'videojs-swf/dist/video-js.swf'  // if use flash
-import 'video.js/dist/video-js.min.css'
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> videojs <span class="token keyword">from</span> <span class="token string">'video.js'</span>
+<span class="token keyword">import</span> <span class="token string">'videojs-flash'</span>                                <span class="token comment" spellcheck="true">// if use flash</span>
+<span class="token keyword">import</span> SWF_PATH <span class="token keyword">from</span> <span class="token string">'videojs-swf/dist/video-js.swf'</span>  <span class="token comment" spellcheck="true">// if use flash</span>
+<span class="token keyword">import</span> <span class="token string">'video.js/dist/video-js.min.css'</span>
 
-export default {
-  props: {
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  data() {
-    return {
-      player: null
-    }
-  },
-  mounted() {
-    this.options.flash = {}           // if use flash
-    this.options.flash.swf = SWF_PATH // if use flash
-    this.player = videojs(this.$refs.videoPlayer, this.options)
-  },
-  beforeDestroy() {
-    if (this.player) {
-      this.player.dispose()
-    }
-  }
-}
-&lt;/script&gt;</code></pre><p>3.使用</p>
-<pre><code>&lt;template&gt;
-  &lt;div id="app"&gt;
-    &lt;vue-video :options="videoOptions" /&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      player<span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>options<span class="token punctuation">.</span>flash <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>           <span class="token comment" spellcheck="true">// if use flash</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>options<span class="token punctuation">.</span>flash<span class="token punctuation">.</span>swf <span class="token operator">=</span> SWF_PATH <span class="token comment" spellcheck="true">// if use flash</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>player <span class="token operator">=</span> <span class="token function">videojs</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>videoPlayer<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>options<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>player<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>player<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>3.使用</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>vue<span class="token operator">-</span>video <span class="token punctuation">:</span>options<span class="token operator">=</span><span class="token string">"videoOptions"</span> <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-&lt;script&gt;
-import vueVideo from './path/to/vue-video.vue'
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> vueVideo <span class="token keyword">from</span> <span class="token string">'./path/to/vue-video.vue'</span>
 
-export default {
-  name: 'App',
-  components: {
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'App'</span><span class="token punctuation">,</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     vueVideo
-  },
-  data() {
-    return {
-      // videoOptions标准参考 https://docs.videojs.com/
-      videoOptions: {
-        autoplay: true,
-        controls: false,
-        language: 'zh',
-        width: 100,
-        height: 200,
-        sources: [
-          {
-            src: 'rtmp://192.168.6.106/live/qq',
-            type: 'rtmp/flv'
-          }
-          // {
-          //   src:
-          //     'http://company.sctanghaojie.xyz:13009/Test/ckplayer_fufu_57/video.mp4',
-          //   type: 'video/mp4'
-          // }
-        ]
-        // techOrder: ['flash']
-      }
-    }
-  }
-}
-&lt;/script&gt;</code></pre><p>rtmp、mp4已测试没有问题，其他格式就没测试了。<br>需要发布才能进行测试，类似file://C:/test.html这种文件形式的是无法使用的</p>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// videoOptions标准参考 https://docs.videojs.com/</span>
+      videoOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        autoplay<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        controls<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        language<span class="token punctuation">:</span> <span class="token string">'zh'</span><span class="token punctuation">,</span>
+        width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        height<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        sources<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            src<span class="token punctuation">:</span> <span class="token string">'rtmp://*************/live/qq'</span><span class="token punctuation">,</span>
+            type<span class="token punctuation">:</span> <span class="token string">'rtmp/flv'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true">// techOrder: ['flash']</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>rtmp、mp4已测试没有问题，其他格式就没测试了。<br>需要发布才能进行测试，类似file://C:/test.html这种文件形式的是无法使用的</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -765,9 +764,9 @@ export default {
                     <div class="summary block-with-text">
                         
                             以下代码复制为：.bat文件
-@ECHO OFF&amp;PUSHD %~DP0
-setlocal EnableDelayedExpansion&amp;color 3e &amp; cd /d "%~dp0"
-title office20
+@ECHO OFF&PUSHD %~DP0
+setlocal EnableDelayedExpansion&color 3e & cd /d "%~dp0"
+title office2016 retail转换v
                         
                     </div>
                     <div class="publish-info">
