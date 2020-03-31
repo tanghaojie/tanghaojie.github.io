@@ -11,8 +11,10 @@ img: https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_
 coverImg:
 password:
 summary:
-categories:
 keywords: flutter,map,webview
+categories:
+ - flutter
+ - map
 tags:
  - flutter
  - map

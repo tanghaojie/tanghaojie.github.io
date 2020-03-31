@@ -12,6 +12,8 @@ coverImg:
 password:
 summary:
 categories:
+ - C#
+ - GIS
 tags:
  - gis
  - entityframework

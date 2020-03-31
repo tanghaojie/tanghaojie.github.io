@@ -11,8 +11,10 @@ img:
 coverImg:
 password:
 summary:
-categories:
 keywords: flutter,location,定位
+categories:
+ - flutter
+ - location
 tags:
  - flutter
  - location
