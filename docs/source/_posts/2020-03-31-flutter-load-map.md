@@ -12,6 +12,7 @@ coverImg:
 password:
 summary:
 categories:
+keywords: flutter,map,webview
 tags:
  - flutter
  - map

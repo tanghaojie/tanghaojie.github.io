@@ -2,6 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 author: #文章作者（有默认值）
+keywords: #默认title， 有keywords，就是title+keywords，用,分割
 img: #文章特征图url
 top: false # 推荐文章（文章是否置顶）
 cover: false # 表示该文章是否需要加入到首页轮播封面中

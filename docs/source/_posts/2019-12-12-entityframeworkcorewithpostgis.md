@@ -29,13 +29,13 @@ tags:
 &emsp;&emsp;直到最近我打算把平台切换到.NetCore，然后去研究了一下，整个人就豁然开朗了啊。1.微软官方明确表态实现几何类型的字段。2.Npgsql的Core版本确实在实现Postgis的东西，而且进度神速。那么，就用呗~
 
 依赖很简单，就两个包：
-```
+``` powershell
 1.Npgsql.EntityFrameworkCore.PostgreSQL
 2.Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite
 ```
 然后是配置，首先数据库里面要启用Postgis，简单：`Create Extension Postgis;`
 EFCore框架：
-```C#
+``` csharp
 dbContextOptions.UseNpgsql(connectionString, o => o.UseNetTopologySuite()); //这在哪自己找一下
 
 //这在你的DbContext里面
@@ -46,7 +46,7 @@ protected override void OnModelCreating(ModelBuilder builder)
 ```
 齐活了，就这么简单。
 使用的话就很简单了：
-```C#
+``` csharp
 using NetTopologySuite.Geometries;
 public class TestGeometry{
   [Column(TypeName = "geometry (MultiLineString)")] //可以指定类型、维度、坐标系
@@ -54,7 +54,7 @@ public class TestGeometry{
 }
 ```
 有了这个后续的操作就简单多了：
-```C#
+``` csharp
 Geom.Area //面积
 Geom.AsBinary() //转wkb
 Geom.AsText() //同ToString()，转wkt
