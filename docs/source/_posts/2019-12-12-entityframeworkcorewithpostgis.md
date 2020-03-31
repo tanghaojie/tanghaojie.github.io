@@ -13,7 +13,7 @@ password:
 summary:
 categories:
  - C#
- - GIS
+ - gis
 tags:
  - gis
  - entityframework
