@@ -4,24 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="地理地图数据提供网站, JT">
-    <meta name="description" content="
-OSGeo中国
-开放地理空间信息科学：技术、数据、知识共享。
-
-
-
-
-
-spatial hadoop
-一个为空间数据设计的map reduce框架，有很多超大的数据集提供下载。
-
-
-
-
-
-全国地理信息资源目录服务
-国家基础地理信息中心提供">
+    <meta name="keywords" content="flutter加载地图的几种方式对比[测试], JT">
+    <meta name="description" content="1.flutter_map：Leaflet用 Flutter的实现，主要用于加载瓦片地图和简单注记，复杂的几何要素可以用插件的形式，但要自己实现代码。没有自带定位的功能，要自己处理。综合来看，只用瓦片地图，定位这些基础功能的话，可以选这个，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -29,7 +13,7 @@ spatial hadoop
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>地理地图数据提供网站 | JT</title>
+    <title>flutter加载地图的几种方式对比[测试] | JT</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -302,13 +286,13 @@ spatial hadoop
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/cover1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        地理地图数据提供网站
+                        flutter加载地图的几种方式对比[测试]
                     </div>
                 </div>
             </div>
@@ -419,20 +403,16 @@ spatial hadoop
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/tips/" target="_blank">
-                                <span class="chip bg-color">tips</span>
+                            <a href="/tags/flutter/" target="_blank">
+                                <span class="chip bg-color">flutter</span>
                             </a>
                         
-                            <a href="/tags/gis/" target="_blank">
-                                <span class="chip bg-color">gis</span>
+                            <a href="/tags/map/" target="_blank">
+                                <span class="chip bg-color">map</span>
                             </a>
                         
-                            <a href="/tags/website/" target="_blank">
-                                <span class="chip bg-color">website</span>
-                            </a>
-                        
-                            <a href="/tags/data/" target="_blank">
-                                <span class="chip bg-color">data</span>
+                            <a href="/tags/webview/" target="_blank">
+                                <span class="chip bg-color">webview</span>
                             </a>
                         
                     </div>
@@ -440,41 +420,20 @@ spatial hadoop
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/gis/" class="post-category" target="_blank">
-                                gis
-                            </a>
-                        
-                            <a href="/categories/gis/tips/" class="post-category" target="_blank">
-                                tips
-                            </a>
-                        
-                            <a href="/categories/gis/tips/website/" class="post-category" target="_blank">
-                                website
-                            </a>
-                        
-                            <a href="/categories/gis/tips/website/data/" class="post-category" target="_blank">
-                                data
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-12
+                    2020-03-31
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        136
+                        458
                     </div>
                     
 
@@ -497,26 +456,16 @@ spatial hadoop
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li><a href="https://www.osgeo.cn/data/" target="_blank" rel="noopener">OSGeo中国</a><blockquote>
-<p>开放地理空间信息科学：技术、数据、知识共享。</p>
-</blockquote>
-</li>
-</ol>
+                <p>1.<a href="https://pub.dev/packages/flutter_map" target="_blank" rel="noopener">flutter_map</a>：Leaflet用 Flutter的实现，主要用于加载瓦片地图和简单注记，复杂的几何要素可以用插件的形式，但要自己实现代码。没有自带定位的功能，要自己处理。综合来看，只用瓦片地图，定位这些基础功能的话，可以选这个，团队强大的话，复杂功能也可以自己搞插件。天花板挺高的。</p>
+<p><img src="https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/flutter_map.jpg" alt="flutter_map，自己加了定位"></p>
+<p>2.<a href="https://pub.dev/packages/webview_flutter" target="_blank" rel="noopener">webview_flutter</a>：fluter官方出品的webview插件，没什么好说的，网页能干的事他都能干。最大的问题是目前还是预览版，官方说因为用了新的机制，具体什么机制我也没看，能不能实现官方没说，deadline也没说，有点不让人放心。</p>
+<p>3.<a href="https://pub.dev/packages/flutter_webview_plugin" target="_blank" rel="noopener">flutter_webview_plugin</a>：网上综合推荐比较多的一个插件了，就是调用native webview，稳定性，兼容性肯定没问题。但是由于接入原生，导致webview始终在最上层，会覆盖在所有 Flutter widget之上，灵活性牺牲很大。最新的说明里写了，要把这个插件合并到上面提到的官方插件里面去了。所以基本上不用选了。</p>
+<p><img src="https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/webviewplugin.jpg" alt="flutter_webview_plugin,注意右上角debug标识都被覆盖了"></p>
+<p>4.其他库：比如说高德amap，百度地图，这类就局限平台了。</p>
 <hr>
-<ol start="2">
-<li><a href="http://spatialhadoop.cs.umn.edu/index.html" target="_blank" rel="noopener">spatial hadoop</a><blockquote>
-<p>一个为空间数据设计的map reduce框架，有很多超大的数据集提供下载。</p>
-</blockquote>
-</li>
-</ol>
+<p>目前就测试了这几种地图使用方式，总的来说，有团队，有时间，能自己研发的，可以上。不然的话还是用混合开发吧，flutter还需要给他些时间来成熟。</p>
 <hr>
-<ol start="3">
-<li><a href="http://www.webmap.cn/main.do?method=index" target="_blank" rel="noopener">全国地理信息资源目录服务</a><blockquote>
-<p>国家基础地理信息中心提供的资源查询和下载服务。</p>
-</blockquote>
-</li>
-</ol>
+<p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -694,9 +643,9 @@ spatial hadoop
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《地理地图数据提供网站》
+                    《flutter加载地图的几种方式对比[测试]》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/12/gisdatawebsites/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/03/31/flutter-load-map/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -740,41 +689,34 @@ spatial hadoop
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/12/gisstandard/">
+                <a href="/2020/03/31/flutter-location/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="地理信息相关标准">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="flutter定位插件location">
                         
-                        <span class="card-title">地理信息相关标准</span>
+                        <span class="card-title">flutter定位插件location</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            地理信息标准的收录
+                            iOS没测试，Android需要用到GMS来辅助定位，所以国内不能用！不能用！！不能用！！！
+
+版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+
+
+        document.querySelectorAll('
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-12
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-31
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/gis/" class="post-category" target="_blank">
-                                    gis
-                                </a>
-                            
-                            <a href="/categories/gis/tips/" class="post-category" target="_blank">
-                                    tips
-                                </a>
-                            
-                            <a href="/categories/gis/tips/website/" class="post-category" target="_blank">
-                                    website
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jackie Tang(唐浩桀)
                             
                         </span>
                     </div>
@@ -782,16 +724,16 @@ spatial hadoop
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
+                    <a href="/tags/flutter/" target="_blank">
+                        <span class="chip bg-color">flutter</span>
                     </a>
                     
-                    <a href="/tags/gis/" target="_blank">
-                        <span class="chip bg-color">gis</span>
+                    <a href="/tags/location/" target="_blank">
+                        <span class="chip bg-color">location</span>
                     </a>
                     
-                    <a href="/tags/website/" target="_blank">
-                        <span class="chip bg-color">website</span>
+                    <a href="/tags/定位/" target="_blank">
+                        <span class="chip bg-color">定位</span>
                     </a>
                     
                 </div>
@@ -805,41 +747,32 @@ spatial hadoop
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/12/gisForFunWebsites/">
+                <a href="/2020/03/27/post/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="一些好玩的地理网站">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Flutter Doctor：Android license status unknown">
                         
-                        <span class="card-title">一些好玩的地理网站</span>
+                        <span class="card-title">Flutter Doctor：Android license status unknown</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            日常收集的一些GIS相关的网站
+                            执行：
+flutter doctor --android-licenses之后一路同意就好了。
+如果显示：
+&gt; Android sdkmanager tool not found (PATH)1.打开Android SDK Manag
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/gis/" class="post-category" target="_blank">
-                                    gis
-                                </a>
-                            
-                            <a href="/categories/gis/tips/" class="post-category" target="_blank">
-                                    tips
-                                </a>
-                            
-                            <a href="/categories/gis/tips/website/" class="post-category" target="_blank">
-                                    website
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jackie Tang(唐浩桀)
                             
                         </span>
                     </div>
@@ -847,20 +780,16 @@ spatial hadoop
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
+                    <a href="/tags/Flutter/" target="_blank">
+                        <span class="chip bg-color">Flutter</span>
                     </a>
                     
-                    <a href="/tags/fun/" target="_blank">
-                        <span class="chip bg-color">fun</span>
+                    <a href="/tags/Android/" target="_blank">
+                        <span class="chip bg-color">Android</span>
                     </a>
                     
-                    <a href="/tags/gis/" target="_blank">
-                        <span class="chip bg-color">gis</span>
-                    </a>
-                    
-                    <a href="/tags/website/" target="_blank">
-                        <span class="chip bg-color">website</span>
+                    <a href="/tags/iOS/" target="_blank">
+                        <span class="chip bg-color">iOS</span>
                     </a>
                     
                 </div>
