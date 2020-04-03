@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>我的博客地址</title>
+      <link href="/2020/04/03/myblogaddress/"/>
+      <url>/2020/04/03/myblogaddress/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><del>由于众所周知的原因，单纯把博客部署到一个地方，很可能访问不到，或者访问很慢，所以这里同时部署到github和gitee，提高访问速度</del> [手动狗头]</p></blockquote><ul><li><p>前置条件：你会搭博客（网站）</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>我的两个博客地址：<br><a href="http://tanghaojie.github.io/">http://tanghaojie.github.io/</a><br><a href="https://jackie_tang.gitee.io/" target="_blank" rel="noopener">https://jackie_tang.gitee.io/</a></p><br><hr><h2 id="从github同步方式部署"><a href="#从github同步方式部署" class="headerlink" title="从github同步方式部署"></a>从github同步方式部署</h2><ul><li>在gitee新建仓库:<br><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/gitee_blog.png" alt="就像这样配置就好"></li></ul><p><em>注意点：</em><br><em>1.仓库名用gitee给你分配的个人地址名，可以到 个人中心–&gt;个人空间地址 中看到，不一定是你的用户名，比如我的地址是：Jackie_Tang，我的用户名是：JackieTang。因为我改过名。。。</em><br><em>2.下面选择导入已有仓库，然后填入github地址以后，仓库名会自动变成github仓库名，所以又需要你自己去上面改一次</em></p><br><ul><li><p>点击 创建，等待gitee自动导入github仓库。</p><br></li><li><p>导入完成如图配置<br><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/gitee_blog2.png" alt="配置gitee pages"></p></li></ul><p><em>注意点：</em><br><em>1.选择使用Https，否则会跨域</em></p><p>以上步骤就完成了，你的博客地址为：{个人地址名}.gitee.io，以后要同步github的数据，只需要这样操作：<br><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/gitee_blog3.png" alt="同步"></p><hr></li></ul><h2 id="同步上传"><a href="#同步上传" class="headerlink" title="同步上传"></a>同步上传</h2><p> 我用的hexo，在 <code>_config.yml</code> 文件：</p><pre class="line-numbers language-json"><code class="language-json"> deploy<span class="token operator">:</span>  type<span class="token operator">:</span> git  repo<span class="token operator">:</span>     github<span class="token operator">:</span> https<span class="token operator">:</span>//github.com/tanghaojie/tanghaojie.github.io.git    gitee<span class="token operator">:</span> https<span class="token operator">:</span>//gitee.com/Jackie_Tang/Jackie_Tang.git  branch<span class="token operator">:</span> master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p> 加两个repo就好</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>中华人民共和国省级行政区域界线标注的小tip</title>
       <link href="/2020/04/01/provincial-boundary/"/>
       <url>/2020/04/01/provincial-boundary/</url>
       
-        <content type="html"><![CDATA[<p>如果大段以河道（或其他水体）为省界的，全部以实线标注会影响河流水体的连续呈现时，则用断续线表示。<br>如晋陕、晋豫黄河省界段，川藏、川滇（东段）长江省界段。</p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>我本人没有找到这个规定的出处，是否是国家规范不做保证。<br>但是百度地图现在看已经是这样做标注了。<br><img src="https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/provincialBoundary.jpg" alt="川藏交界"></p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<p>如果大段以河道（或其他水体）为省界的，全部以实线标注会影响河流水体的连续呈现时，则用断续线表示。<br>如晋陕、晋豫黄河省界段，川藏、川滇（东段）长江省界段。</p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>我本人没有找到这个规定的出处，是否是国家规范不做保证。<br>但是百度地图现在看已经是这样做标注了。<br><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/provincialBoundary.jpg" alt="川藏交界"></p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -64,7 +89,7 @@
       <link href="/2020/03/31/flutter-load-map/"/>
       <url>/2020/03/31/flutter-load-map/</url>
       
-        <content type="html"><![CDATA[<p>1.<a href="https://pub.dev/packages/flutter_map" target="_blank" rel="noopener">flutter_map</a>：Leaflet用 Flutter的实现，主要用于加载瓦片地图和简单注记，复杂的几何要素可以用插件的形式，但要自己实现代码。没有自带定位的功能，要自己处理。综合来看，只用瓦片地图，定位这些基础功能的话，可以选这个，团队强大的话，复杂功能也可以自己搞插件。天花板挺高的。</p><p><img src="https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/flutter_map.jpg" alt="flutter_map，自己加了定位"></p><p>2.<a href="https://pub.dev/packages/webview_flutter" target="_blank" rel="noopener">webview_flutter</a>：fluter官方出品的webview插件，没什么好说的，网页能干的事他都能干。最大的问题是目前还是预览版，官方说因为用了新的机制，具体什么机制我也没看，能不能实现官方没说，deadline也没说，有点不让人放心。</p><p>3.<a href="https://pub.dev/packages/flutter_webview_plugin" target="_blank" rel="noopener">flutter_webview_plugin</a>：网上综合推荐比较多的一个插件了，就是调用native webview，稳定性，兼容性肯定没问题。但是由于接入原生，导致webview始终在最上层，会覆盖在所有 Flutter widget之上，灵活性牺牲很大。最新的说明里写了，要把这个插件合并到上面提到的官方插件里面去了。所以基本上不用选了。</p><p><img src="https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/webviewplugin.jpg" alt="flutter_webview_plugin,注意右上角debug标识都被覆盖了"></p><p>4.其他库：比如说高德amap，百度地图，这类就局限平台了。</p><hr><p>目前就测试了这几种地图使用方式，总的来说，有团队，有时间，能自己研发的，可以上。不然的话还是用混合开发吧，flutter还需要给他些时间来成熟。</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<p>1.<a href="https://pub.dev/packages/flutter_map" target="_blank" rel="noopener">flutter_map</a>：Leaflet用 Flutter的实现，主要用于加载瓦片地图和简单注记，复杂的几何要素可以用插件的形式，但要自己实现代码。没有自带定位的功能，要自己处理。综合来看，只用瓦片地图，定位这些基础功能的话，可以选这个，团队强大的话，复杂功能也可以自己搞插件。天花板挺高的。</p><p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/flutter_map.jpg" alt="flutter_map，自己加了定位"></p><p>2.<a href="https://pub.dev/packages/webview_flutter" target="_blank" rel="noopener">webview_flutter</a>：fluter官方出品的webview插件，没什么好说的，网页能干的事他都能干。最大的问题是目前还是预览版，官方说因为用了新的机制，具体什么机制我也没看，能不能实现官方没说，deadline也没说，有点不让人放心。</p><p>3.<a href="https://pub.dev/packages/flutter_webview_plugin" target="_blank" rel="noopener">flutter_webview_plugin</a>：网上综合推荐比较多的一个插件了，就是调用native webview，稳定性，兼容性肯定没问题。但是由于接入原生，导致webview始终在最上层，会覆盖在所有 Flutter widget之上，灵活性牺牲很大。最新的说明里写了，要把这个插件合并到上面提到的官方插件里面去了。所以基本上不用选了。</p><p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/webviewplugin.jpg" alt="flutter_webview_plugin,注意右上角debug标识都被覆盖了"></p><p>4.其他库：比如说高德amap，百度地图，这类就局限平台了。</p><hr><p>目前就测试了这几种地图使用方式，总的来说，有团队，有时间，能自己研发的，可以上。不然的话还是用混合开发吧，flutter还需要给他些时间来成熟。</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -324,11 +349,11 @@
             
             <tag> tips </tag>
             
+            <tag> fun </tag>
+            
             <tag> gis </tag>
             
             <tag> website </tag>
-            
-            <tag> fun </tag>
             
         </tags>
       
