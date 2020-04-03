@@ -21,13 +21,15 @@ tags:
 > ~~由于众所周知的原因，单纯把博客部署到一个地方，很可能访问不到，或者访问很慢，所以这里同时部署到github和gitee，提高访问速度~~ [手动狗头]
 
 - 前置条件：你会搭博客（网站）
+
 ## 示例
  我的两个博客地址：
  [http://tanghaojie.github.io/](http://tanghaojie.github.io/)
  [https://jackie_tang.gitee.io/](https://jackie_tang.gitee.io/)
  <br/>
 
- ---
+---
+
 ## 从github同步方式部署
  - 在gitee新建仓库:
  ![就像这样配置就好](https://github.com/tanghaojie/tanghaojie.github.io/raw/master/my_images/gitee_blog.jpg)
@@ -47,7 +49,7 @@ tags:
  以上步骤就完成了，你的博客地址为：{个人地址名}.gitee.io，以后要同步github的数据，只需要这样操作：
  ![同步](https://github.com/tanghaojie/tanghaojie.github.io/raw/master/my_images/gitee_blog3.jpg)
 
- ---
+---
 
 ## 同步上传
  我用的hexo，在 `_config.yml` 文件：
@@ -62,6 +64,7 @@ tags:
  加两个repo就好
 
 ---
+
 *版权声明：*
 *除非注明，本博文章均为原创，转载请以链接形式标明本文地址。*
 ---
