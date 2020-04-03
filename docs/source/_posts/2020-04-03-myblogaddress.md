@@ -30,7 +30,7 @@ tags:
  ---
 ## 从github同步方式部署
  - 在gitee新建仓库:
- ![就像这样配置就好](https://github.com/tanghaojie/tanghaojie.github.io/tree/master/my_images/gitee_blog.jpg)
+ ![就像这样配置就好](https://github.com/tanghaojie/tanghaojie.github.io/raw/master/my_images/gitee_blog.jpg)
  *注意点：*
  *1.仓库名用gitee给你分配的个人地址名，可以到 个人中心-->个人空间地址 中看到，不一定是你的用户名，比如我的地址是：Jackie_Tang，我的用户名是：JackieTang。因为我改过名。。。*
  *2.下面选择导入已有仓库，然后填入github地址以后，仓库名会自动变成github仓库名，所以又需要你自己去上面改一次*
@@ -40,12 +40,12 @@ tags:
  <br/>
 
  - 导入完成如图配置
- ![配置gitee pages](https://github.com/tanghaojie/tanghaojie.github.io/tree/master/my_images/gitee_blog2.jpg)
+ ![配置gitee pages](https://github.com/tanghaojie/tanghaojie.github.io/raw/master/my_images/gitee_blog2.jpg)
  *注意点：*
  *1.选择使用Https，否则会跨域*
 
  以上步骤就完成了，你的博客地址为：{个人地址名}.gitee.io，以后要同步github的数据，只需要这样操作：
- ![同步](https://github.com/tanghaojie/tanghaojie.github.io/tree/master/my_images/gitee_blog3.jpg)
+ ![同步](https://github.com/tanghaojie/tanghaojie.github.io/raw/master/my_images/gitee_blog3.jpg)
 
  ---
 
