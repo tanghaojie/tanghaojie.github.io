@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: JT（唐浩桀）
-subtitle: 桀士
+title: 桀士
+subtitle: 桀士 的博客~
 description: Here is a GISer
 keywords: JackieTang, 唐浩桀, 桀士, JT, GIS
 author: Jackie Tang(唐浩桀)
@@ -104,7 +104,9 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/tanghaojie/tanghaojie.github.io.git
+  repo: 
+    github: https://github.com/tanghaojie/tanghaojie.github.io.git
+    gitee: https://gitee.com/Jackie_Tang/Jackie_Tang.git
   branch: master
 
 # hexo-generator-search

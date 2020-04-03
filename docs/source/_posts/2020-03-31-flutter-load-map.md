@@ -7,7 +7,7 @@ mathjax: false
 comment: true
 date: 2020-03-31 10:14:47
 author:
-img: https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/cover1.jpg
+img: https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/cover1.jpg
 coverImg:
 password:
 summary:
@@ -24,13 +24,13 @@ tags:
 
 1.[flutter_map](https://pub.dev/packages/flutter_map)：Leaflet用 Flutter的实现，主要用于加载瓦片地图和简单注记，复杂的几何要素可以用插件的形式，但要自己实现代码。没有自带定位的功能，要自己处理。综合来看，只用瓦片地图，定位这些基础功能的话，可以选这个，团队强大的话，复杂功能也可以自己搞插件。天花板挺高的。
 
-![flutter_map，自己加了定位](https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/flutter_map.jpg)
+![flutter_map，自己加了定位](https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/flutter_map.jpg)
 
 2.[webview_flutter](https://pub.dev/packages/webview_flutter)：fluter官方出品的webview插件，没什么好说的，网页能干的事他都能干。最大的问题是目前还是预览版，官方说因为用了新的机制，具体什么机制我也没看，能不能实现官方没说，deadline也没说，有点不让人放心。
 
 3.[flutter_webview_plugin](https://pub.dev/packages/flutter_webview_plugin)：网上综合推荐比较多的一个插件了，就是调用native webview，稳定性，兼容性肯定没问题。但是由于接入原生，导致webview始终在最上层，会覆盖在所有 Flutter widget之上，灵活性牺牲很大。最新的说明里写了，要把这个插件合并到上面提到的官方插件里面去了。所以基本上不用选了。
 
-![flutter_webview_plugin,注意右上角debug标识都被覆盖了](https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/webviewplugin.jpg)
+![flutter_webview_plugin,注意右上角debug标识都被覆盖了](https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/webviewplugin.jpg)
 
 4.其他库：比如说高德amap，百度地图，这类就局限平台了。
 

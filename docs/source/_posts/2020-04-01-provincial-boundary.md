@@ -23,7 +23,7 @@ tags:
 ## 说明
 我本人没有找到这个规定的出处，是否是国家规范不做保证。
 但是百度地图现在看已经是这样做标注了。
-![川藏交界](https://github.com/tanghaojie/tanghaojie.github.io/raw/hexo/docs/source/my_images/provincialBoundary.jpg)
+![川藏交界](https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/provincialBoundary.jpg)
 
 ---
 *版权声明：*
