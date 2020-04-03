@@ -38,7 +38,7 @@ tags:
 
  - 点击 创建，等待gitee自动导入github仓库。
  <br/>
- 
+
  - 导入完成如图配置
  ![配置gitee pages](https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/gitee_blog2.png)
  *注意点：*
@@ -51,7 +51,7 @@ tags:
 
 ## 同步上传
  我用的hexo，在 `_config.yml` 文件：
- ```json
+ ``` json
  deploy:
   type: git
   repo: 
