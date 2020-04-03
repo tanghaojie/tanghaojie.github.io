@@ -21,7 +21,13 @@ tags:
 > ~~由于众所周知的原因，单纯把博客部署到一个地方，很可能访问不到，或者访问很慢，所以这里同时部署到github和gitee，提高访问速度~~ [手动狗头]
 
 - 前置条件：你会搭博客（网站）
+## 示例
+ 我的两个博客地址：
+ [http://tanghaojie.github.io/](http://tanghaojie.github.io/)
+ [https://jackie_tang.gitee.io/](https://jackie_tang.gitee.io/)
+ <br/>
 
+ ---
 ## 从github同步方式部署
  - 在gitee新建仓库:
  ![就像这样配置就好](https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/gitee_blog.png)
@@ -29,8 +35,10 @@ tags:
  *1.仓库名用gitee给你分配的个人地址名，可以到 个人中心-->个人空间地址 中看到，不一定是你的用户名，比如我的地址是：Jackie_Tang，我的用户名是：JackieTang。因为我改过名。。。*
  *2.下面选择导入已有仓库，然后填入github地址以后，仓库名会自动变成github仓库名，所以又需要你自己去上面改一次*
  <br/>
+
  - 点击 创建，等待gitee自动导入github仓库。
  <br/>
+ 
  - 导入完成如图配置
  ![配置gitee pages](https://gitee.com/Jackie_Tang/Jackie_Tang/blob/master/my_images/gitee_blog2.png)
  *注意点：*
