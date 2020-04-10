@@ -4,9 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="网页插件, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="天气中国天气网：https://cj.weather.com.cn/plugin/pc生成插件放到： themes/matery/layout/layout.ejs
-动态诗词今日诗词：https://www.jinrishici.com/一">
+    <meta name="keywords" content="uniapp快速实践, JackieTang, 唐浩桀, 桀士, JT, GIS">
+    <meta name="description" content="介绍之前给文保局做了GIS系统和物联网监控系统效果不错，现在想弄个erp，问了一下业务规模，几乎约等于“零”。咋办，单一业务线走到底呗。本来说最近一直在搞flutter，就用flutter给他们弄一个，app和web（beta）一套直接就生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>网页插件 | 桀士</title>
+    <title>uniapp快速实践 | 桀士</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -287,13 +286,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        网页插件
+                        uniapp快速实践
                     </div>
                 </div>
             </div>
@@ -404,8 +403,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/plugin/" target="_blank">
-                                <span class="chip bg-color">plugin</span>
+                            <a href="/tags/uniapp/" target="_blank">
+                                <span class="chip bg-color">uniapp</span>
+                            </a>
+                        
+                            <a href="/tags/微信小程序/" target="_blank">
+                                <span class="chip bg-color">微信小程序</span>
                             </a>
                         
                     </div>
@@ -416,8 +419,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/plugin/" class="post-category" target="_blank">
-                                plugin
+                            <a href="/categories/uniapp/" class="post-category" target="_blank">
+                                uniapp
                             </a>
                         
                     </div>
@@ -428,21 +431,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-03
+                    2020-04-10
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        124
+                        907
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -458,8 +461,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="天气"><a href="#天气" class="headerlink" title="天气"></a>天气</h2><p>中国天气网：<a href="https://cj.weather.com.cn/plugin/pc" target="_blank" rel="noopener">https://cj.weather.com.cn/plugin/pc</a><br>生成插件放到： themes/matery/layout/layout.ejs</p>
-<h2 id="动态诗词"><a href="#动态诗词" class="headerlink" title="动态诗词"></a>动态诗词</h2><p>今日诗词：<a href="https://www.jinrishici.com/" target="_blank" rel="noopener">https://www.jinrishici.com/</a><br>一言: <a href="https://hitokoto.cn/" target="_blank" rel="noopener">https://hitokoto.cn/</a></p>
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>之前给文保局做了GIS系统和物联网监控系统效果不错，现在想弄个erp，问了一下业务规模，几乎约等于“零”。咋办，单一业务线走到底呗。本来说最近一直在搞flutter，就用flutter给他们弄一个，app和web（beta）一套直接就生成了。方便快速（省事）。结果呢，人家要用微信小程序…哎，甲方是爸爸。<br>结合已有技术经验和业务规模（如果有的话{笑}），还要考虑可能出现的业务平台变更这种吊炸天需求，调研了几个平台，这里我列一下：</p>
+<blockquote>
+<p>1.微信小程序原生：难用的ide，技术栈就是web变种。<br>2.H5+app：原生代码少不了，Android和iOS要单独适配，涉及到兼容性的问题。<br>3.mpvue：美团搞的，基于Vue.js的小程序开发框架，小程序和H5一套搞定型。<br>4.uni-app：Dcloud搞的，也是基于Vue.js的框架，iOS、Android、H5、各种小程序一套搞定型。</p>
+</blockquote>
+<p>对比了一下，微信小程序原生、H5+app，我直接就放弃了，微信小程序那个IDE简直不要太难用，而且改平台就是重写代码；H5+app一个人弄太费事不说，缺少优化可能效果也一般，虽然有原生app的超高天花板，但是谁叫咱就一个人，还要快速出活呢；mpvue本来我是准备选的，小程序+H5，基本上都能干了，后面要改原生app的话，我就套webview的壳，关键是开源免费，怪就怪在开源吧，我上github看了下commits和issues，最近的commit是八个月前了…issues也有点混乱的感觉，加上之前爆出美团的KPI事件，我觉得为了我的KPI和头发，还是算了吧。都说到这了，还有的选吗？最开始我是觉得uniapp商业话太严重（推广），加上不开源，还是有些顾虑的，但是好像现在是（部分）开源了？推广说明官方很重视，那。。还说什么呢，淦</p>
+<h2 id="淦"><a href="#淦" class="headerlink" title="淦"></a>淦</h2><p>因为微信小程序和uniapp都没搞过，花时间分别看了下文档，都是web变种，会web就会开发。主要是熟悉下整体的框架，为啥这样设计，有哪些个组件分别能干啥事，有哪些API。细节千万别看，太花时间，而且你肯定记不住，所以就直接上手吧。<br>uniapp支持Weex，在app端，用vue页面的话就是用webview渲染的，用nvue的话就是用原生渲染。(｡･∀･)ﾉﾞ嗨，等于说码量还是不小啊，坑还是多啊。不过uniapp支持<code>#ifdef #endif</code>条件编译语法，这个没啥好说的，写后端的都知道，赞一个。<br>然后就是写项目了，如果看了微信小程序文档和uniapp的文档，你就会发现，其实就是个web前端的东西，无非就是语法变了一点，配置文件针对多端合并重封装了，写代码的时候要注意兼容，一个ui组件把几个端都同时考虑进来，用条件编译。就行了，就是这么简单，快速实践就介绍完了（其实是不知道说啥了）。（逃）</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -639,9 +646,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《网页插件》
+                    《uniapp快速实践》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/04/03/weatherPlugin/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/04/10/fast-uniapp/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -681,9 +688,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/10/fast-uniapp/">
                     <div class="card-image">
@@ -701,9 +709,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -716,6 +724,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -738,25 +747,20 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/03/myblogaddress/">
+                <a href="/2020/04/03/weatherPlugin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="我的博客地址">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="网页插件">
                         
-                        <span class="card-title">我的博客地址</span>
+                        <span class="card-title">网页插件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-由于众所周知的原因，单纯把博客部署到一个地方，很可能访问不到，或者访问很慢，所以这里同时部署到github和gitee，提高访问速度 [手动狗头]
-
-
-前置条件：你会搭博客（网站）
-
-示例 我的两个博客地址： http://tanghao
+                            天气中国天气网：https://cj.weather.com.cn/plugin/pc生成插件放到： themes/matery/layout/layout.ejs
+动态诗词今日诗词：https://www.jinrishici.com/一
                         
                     </div>
                     <div class="publish-info">
@@ -767,8 +771,8 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/blog/" class="post-category" target="_blank">
-                                    blog
+                            <a href="/categories/plugin/" class="post-category" target="_blank">
+                                    plugin
                                 </a>
                             
                             
@@ -778,8 +782,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/blog/" target="_blank">
-                        <span class="chip bg-color">blog</span>
+                    <a href="/tags/plugin/" target="_blank">
+                        <span class="chip bg-color">plugin</span>
                     </a>
                     
                 </div>
