@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>QGIS plugin开发使用</title>
+      <link href="/2020/04/12/qgis-plugin/"/>
+      <url>/2020/04/12/qgis-plugin/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>1.刚来就不建议看文档手动创建plugin了，python很熟悉的人可以看文档试试，否则还是别手动创建了，几乎所有的开发者都是通过<code>Plugin Builder</code>这个Plugin来创建的Plugin，安装好了以后，打开Plugin Builder，根据提示输入内容，一直下一步就创建好了。<br>2.用 <code>pyrcc5 -o resources.py resources.qrc</code>命令，把resources.qrc资源文件转换成py文件，主程序test.py文件中已经自动引入了。如果没有<code>pyrcc5</code>命令，执行<code>pip install PyQt5</code>安装PyQt。<br>3.把整个生成的文件夹，拷贝到，<code>~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins</code> 下面，所有的plugin其实都在这里。<br>4.打开qgis插件–已安装，勾选test插件，就可以看到菜单上多了按钮，点击就能打开了。</p><h4 id="以上最原始的demo就能够看见了，下面说说怎么自己写代码"><a href="#以上最原始的demo就能够看见了，下面说说怎么自己写代码" class="headerlink" title="以上最原始的demo就能够看见了，下面说说怎么自己写代码"></a>以上最原始的demo就能够看见了，下面说说怎么自己写代码</h4><p>5.插件有一个test_dialog.py文件，里面最关键的一句代码应该是<code>FORM_CLASS, _ = uic.loadUiType(os.path.join(os.path.dirname(__file__), 'Test_dialog_base.ui'))</code>，这就是加载转换.ui文件给pyqt用的。<br>6.生成的插件文件，包含了Test_dialog_base.ui，就是界面文件。安装QGIS的时候自带了Qt Designer，用Designer就可以打开就能看到和编辑了，这里从左边拖一个Push Button进去，后面用。编辑完成界面，去QGIS里面，取消勾选，在重新选中，就重新加载插件了，能够看出来结果。这里推荐一个插件 <code>Plugin Reloader</code>，不用每次去取消重勾选，它可以帮我们重加载插件。<br>7.点击事件，在.ui文件对应的.py文件的构造函数，<code>__init__</code>中，加上<code>self.pushButton.clicked.connect(self.pushButtonClicked)</code>，文件头导入<code>from PyQt5.QtWidgets import QMessageBox</code>然后定义方法：</p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pushButtonClicked</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>    QMessageBox<span class="token punctuation">.</span>warning<span class="token punctuation">(</span>None<span class="token punctuation">,</span> <span class="token string">'info'</span><span class="token punctuation">,</span> <span class="token string">'测试'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>8.去QGIS里面reload插件，点击按钮就能看到结果了。<br>9.更多的东西就自己尝试咯，你已经入门了。</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> QGIS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> QGIS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>uniapp快速实践</title>
       <link href="/2020/04/10/fast-uniapp/"/>
       <url>/2020/04/10/fast-uniapp/</url>
