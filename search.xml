@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>Scrapy爬虫使用</title>
+      <link href="/2020/05/09/scrapy-tutorial/"/>
+      <url>/2020/05/09/scrapy-tutorial/</url>
+      
+        <content type="html"><![CDATA[<h2 id="飞速起步"><a href="#飞速起步" class="headerlink" title="飞速起步"></a>飞速起步</h2><ul><li><p>安装scrapy<br><code>pip install Scrapy</code>（<em>类unix记得加 <code>sudo</code></em>）<br>安装完成以后，到命令行输入<code>Scrapy</code>，查看是否安装成功。  </p><h2 id="准备和配置"><a href="#准备和配置" class="headerlink" title="准备和配置"></a>准备和配置</h2></li><li><p><code>scrapy startproject [name]</code>创建项目。</p></li><li><p>项目文件说明</p><blockquote><p>items.py：数据模型，类似于dto、orm中的model<br>spiders：爬虫程序<br>middlewares.py：模型中的中间件<br>pipelines.py：管道，对item进行处理，类似于很多服务器的请求管道<br>settings.py：程序设置,主要是一些优先级设置,优先级越高,值越小<br>scrapy.cfg：配置</p></blockquote></li><li><p>基础设置<br>settings.py中，找到<code>ROBOTSTXT_OBEY = True</code>，改为<code>ROBOTSTXT_OBEY = False</code>或者把他注释了<br>这东西的意思是：每个网站可以在根目录下放一个robots.txt的文件，文件里面告诉了爬虫哪些网址是可以爬的，当然这就是个君子协议，靠你自己选择是不是要遵守。  </p></li><li><p>设置UTF-8：<br>settings.py中，添加一行：<code>FEED_EXPORT_ENCODING = 'utf-8'</code></p></li><li><p>生成爬虫<br>命令行输入：<code>scrapy genspider [文件名] [网址]</code>，生成爬虫文件。可以在spiders文件夹下面看到。  </p><h2 id="开始代码"><a href="#开始代码" class="headerlink" title="开始代码"></a>开始代码</h2></li><li><p>item：自己写一个item  </p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">yourItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>  info1 <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>  info2 <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>info1、info2，就是数据模型对应的字段，看scrapy.Item的源码，实际上就是个dict<br>所以可以这样理解：</p><pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>  info1<span class="token operator">:</span> None<span class="token punctuation">,</span>  info2<span class="token operator">:</span> None<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>spider</p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> name<span class="token punctuation">.</span>items <span class="token keyword">import</span> yourItem<span class="token keyword">class</span> <span class="token class-name">YourSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>  name <span class="token operator">=</span> <span class="token string">'yourname'</span>  allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'xxx.com'</span><span class="token punctuation">]</span>  start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'http://xxx.com/yyy/zzz'</span><span class="token punctuation">]</span>  <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>      info1 <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//div/a/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#第一个</span>      info2 <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//div/a/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#extract 永远返回一个数组</span>      item <span class="token operator">=</span> yourItem<span class="token punctuation">(</span><span class="token punctuation">)</span>      item<span class="token punctuation">[</span><span class="token string">'info1'</span><span class="token punctuation">]</span> <span class="token operator">=</span> info1      item<span class="token punctuation">[</span><span class="token string">'info2'</span><span class="token punctuation">]</span> <span class="token operator">=</span> info2      <span class="token keyword">yield</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>没啥好说的，就是爬取信息，然后设置item的属性就好。  </p></li><li><p>可以爬了！！<br>命令行输入：<code>scrapy crawl yourname -o filename.csv</code>，yourname 对应 YourSpider 这个类的name变量值。就会爬取数据放到 filename.csv 中，还有其他格式，自己研究。</p></li><li><p>pipelines<br>如果你不想用scrapy默认的保存文件方法，那么就自定义一个保存文件的管道：</p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">YourPipeline</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>      <span class="token comment" spellcheck="true"># 伪代码</span>      <span class="token comment" spellcheck="true"># open file</span>      <span class="token comment" spellcheck="true"># file.write(item.info1)</span>      <span class="token comment" spellcheck="true"># file.write(item.info2)   </span>      <span class="token comment" spellcheck="true"># save and close file  </span>      <span class="token keyword">return</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>之后到settings.py，输入： </p><pre><code>ITEM_PIPELINES = {  'name.pipelines.YourPipeline': 300,}</code></pre><p>启动当前管道配置优先级，数字越小，优先级越靠前，然后就只需要输入<code>scrapy crawl yourname</code>就可以运行和保存了</p></li><li><p>调试<br>我用万能vscode：新建调试配置文件，输入</p><pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span>  <span class="token property">"configurations"</span><span class="token operator">:</span> <span class="token punctuation">[</span>      <span class="token punctuation">{</span>          <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Scrapy"</span><span class="token punctuation">,</span>          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"python"</span><span class="token punctuation">,</span>          <span class="token property">"request"</span><span class="token operator">:</span> <span class="token string">"launch"</span><span class="token punctuation">,</span>          <span class="token property">"module"</span><span class="token operator">:</span> <span class="token string">"scrapy"</span><span class="token punctuation">,</span>          <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>              <span class="token string">"crawl"</span><span class="token punctuation">,</span>              <span class="token string">"yourname"</span>          <span class="token punctuation">]</span>      <span class="token punctuation">}</span>  <span class="token punctuation">]</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>搞定！</p></li></ul><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> scrapy </category>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> scrapy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>全国甲乙丙级测绘资质单位名单</title>
+      <link href="/2020/05/09/surveying-qualification/"/>
+      <url>/2020/05/09/surveying-qualification/</url>
+      
+        <content type="html"><![CDATA[<h2 id="全国甲乙丙级测绘资质单位名单："><a href="#全国甲乙丙级测绘资质单位名单：" class="headerlink" title="全国甲乙丙级测绘资质单位名单："></a>全国甲乙丙级测绘资质单位名单：</h2><p>甲级：1326个</p><p>乙级：5081个</p><p>丙级：8790个</p><p><a href="https://github.com/tanghaojie/PublicData/tree/master/SurveyingQualificationOfChinaMainland" target="_blank" rel="noopener">点击查看和下载</a></p><p>详细信息压缩包解压密码：关注公众号[桀士]，回复“资质”获取密码。</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>QGIS plugin开发使用</title>
       <link href="/2020/04/12/qgis-plugin/"/>
       <url>/2020/04/12/qgis-plugin/</url>
@@ -15,12 +57,16 @@
           
           <category> QGIS </category>
           
+          <category> python </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> QGIS </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -426,11 +472,11 @@
             
             <tag> tips </tag>
             
+            <tag> fun </tag>
+            
             <tag> gis </tag>
             
             <tag> website </tag>
-            
-            <tag> fun </tag>
             
         </tags>
       

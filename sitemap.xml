@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tanghaojie.github.io/2020/05/09/scrapy-tutorial/</loc>
+    
+    <lastmod>2020-05-09T09:53:12.508Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/09/surveying-qualification/</loc>
+    
+    <lastmod>2020-05-09T09:44:23.246Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanghaojie.github.io/2020/04/12/qgis-plugin/</loc>
     
-    <lastmod>2020-04-13T06:08:06.270Z</lastmod>
+    <lastmod>2020-04-13T06:12:46.155Z</lastmod>
     
   </url>
   
