@@ -4,9 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Postgis和EntityFrameworkCore的关系映射，几何字段映射, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证
-  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就">
+    <meta name="keywords" content="全国甲乙丙级测绘资质单位名单, JackieTang, 唐浩桀, 桀士, JT, GIS">
+    <meta name="description" content="全国甲乙丙级测绘资质单位名单：甲级：1326个
+乙级：5081个
+丙级：8790个
+点击查看和下载
+详细信息压缩包解压密码：关注公众号[桀士]，回复“资质”获取密码。
+
+版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Postgis和EntityFrameworkCore的关系映射，几何字段映射 | 桀士</title>
+    <title>全国甲乙丙级测绘资质单位名单 | 桀士</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -287,13 +293,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Postgis和EntityFrameworkCore的关系映射，几何字段映射
+                        全国甲乙丙级测绘资质单位名单
                     </div>
                 </div>
             </div>
@@ -402,41 +408,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/gis/" target="_blank">
-                                <span class="chip bg-color">gis</span>
-                            </a>
-                        
-                            <a href="/tags/entityframework/" target="_blank">
-                                <span class="chip bg-color">entityframework</span>
-                            </a>
-                        
-                            <a href="/tags/net-core/" target="_blank">
-                                <span class="chip bg-color">.net core</span>
-                            </a>
-                        
-                            <a href="/tags/postgis/" target="_blank">
-                                <span class="chip bg-color">postgis</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/C/" class="post-category" target="_blank">
-                                C#
-                            </a>
-                        
-                            <a href="/categories/C/gis/" class="post-category" target="_blank">
-                                gis
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -444,21 +421,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-12
+                    2020-05-09
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        872
+                        141
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -474,38 +451,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><code>这篇文章主要讨论Code First模式，其他模式我不怎么用的，不敢保证</code></p>
-<p>  现在搞开发数据库操作基本上都用Orm了吧，但是我们搞GIS的，因为涉及到空间几何字段、空间拓扑运算操作的情况，很多时候传统的Orm就解决不了了，所以很多时候要么就直接用odbc原生Sql操作了；或者是业务部分EF+空间几何Sql这么来操作。这两个方案实现起来确实没什么问题，但前者用起来实在麻烦，很多简单的东西就搞复杂了，要么统一封装一下的话就又回到Orm的路子上；后者是最灵活的一种方案了，任何需求都可以用这个办法来解决，但问题就是整个软件的框架会显得很混乱，新人来了经常问为啥要这样搞，思维切换起来很麻烦，如果要改需求还涉及到空间几何的话，那只能打一架好了…</p>
-<p>  之前的DotnetFramework+Npgsql+EF是不支持使用PostGIS扩展的，官方一直也没明确表态后续规划什么的，直到最近在github上看到开发者说以后应该不会支持了，会把重心放到EF Core上。因此，想要直接映射几何字段几乎变成了不可能的事情。</p>
-<blockquote>
-<p><em>网上有用SharpMap做映射的解决方案，但是我一直没有测试成功过</em><br><em>官方的数据类型映射表里面也写了System.Data.Spatial.DbGeometry可以映射到Geometry类型。这个能在CodeFirst下识别，但生成的字段类型并不是Geometry，而是Byte[]，我也不知道哪错了，诶</em></p>
-</blockquote>
-<p>  直到最近我打算把平台切换到.NetCore，然后去研究了一下，整个人就豁然开朗了啊。1.微软官方明确表态实现几何类型的字段。2.Npgsql的Core版本确实在实现Postgis的东西，而且进度神速。那么，就用呗~</p>
-<p>依赖很简单，就两个包：</p>
-<pre class="line-numbers language-powershell"><code class="language-powershell">1<span class="token punctuation">.</span>Npgsql<span class="token punctuation">.</span>EntityFrameworkCore<span class="token punctuation">.</span>PostgreSQL
-2<span class="token punctuation">.</span>Npgsql<span class="token punctuation">.</span>EntityFrameworkCore<span class="token punctuation">.</span>PostgreSQL<span class="token punctuation">.</span>NetTopologySuite<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>然后是配置，首先数据库里面要启用Postgis，简单：<code>Create Extension Postgis;</code><br>EFCore框架：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">dbContextOptions<span class="token punctuation">.</span><span class="token function">UseNpgsql</span><span class="token punctuation">(</span>connectionString<span class="token punctuation">,</span> o <span class="token operator">=</span><span class="token operator">></span> o<span class="token punctuation">.</span><span class="token function">UseNetTopologySuite</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这在哪自己找一下</span>
-
-<span class="token comment" spellcheck="true">//这在你的DbContext里面</span>
-<span class="token keyword">protected</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">OnModelCreating</span><span class="token punctuation">(</span>ModelBuilder builder<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    builder<span class="token punctuation">.</span><span class="token function">HasPostgresExtension</span><span class="token punctuation">(</span><span class="token string">"postgis"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//启用postgis扩展，需要手动写扩展名也是有原因的哦</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>齐活了，就这么简单。<br>使用的话就很简单了：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> NetTopologySuite<span class="token punctuation">.</span>Geometries<span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestGeometry</span><span class="token punctuation">{</span>
-  <span class="token punctuation">[</span><span class="token function">Column</span><span class="token punctuation">(</span>TypeName <span class="token operator">=</span> <span class="token string">"geometry (MultiLineString)"</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">//可以指定类型、维度、坐标系</span>
-  <span class="token keyword">public</span> MultiLineString Geom <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>有了这个后续的操作就简单多了：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">Geom<span class="token punctuation">.</span>Area <span class="token comment" spellcheck="true">//面积</span>
-Geom<span class="token punctuation">.</span><span class="token function">AsBinary</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//转wkb</span>
-Geom<span class="token punctuation">.</span><span class="token function">AsText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//同ToString()，转wkt</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>就不一一列举了，官方文档很全面的。</p>
-<p><strong>* 补充一下其他的坑吧，转 .Net Core以后，Gdal会成为一个很大的问题，这个需要好好的评估一下，Gdal目前还没有官方做Core的适配，这个影响挺大的。当然Gdal的功能也有相应各个独立的库能替换的，但始终不会像Gdal这么得心应手，一定要注意评估这一点！！！ *</strong></p>
+                <h2 id="全国甲乙丙级测绘资质单位名单："><a href="#全国甲乙丙级测绘资质单位名单：" class="headerlink" title="全国甲乙丙级测绘资质单位名单："></a>全国甲乙丙级测绘资质单位名单：</h2><p>甲级：1326个</p>
+<p>乙级：5081个</p>
+<p>丙级：8790个</p>
+<p><a href="https://github.com/tanghaojie/PublicData/tree/master/SurveyingQualificationOfChinaMainland" target="_blank" rel="noopener">点击查看和下载</a></p>
+<p>详细信息压缩包解压密码：关注公众号[桀士]，回复“资质”获取密码。</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -685,9 +635,9 @@ Geom<span class="token punctuation">.</span><span class="token function">AsText<
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Postgis和EntityFrameworkCore的关系映射，几何字段映射》
+                    《全国甲乙丙级测绘资质单位名单》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/12/entityframeworkcorewithpostgis/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/05/09/surveying-qualification/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -731,34 +681,40 @@ Geom<span class="token punctuation">.</span><span class="token function">AsText<
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/03/12/vueVideo/">
+                <a href="/2020/05/09/scrapy-tutorial/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vue use video.js support flash rtmp">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Scrapy爬虫使用">
                         
-                        <span class="card-title">vue use video.js support flash rtmp</span>
+                        <span class="card-title">Scrapy爬虫使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在Vue中使用video.js，兼容flash视频，研究了一天，简单记录一下。1.包安装
-npm install --save videojs
-npm install --save videojs-flash //如果需要用flash的话
+                            飞速起步
+安装scrapypip install Scrapy（类unix记得加 sudo）安装完成以后，到命令行输入Scrapy，查看是否安装成功。  
+准备和配置
+scrapy startproject [name]创建项目。
 
+项目文
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/vue/" class="post-category" target="_blank">
-                                    vue
+                            <a href="/categories/scrapy/" class="post-category" target="_blank">
+                                    scrapy
+                                </a>
+                            
+                            <a href="/categories/scrapy/python/" class="post-category" target="_blank">
+                                    python
                                 </a>
                             
                             
@@ -768,16 +724,12 @@ npm install --save videojs-flash //如果需要用flash的话
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/" target="_blank">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/python/" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/video-js/" target="_blank">
-                        <span class="chip bg-color">video.js</span>
-                    </a>
-                    
-                    <a href="/tags/rtmp/" target="_blank">
-                        <span class="chip bg-color">rtmp</span>
+                    <a href="/tags/scrapy/" target="_blank">
+                        <span class="chip bg-color">scrapy</span>
                     </a>
                     
                 </div>
@@ -791,43 +743,35 @@ npm install --save videojs-flash //如果需要用flash的话
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/12/website/">
+                <a href="/2020/04/12/qgis-plugin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="网站收录">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="QGIS plugin开发使用">
                         
-                        <span class="card-title">网站收录</span>
+                        <span class="card-title">QGIS plugin开发使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-Google探索实验室
-
-
-
-
-
-
-
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.d
+                            起步1.刚来就不建议看文档手动创建plugin了，python很熟悉的人可以看文档试试，否则还是别手动创建了，几乎所有的开发者都是通过Plugin Builder这个Plugin来创建的Plugin，安装好了以后，打开Plugin Buil
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/website/" class="post-category" target="_blank">
-                                    website
+                            <a href="/categories/QGIS/" class="post-category" target="_blank">
+                                    QGIS
+                                </a>
+                            
+                            <a href="/categories/QGIS/python/" class="post-category" target="_blank">
+                                    python
                                 </a>
                             
                             
@@ -837,8 +781,12 @@ Google探索实验室
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/website/" target="_blank">
-                        <span class="chip bg-color">website</span>
+                    <a href="/tags/QGIS/" target="_blank">
+                        <span class="chip bg-color">QGIS</span>
+                    </a>
+                    
+                    <a href="/tags/python/" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
