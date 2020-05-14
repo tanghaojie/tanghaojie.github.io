@@ -1,7 +1,7 @@
 ---
 title: 全国甲乙丙级测绘资质单位名单
 top: false
-cover: false
+cover: true
 toc: true
 mathjax: false
 comment: true
