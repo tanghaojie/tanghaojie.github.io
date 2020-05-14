@@ -1,5 +1,5 @@
 ---
-title: 几何计算延伸
+title: 几何算法延伸
 top: false
 cover: false
 toc: true

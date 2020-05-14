@@ -1,5 +1,5 @@
 ---
-title: 几何计算基础
+title: 几何算法基础
 top: false
 cover: false
 toc: true
