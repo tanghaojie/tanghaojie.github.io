@@ -17,10 +17,12 @@ tags:
 ---
 ## 安装配置
 [commitizen地址](https://github.com/commitizen/cz-cli)
-[cz-conventional-changelo](https://github.com/commitizen/cz-conventional-changelog)
+[cz-conventional-changelo地址：规范要求，不同的适配器要求不同](https://github.com/commitizen/cz-conventional-changelog)
+[conventional-changelog地址：生成changelog.md](https://github.com/ajoslin/conventional-changelog)
 ```
 npm install -g commitizen
 npm install -g cz-conventional-changelog
+npm install -g conventional-changelog-cli
 commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 如果已经有其他适配器了，会报错，用  `--force` 替换掉，即：
@@ -43,6 +45,10 @@ type值：
 | ci  |  更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等 |
 | chore  |  变更构建流程或辅助工具 |
 | revert  |  代码回退 |
+
+生成changelog：
+`conventional-changelog -p angular -i CHANGELOG.md -s`
+
 ---
 *版权声明：*
 *除非注明，本博文章均为原创，转载请以链接形式标明本文地址。*
