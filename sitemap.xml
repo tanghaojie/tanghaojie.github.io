@@ -2,6 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tanghaojie.github.io/2020/05/15/git-commitizen/</loc>
+    
+    <lastmod>2020-05-15T06:36:27.113Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/14/git-usage/</loc>
+    
+    <lastmod>2020-05-15T01:28:52.268Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/10/spatial-calculate-extend/</loc>
+    
+    <lastmod>2020-05-15T01:28:52.268Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/10/spatial-calculate-basic/</loc>
+    
+    <lastmod>2020-05-15T01:28:52.267Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/09/surveying-qualification/</loc>
+    
+    <lastmod>2020-05-15T01:28:52.266Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/04/10/fast-uniapp/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/10/hexo-LaTex/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2019/12/12/entityframeworkcorewithpostgis/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/12/vueVideo/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/27/post/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/31/flutter-load-map/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/04/01/provincial-boundary/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/04/03/weatherPlugin/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanghaojie.github.io/2020/05/09/scrapy-tutorial/</loc>
     
     <lastmod>2020-05-09T09:53:12.508Z</lastmod>
@@ -9,93 +121,9 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2020/05/09/surveying-qualification/</loc>
-    
-    <lastmod>2020-05-09T09:44:23.246Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/2020/04/12/qgis-plugin/</loc>
     
     <lastmod>2020-04-13T06:12:46.155Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/04/10/fast-uniapp/</loc>
-    
-    <lastmod>2020-04-10T02:53:21.878Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/04/03/weatherPlugin/</loc>
-    
-    <lastmod>2020-04-03T07:58:23.164Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
-    
-    <lastmod>2020-04-03T06:08:57.977Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/31/flutter-load-map/</loc>
-    
-    <lastmod>2020-04-03T06:05:51.566Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/04/01/provincial-boundary/</loc>
-    
-    <lastmod>2020-04-03T06:05:51.566Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2019/12/12/entityframeworkcorewithpostgis/</loc>
-    
-    <lastmod>2020-03-31T03:26:38.384Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
-    
-    <lastmod>2020-03-31T03:23:15.935Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/27/post/</loc>
-    
-    <lastmod>2020-03-31T03:22:45.271Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
-    
-    <lastmod>2020-03-31T03:22:26.789Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/12/vueVideo/</loc>
-    
-    <lastmod>2020-03-31T03:21:47.303Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2019/10/11/News/</loc>
-    
-    <lastmod>2019-10-12T08:36:12.940Z</lastmod>
     
   </url>
   
