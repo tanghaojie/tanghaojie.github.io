@@ -16,7 +16,7 @@ categories:
 tags:
 ---
 
-git 从远程拉取代码、推代码的步骤：
+git 从远程拉取代码、推代码的步骤
 
 如果是几个人共同管理项目，并且你的队友在你之前推过代码，那你就需要 git pull 一下，把代码拉到本地，解决一下冲突，再执行以下步骤，将本地代码推到远程仓库。
 
@@ -53,6 +53,15 @@ git 从远程拉取代码、推代码的步骤：
 > git checkout -b \[name\]  #创建并切换到name分支
 
 > git merge \[name\] 将name分支合并到master分支
+
+查看远端
+
+> git remove -v
+
+添加多个远端
+
+> git remote set-url --add origin http://xxxxx/xxx/adsdsdsdcelery-demo.git
+
 
 ---
 *版权声明：*
