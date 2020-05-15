@@ -4,14 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="News, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="var x = 0;
-var y=1;
-
-版权声明：
-除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .f">
+    <meta name="keywords" content="git commit规范化，设置Commitizen，符合Angular的规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
+    <meta name="description" content="安装配置commitizen地址cz-conventional-changelo地址：规范要求，不同的适配器要求不同conventional-changelog地址：生成changelog.md
+npm install -g commiti">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +14,7 @@ var y=1;
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>News | 桀士</title>
+    <title>git commit规范化，设置Commitizen，符合Angular的规范 | 桀士</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -138,7 +133,7 @@ var y=1;
         <div class="logo-name">桀士</div>
         <div class="logo-desc">
             
-            Here is a GISer
+            看天空的女孩是寂寞的，看天空的男孩是找UFO！
             
         </div>
     </div>
@@ -292,13 +287,13 @@ var y=1;
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        News
+                        git commit规范化，设置Commitizen，符合Angular的规范
                     </div>
                 </div>
             </div>
@@ -420,14 +415,14 @@ var y=1;
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-11
+                    2020-05-15
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        88
+                        328
                     </div>
                     
 
@@ -450,11 +445,17 @@ var y=1;
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-C#"><code class="language-C#">var x = 0;
-var y=1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener">commitizen地址</a><br><a href="https://github.com/commitizen/cz-conventional-changelog" target="_blank" rel="noopener">cz-conventional-changelo地址：规范要求，不同的适配器要求不同</a><br><a href="https://github.com/ajoslin/conventional-changelog" target="_blank" rel="noopener">conventional-changelog地址：生成changelog.md</a></p>
+<pre><code>npm install -g commitizen
+npm install -g cz-conventional-changelog
+npm install -g conventional-changelog-cli
+commitizen init cz-conventional-changelog --save-dev --save-exact</code></pre><p>如果已经有其他适配器了，会报错，用  <code>--force</code> 替换掉，即：</p>
+<pre><code>commitizen init cz-conventional-changelog --save-dev --save-exact --force</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>以后提交代码就用<code>git cz -m</code>替代<code>git commit -m</code>就好了，跟着提示走就没问题。<br>type值：<br>|  值  | 描述  |<br>|  —-  | —-  |<br>| feat | 新增一个功能 |<br>| fix  |  修复一个Bug |<br>| docs  |  文档变更 |<br>| style  |  代码格式（不影响功能，例如空格、分号等格式修正） |<br>| refactor  |  代码重构 |<br>| perf  |  改善性能 |<br>| test  |  测试 |<br>| build  |  变更项目构建或外部依赖（例如scopes: webpack、gulp、npm等） |<br>| ci  |  更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等 |<br>| chore  |  变更构建流程或辅助工具 |<br>| revert  |  代码回退 |</p>
+<p>生成changelog：<br><code>conventional-changelog -p angular -i CHANGELOG.md -s</code></p>
 <hr>
-<p>版权声明：</p>
-<h2 id="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"><a href="#除非注明，本博文章均为原创，转载请以链接形式标明本文地址。" class="headerlink" title="除非注明，本博文章均为原创，转载请以链接形式标明本文地址。"></a>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</h2><script>
+<p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
+<hr>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -630,11 +631,11 @@ var y=1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《News》
+                    《git commit规范化，设置Commitizen，符合Angular的规范》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/11/News/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/05/15/git-commitizen/" property="cc:attributionName"
                rel="cc:attributionURL">
-                qqq
+                Jackie Tang(唐浩桀)
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
@@ -672,69 +673,40 @@ var y=1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/12/gisForFunWebsites/">
+                <a href="/2020/05/15/git-commitizen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="一些好玩的地理网站">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="git commit规范化，设置Commitizen，符合Angular的规范">
                         
-                        <span class="card-title">一些好玩的地理网站</span>
+                        <span class="card-title">git commit规范化，设置Commitizen，符合Angular的规范</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            日常收集的一些GIS相关的网站
+                            安装配置commitizen地址cz-conventional-changelo地址：规范要求，不同的适配器要求不同conventional-changelog地址：生成changelog.md
+npm install -g commiti
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-15
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/gis/" class="post-category" target="_blank">
-                                    gis
-                                </a>
-                            
-                            <a href="/categories/gis/tips/" class="post-category" target="_blank">
-                                    tips
-                                </a>
-                            
-                            <a href="/categories/gis/tips/website/" class="post-category" target="_blank">
-                                    website
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jackie Tang(唐浩桀)
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
-                    </a>
-                    
-                    <a href="/tags/fun/" target="_blank">
-                        <span class="chip bg-color">fun</span>
-                    </a>
-                    
-                    <a href="/tags/gis/" target="_blank">
-                        <span class="chip bg-color">gis</span>
-                    </a>
-                    
-                    <a href="/tags/website/" target="_blank">
-                        <span class="chip bg-color">website</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -742,43 +714,39 @@ var y=1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/11/News/">
+                <a href="/2020/05/14/git-usage/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="News">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="git速查表">
                         
-                        <span class="card-title">News</span>
+                        <span class="card-title">git速查表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            var x = 0;
-var y=1;
+                            git 从远程拉取代码、推代码的步骤：
+如果是几个人共同管理项目，并且你的队友在你之前推过代码，那你就需要 git pull 一下，把代码拉到本地，解决一下冲突，再执行以下步骤，将本地代码推到远程仓库。
 
-版权声明：
-除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
-        document.querySelectorAll('.github-emoji')
-          .f
+git status       
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
-                            qqq
+                            Jackie Tang(唐浩桀)
                             
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -896,7 +864,7 @@ var y=1;
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.6k</span>&nbsp;字
+                class="white-color">9.1k</span>&nbsp;字
             
             <br>
             
