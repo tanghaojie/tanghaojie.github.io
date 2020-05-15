@@ -28,9 +28,9 @@ tags:
 
 #### 常用参数
 
-`docker run --rm` 临时容器，容器停止之后删除它。  
+`docker run --rm` 临时容器，容器停止之后删除它。   
 `docker run -d container_id`，`-d` 表示自动将容器与终端分离（也就是说在后台运行容器，并输出容器 ID）
-
+`docker run -p container_id`，`-p` 表示指定端口映射，格式：主机（宿主）端口:容器端口
 
 ### 启动和停止
 
