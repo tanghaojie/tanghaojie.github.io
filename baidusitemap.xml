@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tanghaojie.github.io/2020/05/15/git-commitizen/</loc>
+    <loc>https://tanghaojie.github.io/2020/05/15/docker-cheat-sheet/</loc>
     <lastmod>2020-05-15</lastmod>
   </url>  <url>
-    <loc>https://tanghaojie.github.io/2020/05/14/git-usage/</loc>
+    <loc>https://tanghaojie.github.io/2020/05/14/git-cheat-sheet/</loc>
+    <lastmod>2020-05-15</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2020/05/15/git-commitizen/</loc>
     <lastmod>2020-05-15</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/05/10/spatial-calculate-extend/</loc>
@@ -25,19 +28,19 @@
     <loc>https://tanghaojie.github.io/2019/12/12/entityframeworkcorewithpostgis/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
+    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
+    <lastmod>2020-05-14</lastmod>
+  </url>  <url>
     <loc>https://tanghaojie.github.io/2020/03/12/vueVideo/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
-    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
+    <loc>https://tanghaojie.github.io/2020/03/31/flutter-load-map/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/03/27/post/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
-    <lastmod>2020-05-14</lastmod>
-  </url>  <url>
-    <loc>https://tanghaojie.github.io/2020/03/31/flutter-load-map/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/04/01/provincial-boundary/</loc>

@@ -422,7 +422,7 @@ npm install -g commiti">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        328
+                        334
                     </div>
                     
 
@@ -450,7 +450,59 @@ npm install -g commiti">
 npm install -g cz-conventional-changelog
 npm install -g conventional-changelog-cli
 commitizen init cz-conventional-changelog --save-dev --save-exact</code></pre><p>如果已经有其他适配器了，会报错，用  <code>--force</code> 替换掉，即：</p>
-<pre><code>commitizen init cz-conventional-changelog --save-dev --save-exact --force</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>以后提交代码就用<code>git cz -m</code>替代<code>git commit -m</code>就好了，跟着提示走就没问题。<br>type值：<br>|  值  | 描述  |<br>|  —-  | —-  |<br>| feat | 新增一个功能 |<br>| fix  |  修复一个Bug |<br>| docs  |  文档变更 |<br>| style  |  代码格式（不影响功能，例如空格、分号等格式修正） |<br>| refactor  |  代码重构 |<br>| perf  |  改善性能 |<br>| test  |  测试 |<br>| build  |  变更项目构建或外部依赖（例如scopes: webpack、gulp、npm等） |<br>| ci  |  更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等 |<br>| chore  |  变更构建流程或辅助工具 |<br>| revert  |  代码回退 |</p>
+<pre><code>commitizen init cz-conventional-changelog --save-dev --save-exact --force</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>以后提交代码就用<code>git cz -m</code>替代<code>git commit -m</code>就好了，或者不输入message跟着提示走就没问题。<br>type值：  </p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>feat</td>
+<td>新增一个功能</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>修复一个Bug</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>文档变更</td>
+</tr>
+<tr>
+<td>style</td>
+<td>代码格式（不影响功能，例如空格、分号等格式修正）</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td>代码重构</td>
+</tr>
+<tr>
+<td>perf</td>
+<td>改善性能</td>
+</tr>
+<tr>
+<td>test</td>
+<td>测试</td>
+</tr>
+<tr>
+<td>build</td>
+<td>变更项目构建或外部依赖（例如scopes: webpack、gulp、npm等）</td>
+</tr>
+<tr>
+<td>ci</td>
+<td>更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等</td>
+</tr>
+<tr>
+<td>chore</td>
+<td>变更构建流程或辅助工具</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>代码回退</td>
+</tr>
+</tbody></table>
 <p>生成changelog：<br><code>conventional-changelog -p angular -i CHANGELOG.md -s</code></p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
@@ -673,31 +725,34 @@ commitizen init cz-conventional-changelog --save-dev --save-exact</code></pre><p
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/15/git-commitizen/">
+                <a href="/2020/05/15/docker-cheat-sheet/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="git commit规范化，设置Commitizen，符合Angular的规范">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="docker速查表">
                         
-                        <span class="card-title">git commit规范化，设置Commitizen，符合Angular的规范</span>
+                        <span class="card-title">docker速查表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装配置commitizen地址cz-conventional-changelo地址：规范要求，不同的适配器要求不同conventional-changelog地址：生成changelog.md
-npm install -g commiti
+                            容器（Container）生命周期
+docker create 创建容器但不启动它。
+docker rename 用于重命名容器。
+docker run 一键创建并同时启动该容器。
+docker rm 删除容器。
+docker update
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-15
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-15
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -706,7 +761,6 @@ npm install -g commiti
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -717,7 +771,7 @@ npm install -g commiti
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/14/git-usage/">
+                <a href="/2020/05/14/git-cheat-sheet/">
                     <div class="card-image">
                         
                         
@@ -729,10 +783,10 @@ npm install -g commiti
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            git 从远程拉取代码、推代码的步骤：
+                            git 从远程拉取代码、推代码的步骤
 如果是几个人共同管理项目，并且你的队友在你之前推过代码，那你就需要 git pull 一下，把代码拉到本地，解决一下冲突，再执行以下步骤，将本地代码推到远程仓库。
 
-git status       
+git status        
                         
                     </div>
                     <div class="publish-info">
@@ -864,7 +918,7 @@ git status
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.1k</span>&nbsp;字
+                class="white-color">10k</span>&nbsp;字
             
             <br>
             
