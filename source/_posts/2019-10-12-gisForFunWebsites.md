@@ -2,7 +2,7 @@
 title: 一些好玩的地理网站
 top: false
 cover: true
-toc: true
+toc: false
 mathjax: false
 comment: true
 date: 2019-10-12 14:57:09

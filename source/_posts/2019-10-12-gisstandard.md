@@ -2,7 +2,7 @@
 title: 地理信息相关标准
 top: false
 cover: true
-toc: true
+toc: false
 mathjax: false
 comment: true
 date: 2019-10-12 15:58:36

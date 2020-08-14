@@ -2,7 +2,7 @@
 title: Hexo添加数学公式支持
 top: false
 cover: false
-toc: true
+toc: false
 mathjax: true
 comment: true
 date: 2020-05-10 11:50:01

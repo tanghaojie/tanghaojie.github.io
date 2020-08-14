@@ -2,7 +2,7 @@
 title: 中华人民共和国省级行政区域界线标注的小tip
 top: false
 cover: false
-toc: true
+toc: false
 mathjax: false
 comment: true
 date: 2020-04-01 21:45:29

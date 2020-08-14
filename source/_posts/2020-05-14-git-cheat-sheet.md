@@ -2,7 +2,7 @@
 title: git速查表
 top: false
 cover: false
-toc: true
+toc: false
 mathjax: false
 comment: true
 date: 2020-05-14 16:20:07
