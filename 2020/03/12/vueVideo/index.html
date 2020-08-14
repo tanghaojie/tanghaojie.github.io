@@ -356,7 +356,7 @@ npm install --save videojs-flash //如果需要用flash的话
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        357
+                        342
                     </div>
                     
 
@@ -383,13 +383,13 @@ npm install --save videojs-flash //如果需要用flash的话
 <pre class="line-numbers language-shell"><code class="language-shell">npm install --save videojs
 npm install --save videojs-flash //如果需要用flash的话<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>2.实现vue-video.vue文件</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>video ref<span class="token operator">=</span><span class="token string">"videoPlayer"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"video-js"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>video<span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>video ref<span class="token operator">=</span><span class="token string">"videoPlayer"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"video-js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>video<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
 <span class="token keyword">import</span> videojs <span class="token keyword">from</span> <span class="token string">'video.js'</span>
 <span class="token keyword">import</span> <span class="token string">'videojs-flash'</span>                                <span class="token comment" spellcheck="true">// if use flash</span>
 <span class="token keyword">import</span> SWF_PATH <span class="token keyword">from</span> <span class="token string">'videojs-swf/dist/video-js.swf'</span>  <span class="token comment" spellcheck="true">// if use flash</span>
@@ -420,15 +420,15 @@ npm install --save videojs-flash //如果需要用flash的话<span aria-hidden="
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3.使用</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>vue<span class="token operator">-</span>video <span class="token punctuation">:</span>options<span class="token operator">=</span><span class="token string">"videoOptions"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>vue<span class="token operator">-</span>video <span class="token punctuation">:</span>options<span class="token operator">=</span><span class="token string">"videoOptions"</span> <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
 <span class="token keyword">import</span> vueVideo <span class="token keyword">from</span> <span class="token string">'./path/to/vue-video.vue'</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
@@ -456,7 +456,7 @@ npm install --save videojs-flash //如果需要用flash的话<span aria-hidden="
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>rtmp、mp4已测试没有问题，其他格式就没测试了。<br>需要发布才能进行测试，类似file://C:/test.html这种文件形式的是无法使用的</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
@@ -696,9 +696,9 @@ npm install --save videojs-flash //如果需要用flash的话<span aria-hidden="
                     <div class="summary block-with-text">
                         
                             以下代码复制为：.bat文件
-@ECHO OFF&amp;PUSHD %~DP0
-setlocal EnableDelayedExpansion&amp;color 3e &amp; cd /d "%~dp0"
-title office20
+@ECHO OFF&PUSHD %~DP0
+setlocal EnableDelayedExpansion&color 3e & cd /d "%~dp0"
+title office2016 retail转换v
                         
                     </div>
                     <div class="publish-info">
@@ -815,7 +815,7 @@ title office20
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.3k</span>&nbsp;字
+                class="white-color">11.2k</span>&nbsp;字
             
             <br>
             
