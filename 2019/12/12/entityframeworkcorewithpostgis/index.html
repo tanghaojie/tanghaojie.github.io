@@ -362,7 +362,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        873
+                        872
                     </div>
                     
 
@@ -396,7 +396,7 @@
 <pre class="line-numbers language-powershell"><code class="language-powershell">1<span class="token punctuation">.</span>Npgsql<span class="token punctuation">.</span>EntityFrameworkCore<span class="token punctuation">.</span>PostgreSQL
 2<span class="token punctuation">.</span>Npgsql<span class="token punctuation">.</span>EntityFrameworkCore<span class="token punctuation">.</span>PostgreSQL<span class="token punctuation">.</span>NetTopologySuite<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>然后是配置，首先数据库里面要启用Postgis，简单：<code>Create Extension Postgis;</code><br>EFCore框架：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">dbContextOptions<span class="token punctuation">.</span><span class="token function">UseNpgsql</span><span class="token punctuation">(</span>connectionString<span class="token punctuation">,</span> o <span class="token operator">=</span><span class="token operator">&gt;</span> o<span class="token punctuation">.</span><span class="token function">UseNetTopologySuite</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这在哪自己找一下</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">dbContextOptions<span class="token punctuation">.</span><span class="token function">UseNpgsql</span><span class="token punctuation">(</span>connectionString<span class="token punctuation">,</span> o <span class="token operator">=</span><span class="token operator">></span> o<span class="token punctuation">.</span><span class="token function">UseNetTopologySuite</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这在哪自己找一下</span>
 
 <span class="token comment" spellcheck="true">//这在你的DbContext里面</span>
 <span class="token keyword">protected</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">OnModelCreating</span><span class="token punctuation">(</span>ModelBuilder builder<span class="token punctuation">)</span>
@@ -777,7 +777,7 @@ Google探索实验室
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.3k</span>&nbsp;字
+                class="white-color">11.2k</span>&nbsp;字
             
             <br>
             
