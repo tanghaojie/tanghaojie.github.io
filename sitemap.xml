@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tanghaojie.github.io/2020/08/13/raw-html-test/</loc>
+    
+    <lastmod>2020-08-13T07:35:08.593Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/08/12/post/</loc>
+    
+    <lastmod>2020-08-13T07:24:24.591Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanghaojie.github.io/2020/06/10/nuxt-docker/</loc>
     
     <lastmod>2020-06-10T10:25:44.760Z</lastmod>
@@ -65,20 +79,6 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2020/03/27/post/</loc>
-    
-    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
-    
-    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/2020/03/12/vueVideo/</loc>
     
     <lastmod>2020-05-14T03:27:23.097Z</lastmod>
@@ -93,6 +93,13 @@
   </url>
   
   <url>
+    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanghaojie.github.io/2020/03/31/flutter-load-map/</loc>
     
     <lastmod>2020-05-14T03:27:23.097Z</lastmod>
@@ -101,6 +108,13 @@
   
   <url>
     <loc>https://tanghaojie.github.io/2020/04/01/provincial-boundary/</loc>
+    
+    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/27/post/</loc>
     
     <lastmod>2020-05-14T03:27:23.097Z</lastmod>
     

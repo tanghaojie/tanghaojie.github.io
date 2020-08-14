@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>raw-html-test</title>
+      <link href="/2020/08/13/raw-html-test/"/>
+      <url>/2020/08/13/raw-html-test/</url>
+      
+        <content type="html"><![CDATA[<div style="background-color:red;">123</div><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>qgis速记</title>
+      <link href="/2020/08/12/post/"/>
+      <url>/2020/08/12/post/</url>
+      
+        <content type="html"><![CDATA[<p>按照几何位置排序，其中45代表东北方向，其他方向排序可以自己指定，y正轴（北）方向为0度，顺时针旋转</p><pre><code>sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))</code></pre><p>字段长度不足补0，3是长度，0是不足的左侧补0</p><pre><code>lpad("你的字段名", 3, '0')</code></pre><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>jenkins从github拉取nuxt项目部署到docker, windows平台</title>
       <link href="/2020/06/10/nuxt-docker/"/>
       <url>/2020/06/10/nuxt-docker/</url>
@@ -150,9 +176,9 @@
       
         <tags>
             
-            <tag> scrapy </tag>
-            
             <tag> python </tag>
+            
+            <tag> scrapy </tag>
             
         </tags>
       
@@ -179,9 +205,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> QGIS </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -587,11 +613,11 @@
             
             <tag> tips </tag>
             
-            <tag> fun </tag>
-            
             <tag> gis </tag>
             
             <tag> website </tag>
+            
+            <tag> fun </tag>
             
         </tags>
       
