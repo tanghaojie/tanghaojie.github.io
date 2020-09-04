@@ -4,15 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="全国甲乙丙级测绘资质单位名单, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="全国甲乙丙级测绘资质单位名单：甲级：1326个
-乙级：5081个
-丙级：8790个
-点击查看和下载
-详细信息压缩包解压密码：关注公众号[桀士]，回复“资质”获取密码。
-
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
-">
+    <meta name="keywords" content="大疆精灵Phantom4RTK PPK文件说明, JackieTang, 唐浩桀, 桀士, JT, GIS">
+    <meta name="description" content="
+EVENTLOG.bin 二进制格式的曝光时间戳记录文件
+PPKRAW.bin RTCM3.2MSM5格式的移动端卫星观测值数据及星历数据
+PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校验是否为该飞行器生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>全国甲乙丙级测绘资质单位名单 | 桀士</title>
+    <title>大疆精灵Phantom4RTK PPK文件说明 | 桀士</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -293,13 +289,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        全国甲乙丙级测绘资质单位名单
+                        大疆精灵Phantom4RTK PPK文件说明
                     </div>
                 </div>
             </div>
@@ -332,21 +328,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-09
+                    2020-09-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        141
+                        872
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -362,11 +358,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="全国甲乙丙级测绘资质单位名单："><a href="#全国甲乙丙级测绘资质单位名单：" class="headerlink" title="全国甲乙丙级测绘资质单位名单："></a>全国甲乙丙级测绘资质单位名单：</h2><p>甲级：1326个</p>
-<p>乙级：5081个</p>
-<p>丙级：8790个</p>
-<p><a href="https://github.com/tanghaojie/PublicData/tree/master/SurveyingQualificationOfChinaMainland" target="_blank" rel="noopener">点击查看和下载</a></p>
-<p>详细信息压缩包解压密码：关注公众号[桀士]，回复“资质”获取密码。</p>
+                <ul>
+<li><strong>EVENTLOG.bin</strong> 二进制格式的曝光时间戳记录文件</li>
+<li><strong>PPKRAW.bin</strong> RTCM3.2MSM5格式的移动端卫星观测值数据及星历数据</li>
+<li><strong>PPKRAW.sig</strong> 官方没解释，猜测是signature。身份校验文件，用于校验是否为该飞行器生成的数据，如为非该飞行器生成的数据将无法加载。</li>
+<li><strong>Rinex.obs</strong> 实施转码出的Rinex观测值文件</li>
+<li><strong>Timestamps.MRK</strong> ASCII格式的明码曝光时间戳，每张照片拍照时刻定位结果，拍照时刻定位状态，定位标准差，拍照时刻等记录文件。格式说明：</li>
+</ul>
+<p><strong>第一列</strong><br>照片的编号<br><strong>第二列</strong><br>每张照片曝光时刻的UTC时间，以GPS时间格式表示时的周内秒部分。<br><strong>第三列</strong><br>每张照片曝光时刻的UTC时间，以GPS时间格式表示时的GPS周部分。<br><strong>第四列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在北方向（N）的偏差，单位为毫米，CMOS中心在天线相位中心偏北方向为正，偏南方向为负。<br><strong>第五列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在东方向（E）的偏差，单位为毫米，CMOS中心在天线相位中心偏东方向为正，偏西方向为负。<br><strong>第六列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在垂直方向（V）的偏差，单位为毫米，CMOS中心在天线相位中心偏下为正，偏上为负。<br><strong>第七列</strong><br>曝光时刻获取的CMOS中心的实时位置纬度（Lat），单位为度。当飞机定位处于RTK模式下时，此时的位置为RTK位置加上曝光时刻天线相位中心到CMOS中心的位置，精度为RTK精度（厘米级）；当飞机定位处于GPS模式下时，此时的位置为GPS单点定位位置加上曝光时刻天线相位中心到CMOS中心的位置，精度为GPS单点定位的精度（米级）<br><strong>第八列</strong><br>曝光时刻获取的CMOS中心的实时位置经度（Lon），单位为度。<br><strong>第九列</strong><br>曝光时刻获取的CMOS中心的实时高度，单位为米。该高度为大地高（俗称椭球高），（用户自行定义其椭球模型，默认为WGS84，用户可以通过接入不同的CORS站系统/基准，设定其为其他椭球，如CGCS2000）表面的高度。注意，此高度并非基于国家85高程基准或56高程基准（正常高），也并非基于全球范围内比较通用的EGM96/2008高程基准（正高）。<br><strong>第十至十二列</strong><br>北、东、天三个方向定位结果的标准差，表征在三个方向上定位的相对精度。单位为米<br><strong>第十三列（很常用）</strong><br>RTK状态位：</p>
+<ul>
+<li>0-无定位</li>
+<li>16-单点定位模式</li>
+<li>34-RTK浮点解</li>
+<li>50-RTK固定解<br>当某张照片标志位不为50的时候，不推荐使用此照片直接进行建图。</li>
+</ul>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -546,9 +551,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《全国甲乙丙级测绘资质单位名单》
+                    《大疆精灵Phantom4RTK PPK文件说明》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/05/09/surveying-qualification/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/09/04/phantom4RTK-ppk-file-formate/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -592,24 +597,26 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/10/hexo-LaTex/">
+                <a href="/2020/09/04/rtk-ppk/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Hexo添加数学公式支持">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="华测、中海达等用RTK进行PPK后差分解算测量">
                         
-                        <span class="card-title">Hexo添加数学公式支持</span>
+                        <span class="card-title">华测、中海达等用RTK进行PPK后差分解算测量</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为后面的文档做准备，添加数学公式的支持。网上一堆更新渲染插件的办法，我都准备用了。幸好先看完了文章，后面要改node_modules里面的源码，这怎么可能！我不能把node_modules上传到github吧，不上传又怎么同步呢。后来看了一
+                            华测、中海达等这些厂商都开始提供PPK后差分解算软件了。使用很简单，先得到1个（3个最好）的已知点，然后RTK设置为静态模式架设不动。无人机或者其他设备用PPK模型进行测绘，之后就可以用软件解算了。
+
+版权声明：除非注明，本博文章均为原创，
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-10
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-04
                         </span>
                         <span class="publish-author">
                             
@@ -629,57 +636,32 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/09/scrapy-tutorial/">
+                <a href="/2020/09/04/uav-multi-height-route/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Scrapy爬虫使用">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="无人机多层航线建模失败解决方案">
                         
-                        <span class="card-title">Scrapy爬虫使用</span>
+                        <span class="card-title">无人机多层航线建模失败解决方案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            飞速起步
-安装scrapypip install Scrapy（类unix记得加 sudo）安装完成以后，到命令行输入Scrapy，查看是否安装成功。  
-准备和配置
-scrapy startproject [name]创建项目。
-
-项目文
+                              无人机航测的过程中，经常会碰到空中环境太恶劣，无法正常飞行的情况。一般的做法都是先做一个超高空飞行，保证覆盖范围和整体约束，然后对特征地物、居民地、建筑物等，进行超低空飞行作为补充，这样就避开了空中混乱的位置。但问题是超高空和超低空之间
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-04
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/scrapy/" class="post-category" target="_blank">
-                                    scrapy
-                                </a>
-                            
-                            <a href="/categories/scrapy/python/" class="post-category" target="_blank">
-                                    python
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jackie Tang(唐浩桀)
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/scrapy/" target="_blank">
-                        <span class="chip bg-color">scrapy</span>
-                    </a>
-                    
                 </div>
                 
             </div>
