@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title>华测、中海达等用RTK进行PPK后差分解算测量</title>
+      <link href="/2020/09/04/rtk-ppk/"/>
+      <url>/2020/09/04/rtk-ppk/</url>
+      
+        <content type="html"><![CDATA[<p>华测、中海达等这些厂商都开始提供PPK后差分解算软件了。使用很简单，先得到1个（3个最好）的已知点，然后RTK设置为静态模式架设不动。无人机或者其他设备用PPK模型进行测绘，之后就可以用软件解算了。</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大疆精灵Phantom4RTK PPK文件说明</title>
+      <link href="/2020/09/04/phantom4RTK-ppk-file-formate/"/>
+      <url>/2020/09/04/phantom4RTK-ppk-file-formate/</url>
+      
+        <content type="html"><![CDATA[<ul><li><strong>EVENTLOG.bin</strong> 二进制格式的曝光时间戳记录文件</li><li><strong>PPKRAW.bin</strong> RTCM3.2MSM5格式的移动端卫星观测值数据及星历数据</li><li><strong>PPKRAW.sig</strong> 官方没解释，猜测是signature。身份校验文件，用于校验是否为该飞行器生成的数据，如为非该飞行器生成的数据将无法加载。</li><li><strong>Rinex.obs</strong> 实施转码出的Rinex观测值文件</li><li><strong>Timestamps.MRK</strong> ASCII格式的明码曝光时间戳，每张照片拍照时刻定位结果，拍照时刻定位状态，定位标准差，拍照时刻等记录文件。格式说明：</li></ul><p><strong>第一列</strong><br>照片的编号<br><strong>第二列</strong><br>每张照片曝光时刻的UTC时间，以GPS时间格式表示时的周内秒部分。<br><strong>第三列</strong><br>每张照片曝光时刻的UTC时间，以GPS时间格式表示时的GPS周部分。<br><strong>第四列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在北方向（N）的偏差，单位为毫米，CMOS中心在天线相位中心偏北方向为正，偏南方向为负。<br><strong>第五列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在东方向（E）的偏差，单位为毫米，CMOS中心在天线相位中心偏东方向为正，偏西方向为负。<br><strong>第六列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在垂直方向（V）的偏差，单位为毫米，CMOS中心在天线相位中心偏下为正，偏上为负。<br><strong>第七列</strong><br>曝光时刻获取的CMOS中心的实时位置纬度（Lat），单位为度。当飞机定位处于RTK模式下时，此时的位置为RTK位置加上曝光时刻天线相位中心到CMOS中心的位置，精度为RTK精度（厘米级）；当飞机定位处于GPS模式下时，此时的位置为GPS单点定位位置加上曝光时刻天线相位中心到CMOS中心的位置，精度为GPS单点定位的精度（米级）<br><strong>第八列</strong><br>曝光时刻获取的CMOS中心的实时位置经度（Lon），单位为度。<br><strong>第九列</strong><br>曝光时刻获取的CMOS中心的实时高度，单位为米。该高度为大地高（俗称椭球高），（用户自行定义其椭球模型，默认为WGS84，用户可以通过接入不同的CORS站系统/基准，设定其为其他椭球，如CGCS2000）表面的高度。注意，此高度并非基于国家85高程基准或56高程基准（正常高），也并非基于全球范围内比较通用的EGM96/2008高程基准（正高）。<br><strong>第十至十二列</strong><br>北、东、天三个方向定位结果的标准差，表征在三个方向上定位的相对精度。单位为米<br><strong>第十三列（很常用）</strong><br>RTK状态位：</p><ul><li>0-无定位</li><li>16-单点定位模式</li><li>34-RTK浮点解</li><li>50-RTK固定解<br>当某张照片标志位不为50的时候，不推荐使用此照片直接进行建图。</li></ul><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>无人机多层航线建模失败解决方案</title>
+      <link href="/2020/09/04/uav-multi-height-route/"/>
+      <url>/2020/09/04/uav-multi-height-route/</url>
+      
+        <content type="html"><![CDATA[<p>  无人机航测的过程中，经常会碰到空中环境太恶劣，无法正常飞行的情况。一般的做法都是先做一个超高空飞行，保证覆盖范围和整体约束，然后对特征地物、居民地、建筑物等，进行超低空飞行作为补充，这样就避开了空中混乱的位置。但问题是超高空和超低空之间重叠率很难保证，导致建模的时候经常遇到问题。最常见的就是只使用高空照片做特征点匹配，低空的高清晰度照片被抛弃；或者高低空照片混用，一块模糊一块清晰，成像不统一。针对这种情况，一般有几种解决方案：</p><p>1.建模时从高空照片中剔除低空覆盖的部分。（边缘还是要留下，保证有重叠率来识别）<br>2.条件允许时扩大低空航线范围，提高低空重叠率。<br>3.高低空照片分别建模，建模完成以后再合模。<br>4.如果用context capture建模，手动添加连接点强制匹配。<br>5.如果用context capture建模，建模参数设置为高特征点匹配。</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>地面采样距离(GSD)计算器</title>
       <link href="/2020/08/14/gsd-calculator/"/>
       <url>/2020/08/14/gsd-calculator/</url>
@@ -176,9 +215,9 @@
       
         <tags>
             
-            <tag> scrapy </tag>
-            
             <tag> python </tag>
+            
+            <tag> scrapy </tag>
             
         </tags>
       
@@ -205,9 +244,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> QGIS </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
