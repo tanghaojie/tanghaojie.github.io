@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>DJI大疆PPK后差分处理文件导入像控预处理</title>
+      <link href="/2020/09/22/dji-ppk-file-process/"/>
+      <url>/2020/09/22/dji-ppk-file-process/</url>
+      
+        <content type="html"><![CDATA[<div class="container">      <div class="prefix">        <p>影像文件名前缀</p>        <input id="prefix" name="prefix" type="text">      </div>      <div class="file">        <p>选择大疆PPK原始文件[result.csv]</p>        <input accept=".csv" id="contained" name="csvfile" type="file">      </div>  </div>  <script>      function handleUpload(e) {        var file = e.target.files[0]        fileReader.readAsText(file)      }      function handleCsv(csv) {        let lines = csv.split(/[\n]/)        let count = lines.length        let output = []        let prefix = document.querySelector('#prefix').value        for (let i = 1; i < count; i++) {          let line = lines[i]          if (line === '' || line === null || line === undefined) {            break          }          let datas = line.split(',')          let id = datas[0]          let latitude = datas[3]          let longitude = datas[4]          let height = datas[5]          let Q = datas[9]          if (Q !== '50') {            alert('Some data not fixed!')          }          output.push(id)          output.push(',')          output.push(latitude)          output.push(',')          output.push(longitude)          output.push(',')          output.push(height)          output.push(',')          output.push(prefix)          output.push(id.padStart(4, '0'))          output.push('.JPG')          output.push('\r\n')        }        return output.join('')      }      function saveFile(data, filename) {        var file = new Blob([data])        console.log(file)        if (window.navigator.msSaveOrOpenBlob) {          // IE10+          window.navigator.msSaveOrOpenBlob(file, filename)        } else {          // Others          var a = document.createElement('a'),            url = URL.createObjectURL(file)          a.href = url          a.download = filename          document.body.appendChild(a)          a.click()          setTimeout(function () {            document.body.removeChild(a)            window.URL.revokeObjectURL(url)          }, 0)        }      }      let fileReader = new FileReader()      fileReader.onload = function () {        let result = this.result        let newCsv = handleCsv(result)        let nowDate = new Date()        let year = nowDate.getFullYear()        let month = (nowDate.getMonth() + 1).toString().padStart(2, '0')        let day = nowDate.getDate().toString().padStart(2, '0')        let dateStr = year + '-' + month + '-' + day        saveFile(newCsv, 'result_JTEdited' + dateStr + '.csv')      }      let contained = document.querySelector('#contained')      contained.addEventListener('change', handleUpload)  </script><p>显示效果不好，点击下面打开单独的网页</p><p><a href="/html/ppk/">独立网页的版本</a></p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>QGIS将文件夹中的所有Esri Shape转换为KML文件的python处理代码</title>
       <link href="/2020/09/22/qgis-shp2kml-py/"/>
       <url>/2020/09/22/qgis-shp2kml-py/</url>
@@ -241,9 +254,9 @@
       
         <tags>
             
-            <tag> scrapy </tag>
-            
             <tag> python </tag>
+            
+            <tag> scrapy </tag>
             
         </tags>
       
@@ -270,9 +283,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> QGIS </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
