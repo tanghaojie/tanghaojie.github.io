@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>QGIS将文件夹中的所有Esri Shape转换为KML文件的python处理代码</title>
+      <link href="/2020/09/22/qgis-shp2kml-py/"/>
+      <url>/2020/09/22/qgis-shp2kml-py/</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> osdir <span class="token operator">=</span> r<span class="token string">'C:\Users\YourFolderPathContainShapefile'</span>toDir <span class="token operator">=</span> r<span class="token string">'C:\Users\YourFolderPathKMLWillOutput'</span>crs <span class="token operator">=</span> QgsCoordinateReferenceSystem<span class="token punctuation">(</span><span class="token number">4326</span><span class="token punctuation">)</span>list <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>dir<span class="token punctuation">)</span><span class="token keyword">for</span> l <span class="token keyword">in</span> list<span class="token punctuation">:</span>    <span class="token keyword">if</span> <span class="token operator">not</span> l<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.shp'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">continue</span>    inPath <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>dir<span class="token punctuation">,</span> l<span class="token punctuation">)</span>    vl <span class="token operator">=</span> QgsVectorLayer<span class="token punctuation">(</span>inPath<span class="token punctuation">,</span> l<span class="token punctuation">,</span> <span class="token string">'ogr'</span><span class="token punctuation">)</span>    valid <span class="token operator">=</span> vl<span class="token punctuation">.</span>isValid<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">if</span> <span class="token operator">not</span> vl<span class="token punctuation">.</span>isValid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">print</span><span class="token punctuation">(</span>inPath<span class="token punctuation">)</span>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">)</span>        <span class="token keyword">continue</span>    toFile <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>toDir<span class="token punctuation">,</span> l<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.shp'</span><span class="token punctuation">,</span> <span class="token string">'.kml'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    QgsVectorFileWriter<span class="token punctuation">.</span>writeAsVectorFormat<span class="token punctuation">(</span>vl<span class="token punctuation">,</span> toFile<span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">,</span> crs<span class="token punctuation">,</span> <span class="token string">'kml'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>QGIS添加各大地图服务的插件</title>
+      <link href="/2020/09/22/qgis-add-map-services/"/>
+      <url>/2020/09/22/qgis-add-map-services/</url>
+      
+        <content type="html"><![CDATA[<p>在插件中搜索并安装<strong>QuickMapServices</strong>插件，然后打开插件的<code>Settings -&gt; More Services</code>，点击<code>Get contributed pack</code>获得所有服务，就可以用添加添加各种地图服务了。</p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>华测、中海达等用RTK进行PPK后差分解算测量</title>
       <link href="/2020/09/04/rtk-ppk/"/>
       <url>/2020/09/04/rtk-ppk/</url>
@@ -215,9 +241,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> scrapy </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -244,9 +270,9 @@
       
         <tags>
             
-            <tag> QGIS </tag>
-            
             <tag> python </tag>
+            
+            <tag> QGIS </tag>
             
         </tags>
       
@@ -652,11 +678,11 @@
             
             <tag> tips </tag>
             
+            <tag> fun </tag>
+            
             <tag> gis </tag>
             
             <tag> website </tag>
-            
-            <tag> fun </tag>
             
         </tags>
       
