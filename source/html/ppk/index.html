@@ -140,7 +140,9 @@
         let day = nowDate.getDate().toString().padStart(2, '0')
         let dateStr = year + '-' + month + '-' + day
 
-        saveFile(newCsv, 'result_JTEdited' + dateStr + '.csv')
+        let prefix = document.querySelector('#prefix').value || ''
+
+        saveFile(newCsv, 'result_JTEdited_' + prefix + dateStr + '.csv')
       }
 
       let contained = document.querySelector('#contained')
