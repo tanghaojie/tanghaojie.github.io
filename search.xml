@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>相机内参和畸变校正参数说明</title>
+      <link href="/2020/09/29/camera-calibrate/"/>
+      <url>/2020/09/29/camera-calibrate/</url>
+      
+        <content type="html"><![CDATA[<p>以大疆Phantom4RTK为例，以记事本方式打开任意一张照片，搜索<code>DewarpData</code>，可以看到校正参数：<code>drone-dji:DewarpData=" 2020-05-13;3714.070000000000,3707.070000000000,-8.280000000000,-17.520000000000,-0.279234000000,0.125598000000,0.001187790000,-0.000255019000,-0.041078200000"</code></p><p>值顺序为：<code>calibrate_date;fx,fy,cx,cy,k1,k2,p1,p2,k3</code></p><p>分别的意思：</p><table><thead><tr><th>字段</th><th>说明</th><th></th></tr></thead><tbody><tr><td>calibrate_date</td><td>校正时间</td><td></td></tr><tr><td>fx</td><td>以像素为单位标定出的焦距x坐标</td><td>相机像素焦距则为： (fx + fy) / 2 像素</td></tr><tr><td>fy</td><td>以像素为单位标定出的焦距y坐标</td><td>相机毫米焦距则为：（Phantom4rtk一像元尺寸2.4微米）(fx + fy) / 2 * (2.4 * 0.001) 毫米</td></tr><tr><td>cx</td><td>以像素为单位标定出的像主点（原点为影像中心）x坐标</td><td>建图软件（Pix4D、Context Capture等）默认原点为影像左上角，所以要换算到影像中心。以Phantom4rtk为例，若照片比例为3:2，则像素为5472 * 3648。（4:3同理，像素为4864 * 3648）</td></tr><tr><td>cy</td><td>以像素为单位标定出的像主点（原点为影像中心）y坐标</td><td>像主点x = 5472 / 2 + cx；像主点y = 3648 / 2 + cy。</td></tr><tr><td>k1</td><td>径向畸变校正参数k1</td><td></td></tr><tr><td>k2</td><td>径向畸变校正参数k2</td><td></td></tr><tr><td>k3</td><td>径向畸变校正参数k3</td><td></td></tr><tr><td>p1</td><td>切向畸变校正参数p1</td><td></td></tr><tr><td>p2</td><td>切向畸变校正参数p2</td><td></td></tr></tbody></table><p><a href="/html/calibrate/">在线畸变参数计算器</a></p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DJI大疆PPK后差分处理文件导入像控预处理</title>
       <link href="/2020/09/22/dji-ppk-file-process/"/>
       <url>/2020/09/22/dji-ppk-file-process/</url>
