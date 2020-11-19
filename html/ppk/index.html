@@ -89,9 +89,14 @@
           let longitude = datas[4]
           let height = datas[5]
           let Q = datas[9]
+
           if (Q !== '50') {
-            alert('Some data not fixed!')
+            alert('Some data not fixed!  id:[' + id + ']')
           }
+          if (isNaN(latitude) || isNaN(longitude) || isNaN(height) || latitude < 0 || latitude > 360 || longitude < 0 || longitude > 360 || height < 0 || height > 9000) {
+            alert('Coordinate Error!  id:[' + id + ']')
+          }
+
           output.push(id)
           output.push(',')
           output.push(latitude)
