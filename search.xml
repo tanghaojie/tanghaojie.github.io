@@ -33,6 +33,19 @@
     
     
     <entry>
+      <title>DJI照片元数据主要信息列表</title>
+      <link href="/2020/11/25/DJI-XMP-Meta-Data-Info-Explain/"/>
+      <url>/2020/11/25/DJI-XMP-Meta-Data-Info-Explain/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th>字段</th><th>说明</th></tr></thead><tbody><tr><td>ModifyDate=”2018-08-09”</td><td>照片修改日期</td></tr><tr><td>CreateDate=”2018-08-09”</td><td>照片创建日期</td></tr><tr><td>Make=”DJI”</td><td>制造商</td></tr><tr><td>Model=”FC6310R”</td><td>相机型号</td></tr><tr><td>format=”image/jpg”</td><td>照片格式</td></tr><tr><td>AbsoluteAltitude=”+150.09”</td><td>相机的绝对高度，基于使用的椭球模型（通常为WGS84或CGCS2000）。</td></tr><tr><td>RelativeAltitude=”+109.86”</td><td>基于原点（起飞点）的摄像机的相对高度。</td></tr><tr><td>GpsLatitude=”22.63093244”</td><td>相机位置的纬度，在北正南负，单位：度。</td></tr><tr><td>GpsLongtitude=”113.93793694”</td><td>相机位置的经度，单位：度。</td></tr><tr><td>GimbalRollDegree=”+0.00”</td><td>云台侧倾角（在东北地面框架中，北为真北）</td></tr><tr><td>GimbalYawDegree=”-38.00”</td><td>云台偏航角（在东北地面框架中，北为真北）</td></tr><tr><td>GimbalPitchDegree=”-89.90”</td><td>云台俯仰角（在东北地面框架中，北为真北）</td></tr><tr><td>FlightRollDegree=”+4.70”</td><td>无人机侧倾角（在东北地面框架中，北为真北</td></tr><tr><td>FlightYawDegree=”-36.10”</td><td>无人机偏航角（在东北地面框架中，北为真北）</td></tr><tr><td>FlightPitchDegree=”+0.80”</td><td>无人机云台俯仰角（在东北地面框架中，北为真北）</td></tr><tr><td>FlightXSpeed=”+6.60”</td><td>北方地面速度（m / s）</td></tr><tr><td>FlightYSpeed=”-5.20”</td><td>东方地面速度（m / s）</td></tr><tr><td>FlightZSpeed=”+0.00”</td><td>垂直地面速度（m / s）</td></tr><tr><td>CalibratedFocalLength=”3666.666504”</td><td>镜头的设计焦距，单位：像素。</td></tr><tr><td>CalibratedOpticalCenterX=”2736.000000”</td><td>光学设计位置的X轴坐标中心，单位：像素。</td></tr><tr><td>CalibratedOpticalCenterY=”1824.000000”</td><td>光学设计位置的Y轴坐标中心，单位：像素。</td></tr><tr><td>RtkFlag=”50”</td><td>RTK状态。（前面文章有说明）<a href="/2020/11/05/DJI-PPK-Format-Meaning/">大疆/千寻卫星后处理解算信息说明</a></td></tr><tr><td>RtkStdLon=”0.01160”</td><td>照片记录的标准偏差（以米为单位）在经度方向上的位置。当标准图像的偏差大于0.1，为建议不要使用此照片。</td></tr><tr><td>RtkStdLat=”0.01095”</td><td>照片记录的标准偏差（以米为单位）在纬度方向上的位置。当标准图像的偏差大于0.1，为建议不要使用此照片。</td></tr><tr><td>RtkStdHgt=”0.02918”</td><td>照片记录的标准偏差（以米为单位）在高度方向上的位置。当标准图像的偏差大于0.1，为建议不要使用此照片。</td></tr><tr><td>DewarpData= “… …”</td><td>畸变纠正参数。（前面文章有说明）<a href="/2020/09/29/camera-calibrate/">相机内参和畸变校正参数说明</a></td></tr></tbody></table><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>metashape-cluster</title>
       <link href="/2020/11/10/metashape-cluster/"/>
       <url>/2020/11/10/metashape-cluster/</url>
@@ -772,11 +785,11 @@
             
             <tag> tips </tag>
             
+            <tag> fun </tag>
+            
             <tag> gis </tag>
             
             <tag> website </tag>
-            
-            <tag> fun </tag>
             
         </tags>
       
