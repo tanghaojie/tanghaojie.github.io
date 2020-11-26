@@ -412,28 +412,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/3.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">地理地图数据提供网站</div>
-                    <div class="description center-align">
-                    
-                        涉密的原因，很多地理数据其实不能拿来直接用，收集一些免费的地理数据供应网站。
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2019/10/12/gisdatawebsites/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/19.jpg');">
         <div class="container">
             <div class="row">
@@ -446,6 +424,28 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </div>
                     <div class="cover-btns">
                         <a href="/2019/10/12/gisForFunWebsites/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/3.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">地理地图数据提供网站</div>
+                    <div class="description center-align">
+                    
+                        涉密的原因，很多地理数据其实不能拿来直接用，收集一些免费的地理数据供应网站。
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/10/12/gisdatawebsites/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -646,6 +646,62 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/25/Mean-SeaLevel-GPS-TheGeoid/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="科普-海平面高、GPS高、基准面高的区别和定义">
+                            
+                            <span class="card-title">科普-海平面高、GPS高、基准面高的区别和定义</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                从业这么久了，很多很多（包括行业内）人，根本搞不清楚海平面高、GPS高、基准面高的区别，这里翻译和补充说明一下。
+声明原文出自https://www.esri.com/news/arcuser/0703/geoid1of3.html，我只是
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/科普/" class="post-category" target="_blank">
+                                    科普
+                                </a>
+                                
+                                <a href="/categories/科普/GIS/" class="post-category" target="_blank">
+                                    GIS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/科普/" target="_blank">
+                            <span class="chip bg-color">科普</span>
+                        </a>
+                        
+                        <a href="/tags/GIS/" target="_blank">
+                            <span class="chip bg-color">GIS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1100,42 +1156,6 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/12/post/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="qgis速记">
-                            
-                            <span class="card-title">qgis速记</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                按照几何位置排序，其中45代表东北方向，其他方向排序可以自己指定，y正轴（北）方向为0度，顺时针旋转
-sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-user fa-fw"></i>
-                                Jackie Tang(唐浩桀)
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1152,7 +1172,7 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 3</div>
+            <div class="center-align b-text-gray">1 / 4</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1176,7 +1196,7 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.4k</span>&nbsp;字
+                class="white-color">20.1k</span>&nbsp;字
             
             <br>
             

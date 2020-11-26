@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tanghaojie.github.io/2020/11/25/Mean-SeaLevel-GPS-TheGeoid/</loc>
+    <lastmod>2020-11-26</lastmod>
+  </url>  <url>
     <loc>https://tanghaojie.github.io/2020/11/10/metashape-cluster/</loc>
     <lastmod>2020-11-10</lastmod>
   </url>  <url>
@@ -100,10 +103,10 @@
     <loc>https://tanghaojie.github.io/2020/04/10/fast-uniapp/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
-    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
+    <loc>https://tanghaojie.github.io/2020/04/03/weatherPlugin/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
-    <loc>https://tanghaojie.github.io/2020/04/03/weatherPlugin/</loc>
+    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
     <lastmod>2020-05-14</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/05/09/scrapy-tutorial/</loc>
