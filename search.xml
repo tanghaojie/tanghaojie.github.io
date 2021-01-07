@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>网页开启设计模式 &amp;#91 速记 &amp;#93</title>
+      <link href="/2021/01/07/web-design-mode/"/>
+      <url>/2021/01/07/web-design-mode/</url>
+      
+        <content type="html"><![CDATA[<p><code>document.designMode = 'off'</code></p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>科普-海平面高、GPS高、基准面高的区别和定义</title>
       <link href="/2020/11/25/Mean-SeaLevel-GPS-TheGeoid/"/>
       <url>/2020/11/25/Mean-SeaLevel-GPS-TheGeoid/</url>
@@ -785,11 +798,11 @@
             
             <tag> tips </tag>
             
-            <tag> fun </tag>
-            
             <tag> gis </tag>
             
             <tag> website </tag>
+            
+            <tag> fun </tag>
             
         </tags>
       
