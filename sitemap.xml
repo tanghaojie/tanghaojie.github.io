@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
+    
+    <lastmod>2021-02-03T08:28:44.752Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanghaojie.github.io/2021/02/03/cesium-vue-big-model-example/</loc>
     
-    <lastmod>2021-02-03T08:13:25.338Z</lastmod>
+    <lastmod>2021-02-03T08:27:38.381Z</lastmod>
     
   </url>
   
@@ -257,13 +264,6 @@
     <loc>https://tanghaojie.github.io/2020/04/10/fast-uniapp/</loc>
     
     <lastmod>2020-05-14T03:27:23.107Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
-    
-    <lastmod>2020-05-14T03:27:23.097Z</lastmod>
     
   </url>
   
