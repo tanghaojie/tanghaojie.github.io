@@ -18,7 +18,7 @@ tags:
 
 [点击跳转](http://117.139.247.104:60001/jt-earth-cesium-example/)
 
-![首页](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/jt-cesium-vue.png)
+![首页](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/jt-cesium-vue.jpg)
 
 ---
 
