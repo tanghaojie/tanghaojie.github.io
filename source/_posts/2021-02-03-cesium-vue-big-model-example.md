@@ -1,5 +1,5 @@
 ---
-title: Cesium+Vue大型3DTile数据加载示例（约4平方公里）
+title: Cesium+Vue加载大型场景和大量3DTile数据示例
 top: false
 cover: false
 toc: false
@@ -16,7 +16,9 @@ categories:
 tags:
 ---
 
-[点击跳转](http://117.139.247.104:60001/cesium-vue-big-model-example/)
+[点击跳转](http://117.139.247.104:60001/jt-earth-cesium-example/)
+
+![首页](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/jt-cesium-vue.png)
 
 ---
 
