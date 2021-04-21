@@ -4,20 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="DJI大疆PPK后差分处理文件导入像控预处理, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="
-      
-        影像文件名前缀
-        
-      
-      
-        选择大疆PPK原始文件[result.csv]
-        
-      
-  
-
-  
-      function han">
+    <meta name="keywords" content="3D Tiles格式规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
+    <meta name="description" content="写在前面经常用到 3D Tiles 的数据，每次查标准的时候只有去看英文原版标准，对于我这个英渣来说太费时间了，还是看中文速度最快~故准备写个标准博客，留着查询使用。有异意或者不对的地方，可以去官网对比查看，确保准确。官网文档地址：http">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>DJI大疆PPK后差分处理文件导入像控预处理 | 桀士</title>
+    <title>3D Tiles格式规范 | 桀士</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -298,13 +286,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        DJI大疆PPK后差分处理文件导入像控预处理
+                        3D Tiles格式规范
                     </div>
                 </div>
             </div>
@@ -314,10 +302,99 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #703838;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #222020;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #222020;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -337,21 +414,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-22
+                    2021-04-21
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        360
+                        190
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -367,104 +444,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div class="container">
-      <div class="prefix">
-        <p>影像文件名前缀</p>
-        <input id="prefix" name="prefix" type="text">
-      </div>
-      <div class="file">
-        <p>选择大疆PPK原始文件[result.csv]</p>
-        <input accept=".csv" id="contained" name="csvfile" type="file">
-      </div>
-  </div>
-
-  <script>
-      function handleUpload(e) {
-        var file = e.target.files[0]
-        fileReader.readAsText(file)
-      }
-
-      function handleCsv(csv) {
-        let lines = csv.split(/[\n]/)
-        let count = lines.length
-        let output = []
-        let prefix = document.querySelector('#prefix').value
-
-        for (let i = 1; i < count; i++) {
-          let line = lines[i]
-          if (line === '' || line === null || line === undefined) {
-            break
-          }
-          let datas = line.split(',')
-          let id = datas[0]
-          let latitude = datas[3]
-          let longitude = datas[4]
-          let height = datas[5]
-          let Q = datas[9]
-          if (Q !== '50') {
-            alert('Some data not fixed!')
-          }
-          output.push(id)
-          output.push(',')
-          output.push(latitude)
-          output.push(',')
-          output.push(longitude)
-          output.push(',')
-          output.push(height)
-          output.push(',')
-          output.push(prefix)
-          output.push(id.padStart(4, '0'))
-          output.push('.JPG')
-          output.push('\r\n')
-        }
-        return output.join('')
-      }
-
-      function saveFile(data, filename) {
-        var file = new Blob([data])
-        console.log(file)
-        if (window.navigator.msSaveOrOpenBlob) {
-          // IE10+
-          window.navigator.msSaveOrOpenBlob(file, filename)
-        } else {
-          // Others
-          var a = document.createElement('a'),
-            url = URL.createObjectURL(file)
-          a.href = url
-          a.download = filename
-          document.body.appendChild(a)
-          a.click()
-          setTimeout(function () {
-            document.body.removeChild(a)
-            window.URL.revokeObjectURL(url)
-          }, 0)
-        }
-      }
-
-      let fileReader = new FileReader()
-      fileReader.onload = function () {
-        let result = this.result
-        let newCsv = handleCsv(result)
-
-        let nowDate = new Date()
-        let year = nowDate.getFullYear()
-        let month = (nowDate.getMonth() + 1).toString().padStart(2, '0')
-        let day = nowDate.getDate().toString().padStart(2, '0')
-        let dateStr = year + '-' + month + '-' + day
-
-        saveFile(newCsv, 'result_JTEdited' + dateStr + '.csv')
-      }
-
-      let contained = document.querySelector('#contained')
-      contained.addEventListener('change', handleUpload)
-  </script>
-
-
-
-
-<p>显示效果不好，点击下面打开单独的网页</p>
-<p><a href="/html/ppk/">独立网页的版本</a></p>
-<hr>
+                <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>经常用到 3D Tiles 的数据，每次查标准的时候只有去看英文原版标准，对于我这个英渣来说太费时间了，还是看中文速度最快~故准备写个标准博客，留着查询使用。<br>有异意或者不对的地方，可以去官网对比查看，确保准确。<br>官网文档地址：<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification" target="_blank" rel="noopener">https://github.com/CesiumGS/3d-tiles/tree/master/specification</a></p>
+<h2 id="title2"><a href="#title2" class="headerlink" title="title2"></a>title2</h2><hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 <script>
@@ -643,9 +624,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《DJI大疆PPK后差分处理文件导入像控预处理》
+                    《3D Tiles格式规范》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/09/22/dji-ppk-file-process/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/04/21/3d-tiles-specification/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -685,29 +666,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/09/29/camera-calibrate/">
+                <a href="/2021/04/21/3d-tiles-specification/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="相机内参和畸变校正参数说明">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="3D Tiles格式规范">
                         
-                        <span class="card-title">相机内参和畸变校正参数说明</span>
+                        <span class="card-title">3D Tiles格式规范</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            以大疆Phantom4RTK为例，以记事本方式打开任意一张照片，搜索DewarpData，可以看到校正参数：drone-dji:DewarpData=" 2020-05-13;3714.070000000000,3707.070000000
+                            写在前面经常用到 3D Tiles 的数据，每次查标准的时候只有去看英文原版标准，对于我这个英渣来说太费时间了，还是看中文速度最快~故准备写个标准博客，留着查询使用。有异意或者不对的地方，可以去官网对比查看，确保准确。官网文档地址：http
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -716,6 +698,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -726,27 +709,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/22/qgis-shp2kml-py/">
+                <a href="/2021/02/03/cesium-vue-big-model-example/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="QGIS将文件夹中的所有Esri Shape转换为KML文件的python处理代码">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Cesium+Vue加载大型场景和大量3DTile数据示例">
                         
-                        <span class="card-title">QGIS将文件夹中的所有Esri Shape转换为KML文件的python处理代码</span>
+                        <span class="card-title">Cesium+Vue加载大型场景和大量3DTile数据示例</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            import os
-dir = r'C:\Users\YourFolderPathContainShapefile'
-toDir = r'C:\Users\YourFolderPathKMLWillOutput'
-crs = QgsCoor
+                            点击跳转
+
+
+版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+
+
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-03
                             </span>
                         <span class="publish-author">
                             
@@ -766,6 +753,99 @@ crs = QgsCoor
 
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
     
 
 </main>
