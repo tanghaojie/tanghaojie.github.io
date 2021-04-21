@@ -483,7 +483,7 @@
 <p>内容引用了一组要素，例如表示建筑物/树木的 3D 模型或点云中的点。每个要素的位置和外观属性都存储在瓦片(Tile)的要素表(Feature Table)中，额外附加或应用特定（additional application-specific）的属性存储在批处理表(Batch Table)中。客户端可以在运行时选择要素，并获取其属性以进行可视化或分析。</p>
 <p>批处理 3D 模型(Batched 3D Model)和实例 3D 模型(Instanced 3D Model)格式基于 glTF 构建，glTF 是一个为高效传输 3D 内容而设计的开放规范。这些格式的瓦片内容嵌入 glTF 资源的二进制主体中，其中包含模型几何和纹理信息。点云格式未嵌入 glTF。</p>
 <p>瓦片(Tile)以树形结构组织，其中结合了详细层次结构（HLOD：Hierarchical Level of Detail）的概念，以实现空间数据的最佳渲染呈现。每个图块都有一个边界体（bounding volume），即一个对象，该对象定义了一个完全包围其内容的空间范围。树具有空间连贯性; 子瓦片的内容完整的包含在父级的边界体之内。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tree.jpg" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tree.png" alt=""></p>
 <p>切片集可以使用类似于栅格和矢量切片（如 Web 地图切片服务（WMTS）或 XYZ 方案）的 2D 空间切片方案，该二维空间切片方案以多级别（LOD）（或缩放级别）提供预定义的切片。但是，由于切片集的内容通常是不一致的，很难仅在二维上组织，因此树可以是具有空间一致性的任何空间数据结构，包括 k-d 树，四叉树，八叉树和网格。</p>
 <p>可选地，可以将 3D Tiles 样式或 style 应用于 tileset。样式由表达式来定义其中的每一个要素显示方式。</p>
 <h2 id="文件扩展名和-MIME-类型"><a href="#文件扩展名和-MIME-类型" class="headerlink" title="文件扩展名和 MIME 类型"></a>文件扩展名和 MIME 类型</h2><p>3D Tiles 使用以下文件扩展名和 MIME 类型。</p>
