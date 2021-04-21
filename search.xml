@@ -4,11 +4,24 @@
   
     
     <entry>
-      <title>Cesium+Vue大型3DTile数据加载示例（约4平方公里）</title>
+      <title>3D Tiles格式规范</title>
+      <link href="/2021/04/21/3d-tiles-specification/"/>
+      <url>/2021/04/21/3d-tiles-specification/</url>
+      
+        <content type="html"><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>经常用到 3D Tiles 的数据，每次查标准的时候只有去看英文原版标准，对于我这个英渣来说太费时间了，还是看中文速度最快~故准备写个标准博客，留着查询使用。<br>有异意或者不对的地方，可以去官网对比查看，确保准确。<br>官网文档地址：<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification" target="_blank" rel="noopener">https://github.com/CesiumGS/3d-tiles/tree/master/specification</a></p><h2 id="title2"><a href="#title2" class="headerlink" title="title2"></a>title2</h2><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cesium+Vue加载大型场景和大量3DTile数据示例</title>
       <link href="/2021/02/03/cesium-vue-big-model-example/"/>
       <url>/2021/02/03/cesium-vue-big-model-example/</url>
       
-        <content type="html"><![CDATA[<p><a href="http://117.139.247.104:60001/cesium-vue-big-model-example/" target="_blank" rel="noopener">点击跳转</a></p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<p><a href="http://117.139.247.104:60001/jt-earth-cesium-example/" target="_blank" rel="noopener">点击跳转</a></p><p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/jt-cesium-vue.png" alt="首页"></p><hr><p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p><hr><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       
