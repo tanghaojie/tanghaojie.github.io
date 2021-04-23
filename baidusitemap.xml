@@ -2,7 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tanghaojie.github.io/2021/04/21/3d-tiles-specification/</loc>
-    <lastmod>2021-04-22</lastmod>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-styling-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batched-3d-model-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-instanced-3d-model-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-point-cloud-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batch-table-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2020/04/01/provincial-boundary/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2019/12/12/entityframeworkcorewithpostgis/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2019/10/12/gisstandard/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2019/10/12/gisForFunWebsites/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2019/10/12/gisdatawebsites/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/glTF-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/artical-a-target-default/</loc>
+    <lastmod>2021-04-23</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2021/02/03/cesium-vue-big-model-example/</loc>
     <lastmod>2021-04-21</lastmod>
@@ -52,19 +94,7 @@
     <loc>https://tanghaojie.github.io/2020/08/14/gsd-calculator/</loc>
     <lastmod>2020-08-14</lastmod>
   </url>  <url>
-    <loc>https://tanghaojie.github.io/2019/10/12/gisdatawebsites/</loc>
-    <lastmod>2020-08-14</lastmod>
-  </url>  <url>
-    <loc>https://tanghaojie.github.io/2019/10/12/gisForFunWebsites/</loc>
-    <lastmod>2020-08-14</lastmod>
-  </url>  <url>
-    <loc>https://tanghaojie.github.io/2019/10/12/gisstandard/</loc>
-    <lastmod>2020-08-14</lastmod>
-  </url>  <url>
     <loc>https://tanghaojie.github.io/2019/10/12/website/</loc>
-    <lastmod>2020-08-14</lastmod>
-  </url>  <url>
-    <loc>https://tanghaojie.github.io/2019/12/12/entityframeworkcorewithpostgis/</loc>
     <lastmod>2020-08-14</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/03/12/vueVideo/</loc>
@@ -80,9 +110,6 @@
     <lastmod>2020-08-14</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
-    <lastmod>2020-08-14</lastmod>
-  </url>  <url>
-    <loc>https://tanghaojie.github.io/2020/04/01/provincial-boundary/</loc>
     <lastmod>2020-08-14</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2020/08/12/post/</loc>
