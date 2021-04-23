@@ -13,9 +13,9 @@ password:
 summary:
 categories:
  - C#
- - gis
+ - GIS
 tags:
- - gis
+ - GIS
  - entityframework
  - .net core
  - postgis

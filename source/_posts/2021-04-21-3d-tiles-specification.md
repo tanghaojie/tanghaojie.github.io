@@ -1,7 +1,7 @@
 ---
-title: 3D Tiles格式规范
+title: 3D Tiles数据格式标准规范
 top: false
-cover: false
+cover: true
 toc: true
 mathjax: false
 comment: true
@@ -13,8 +13,58 @@ coverImg:
 password:
 summary:
 categories:
+  - 3D Tiles
 tags:
+  - 3D Tiles
 ---
+
+## 导航
+
+- <a href="#写在前面" class="self">写在前面</a>
+- <a href="#引子glTF" class="self">引子 glTF</a>
+- <a href="#简介" class="self">简介</a>
+- <a href="#文件扩展名和MIME类型" class="self">文件扩展名和 MIME 类型</a>
+- <a href="#JSON编码" class="self">JSON 编码</a>
+- <a href="#URIs" class="self">URIs</a>
+- <a href="#单位" class="self">单位</a>
+- <a href="#坐标参考系统（CRS）" class="self">坐标参考系统（CRS）</a>
+
+- <a href="#概念" class="self">概念</a>
+
+  - <a href="#Tiles" class="self">Tiles</a>
+
+    - <a href="#几何误差（Geometric error）" class="self">几何误差（Geometric error）</a>
+    - <a href="#细化/优化（Refinement）" class="self">细化/优化（Refinement）</a>
+    - <a href="#边界盒/边界体（Boundingvolumes）" class="self">边界盒/边界体（Bounding Volumes）</a>
+      - <a href="#边界盒（Box）" class="self">边界盒（Box）</a>
+      - <a href="#边界球（Sphere）" class="self">边界球（Sphere）</a>
+      - <a href="#边界区（Region）" class="self">边界区（Region）</a>
+    - <a href="#观察请求盒/体（Viewerrequestvolume）" class="self">观察请求盒/体（Viewer Request Volume）</a>
+    - <a href="#变换（Transforms）" class="self">变换（Transforms）</a>
+      - <a href="#瓦片变换（Tiletransforms）" class="self">瓦片变换（Tile Transforms）</a>
+      - <a href="#glTF变换（glTFtransforms）" class="self">glTF 变换（glTF Transforms）</a>
+      - <a href="#实例" class="self">实例</a>
+    - <a href="#瓦片JSON" class="self">瓦片 JSON</a>
+
+  - <a href="#TilesetJSON" class="self">Tileset JSON</a>
+    - <a href="#外部数据集（Externaltilesets）" class="self">外部数据集（External Tilesets）</a>
+    - <a href="#边界体空间连续性（Boundingvolumespatialcoherence）" class="self">边界体空间连续性（Bounding volume spatial coherence）</a>
+    - <a href="#空间数据结构（Spatialdatastructures）" class="self">空间数据结构（Spatial data structures）</a>
+      - <a href="#四叉树（Quadtrees）" class="self">四叉树（Quadtrees）</a>
+      - <a href="#K-d树（K-dtrees，K维树）" class="self">K-d 树（K-dtrees，K 维树）</a>
+      - <a href="#八叉树（Octrees）" class="self">八叉树（Octrees）</a>
+      - <a href="#网格（Grids）" class="self">网格（Grids）</a>
+  - <a href="#扩展和附加功能" class="self">扩展和附加功能</a>
+    - <a href="#扩展" class="self">扩展</a>
+    - <a href="#附加功能" class="self">附加功能</a>
+
+- <a href="#瓦片格式规范" class="self">瓦片格式规范</a>
+- <a href="#声明式样式规范" class="self">声明式样式规范</a>
+- <a href="#属性参考" class="self">属性参考</a>
+
+---
+
+<a id="写在前面" name="写在前面"></a>
 
 ## 写在前面
 
@@ -22,11 +72,13 @@ tags:
 
 有疑问、异议的地方，还是建议去官网文档看原版的更加准确。
 
-3D Tiles 规范官网文档地址：[https://github.com/CesiumGS/3d-tiles/tree/master/specification](https://github.com/CesiumGS/3d-tiles/tree/master/specification)
+[3D Tiles 官网文档](https://github.com/CesiumGS/3d-tiles/tree/master/specification)
 
-写到这的时候，官网文档的版本是：_`Version 1.0, June 6th, 2018`_
+写到这的时候，官网文档的版本：_`Version 1.0, June 6th, 2018`_
 
 ---
+
+<a id="引子glTF" name="引子glTF"></a>
 
 ## 引子 glTF
 
@@ -34,51 +86,57 @@ tags:
 
 glTF (GL Transmission Format) 的创建目的，是为 3D 内容工具和服务定义了一种可扩展的通用发布格式。具体规范又是一大片文章了，这里先埋坑了，后面再补。
 
-glTF 规范官网文档地址：[https://github.com/KhronosGroup/glTF/tree/master/specification](https://github.com/KhronosGroup/glTF/tree/master/specification)
+[glTF 数据格式标准规范](/2021/04/23/glTF-specification)
 
 _注意：glTF 已经有版本分支了_
 
 ---
 
-## 介绍
+<a id="简介" name="简介"></a>
+
+## 简介
 
 3D Tiles 专为流式传输和渲染大量 3D 地理空间内容而设计，例如摄影测量、3D 建筑、BIM / CAD、要素实例和点云。它定义了分层的数据结构和一组可传递渲染内容的切片格式。3D Tiles 没有为可视化的内容明确的定义规则。客户可以视其需要可视化 3D Tiles 的数据。
 
 在 3D Tiles 中，tileset 是按空间数据结构（tree）组织的一组瓦片(Tile)。tileset 是由至少一个 tileset JSON 文件构成，包括 tileset 元数据和 瓦片(Tile) 对象树，其中每个可渲染内容对象都是以下格式之一：
 
-|                   格式                   |                                用途                                 |
-| :--------------------------------------: | :-----------------------------------------------------------------: |
-| 批处理 3D 模型 (Batched 3D Model (b3dm)) | 异构 3D 模型。例如带纹理的地形和表面，3D 建筑外部和内部，大型模型。 |
-| 实例 3D 模型 (Instanced 3D Model (i3dm)) |                 3D 模型实例。例如树木，风车，螺栓。                 |
-|        点云 (Point Cloud (pnts))         |                             大量的点。                              |
-|        复合对象 Composite (cmpt)         |                  将不同格式的图块合并为一个图块。                   |
+|                                               格式                                                |                                用途                                 |
+| :-----------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------: |
+|  [批处理 3D 模型 (Batched 3D Model (b3dm))](/2021/04/23/3d-tiles-batched-3d-model-specification)  | 异构 3D 模型。例如带纹理的地形和表面，3D 建筑外部和内部，大型模型。 |
+| [实例 3D 模型 (Instanced 3D Model (i3dm))](/2021/04/23/3d-tiles-instanced-3d-model-specification) |                 3D 模型实例。例如树木，风车，螺栓。                 |
+|            [点云 (Point Cloud (pnts))](/2021/04/23/3d-tiles-point-cloud-specification)            |                             大量的点。                              |
+|            [复合对象 (Composite (cmpt))](/2021/04/23/3d-tiles-composite-specification)            |                  将不同格式的图块合并为一个图块。                   |
 
-瓦片(Tile)（瓦片格式的一个单独实例）是一个二进制 blob，具有特定的组件格式，包括要素表(Feature Table)和批处理表(Batch Table)。
+瓦片(Tile)（瓦片格式的一个单独实例）是一个二进制 blob，具有特定的组件格式，包括[要素表(Feature Table)](/2021/04/23/3d-tiles-feature-table-specification)和[批处理表(Batch Table)](/2021/04/23/3d-tiles-batch-table-specification)。
 
 内容引用了一组要素，例如表示建筑物/树木的 3D 模型或点云中的点。每个要素的位置和外观属性都存储在瓦片(Tile)的要素表(Feature Table)中，额外附加或应用特定（additional application-specific）的属性存储在批处理表(Batch Table)中。客户端可以在运行时选择要素，并获取其属性以进行可视化或分析。
 
-批处理 3D 模型(Batched 3D Model)和实例 3D 模型(Instanced 3D Model)格式基于 glTF 构建，glTF 是一个为高效传输 3D 内容而设计的开放规范。这些格式的瓦片内容嵌入 glTF 资源的二进制主体中，其中包含模型几何和纹理信息。点云格式未嵌入 glTF。
+批处理 3D 模型(Batched 3D Model)和实例 3D 模型(Instanced 3D Model)格式基于 [glTF](/2021/04/23/glTF-specification) 构建，glTF 是一个为高效传输 3D 内容而设计的开放规范。这些格式的瓦片内容嵌入 glTF 资源的二进制主体中，其中包含模型几何和纹理信息。点云格式未嵌入 glTF。
 
-瓦片(Tile)以树形结构组织，其中结合了详细层次结构（HLOD：Hierarchical Level of Detail）的概念，以实现空间数据的最佳渲染呈现。每个图块都有一个边界盒（bounding volume），即一个对象，该对象定义了一个完全包围其内容的空间范围。树具有空间连贯性; 子瓦片的内容完整的包含在父级的边界盒之内。
+瓦片(Tile)以树形结构组织，其中结合了详细层次结构（HLOD：Hierarchical Level of Detail）的概念，以实现空间数据的最佳渲染呈现。每个图块都有一个边界盒（bounding volume），即一个对象，该对象定义了一个完全包围其内容的空间范围。树具有<a href="#边界体空间连续性（Boundingvolumespatialcoherence）" class="self">空间连贯性</a>; 子瓦片的内容完整的包含在父级的边界盒之内。
 
 ![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tree.png)
 
-切片集可以使用类似于栅格和矢量切片（如 Web 地图切片服务（WMTS）或 XYZ 方案）的 2D 空间切片方案，该二维空间切片方案以多级别（LOD）（或缩放级别）提供预定义的切片。但是，由于切片集的内容通常是不一致的，很难仅在二维上组织，因此树可以是具有空间一致性的任何空间数据结构，包括 k-d 树，四叉树，八叉树和网格。
+切片集可以使用类似于栅格和矢量切片（如 Web 地图切片服务（WMTS）或 XYZ 方案）的 2D 空间切片方案，该二维空间切片方案以多级别（LOD）（或缩放级别）提供预定义的切片。但是，由于切片集的内容通常是不一致的，很难仅在二维上组织，因此树可以是具有空间一致性的任何<a href="#空间数据结构（Spatialdatastructures）" class="self">空间数据结构</a>，包括 k-d 树，四叉树，八叉树和网格。
 
-可选地，可以将 3D Tiles 样式或 style 应用于 tileset。样式由表达式来定义其中的每一个要素显示方式。
+可选地，可以将[3D Tiles 样式](/2021/04/23/3d-tiles-styling-specification)或 style 应用于 tileset。样式由表达式来定义其中的每一个要素显示方式。
 
 ---
+
+<a id="文件扩展名和MIME类型" name="文件扩展名和MIME类型"></a>
 
 ## 文件扩展名和 MIME 类型
 
 3D Tiles 使用以下文件扩展名和 MIME 类型。
 
 - Tileset 文件使用 `.json` 扩展名和 `application/json` MIME 类型。
-- 切片内容文件使用特定于其切片格式规范的文件类型和 MIME 格式。
+- 切片内容文件使用特定于其切片格式<a href="#瓦片格式规范" class="self">规范的文件类型</a>和 MIME 格式。
 - Tileset 样式文件使用 `.json` 扩展名和 `application/json` MIME 类型。
   显式文件扩展名是可选的。有效的实现可能会忽略它，并通过其头中的 `magic` 字段标识内容的格式。
 
 ---
+
+<a id="JSON编码" name="JSON编码"></a>
 
 ## JSON 编码
 
@@ -90,6 +148,8 @@ _注意：glTF 已经有版本分支了_
 
 ---
 
+<a id="URIs" name="URIs"></a>
+
 ## URIs
 
 3D Tiles 使用 URI 来引用 tile 内容。这些 URI 可以指向相对外部引用（[RFC3986](https://tools.ietf.org/html/rfc3986#section-4.2)），也可以是将资源嵌入 JSON 的数据 URI。嵌入式资源使用“数据” URI 方案（[RFC2397](https://tools.ietf.org/html/rfc2397)）。
@@ -100,6 +160,8 @@ _注意：glTF 已经有版本分支了_
 
 ---
 
+<a id="单位" name="单位"></a>
+
 ## 单位
 
 所有线性距离的单位是米。
@@ -108,23 +170,31 @@ _注意：glTF 已经有版本分支了_
 
 ---
 
+<a id="坐标参考系统（CRS）" name="坐标参考系统（CRS）"></a>
+
 ## 坐标参考系统（CRS）
 
 3D Tiles 使用右手笛卡尔坐标系；也就是说，x 和 y 的叉积得出 z。3D Tiles 将 z 轴定义为局部笛卡尔坐标系的上方向。一个数据集的全局坐标系通常位于 [WGS 84](http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf) 以地球为中心，固定于地球（ECEF）的参考系（[EPSG 4978](http://spatialreference.org/ref/epsg/4978/)）中，但不必须如此，例如，一个发电厂可以定义在其局部坐标系内，而不使用空间数据内容，仅仅使用模型工具。
 
-可以应用额外的瓦片变换（tile transform）来将瓦片的局部坐标系变换为父瓦片的坐标系。
+可以应用额外的<a href="#变换（Transforms）" class="self">数据变换（tile transform）</a>来将瓦片的局部坐标系变换为父瓦片的坐标系。
 
-区域边界盒指定边界使用地理坐标系（纬度，经度，高度），详情 [EPSG 4979](http://spatialreference.org/ref/epsg/4979/)。
+<a href="#边界区（Region）" class="self">边界区（Region）</a>使用地理坐标系（纬度，经度，高度）指定边界，详情 [EPSG 4979](http://spatialreference.org/ref/epsg/4979/)。
 
 ---
 
+<a id="概念" name="概念"></a>
+
 ## 概念
+
+<a id="Tiles" name="Tiles"></a>
 
 ### Tiles
 
 瓦片(Tiles)由元数据组成，用于定义瓦片(tile)是否渲染，可渲染内容的引用，以及子瓦片的数组。
 
 ---
+
+<a id="几何误差（Geometric error）" name="几何误差（Geometric error）"></a>
 
 #### 几何误差（Geometric error）
 
@@ -138,9 +208,11 @@ _注意：glTF 已经有版本分支了_
 
 ---
 
+<a id="细化/优化（Refinement）" name="细化/优化（Refinement）"></a>
+
 #### 细化/优化（Refinement）
 
-优化决定了较低分辨率的父瓦片被选择渲染的子级时渲染的过程。允许的细化类型为替换（"REPLACE"）和添加（"ADD"）。如果瓦片具有“替换”的细化配置，则将渲染子瓦片代替父瓦片，即不再渲染父瓦片。如果瓦片具有“添加”的细化配置，则除了父瓦片之外，还将渲染子瓦片。
+优化决定了较低分辨率的父瓦片被选择渲染的子级时渲染的过程。允许的细化类型为`替换（"REPLACE"）`和`添加（"ADD"）`。如果瓦片具有“替换”的细化配置，则将渲染子瓦片代替父瓦片，即不再渲染父瓦片。如果瓦片具有“添加”的细化配置，则除了父瓦片之外，还将渲染子瓦片。
 
 区块集可以仅使用替换优化，仅添加改进或添加和替换优化的任意组合。
 
@@ -148,11 +220,15 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 ---
 
+<a id="边界盒/边界体（Boundingvolumes）" name="边界盒/边界体（Boundingvolumes）"></a>
+
 #### 边界盒/边界体（Bounding volumes）
 
 边界盒定义了包围图块或图块内容的空间范围。为了支持各种数据集的紧密拟合体积，例如规则划分的地形，未与纬度或经度线对齐的城市，或任意点云，边界盒类型包括有向边界框，边界球，和由最小、最大纬度，经度和高度定义的边界区。
 
 ---
+
+<a id="边界盒（Box）" name="边界盒（Box）"></a>
 
 ##### 边界盒（Box）
 
@@ -173,6 +249,8 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 ---
 
+<a id="边界球（Sphere）" name="边界球（Sphere）"></a>
+
 ##### 边界球（Sphere）
 
 `boundingVolume.sphere`属性是由 4 个数字组成的数组定义的边界球。前三个元素在右手 3 轴（x，y，z）笛卡尔坐标系中定义球体中心的 x，y 和 z 值，其中 z 轴朝上。最后一个元素（索引为 3）以米为单位定义半径。
@@ -191,6 +269,8 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 ```
 
 ---
+
+<a id="边界区（Region）" name="边界区（Region）"></a>
 
 ##### 边界区（Region）
 
@@ -212,6 +292,8 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 ```
 
 ---
+
+<a id="观察请求盒/体（Viewerrequestvolume）" name="观察请求盒/体（Viewerrequestvolume）"></a>
 
 #### 观察请求盒/体（Viewer request volume）
 
@@ -287,7 +369,11 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 ---
 
+<a id="变换（Transforms）" name="变换（Transforms）"></a>
+
 #### 变换（Transforms）
+
+<a id="瓦片变换（Tiletransforms）" name="瓦片变换（Tiletransforms）"></a>
 
 ##### 瓦片变换（Tile transforms）
 
@@ -323,9 +409,11 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 ---
 
+<a id="glTF变换（glTFtransforms）" name="glTF变换（glTFtransforms）"></a>
+
 ##### glTF 变换（glTF transforms）
 
-批处理 3D 模型（Batched 3D Model）和实例 3D 模型（Instanced 3D Model）数据嵌入在 glTF 中，glTF 有其自己的节点层次结构，并使用 y 轴朝上的坐标系。所有指定于数据（a tile format）和`tile.transform`属性的转换都会被应用。
+[批处理 3D 模型（Batched 3D Model）](/2021/04/23/3d-tiles-batched-3d-model-specification)和[实例 3D 模型（Instanced 3D Model）](/2021/04/23/3d-tiles-instanced-3d-model-specification) 数据嵌入在 glTF 中，glTF 有其自己的节点层次结构，并使用 y 轴朝上的坐标系。所有指定于数据（a tile format）和`tile.transform`属性的转换都会被应用。
 
 ---
 
@@ -375,6 +463,8 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 ---
 
+<a id="实例" name="实例"></a>
+
 ##### 实例
 
 为数据集计算变换的例子：
@@ -404,6 +494,8 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 - `T4`: `[T0][T1][T4][i3dm-specific transform, including per-instance transform, coordinate system transform, and glTF node hierarchy]`
 
 ---
+
+<a id="瓦片JSON" name="瓦片JSON"></a>
 
 #### 瓦片 JSON
 
@@ -444,19 +536,19 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 }
 ```
 
-`boundingVolume`定义瓦片的封闭体，并且被用来确定哪些瓦片在运行时进行渲染。上面的示例使用一个`region`边界体，也可以使用其他边界体，例如`box`或`sphere`。
+`boundingVolume`定义瓦片的封闭体，并且被用来确定哪些瓦片在运行时进行渲染。上面的示例使用一个`region`边界体，也可以使用<a href="#边界盒/边界体（Boundingvolumes）" class="self">其他边界体</a>，例如`box`或`sphere`。
 
-`geometricError`属性是一个非负数，用于定义误差（以米为单位），用来决定渲染此瓦片但不渲染其子瓦片。在运行时，几何误差用于计算屏幕空间误差（SSE），即以像素为单位的误差。SSE 确定某个瓦片是否对于当前视图足够详细，或者是否应考虑渲染其子视图。
+`geometricError`属性是一个非负数，用于定义误差（以米为单位），用来决定渲染此瓦片但不渲染其子瓦片。在运行时，几何误差用于计算屏幕空间误差（SSE），即以像素为单位的误差。SSE 确定某个瓦片是否对于当前视图足够详细，或者是否应考虑渲染其子视图。详见<a href="#几何误差（Geometric error）" class="self">几何误差</a>。
 
-可选`viewerRequestVolume`属性（上面未显示）使用与`boundingVolume`配置参数，在执行瓦片内容的请求前，观察者位于`viewerRequestVolume`内，并且`viewerRequestVolume`优先于`geometricError`。
+可选`viewerRequestVolume`属性（上面未显示）使用与`boundingVolume`配置参数，在执行瓦片内容的请求前，观察者位于`viewerRequestVolume`内，并且`viewerRequestVolume`优先于`geometricError`。详见<a href="#观察请求盒/体（Viewerrequestvolume）" class="self">观察请求盒/体</a>。
 
-`refine` 属性是一个字符串，用`"REPLACE"`或`"ADD"`。数据集（tileset）的根图块需要设置；对于其他瓦片，它是可选的。数据集可以使用`添加`和`替换`的任意组合。`refine` 省略该属性时，从父瓦片继承的。
+`refine` 属性是一个字符串，用`"REPLACE"`或`"ADD"`。数据集（tileset）的根图块需要设置；对于其他瓦片，它是可选的。数据集可以使用`添加`和`替换`的任意组合。`refine` 省略该属性时，从父瓦片继承的。详见<a href="#细化/优化（Refinement）" class="self">细化/优化</a>。
 
-`content` 属性是一个对象，其中包含有关瓦片渲染内容的元数据。 `content.uri` 是一个 uri，指向瓦片的二进制内容，或另一个数据集 JSON 以创建数据集(tileset)的数据集(tileset)（外部数据集）。
+`content` 属性是一个对象，其中包含有关瓦片渲染内容的元数据。 `content.uri` 是一个 uri，指向瓦片的二进制内容（<a href="#瓦片格式规范" class="self">规范的文件类型</a>），或另一个数据集 JSON 以创建数据集(tileset)的数据集(tileset)（<a href="#外部数据集（Externaltilesets）" class="self">外部数据集</a>）。
 
 `content.uri`中的文件扩展名不是必须的。瓦片内容格式由文件头中的`magic`字段指定，或者为 JSON，将其指定为外部数据集。
 
-`content.boundingVolume`属性定义一个可选的边界体积，类似于顶级的`boundingVolume`属性。但是与顶级`boundingVolume`属性不同，`content.boundingVolume`是一个包裹瓦片内容的紧密封闭的包围体。`boundingVolume`提供空间连续性，`content.boundingVolume`实现严格地视图视锥剔除（view frustum culling），排除可能不在视域范围内的内容。如果未定义，则瓦片的边界体仍用于剔除（请参见 Grids）。
+`content.boundingVolume`属性定义一个可选的<a href="#边界盒/边界体（Boundingvolumes）" class="self">边界体</a>，类似于顶级的`boundingVolume`属性。但是与顶级`boundingVolume`属性不同，`content.boundingVolume`是一个包裹瓦片内容的紧密封闭的包围体。`boundingVolume`提供空间连续性，`content.boundingVolume`实现严格地视图视锥剔除（view frustum culling），排除可能不在视域范围内的内容。如果未定义，则瓦片的边界体仍用于剔除（请参见<a href="#网格（Grids）" class="self">网格</a>）。
 
 下面的截图显示了 Canary Wharf 的根图块的边界体积。 `boundingVolume` 以红色显示，将整个区域的数据集包围起来；`content.boundingVolume` 以蓝色显示，仅将根图块中的四个要素（模型）封闭起来。
 
@@ -464,7 +556,7 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 可选的 `transform` 属性（上面列出）定义 4×4 的仿射变换矩阵，该矩阵变换瓦片的 `content`，`boundingVolume` 和 `viewerRequestVolume`。
 
-`children`属性是定义一组子瓦片的对象数组。每个子瓦片的内容都被其父瓦片的`boundingVolume `完全包围，通常 `geometricError` 小于其父级的 `geometricError`。对于叶瓦片，此数组的长度为零，children 可以不定义。请参阅下面的 Tileset JSON 部分。
+`children`属性是定义一组子瓦片的对象数组。每个子瓦片的内容都被其父瓦片的`boundingVolume `完全包围，通常 `geometricError` 小于其父级的 `geometricError`。对于叶瓦片，此数组的长度为零，children 可以不定义。请参阅下面的<a href="#TilesetJSON" class="self">Tileset JSON</a>部分。
 
 完整的 json 定义
 
@@ -547,6 +639,8 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 ---
 
+<a id="TilesetJSON" name="TilesetJSON"></a>
+
 ### Tileset JSON
 
 3D Tiles 使用一个主 tileset JSON 文件作为定义数据集（Tileset）的入口。入口和外部 tileset JSON 文件都不需要遵循任何命名规则。
@@ -601,13 +695,15 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 `asset` 是一个包含有关整个数据集的元数据对象。`asset.version` 属性是一个定义 3D Tiles 版本的字符串，指定 tilset 的 JSON 模式和基本的 tile 格式。 `tilesetVersion` 属性是一个可选字符串，用于定义特定应用程序的 tileset 版本，例如，表示 tilset 是否被更新。
 
-`properties` 是一个对象，包含数据集中每个要素属性。这个 tileet JSON 代码段适用于 3D 建筑物，因此每个瓦片均具有建筑物模型，并且每个建筑物模型均具有 Height 属性（详见 Batch Table）。`properties`中的名称与每个要素的属性名称匹配，其定义 minimum 和 maximum 的数字值，这些值对于创建样式色带非常有用。
+`properties` 是一个对象，包含数据集中每个要素属性。这个 tileet JSON 代码段适用于 3D 建筑物，因此每个瓦片均具有建筑物模型，并且每个建筑物模型均具有 Height 属性（详见[批处理表(Batch Table)](/2021/04/23/3d-tiles-batch-table-specification)）。`properties`中的名称与每个要素的属性名称匹配，其定义 minimum 和 maximum 的数字值，这些值对于创建样式色带非常有用。
 
-`geometricError` 是一个非负数，用于定义误差（以米为单位），该值确定是否渲染图块。在运行时，几何误差用于计算屏幕空间误差（SSE），即以像素为单位的误差。如果 SSE 不超过所需的最小值，则不会渲染数据集，并且不会对其瓦片进行渲染。
+`geometricError` 是一个非负数，用于定义误差（以米为单位），该值确定是否渲染图块。在运行时，几何误差用于计算屏幕空间误差（SSE），即以像素为单位的误差。如果 SSE 不超过所需的最小值，则不会渲染数据集，并且不会对其瓦片进行渲染。详见<a href="#几何误差（Geometric error）" class="self">几何误差（Geometric error）</a>。
 
 `root` 是一个使用上一节中描述的瓦片 JSON 定义根图块的对象。`root.geometricError`与 tilset 顶级的`geometricError`不同。`geometricError`在运行时根据 SSE 决定根瓦片是否渲染;`root.geometricError`在运行时根据 SSE 决定根瓦片的子集是否渲染。
 
 ---
+
+<a id="外部数据集（Externaltilesets）" name="外部数据集（Externaltilesets）"></a>
 
 #### 外部数据集（External tilesets）
 
@@ -625,6 +721,8 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 ---
 
+<a id="边界体空间连续性（Boundingvolumespatialcoherence）" name="边界体空间连续性（Boundingvolumespatialcoherence）"></a>
+
 #### 边界体空间连续性（Bounding volume spatial coherence）
 
 如上所述，树具有空间连贯性。每个瓦片都有一个完全包围其内容的边界体，子瓦片的内容完全位于父级的边界体之内。但这并不意味着子级的边界体完全在其父级的边界体之内。例如：
@@ -635,17 +733,21 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 ---
 
+<a id="空间数据结构（Spatialdatastructures）" name="空间数据结构（Spatialdatastructures）"></a>
+
 #### 空间数据结构（Spatial data structures）
 
 3D Tiles 结合了详细层次结构（HLOD）的概念，以实现空间数据的最佳呈现。数据集由树结构组成，由`root`定义，并递归其`children`瓦片组成，并可以按不同类型的空间数据结构进行组织。
 
-运行时引擎是通用的，可以渲染 tilset 定义的任何树。任意组合的瓦片格式和优化（refinement）方法组合都可以使用，从而可以灵活地支持异构数据集。
+运行时引擎是通用的，可以渲染 tilset 定义的任何树。任意组合的瓦片格式和优化（refinement）方法组合都可以使用，从而可以灵活地支持异构数据集。详见<a href="#细化/优化（Refinement）" class="self">细化/优化（Refinement）</a>。
 
 数据集可以使用类似于栅格和矢量切片方案的 2D 空间切片方案（例如 Web 地图切片服务（WMTS）或 XYZ 方案），该二维空间切片方案以多级别（LOD）（或缩放级别）提供预定义的切片。但是，由于数据集的内容通常是不一致的，或者可能不容易仅在二维上组织，因此其他空间数据结构可能更理想。
 
 下面包括对 3D Tiles 如何表示各种空间数据结构的简要说明。
 
 ---
+
+<a id="四叉树（Quadtrees）" name="四叉树（Quadtrees）"></a>
 
 ##### 四叉树（Quadtrees）
 
@@ -663,6 +765,8 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 ---
 
+<a id="K-d树（K-dtrees，K维树）" name="K-d树（K-dtrees，K维树）"></a>
+
 ##### K-d 树（K-d trees，K 维树）
 
 当瓦片具有两个由平行于 x，y 或 z 轴（或纬度，经度，高度）的分割面分隔的子代时，会创建 kd 树。随着树级别的递增，拆分轴通常是循环旋转的（可以参考平衡 K-d 树理解），可以选择中位数，表面积启发法（surface area heuristics）或其他方法来选择拆分平面。
@@ -675,15 +779,19 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 ---
 
+<a id="八叉树（Octrees）" name="八叉树（Octrees）"></a>
+
 ##### 八叉树（Octrees）
 
 八叉树通过扩展四叉树使用三个正交拆分平面将图块细分为八个子级。像四叉树一样，3D Tiles 允许对八叉树变体，例如不均匀的细分，非紧密的边界体和重叠的子代。
 
 ![传统八叉树细分](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/octree.png)
 
-![使用添加模式优化（additive refinement）](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/pointcloud-octree.png)
+![使用添加模式优化（additive refinement）](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/pointcloud-octree.jpg)
 
 ---
+
+<a id="网格（Grids）" name="网格（Grids）"></a>
 
 ##### 网格（Grids）
 
@@ -695,12 +803,16 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 ---
 
+<a id="扩展和附加功能" name="扩展和附加功能"></a>
+
 ### 扩展和附加功能
 
 （Specifying extensions and application specific extras）
 3D Tiles 定义了扩展，以允许新功能扩展基本规范，包括附加应用程序特定元数据。
 
 ---
+
+<a id="扩展" name="扩展"></a>
 
 #### 扩展
 
@@ -753,6 +865,8 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 ---
 
+<a id="附加功能" name="附加功能"></a>
+
 #### 附加功能
 
 `extras`属性允许将特定于应用程序的元数据添加到任何 3D Tiles JSON 对象。以下示例显示了一个具有附加应用程序特定名称属性的 tile 对象。
@@ -792,20 +906,24 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 ---
 
+<a id="瓦片格式规范" name="瓦片格式规范"></a>
+
 ## 瓦片格式规范
 
 每个瓦片的`content.uri`属性可以是 uri 二进制 blob，其中包含用于渲染瓦片的 3D 内容的信息。内容是下表中列出的一种格式的实例。
 
-|                   格式                   |                                用途                                 |
-| :--------------------------------------: | :-----------------------------------------------------------------: |
-| 批处理 3D 模型 (Batched 3D Model (b3dm)) | 异构 3D 模型。例如带纹理的地形和表面，3D 建筑外部和内部，大型模型。 |
-| 实例 3D 模型 (Instanced 3D Model (i3dm)) |                 3D 模型实例。例如树木，风车，螺栓。                 |
-|        点云 (Point Cloud (pnts))         |                             大量的点。                              |
-|        复合对象 Composite (cmpt)         |                  将不同格式的图块合并为一个图块。                   |
+|                                               格式                                                |                                用途                                 |
+| :-----------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------: |
+|  [批处理 3D 模型 (Batched 3D Model (b3dm))](/2021/04/23/3d-tiles-batched-3d-model-specification)  | 异构 3D 模型。例如带纹理的地形和表面，3D 建筑外部和内部，大型模型。 |
+| [实例 3D 模型 (Instanced 3D Model (i3dm))](/2021/04/23/3d-tiles-instanced-3d-model-specification) |                 3D 模型实例。例如树木，风车，螺栓。                 |
+|            [点云 (Point Cloud (pnts))](/2021/04/23/3d-tiles-point-cloud-specification)            |                             大量的点。                              |
+|            [复合对象 (Composite (cmpt))](/2021/04/23/3d-tiles-composite-specification)            |                  将不同格式的图块合并为一个图块。                   |
 
 tilset 可以包含 tile 格式的任意组合。3D Tiles 还支持不同格式在一个 Composite 瓦片中的组合。
 
 ---
+
+<a id="声明式样式规范" name="声明式样式规范"></a>
 
 ## 声明式样式规范
 
@@ -821,22 +939,27 @@ tilset 可以包含 tile 格式的任意组合。3D Tiles 还支持不同格式�
 }
 ```
 
+更多内容，详见[3D Tiles 样式](/2021/04/23/3d-tiles-styling-specification)规范。
+
 ---
+
+<a id="属性参考" name="属性参考"></a>
 
 ## 属性参考
 
-- [`Tileset`](#reference-tileset)
-  - [`Asset`](#reference-asset)
-  - [`Bounding Volume`](#reference-bounding-volume)
-  - [`Extension`](#reference-extension)
-  - [`Extras`](#reference-extras)
-  - [`Properties`](#reference-properties)
-  - [`Tile`](#reference-tile)
-    - [`Content`](#reference-tile-content)
+- <a href="#reference-tileset" class="self">`Tileset`</a>
+
+  - <a href="#reference-asset" class="self">`Asset`</a>
+  - <a href="#reference-bounding-volume" class="self">`Bounding Volume`</a>
+  - <a href="#reference-extension" class="self">`Extension`</a>
+  - <a href="#reference-extras" class="self">`Extras`</a>
+  - <a href="#reference-properties" class="self">`Properties`</a>
+  - <a href="#reference-tile" class="self">`Tile`</a>
+    - <a href="#reference-tile-content" class="self">`Content`</a>
 
 ---
 
-<a name="reference-tileset" target="_self"></a>
+<a id="reference-tileset" name="reference-tileset"></a>
 
 ### Tileset
 
@@ -859,7 +982,7 @@ tilset 可以包含 tile 格式的任意组合。3D Tiles 还支持不同格式�
 
 ---
 
-<span name="reference-asset"></span>
+<a id="reference-asset" name="reference-asset"></a>
 
 ### Asset
 
@@ -878,7 +1001,7 @@ tilset 可以包含 tile 格式的任意组合。3D Tiles 还支持不同格式�
 
 ---
 
-<span name="reference-bounding-volume"></span>
+<a id="reference-bounding-volume" name="reference-bounding-volume"></a>
 
 ### Bounding Volume
 
@@ -898,7 +1021,7 @@ tilset 可以包含 tile 格式的任意组合。3D Tiles 还支持不同格式�
 
 ---
 
-<span name="reference-extension"></span>
+<a id="reference-extension" name="reference-extension"></a>
 
 ### Extension
 
@@ -910,7 +1033,7 @@ tilset 可以包含 tile 格式的任意组合。3D Tiles 还支持不同格式�
 
 ---
 
-<span name="reference-extras"></span>
+<a id="reference-extras" name="reference-extras"></a>
 
 ### Extras
 
@@ -928,7 +1051,7 @@ JSON 样式：
 
 ---
 
-<span name="reference-properties"></span>
+<a id="reference-properties" name="reference-properties"></a>
 
 ### Properties
 
@@ -947,7 +1070,7 @@ JSON 样式：
 
 ---
 
-<span name="reference-tile"></span>
+<a id="reference-tile" name="reference-tile"></a>
 
 ### Tile
 
@@ -969,7 +1092,7 @@ JSON 样式：
 
 ---
 
-<span name="reference-tile-content"></span>
+<a id="reference-tile-content" name="reference-tile-content"></a>
 
 ### Tile Content
 

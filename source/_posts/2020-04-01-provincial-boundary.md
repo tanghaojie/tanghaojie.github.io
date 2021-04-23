@@ -13,9 +13,9 @@ coverImg:
 password:
 summary:
 categories:
- - gis
+ - GIS
 tags:
- - gis
+ - GIS
 ---
 如果大段以河道（或其他水体）为省界的，全部以实线标注会影响河流水体的连续呈现时，则用断续线表示。
 如晋陕、晋豫黄河省界段，川藏、川滇（东段）长江省界段。

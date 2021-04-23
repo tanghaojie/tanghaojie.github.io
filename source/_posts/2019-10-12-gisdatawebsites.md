@@ -12,13 +12,13 @@ coverImg:
 password:
 summary: 涉密的原因，很多地理数据其实不能拿来直接用，收集一些免费的地理数据供应网站。
 categories:
- - gis
+ - GIS
  - tips
  - website
  - data
 tags:
  - tips
- - gis
+ - GIS
  - website
  - data
 ---

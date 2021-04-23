@@ -12,13 +12,13 @@ coverImg:
 password:
 summary: 日常收集的一些GIS相关的网站
 categories:
- - gis
+ - GIS
  - tips
  - website
 tags:
  - tips
  - fun
- - gis
+ - GIS
  - website
 ---
 

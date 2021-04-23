@@ -12,12 +12,12 @@ coverImg:
 password:
 summary: 地理信息标准的收录
 categories:
- - gis
+ - GIS
  - tips
  - website
 tags:
  - tips
- - gis
+ - GIS
  - website
 ---
 
