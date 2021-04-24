@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="3D Tiles数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="导航
@@ -50,6 +50,8 @@ Tiles
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -456,7 +458,7 @@ Tiles
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        9.4k
+                        9.3k
                     </div>
                     
 
@@ -550,8 +552,8 @@ Tiles
 <p><a id="写在前面" name="写在前面"></a></p>
 <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>经常要用 3D Tiles 数据格式，官方文档只有英文的版本，看官网文档对于我这个英渣来说太慢太费时了，还是中文看着最顺眼。故准备翻译归纳总结一个中文版的 3D Tiles 数据格式规范，留着以后查询使用。</p>
 <p>有疑问、异议的地方，还是建议去官网文档看原版的更加准确。</p>
-<p><a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification" target="_blank" rel="noopener">3D Tiles 官网文档</a></p>
-<p>写到这的时候，官网文档的版本：<em><code>Version 1.0, June 6th, 2018</code></em></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification">3D Tiles 官网文档</a></p>
+<p>写到这的时候，官网文档的版本：_<code>Version 1.0, June 6th, 2018</code>_</p>
 <hr>
 <p><a id="引子glTF" name="引子glTF"></a></p>
 <h2 id="引子-glTF"><a href="#引子-glTF" class="headerlink" title="引子 glTF"></a>引子 glTF</h2><p>3D Tiles 规范重点在于解决三维模型 Tile（瓦片、切片）的问题，实际模型是基于 glTF 来构建的，所以了解 3D Tiles 就要先了解 glTF。</p>
@@ -590,7 +592,7 @@ Tiles
 <p>内容引用了一组要素，例如表示建筑物/树木的 3D 模型或点云中的点。每个要素的位置和外观属性都存储在瓦片(Tile)的要素表(Feature Table)中，额外附加或应用特定（additional application-specific）的属性存储在批处理表(Batch Table)中。客户端可以在运行时选择要素，并获取其属性以进行可视化或分析。</p>
 <p>批处理 3D 模型(Batched 3D Model)和实例 3D 模型(Instanced 3D Model)格式基于 <a href="/2021/04/23/glTF-specification">glTF</a> 构建，glTF 是一个为高效传输 3D 内容而设计的开放规范。这些格式的瓦片内容嵌入 glTF 资源的二进制主体中，其中包含模型几何和纹理信息。点云格式未嵌入 glTF。</p>
 <p>瓦片(Tile)以树形结构组织，其中结合了详细层次结构（HLOD：Hierarchical Level of Detail）的概念，以实现空间数据的最佳渲染呈现。每个图块都有一个边界盒（bounding volume），即一个对象，该对象定义了一个完全包围其内容的空间范围。树具有<a href="#边界体空间连续性（Boundingvolumespatialcoherence）" class="self">空间连贯性</a>; 子瓦片的内容完整的包含在父级的边界盒之内。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tree.png" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tree.png"></p>
 <p>切片集可以使用类似于栅格和矢量切片（如 Web 地图切片服务（WMTS）或 XYZ 方案）的 2D 空间切片方案，该二维空间切片方案以多级别（LOD）（或缩放级别）提供预定义的切片。但是，由于切片集的内容通常是不一致的，很难仅在二维上组织，因此树可以是具有空间一致性的任何<a href="#空间数据结构（Spatialdatastructures）" class="self">空间数据结构</a>，包括 k-d 树，四叉树，八叉树和网格。</p>
 <p>可选地，可以将<a href="/2021/04/23/3d-tiles-styling-specification">3D Tiles 样式</a>或 style 应用于 tileset。样式由表达式来定义其中的每一个要素显示方式。</p>
 <hr>
@@ -611,7 +613,7 @@ Tiles
 </ol>
 <hr>
 <p><a id="URIs" name="URIs"></a></p>
-<h2 id="URIs"><a href="#URIs" class="headerlink" title="URIs"></a>URIs</h2><p>3D Tiles 使用 URI 来引用 tile 内容。这些 URI 可以指向相对外部引用（<a href="https://tools.ietf.org/html/rfc3986#section-4.2" target="_blank" rel="noopener">RFC3986</a>），也可以是将资源嵌入 JSON 的数据 URI。嵌入式资源使用“数据” URI 方案（<a href="https://tools.ietf.org/html/rfc2397" target="_blank" rel="noopener">RFC2397</a>）。</p>
+<h2 id="URIs"><a href="#URIs" class="headerlink" title="URIs"></a>URIs</h2><p>3D Tiles 使用 URI 来引用 tile 内容。这些 URI 可以指向相对外部引用（<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3986#section-4.2">RFC3986</a>），也可以是将资源嵌入 JSON 的数据 URI。嵌入式资源使用“数据” URI 方案（<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2397">RFC2397</a>）。</p>
 <p>如果 URI 是相对的，则其根始终相对于引用的 tileet JSON 文件。</p>
 <p>客户端实现需要支持相对的外部引用和嵌入式资源。可选地，客户端实现可以支持其他方案（例如 http://）。所有 URI 必须有效且可解析。</p>
 <hr>
@@ -620,9 +622,9 @@ Tiles
 <p>所有角度均以弧度为单位。</p>
 <hr>
 <p><a id="坐标参考系统（CRS）" name="坐标参考系统（CRS）"></a></p>
-<h2 id="坐标参考系统（CRS）"><a href="#坐标参考系统（CRS）" class="headerlink" title="坐标参考系统（CRS）"></a>坐标参考系统（CRS）</h2><p>3D Tiles 使用右手笛卡尔坐标系；也就是说，x 和 y 的叉积得出 z。3D Tiles 将 z 轴定义为局部笛卡尔坐标系的上方向。一个数据集的全局坐标系通常位于 <a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf" target="_blank" rel="noopener">WGS 84</a> 以地球为中心，固定于地球（ECEF）的参考系（<a href="http://spatialreference.org/ref/epsg/4978/" target="_blank" rel="noopener">EPSG 4978</a>）中，但不必须如此，例如，一个发电厂可以定义在其局部坐标系内，而不使用空间数据内容，仅仅使用模型工具。</p>
+<h2 id="坐标参考系统（CRS）"><a href="#坐标参考系统（CRS）" class="headerlink" title="坐标参考系统（CRS）"></a>坐标参考系统（CRS）</h2><p>3D Tiles 使用右手笛卡尔坐标系；也就是说，x 和 y 的叉积得出 z。3D Tiles 将 z 轴定义为局部笛卡尔坐标系的上方向。一个数据集的全局坐标系通常位于 <a target="_blank" rel="noopener" href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS 84</a> 以地球为中心，固定于地球（ECEF）的参考系（<a target="_blank" rel="noopener" href="http://spatialreference.org/ref/epsg/4978/">EPSG 4978</a>）中，但不必须如此，例如，一个发电厂可以定义在其局部坐标系内，而不使用空间数据内容，仅仅使用模型工具。</p>
 <p>可以应用额外的<a href="#变换（Transforms）" class="self">数据变换（tile transform）</a>来将瓦片的局部坐标系变换为父瓦片的坐标系。</p>
-<p><a href="#边界区（Region）" class="self">边界区（Region）</a>使用地理坐标系（纬度，经度，高度）指定边界，详情 <a href="http://spatialreference.org/ref/epsg/4979/" target="_blank" rel="noopener">EPSG 4979</a>。</p>
+<p><a href="#边界区（Region）" class="self">边界区（Region）</a>使用地理坐标系（纬度，经度，高度）指定边界，详情 <a target="_blank" rel="noopener" href="http://spatialreference.org/ref/epsg/4979/">EPSG 4979</a>。</p>
 <hr>
 <p><a id="概念" name="概念"></a></p>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><a id="Tiles" name="Tiles"></a></p>
@@ -644,7 +646,7 @@ Tiles
 <hr>
 <p><a id="边界盒（Box）" name="边界盒（Box）"></a></p>
 <h5 id="边界盒（Box）"><a href="#边界盒（Box）" class="headerlink" title="边界盒（Box）"></a>边界盒（Box）</h5><p><code>boundingVolume.box</code>属性是由 12 个数字组成的数组，在右手 3 轴（x，y，z）笛卡尔坐标系中定义的一个有向包围盒，其中 z 轴是。前三个元素定义框中心的 x，y 和 z 值。接下来的三个元素（索引为 3、4 和 5）定义了 x 轴方向和一半长度（half-length）。接下来的三个元素（索引 6、7 和 8）定义 y 轴方向和一半长度（half-length）。最后三个元素（索引 9、10 和 11）定义 z 轴方向和一半长度（half-length）。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingBox.jpg" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingBox.jpg"></p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
   <span class="token property">"box"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">10</span><span class="token punctuation">,</span>
@@ -652,11 +654,12 @@ Tiles
     <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">10</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="边界球（Sphere）" name="边界球（Sphere）"></a></p>
 <h5 id="边界球（Sphere）"><a href="#边界球（Sphere）" class="headerlink" title="边界球（Sphere）"></a>边界球（Sphere）</h5><p><code>boundingVolume.sphere</code>属性是由 4 个数字组成的数组定义的边界球。前三个元素在右手 3 轴（x，y，z）笛卡尔坐标系中定义球体中心的 x，y 和 z 值，其中 z 轴朝上。最后一个元素（索引为 3）以米为单位定义半径。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingSphere.jpg" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingSphere.jpg"></p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
   <span class="token property">"sphere"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token number">0</span><span class="token punctuation">,</span>
@@ -664,11 +667,12 @@ Tiles
     <span class="token number">10</span><span class="token punctuation">,</span>
     <span class="token number">141.4214</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="边界区（Region）" name="边界区（Region）"></a></p>
-<h5 id="边界区（Region）"><a href="#边界区（Region）" class="headerlink" title="边界区（Region）"></a>边界区（Region）</h5><p><code>boundingVolume.region</code>属性是一个由 6 个数字组成的数组，定义了由纬度，经度和高度坐标的地理边界区，使用<code>[west, south, east, north, minimum height, maximum height]</code>的顺序。纬度和经度是在 <a href="http://spatialreference.org/ref/epsg/4979/" target="_blank" rel="noopener">EPSG 4979</a> 中定义的 WGS 84 基准，以弧度表示。高度在 <a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf" target="_blank" rel="noopener">WGS 84 椭球</a>上方（或下方）以米为单位。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingRegion.jpg" alt=""></p>
+<h5 id="边界区（Region）"><a href="#边界区（Region）" class="headerlink" title="边界区（Region）"></a>边界区（Region）</h5><p><code>boundingVolume.region</code>属性是一个由 6 个数字组成的数组，定义了由纬度，经度和高度坐标的地理边界区，使用<code>[west, south, east, north, minimum height, maximum height]</code>的顺序。纬度和经度是在 <a target="_blank" rel="noopener" href="http://spatialreference.org/ref/epsg/4979/">EPSG 4979</a> 中定义的 WGS 84 基准，以弧度表示。高度在 <a target="_blank" rel="noopener" href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS 84 椭球</a>上方（或下方）以米为单位。</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingRegion.jpg"></p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
   <span class="token property">"region"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     -<span class="token number">1.3197004795898053</span><span class="token punctuation">,</span>
@@ -678,7 +682,8 @@ Tiles
     <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token number">20</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="观察请求盒/体（Viewerrequestvolume）" name="观察请求盒/体（Viewerrequestvolume）"></a></p>
 <h4 id="观察请求盒-体（Viewer-request-volume）"><a href="#观察请求盒-体（Viewer-request-volume）" class="headerlink" title="观察请求盒/体（Viewer request volume）"></a>观察请求盒/体（Viewer request volume）</h4><p>瓦片的 观察请求盒/体（Viewer request volume） 可以用于组合异构数据集，也可以与外部数据集组合。</p>
@@ -744,7 +749,8 @@ Tiles
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="变换（Transforms）" name="变换（Transforms）"></a></p>
 <h4 id="变换（Transforms）"><a href="#变换（Transforms）" class="headerlink" title="变换（Transforms）"></a>变换（Transforms）</h4><p><a id="瓦片变换（Tiletransforms）" name="瓦片变换（Tiletransforms）"></a></p>
@@ -757,7 +763,7 @@ Tiles
 <ul>
 <li><code>tile.content</code><ul>
 <li>每个要素的位置。</li>
-<li>每个要素的法线均应通过逆转置的左上 3x3 矩阵进行变换，以在使用 scale 时 transform 考虑正确的矢量变换。（Each feature’s normal should be transformed by the top-left 3x3 matrix of the inverse-transpose of transform to account for <a href="http://www.realtimerendering.com/resources/RTNews/html/rtnews1a.html#art4" target="_blank" rel="noopener">correct vector transforms when scale is used</a>.）</li>
+<li>每个要素的法线均应通过逆转置的左上 3x3 矩阵进行变换，以在使用 scale 时 transform 考虑正确的矢量变换。（Each feature’s normal should be transformed by the top-left 3x3 matrix of the inverse-transpose of transform to account for <a target="_blank" rel="noopener" href="http://www.realtimerendering.com/resources/RTNews/html/rtnews1a.html#art4">correct vector transforms when scale is used</a>.）</li>
 <li><code>tile.boundingVolume</code>，但 <code>tile.boundingVolume.region</code> 类型定义除外，该类型以 EPSG：4979 坐标系为准。</li>
 </ul>
 </li>
@@ -771,13 +777,15 @@ Tiles
   0.0, 1.0, 0.0, 0.0,
   0.0, 0.0, 1.0, 0.0,
   0.0, 0.0, 0.0, 1.0
-]</code></pre><p>从每个数据的局部坐标系到数据集全局坐标系的转换是通过对数据集自上而下的遍历，将子<code>transform</code>和父<code>transform</code>进行后乘（post-multiplying）运算得到的（例如计算机图形学中的传统场景图或节点层次结构）。</p>
+]
+</code></pre>
+<p>从每个数据的局部坐标系到数据集全局坐标系的转换是通过对数据集自上而下的遍历，将子<code>transform </code>和父<code>transform </code>进行后乘（post-multiplying）运算得到的（例如计算机图形学中的传统场景图或节点层次结构）。</p>
 <hr>
 <p><a id="glTF变换（glTFtransforms）" name="glTF变换（glTFtransforms）"></a></p>
 <h5 id="glTF-变换（glTF-transforms）"><a href="#glTF-变换（glTF-transforms）" class="headerlink" title="glTF 变换（glTF transforms）"></a>glTF 变换（glTF transforms）</h5><p><a href="/2021/04/23/3d-tiles-batched-3d-model-specification">批处理 3D 模型（Batched 3D Model）</a>和<a href="/2021/04/23/3d-tiles-instanced-3d-model-specification">实例 3D 模型（Instanced 3D Model）</a> 数据嵌入在 glTF 中，glTF 有其自己的节点层次结构，并使用 y 轴朝上的坐标系。所有指定于数据（a tile format）和<code>tile.transform</code>属性的转换都会被应用。</p>
 <hr>
 <p><strong>glTF 节点层次结构（glTF node hierarchy）</strong></p>
-<p>首先，根据<a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#transformations" target="_blank" rel="noopener">glTF 规范</a>应用 glTF 节点层次结构转换。</p>
+<p>首先，根据<a target="_blank" rel="noopener" href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#transformations">glTF 规范</a>应用 glTF 节点层次结构转换。</p>
 <hr>
 <p><strong>y 轴向上到 z 轴向上</strong></p>
 <p>接下来，为了与 3D Tiles 坐标系的 z 轴保持一致，必须在运行时将 glTF 从 y 轴朝上转换为 z 轴朝上。这是通过将模型绕 x 轴旋转 π/ 2 弧度来完成的。等效地，应用以下矩阵变换（此处为行优先顺序）：</p>
@@ -786,7 +794,9 @@ Tiles
   0.0, 0.0, -1.0, 0.0,
   0.0, 1.0,  0.0, 0.0,
   0.0, 0.0,  0.0, 1.0
-]</code></pre><p>总的来说，变换的顺序为：</p>
+]
+</code></pre>
+<p>总的来说，变换的顺序为：</p>
 <ol>
 <li>glTF 节点层次结构（glTF node hierarchy）</li>
 <li>y 轴向上到 z 轴向上</li>
@@ -805,11 +815,13 @@ Tiles
    "mesh": 0,
    "name": "rootNode"
  }
-]</code></pre></blockquote>
+]
+</code></pre>
+</blockquote>
 <hr>
 <p><a id="实例" name="实例"></a></p>
 <h5 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h5><p>为数据集计算变换的例子：</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tileTransform.png" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tileTransform.png"></p>
 <p>每个 Tile 的变换为：</p>
 <ul>
 <li><code>TO</code>: <code>[T0]</code></li>
@@ -835,7 +847,7 @@ Tiles
 <hr>
 <p><a id="瓦片JSON" name="瓦片JSON"></a></p>
 <h4 id="瓦片-JSON"><a href="#瓦片-JSON" class="headerlink" title="瓦片 JSON"></a>瓦片 JSON</h4><p>瓦片 JSON 对象由以下属性组成。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tile.png" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tile.png"></p>
 <p>以下示例展示了一个非叶子瓦片。</p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -864,7 +876,8 @@ Tiles
     <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"2/0/0.b3dm"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"children"</span><span class="token operator">:</span> <span class="token punctuation">[</span>...<span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>boundingVolume</code>定义瓦片的封闭体，并且被用来确定哪些瓦片在运行时进行渲染。上面的示例使用一个<code>region</code>边界体，也可以使用<a href="#边界盒/边界体（Boundingvolumes）" class="self">其他边界体</a>，例如<code>box</code>或<code>sphere</code>。</p>
 <p><code>geometricError</code>属性是一个非负数，用于定义误差（以米为单位），用来决定渲染此瓦片但不渲染其子瓦片。在运行时，几何误差用于计算屏幕空间误差（SSE），即以像素为单位的误差。SSE 确定某个瓦片是否对于当前视图足够详细，或者是否应考虑渲染其子视图。详见<a href="#几何误差（Geometric error）" class="self">几何误差</a>。</p>
 <p>可选<code>viewerRequestVolume</code>属性（上面未显示）使用与<code>boundingVolume</code>配置参数，在执行瓦片内容的请求前，观察者位于<code>viewerRequestVolume</code>内，并且<code>viewerRequestVolume</code>优先于<code>geometricError</code>。详见<a href="#观察请求盒/体（Viewerrequestvolume）" class="self">观察请求盒/体</a>。</p>
@@ -873,9 +886,9 @@ Tiles
 <p><code>content.uri</code>中的文件扩展名不是必须的。瓦片内容格式由文件头中的<code>magic</code>字段指定，或者为 JSON，将其指定为外部数据集。</p>
 <p><code>content.boundingVolume</code>属性定义一个可选的<a href="#边界盒/边界体（Boundingvolumes）" class="self">边界体</a>，类似于顶级的<code>boundingVolume</code>属性。但是与顶级<code>boundingVolume</code>属性不同，<code>content.boundingVolume</code>是一个包裹瓦片内容的紧密封闭的包围体。<code>boundingVolume</code>提供空间连续性，<code>content.boundingVolume</code>实现严格地视图视锥剔除（view frustum culling），排除可能不在视域范围内的内容。如果未定义，则瓦片的边界体仍用于剔除（请参见<a href="#网格（Grids）" class="self">网格</a>）。</p>
 <p>下面的截图显示了 Canary Wharf 的根图块的边界体积。 <code>boundingVolume</code> 以红色显示，将整个区域的数据集包围起来；<code>content.boundingVolume</code> 以蓝色显示，仅将根图块中的四个要素（模型）封闭起来。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/contentsBox.png" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/contentsBox.png"></p>
 <p>可选的 <code>transform</code> 属性（上面列出）定义 4×4 的仿射变换矩阵，该矩阵变换瓦片的 <code>content</code>，<code>boundingVolume</code> 和 <code>viewerRequestVolume</code>。</p>
-<p><code>children</code>属性是定义一组子瓦片的对象数组。每个子瓦片的内容都被其父瓦片的<code>boundingVolume</code>完全包围，通常 <code>geometricError</code> 小于其父级的 <code>geometricError</code>。对于叶瓦片，此数组的长度为零，children 可以不定义。请参阅下面的<a href="#TilesetJSON" class="self">Tileset JSON</a>部分。</p>
+<p><code>children</code>属性是定义一组子瓦片的对象数组。每个子瓦片的内容都被其父瓦片的<code>boundingVolume </code>完全包围，通常 <code>geometricError</code> 小于其父级的 <code>geometricError</code>。对于叶瓦片，此数组的长度为零，children 可以不定义。请参阅下面的<a href="#TilesetJSON" class="self">Tileset JSON</a>部分。</p>
 <p>完整的 json 定义</p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
@@ -950,7 +963,8 @@ Tiles
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"boundingVolume"</span><span class="token punctuation">,</span> <span class="token string">"geometricError"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"additionalProperties"</span><span class="token operator">:</span> <span class="token boolean">false</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="TilesetJSON" name="TilesetJSON"></a></p>
 <h3 id="Tileset-JSON"><a href="#Tileset-JSON" class="headerlink" title="Tileset JSON"></a>Tileset JSON</h3><p>3D Tiles 使用一个主 tileset JSON 文件作为定义数据集（Tileset）的入口。入口和外部 tileset JSON 文件都不需要遵循任何命名规则。</p>
@@ -995,7 +1009,8 @@ Tiles
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"children"</span><span class="token operator">:</span> <span class="token punctuation">[</span>..<span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Tilset JSON 有四个顶级属性：<code>asset</code>，<code>properties</code>，<code>geometricError</code>，和<code>root</code>。</p>
 <p><code>asset</code> 是一个包含有关整个数据集的元数据对象。<code>asset.version</code> 属性是一个定义 3D Tiles 版本的字符串，指定 tilset 的 JSON 模式和基本的 tile 格式。 <code>tilesetVersion</code> 属性是一个可选字符串，用于定义特定应用程序的 tileset 版本，例如，表示 tilset 是否被更新。</p>
 <p><code>properties</code> 是一个对象，包含数据集中每个要素属性。这个 tileet JSON 代码段适用于 3D 建筑物，因此每个瓦片均具有建筑物模型，并且每个建筑物模型均具有 Height 属性（详见<a href="/2021/04/23/3d-tiles-batch-table-specification">批处理表(Batch Table)</a>）。<code>properties</code>中的名称与每个要素的属性名称匹配，其定义 minimum 和 maximum 的数字值，这些值对于创建样式色带非常有用。</p>
@@ -1004,14 +1019,14 @@ Tiles
 <hr>
 <p><a id="外部数据集（Externaltilesets）" name="外部数据集（Externaltilesets）"></a></p>
 <h4 id="外部数据集（External-tilesets）"><a href="#外部数据集（External-tilesets）" class="headerlink" title="外部数据集（External tilesets）"></a>外部数据集（External tilesets）</h4><p>创建树的子节点，数据的<code>content.uri</code>可以指向一个外部数据集（另一个 数据集 JSON 文件的 uri）。例如，可以将每个城市存储在一个数据集中，然后组成一个全球数据集。</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tilesets.png" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tilesets.png"></p>
 <p>当瓦片指向外部数据集时，瓦片：</p>
 <ul>
 <li>不能有子级；<code>tile.children</code> 必须为 <code>undefined</code> 或空数组。</li>
 <li>不能有循环，例如，通过指向包含该图块的同一图块文件或指向另一个图块集文件，然后再指向包含该图块的初始文件，来创建循环。</li>
 <li>会同时通过瓦片的 <code>transform</code> 和根瓦片的<code>transform</code>进行变换。例如，在下面的数据集引用外部数据集，<code>T3</code> 计算变换为 <code>[T0][T1][T2][T3]</code>。</li>
 </ul>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tileTransformExternalTileset.png" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tileTransformExternalTileset.png"></p>
 <hr>
 <p><a id="边界体空间连续性（Boundingvolumespatialcoherence）" name="边界体空间连续性（Boundingvolumespatialcoherence）"></a></p>
 <h4 id="边界体空间连续性（Bounding-volume-spatial-coherence）"><a href="#边界体空间连续性（Bounding-volume-spatial-coherence）" class="headerlink" title="边界体空间连续性（Bounding volume spatial coherence）"></a>边界体空间连续性（Bounding volume spatial coherence）</h4><p>如上所述，树具有空间连贯性。每个瓦片都有一个完全包围其内容的边界体，子瓦片的内容完全位于父级的边界体之内。但这并不意味着子级的边界体完全在其父级的边界体之内。例如：</p>
@@ -1029,14 +1044,14 @@ Tiles
 <p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quadtree.png" alt="传统四叉树细分"></p>
 <p>3D Tiles 可以使用四叉树变体，例如非均匀细分和非紧密的边界体（例如，与边界不同，对稀疏数据集来说，父级的 25％是浪费的）。</p>
 <p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quadtree-tight.png" alt="四叉树，子级有更紧密的边界"></p>
-<p>3D Tiles 还支持其他四叉树变形，例如<a href="http://www.tulrich.com/geekstuff/partitioning.html" target="_blank" rel="noopener">松散四叉树</a>，其中子瓦片相互重叠，但仍保持空间连贯性，即，父瓦片完全包围了其所有子级。这种方法对于避免在瓦片之间分割要素（例如 3D 模型）很有用。</p>
+<p>3D Tiles 还支持其他四叉树变形，例如<a target="_blank" rel="noopener" href="http://www.tulrich.com/geekstuff/partitioning.html">松散四叉树</a>，其中子瓦片相互重叠，但仍保持空间连贯性，即，父瓦片完全包围了其所有子级。这种方法对于避免在瓦片之间分割要素（例如 3D 模型）很有用。</p>
 <p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quadtree-overlap.png" alt="不均匀且重叠的四叉树。"></p>
 <hr>
 <p><a id="K-d树（K-dtrees，K维树）" name="K-d树（K-dtrees，K维树）"></a></p>
 <h5 id="K-d-树（K-d-trees，K-维树）"><a href="#K-d-树（K-d-trees，K-维树）" class="headerlink" title="K-d 树（K-d trees，K 维树）"></a>K-d 树（K-d trees，K 维树）</h5><p>当瓦片具有两个由平行于 x，y 或 z 轴（或纬度，经度，高度）的分割面分隔的子代时，会创建 kd 树。随着树级别的递增，拆分轴通常是循环旋转的（可以参考平衡 K-d 树理解），可以选择中位数，表面积启发法（surface area heuristics）或其他方法来选择拆分平面。</p>
 <p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/kdtree.png" alt="k-d树示例，非均匀切分"></p>
 <p>注意，k-d 树不像典型的 2D 地理空间切片方案那样具有统一的均匀细分，因此可以为稀疏和非均匀分布的数据集创建更加平衡的树。</p>
-<p>3D Tiles 支持 k-d 树变体，例如<a href="http://www.crs4.it/vic/cgi-bin/bib-page.cgi?id=%27Goswami:2013:EMF%27" target="_blank" rel="noopener">多路 kd 树</a>，其中树的每个叶子上有多个拆分轴。这样就有<code>n</code>个子级，而不是每个瓦片有两个。</p>
+<p>3D Tiles 支持 k-d 树变体，例如<a target="_blank" rel="noopener" href="http://www.crs4.it/vic/cgi-bin/bib-page.cgi?id=%27Goswami:2013:EMF%27">多路 kd 树</a>，其中树的每个叶子上有多个拆分轴。这样就有<code>n</code>个子级，而不是每个瓦片有两个。</p>
 <hr>
 <p><a id="八叉树（Octrees）" name="八叉树（Octrees）"></a></p>
 <h5 id="八叉树（Octrees）"><a href="#八叉树（Octrees）" class="headerlink" title="八叉树（Octrees）"></a>八叉树（Octrees）</h5><p>八叉树通过扩展四叉树使用三个正交拆分平面将图块细分为八个子级。像四叉树一样，3D Tiles 允许对八叉树变体，例如不均匀的细分，非紧密的边界体和重叠的子代。</p>
@@ -1045,7 +1060,7 @@ Tiles
 <hr>
 <p><a id="网格（Grids）" name="网格（Grids）"></a></p>
 <h5 id="网格（Grids）"><a href="#网格（Grids）" class="headerlink" title="网格（Grids）"></a>网格（Grids）</h5><p>3D Tiles 通过支持任意数量的子瓦片来实现均匀，不均匀和重叠的网格。例如，这是剑桥的不均匀重叠网格的俯视图：</p>
-<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/grid.png" alt=""></p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/grid.png"></p>
 <p>3D Tiles 利用了空瓦片：那些具有边界体但没有内容的瓦片。由于瓦片的<code>content</code>不必须要被定义的属性，因此可以使用空的非叶子节点的瓦片来分层剔除，以加速非均匀网格。本质上，这会创建一个四叉树或八叉树，而没有层次的详细信息（HLOD）。</p>
 <hr>
 <p><a id="扩展和附加功能" name="扩展和附加功能"></a></p>
@@ -1084,11 +1099,13 @@ Tiles
       <span class="token property">"box"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.8</span><span class="token punctuation">,</span> <span class="token number">3.8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3.8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">13.5</span><span class="token punctuation">]</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>数据集或子级的外部数据集中使用的所有扩展，都必须在入口 tileset JSON 的顶级<code>extensionsUsed</code>数组属性中列出，例如：</p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"extensionsUsed"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"VENDOR_collision_volume"</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>所有扩展中，需要加载和渲染数据集或子级的外部数据集时，也必须在入口 tileset JSON 的顶级<code>extensionsRequired</code>数组属性中列出，<code>extensionsRequired</code>数组是<code>extensionsUsed</code>数组的子级。<code>extensionsRequired</code>中列出的值在<code>extensionsUsed</code>中也必须存在。</p>
 <hr>
 <p><a id="附加功能" name="附加功能"></a></p>
@@ -1122,7 +1139,8 @@ Tiles
   <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Empire State Building"</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="瓦片格式规范" name="瓦片格式规范"></a></p>
 <h2 id="瓦片格式规范"><a href="#瓦片格式规范" class="headerlink" title="瓦片格式规范"></a>瓦片格式规范</h2><p>每个瓦片的<code>content.uri</code>属性可以是 uri 二进制 blob，其中包含用于渲染瓦片的 3D 内容的信息。内容是下表中列出的一种格式的实例。</p>
@@ -1158,7 +1176,8 @@ Tiles
 <p>下面的示例将高度超过 90 的要素涂为红色，将其他涂为白色。</p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"(${Height} > 90) ? color('red') : color('white')"</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>更多内容，详见<a href="/2021/04/23/3d-tiles-styling-specification">3D Tiles 样式</a>规范。</p>
 <hr>
 <p><a id="属性参考" name="属性参考"></a></p>
@@ -1193,7 +1212,7 @@ Tiles
 <td><strong>asset</strong></td>
 <td><code>object</code></td>
 <td>整个数据集的元数据 tileset.</td>
-<td>:white_check_mark: Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>properties</strong></td>
@@ -1205,13 +1224,13 @@ Tiles
 <td><strong>geometricError</strong></td>
 <td><code>number</code></td>
 <td>决定是否渲染此瓦片的误差值，以米为单位。在运行时，用于计算屏幕空间误差（SSE），以像素为单位</td>
-<td>:white_check_mark: Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>root</strong></td>
 <td><code>object</code></td>
 <td>3D Tiles 数据集中的一个瓦片</td>
-<td>:white_check_mark: Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>extensionsUsed</strong></td>
@@ -1255,7 +1274,7 @@ Tiles
 <td><strong>version</strong></td>
 <td><code>string</code></td>
 <td>3D Tiles 版本。该版本定义了数据集 JSON 的 JSON 模式和瓦片格式的基本集合</td>
-<td>:white_check_mark: Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>tilesetVersion</strong></td>
@@ -1298,7 +1317,7 @@ Tiles
 <tr>
 <td><strong>region</strong></td>
 <td><code>number</code> <code>[6]</code></td>
-<td>由 6 个数字组成的数组，定义了由纬度，经度和高度坐标的地理边界区，使用<code>[west, south, east, north, minimum height, maximum height]</code>的顺序。纬度和经度是在 <a href="http://spatialreference.org/ref/epsg/4979/" target="_blank" rel="noopener">EPSG 4979</a> 中定义的 WGS 84 基准，以弧度表示。高度在 <a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf" target="_blank" rel="noopener">WGS 84 椭球</a>上方（或下方）以米为单位</td>
+<td>由 6 个数字组成的数组，定义了由纬度，经度和高度坐标的地理边界区，使用<code>[west, south, east, north, minimum height, maximum height]</code>的顺序。纬度和经度是在 <a target="_blank" rel="noopener" href="http://spatialreference.org/ref/epsg/4979/">EPSG 4979</a> 中定义的 WGS 84 基准，以弧度表示。高度在 <a target="_blank" rel="noopener" href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS 84 椭球</a>上方（或下方）以米为单位</td>
 <td>No</td>
 </tr>
 <tr>
@@ -1334,7 +1353,8 @@ Tiles
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Extras"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Application-specific data."</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="reference-properties" name="reference-properties"></a></p>
 <h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><p>功能属性的元数据字典对象。</p>
@@ -1351,13 +1371,13 @@ Tiles
 <td><strong>maximum</strong></td>
 <td><code>number</code></td>
 <td>数据集中所有要素此属性的最大值</td>
-<td><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8">✅</span> Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>minimum</strong></td>
 <td><code>number</code></td>
 <td>数据集中所有要素此属性的最小值</td>
-<td><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8">✅</span> Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>extensions</strong></td>
@@ -1389,7 +1409,7 @@ Tiles
 <td><strong>boundingVolume</strong></td>
 <td><code>object</code></td>
 <td>A bounding volume that encloses a tile or its content. Exactly one <code>box</code>, <code>region</code>, or <code>sphere</code> property is required.</td>
-<td><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8">✅</span> Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>viewerRequestVolume</strong></td>
@@ -1401,7 +1421,7 @@ Tiles
 <td><strong>geometricError</strong></td>
 <td><code>number</code></td>
 <td>The error, in meters, introduced if this tile is rendered and its children are not. At runtime, the geometric error is used to compute screen space error (SSE), i.e., the error measured in pixels.</td>
-<td><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8">✅</span> Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>refine</strong></td>
@@ -1462,7 +1482,7 @@ Tiles
 <td><strong>uri</strong></td>
 <td><code>string</code></td>
 <td>指向图块内容的 uri。如果 uri 是相对的，则它是相对于引用的 tilset JSON 文件</td>
-<td><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8">✅</span> Yes</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
 </tr>
 <tr>
 <td><strong>extensions</strong></td>
@@ -1481,25 +1501,7 @@ Tiles
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1648,7 +1650,7 @@ Tiles
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -1663,7 +1665,7 @@ Tiles
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -1762,8 +1764,6 @@ To do
 版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
 
 
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => 
                         
                     </div>
                     <div class="publish-info">
@@ -1895,7 +1895,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33k</span>&nbsp;字
+                class="white-color">30.7k</span>&nbsp;字
             
             <br>
             
@@ -1971,7 +1971,7 @@ To do
 
 
 
-    <a href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
+    <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
         <i class="fa fa-inverse">知</i>
     </a>
 
