@@ -2,15 +2,15 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫使用, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="飞速起步
-安装scrapypip install Scrapy（类unix记得加 sudo）安装完成以后，到命令行输入Scrapy，查看是否安装成功。  
+安装scrapypip install Scrapy（*类unix记得加 sudo*）安装完成以后，到命令行输入Scrapy，查看是否安装成功。  
 准备和配置
 scrapy startproject [name]创建项目。
 
-项目文">
+项">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -33,6 +33,8 @@ scrapy startproject [name]创建项目。
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -447,7 +449,7 @@ scrapy startproject [name]创建项目。
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        683
+                        631
                     </div>
                     
 
@@ -471,7 +473,7 @@ scrapy startproject [name]创建项目。
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="飞速起步"><a href="#飞速起步" class="headerlink" title="飞速起步"></a>飞速起步</h2><ul>
-<li><p>安装scrapy<br><code>pip install Scrapy</code>（<em>类unix记得加 <code>sudo</code></em>）<br>安装完成以后，到命令行输入<code>Scrapy</code>，查看是否安装成功。  </p>
+<li><p>安装scrapy<br><code>pip install Scrapy</code>（*类unix记得加 <code>sudo</code>*）<br>安装完成以后，到命令行输入<code>Scrapy</code>，查看是否安装成功。  </p>
 <h2 id="准备和配置"><a href="#准备和配置" class="headerlink" title="准备和配置"></a>准备和配置</h2></li>
 <li><p><code>scrapy startproject [name]</code>创建项目。</p>
 </li>
@@ -489,12 +491,14 @@ scrapy startproject [name]创建项目。
 <li><p>item：自己写一个item  </p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">yourItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
   info1 <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
-  info2 <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+  info2 <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>info1、info2，就是数据模型对应的字段，看scrapy.Item的源码，实际上就是个dict<br>所以可以这样理解：</p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
   info1<span class="token operator">:</span> None<span class="token punctuation">,</span>
   info2<span class="token operator">:</span> None
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>spider</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> name<span class="token punctuation">.</span>items <span class="token keyword">import</span> yourItem
@@ -509,7 +513,8 @@ scrapy startproject [name]创建项目。
       item <span class="token operator">=</span> yourItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
       item<span class="token punctuation">[</span><span class="token string">'info1'</span><span class="token punctuation">]</span> <span class="token operator">=</span> info1
       item<span class="token punctuation">[</span><span class="token string">'info2'</span><span class="token punctuation">]</span> <span class="token operator">=</span> info2
-      <span class="token keyword">yield</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      <span class="token keyword">yield</span> item
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>没啥好说的，就是爬取信息，然后设置item的属性就好。  </p>
 </li>
 <li><p>可以爬了！！<br>命令行输入：<code>scrapy crawl yourname -o filename.csv</code>，yourname 对应 YourSpider 这个类的name变量值。就会爬取数据放到 filename.csv 中，还有其他格式，自己研究。</p>
@@ -522,11 +527,14 @@ scrapy startproject [name]创建项目。
       <span class="token comment" spellcheck="true"># file.write(item.info1)</span>
       <span class="token comment" spellcheck="true"># file.write(item.info2)   </span>
       <span class="token comment" spellcheck="true"># save and close file  </span>
-      <span class="token keyword">return</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      <span class="token keyword">return</span> item
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>之后到settings.py，输入： </p>
 <pre><code>ITEM_PIPELINES = {
   'name.pipelines.YourPipeline': 300,
-}</code></pre><p>启动当前管道配置优先级，数字越小，优先级越靠前，然后就只需要输入<code>scrapy crawl yourname</code>就可以运行和保存了</p>
+}
+</code></pre>
+<p>启动当前管道配置优先级，数字越小，优先级越靠前，然后就只需要输入<code>scrapy crawl yourname</code>就可以运行和保存了</p>
 </li>
 <li><p>调试<br>我用万能vscode：新建调试配置文件，输入</p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
@@ -543,7 +551,8 @@ scrapy startproject [name]创建项目。
           <span class="token punctuation">]</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>搞定！</p>
 </li>
@@ -551,25 +560,7 @@ scrapy startproject [name]创建项目。
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -718,7 +709,7 @@ scrapy startproject [name]创建项目。
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -733,7 +724,7 @@ scrapy startproject [name]创建项目。
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -981,7 +972,7 @@ scrapy startproject [name]创建项目。
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33k</span>&nbsp;字
+                class="white-color">30.7k</span>&nbsp;字
             
             <br>
             
@@ -1057,7 +1048,7 @@ scrapy startproject [name]创建项目。
 
 
 
-    <a href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
+    <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
         <i class="fa fa-inverse">知</i>
     </a>
 
