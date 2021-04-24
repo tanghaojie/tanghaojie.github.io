@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
     <loc>https://tanghaojie.github.io/2021/04/21/3d-tiles-specification/</loc>
     <lastmod>2021-04-23</lastmod>
   </url>  <url>
@@ -11,9 +14,6 @@
     <lastmod>2021-04-23</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
-    <lastmod>2021-04-23</lastmod>
-  </url>  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
     <lastmod>2021-04-23</lastmod>
   </url>  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-instanced-3d-model-specification/</loc>
