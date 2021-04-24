@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="QGIS plugin开发使用, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="起步1.刚来就不建议看文档手动创建plugin了，python很熟悉的人可以看文档试试，否则还是别手动创建了，几乎所有的开发者都是通过Plugin Builder这个Plugin来创建的Plugin，安装好了以后，打开Plugin Buil">
@@ -28,6 +28,8 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -353,7 +355,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        576
+                        524
                     </div>
                     
 
@@ -379,30 +381,13 @@
                 <h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>1.刚来就不建议看文档手动创建plugin了，python很熟悉的人可以看文档试试，否则还是别手动创建了，几乎所有的开发者都是通过<code>Plugin Builder</code>这个Plugin来创建的Plugin，安装好了以后，打开Plugin Builder，根据提示输入内容，一直下一步就创建好了。<br>2.用 <code>pyrcc5 -o resources.py resources.qrc</code>命令，把resources.qrc资源文件转换成py文件，主程序test.py文件中已经自动引入了。如果没有<code>pyrcc5</code>命令，执行<code>pip install PyQt5</code>安装PyQt。<br>3.把整个生成的文件夹，拷贝到，<code>~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins</code> 下面，所有的plugin其实都在这里。<br>4.打开qgis插件–已安装，勾选test插件，就可以看到菜单上多了按钮，点击就能打开了。</p>
 <h4 id="以上最原始的demo就能够看见了，下面说说怎么自己写代码"><a href="#以上最原始的demo就能够看见了，下面说说怎么自己写代码" class="headerlink" title="以上最原始的demo就能够看见了，下面说说怎么自己写代码"></a>以上最原始的demo就能够看见了，下面说说怎么自己写代码</h4><p>5.插件有一个test_dialog.py文件，里面最关键的一句代码应该是<code>FORM_CLASS, _ = uic.loadUiType(os.path.join(os.path.dirname(__file__), 'Test_dialog_base.ui'))</code>，这就是加载转换.ui文件给pyqt用的。<br>6.生成的插件文件，包含了Test_dialog_base.ui，就是界面文件。安装QGIS的时候自带了Qt Designer，用Designer就可以打开就能看到和编辑了，这里从左边拖一个Push Button进去，后面用。编辑完成界面，去QGIS里面，取消勾选，在重新选中，就重新加载插件了，能够看出来结果。这里推荐一个插件 <code>Plugin Reloader</code>，不用每次去取消重勾选，它可以帮我们重加载插件。<br>7.点击事件，在.ui文件对应的.py文件的构造函数，<code>__init__</code>中，加上<code>self.pushButton.clicked.connect(self.pushButtonClicked)</code>，文件头导入<code>from PyQt5.QtWidgets import QMessageBox</code>然后定义方法：</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pushButtonClicked</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    QMessageBox<span class="token punctuation">.</span>warning<span class="token punctuation">(</span>None<span class="token punctuation">,</span> <span class="token string">'info'</span><span class="token punctuation">,</span> <span class="token string">'测试'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+    QMessageBox<span class="token punctuation">.</span>warning<span class="token punctuation">(</span>None<span class="token punctuation">,</span> <span class="token string">'info'</span><span class="token punctuation">,</span> <span class="token string">'测试'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>8.去QGIS里面reload插件，点击按钮就能看到结果了。<br>9.更多的东西就自己尝试咯，你已经入门了。</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -551,7 +536,7 @@
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -566,7 +551,7 @@
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -619,11 +604,11 @@
                     <div class="summary block-with-text">
                         
                             飞速起步
-安装scrapypip install Scrapy（类unix记得加 sudo）安装完成以后，到命令行输入Scrapy，查看是否安装成功。  
+安装scrapypip install Scrapy（*类unix记得加 sudo*）安装完成以后，到命令行输入Scrapy，查看是否安装成功。  
 准备和配置
 scrapy startproject [name]创建项目。
 
-项目文
+项
                         
                     </div>
                     <div class="publish-info">
@@ -706,7 +691,7 @@ scrapy startproject [name]创建项目。
                         <span class="chip bg-color">uniapp</span>
                     </a>
                     
-                    <a href="/tags/微信小程序/" target="_blank">
+                    <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" target="_blank">
                         <span class="chip bg-color">微信小程序</span>
                     </a>
                     
@@ -735,7 +720,7 @@ scrapy startproject [name]创建项目。
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33k</span>&nbsp;字
+                class="white-color">30.7k</span>&nbsp;字
             
             <br>
             
@@ -811,7 +796,7 @@ scrapy startproject [name]创建项目。
 
 
 
-    <a href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
+    <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
         <i class="fa fa-inverse">知</i>
     </a>
 

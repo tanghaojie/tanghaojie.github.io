@@ -2,11 +2,13 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="qgis速记, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="按照几何位置排序，其中45代表东北方向，其他方向排序可以自己指定，y正轴（北）方向为0度，顺时针旋转
-sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段">
+sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -29,6 +31,8 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -333,7 +337,7 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        163
+                        111
                     </div>
                     
 
@@ -357,29 +361,15 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>按照几何位置排序，其中45代表东北方向，其他方向排序可以自己指定，y正轴（北）方向为0度，顺时针旋转</p>
-<pre><code>sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))</code></pre><p>字段长度不足补0，3是长度，0是不足的左侧补0</p>
-<pre><code>lpad("你的字段名", 3, '0')</code></pre><hr>
+<pre><code>sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))
+</code></pre>
+<p>字段长度不足补0，3是长度，0是不足的左侧补0</p>
+<pre><code>lpad("你的字段名", 3, '0')
+</code></pre>
+<hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -528,7 +518,7 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段">
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -543,7 +533,7 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段">
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -610,8 +600,6 @@ sin(45) * x(centroid($geometry)) + cos(45) * y(centroid($geometry))字段">
 版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
 
 
-        document.querySelectorAll('.github-emoji')
-         
                         
                     </div>
                     <div class="publish-info">
@@ -694,7 +682,7 @@ jenkins 插件：github、git、publish over ssh。提前要
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33k</span>&nbsp;字
+                class="white-color">30.7k</span>&nbsp;字
             
             <br>
             
@@ -770,7 +758,7 @@ jenkins 插件：github、git、publish over ssh。提前要
 
 
 
-    <a href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
+    <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
         <i class="fa fa-inverse">知</i>
     </a>
 

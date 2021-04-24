@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="git commit规范化，设置Commitizen，符合Angular的规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="安装配置commitizen地址cz-conventional-changelo地址：规范要求，不同的适配器要求不同conventional-changelog地址：生成changelog.md
@@ -29,6 +29,8 @@ npm install -g commiti">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -422,7 +424,7 @@ npm install -g commiti">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        334
+                        283
                     </div>
                     
 
@@ -445,12 +447,16 @@ npm install -g commiti">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener">commitizen地址</a><br><a href="https://github.com/commitizen/cz-conventional-changelog" target="_blank" rel="noopener">cz-conventional-changelo地址：规范要求，不同的适配器要求不同</a><br><a href="https://github.com/ajoslin/conventional-changelog" target="_blank" rel="noopener">conventional-changelog地址：生成changelog.md</a></p>
+                <h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p><a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-cli">commitizen地址</a><br><a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-conventional-changelog">cz-conventional-changelo地址：规范要求，不同的适配器要求不同</a><br><a target="_blank" rel="noopener" href="https://github.com/ajoslin/conventional-changelog">conventional-changelog地址：生成changelog.md</a></p>
 <pre><code>npm install -g commitizen
 npm install -g cz-conventional-changelog
 npm install -g conventional-changelog-cli
-commitizen init cz-conventional-changelog --save-dev --save-exact</code></pre><p>如果已经有其他适配器了，会报错，用  <code>--force</code> 替换掉，即：</p>
-<pre><code>commitizen init cz-conventional-changelog --save-dev --save-exact --force</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>以后提交代码就用<code>git cz -m</code>替代<code>git commit -m</code>就好了，或者不输入message跟着提示走就没问题。<br>type值：  </p>
+commitizen init cz-conventional-changelog --save-dev --save-exact
+</code></pre>
+<p>如果已经有其他适配器了，会报错，用  <code>--force</code> 替换掉，即：</p>
+<pre><code>commitizen init cz-conventional-changelog --save-dev --save-exact --force
+</code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>以后提交代码就用<code>git cz -m</code>替代<code>git commit -m</code>就好了，或者不输入message跟着提示走就没问题。<br>type值：  </p>
 <table>
 <thead>
 <tr>
@@ -507,25 +513,7 @@ commitizen init cz-conventional-changelog --save-dev --save-exact</code></pre><p
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -674,7 +662,7 @@ commitizen init cz-conventional-changelog --save-dev --save-exact</code></pre><p
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -689,7 +677,7 @@ commitizen init cz-conventional-changelog --save-dev --save-exact</code></pre><p
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -922,7 +910,7 @@ docker update
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33k</span>&nbsp;字
+                class="white-color">30.7k</span>&nbsp;字
             
             <br>
             
@@ -998,7 +986,7 @@ docker update
 
 
 
-    <a href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
+    <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
         <i class="fa fa-inverse">知</i>
     </a>
 
