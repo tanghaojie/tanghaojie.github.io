@@ -101,6 +101,8 @@ _这里如果看不懂，先把后面看完再回头来看，应该就懂了。_
 
 完整的 JSON 头定义，详见<a href="#属性参考" class="self">属性参考</a>。以下是一个完整的 JSON 格式。
 
+<a id="JSONSchema" name="JSONSchema"></a>
+
 [JSON:](https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/featureTable.schema.json)
 
 ```json
@@ -301,6 +303,52 @@ CesiumJS 的 3D Tiles 实现了要素表的读取功能，[Cesium3DTileFeatureTa
 <a id="属性参考" name="属性参考"></a>
 
 ## 属性参考
+
+<a href="#r要素表" class="self">要素表</a>
+
+- <a href="#r二进制体引用" class="self">二进制体引用</a>
+- <a href="#r属性" class="self">属性</a>
+
+---
+
+<a id="r要素表" name="r要素表"></a>
+
+### 要素表
+
+一组语法定义，用于为瓦片中的要素提供每个瓦片每个要素的位置和属性的定义。
+
+|                | 类型     | 描述                       | 是否必须 |
+| -------------- | -------- | -------------------------- | -------- |
+| **extensions** | `object` | 具有扩展特定对象的字典对象 | No       |
+| **extras**     | `any`    | 应用特定数据               | No       |
+
+允许其他属性。
+
+---
+
+<a id="r二进制体引用" name="r二进制体引用"></a>
+
+### 二进制体引用
+
+一个对象，用于定义对要素表的二进制主体部分的引用，如果未在 JSON 头中直接定义属性值，则在该部分存储。
+
+|                | 类型     | 描述                           | 是否必须               |
+| -------------- | -------- | ------------------------------ | ---------------------- |
+| **byteOffset** | `number` | 缓冲区的偏移量（以字节为单位） | :white_check_mark: Yes |
+
+允许其他属性。
+
+---
+
+<a id="r属性" name="r属性"></a>
+
+### 属性
+
+用户定义的属性，用于在数据中指定每个功能的特定于应用程序的元数据。值可以直接在 JSON 中定义为数组，也可以使用 <a href="#r二进制体引用" class="self">`二进制体引用`</a> 对象引用二进制主体中的部分。
+
+JSON 参考，<a href="#JSONSchema" class="self">见上面</a>。
+
+---
 
 ---
 
