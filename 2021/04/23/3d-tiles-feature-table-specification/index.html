@@ -453,14 +453,14 @@ JSON 头
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        1.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        7 分
                     </div>
                     
                 
@@ -533,6 +533,7 @@ JSON 头
 </li>
 </ol>
 <p>完整的 JSON 头定义，详见<a href="#属性参考" class="self">属性参考</a>。以下是一个完整的 JSON 格式。</p>
+<p><a id="JSONSchema" name="JSONSchema"></a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/featureTable.schema.json">JSON:</a></p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
@@ -711,13 +712,62 @@ JSON 头
 <p>CesiumJS 的 3D Tiles 实现了要素表的读取功能，<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Scene/Cesium3DTileFeatureTable.js">Cesium3DTileFeatureTable.js</a>。</p>
 <hr>
 <p><a id="属性参考" name="属性参考"></a></p>
-<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><hr>
-<p><a id="要素表" name="要素表"></a></p>
-<h3 id="要素表"><a href="#要素表" class="headerlink" title="要素表"></a>要素表</h3><hr>
-<p><a id="二进制体" name="二进制体"></a></p>
-<h3 id="二进制体-1"><a href="#二进制体-1" class="headerlink" title="二进制体"></a>二进制体</h3><hr>
-<p><a id="属性" name="属性"></a></p>
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><hr>
+<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><p><a href="#r要素表" class="self">要素表</a></p>
+<ul>
+<li><a href="#r二进制体引用" class="self">二进制体引用</a></li>
+<li><a href="#r属性" class="self">属性</a></li>
+</ul>
+<hr>
+<p><a id="r要素表" name="r要素表"></a></p>
+<h3 id="要素表"><a href="#要素表" class="headerlink" title="要素表"></a>要素表</h3><p>一组语法定义，用于为瓦片中的要素提供每个瓦片每个要素的位置和属性的定义。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>extensions</strong></td>
+<td><code>object</code></td>
+<td>具有扩展特定对象的字典对象</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>extras</strong></td>
+<td><code>any</code></td>
+<td>应用特定数据</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<p>允许其他属性。</p>
+<hr>
+<p><a id="r二进制体引用" name="r二进制体引用"></a></p>
+<h3 id="二进制体引用"><a href="#二进制体引用" class="headerlink" title="二进制体引用"></a>二进制体引用</h3><p>一个对象，用于定义对要素表的二进制主体部分的引用，如果未在 JSON 头中直接定义属性值，则在该部分存储。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>byteOffset</strong></td>
+<td><code>number</code></td>
+<td>缓冲区的偏移量（以字节为单位）</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+</tbody></table>
+<p>允许其他属性。</p>
+<hr>
+<p><a id="r属性" name="r属性"></a></p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>用户定义的属性，用于在数据中指定每个功能的特定于应用程序的元数据。值可以直接在 JSON 中定义为数组，也可以使用 <a href="#r二进制体引用" class="self"><code>二进制体引用</code></a> 对象引用二进制主体中的部分。</p>
+<p>JSON 参考，<a href="#JSONSchema" class="self">见上面</a>。</p>
+<hr>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -1138,7 +1188,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.4k</span>&nbsp;字
+                class="white-color">30.7k</span>&nbsp;字
             
             <br>
             
