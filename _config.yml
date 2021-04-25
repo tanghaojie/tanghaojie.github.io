@@ -19,7 +19,7 @@ permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
-#	资源文件夹，这个文件夹用来存放内容。	
+#	资源文件夹，这个文件夹用来存放内容。
 source_dir: source
 # 公共文件夹，这个文件夹用于存放生成的站点文件。
 public_dir: public
@@ -44,7 +44,10 @@ default_layout: post
 # 把标题转换为 title case
 titlecase: false
 # 在新标签中打开链接
-external_link: true # Open external links in new tab
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: '' # Open external links in new tab
 # 把文件名称转换为 (1) 小写或 (2) 大写
 filename_case: 0
 # 显示草稿
@@ -64,11 +67,11 @@ highlight:
 
 # hexo-prism-plugin 替换默认的highlight设置
 prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
+  mode: 'preprocess' # realtime/preprocess
   theme: 'tomorrow'
-  line_number: true    # default false
+  line_number: true # default false
   custom_css:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -77,7 +80,7 @@ index_generator:
   path: ''
   per_page: 12
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -104,7 +107,7 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: 
+  repo:
     github: https://github.com/tanghaojie/tanghaojie.github.io.git
     gitee: https://gitee.com/Jackie_Tang/Jackie_Tang.git
   branch: master
