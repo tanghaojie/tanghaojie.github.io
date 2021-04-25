@@ -5,11 +5,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="3D Tiles批处理表(Batch Table)数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+    <meta name="description" content="导航
+引
+概述
+文件结构
+结构
+JSON 头
+二进制体
 
-">
+
+实例
+属性参考
+
+
+
+引官网文档
+
+概述批处理表是瓦片二进制体的一个组成部分，包含瓦片中每个要素的应用程序特定属性。在运行时查询这些属性以声明样式和任何应用程序特定的用法，例如填充">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -440,14 +452,14 @@ To do
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        37
+                        1.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        7 分
                     </div>
                     
                 
@@ -463,8 +475,346 @@ To do
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/BatchTable">官网文档</a></p>
-<h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><hr>
+                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li><a href="#引" class="self">引</a></li>
+<li><a href="#概述" class="self">概述</a></li>
+<li><a href="#文件结构" class="self">文件结构</a><ul>
+<li><a href="#结构" class="self">结构</a></li>
+<li><a href="#JSON头" class="self">JSON 头</a></li>
+<li><a href="#二进制体" class="self">二进制体</a></li>
+</ul>
+</li>
+<li><a href="#实例" class="self">实例</a></li>
+<li><a href="#属性参考" class="self">属性参考</a></li>
+</ul>
+<hr>
+<p><a id="引" name="引"></a></p>
+<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/BatchTable">官网文档</a></p>
+<p><a id="概述" name="概述"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>批处理表</code>是瓦片二进制体的一个组成部分，包含瓦片中每个要素的应用程序特定属性。在运行时查询这些属性以声明样式和任何应用程序特定的用法，例如填充 UI 或发出 REST API 请求。一些示例批处理表属性是建筑物高度，地理坐标和数据库主键。</p>
+<p>批处理表用于以下数据格式：</p>
+<ul>
+<li><a href="/2021/04/23/3d-tiles-batched-3d-model-specification">批处理 3D 模型 (Batched 3D Model (b3dm))</a></li>
+<li><a href="/2021/04/23/3d-tiles-instanced-3d-model-specification">实例 3D 模型 (Instanced 3D Model (i3dm))</a></li>
+<li><a href="/2021/04/23/3d-tiles-point-cloud-specification">点云 (Point Cloud (pnts))</a></li>
+</ul>
+<hr>
+<p><a id="文件结构" name="文件结构"></a></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>批处理表由两部分组成：JSON 头和可选的小端字节序二进制主体。JSON 描述了属性，这些属性的值可以直接在 JSON 中定义为数组，也可以引用二进制主体中的部分。将长数字数组存储在二进制体中的效率更高。下图显示了批处理表布局：</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/batch-table-layout.png"></p>
+<p>当瓦片数据包含批处理表时，批处理表将紧随瓦片的要素表之后。文件头还将包含 <code>batchTableJSONByteLength</code> 和 <code>batchTableBinaryByteLength</code> 的 <code>uint32</code> 字段，可用于提取批处理表的各个部分。</p>
+<hr>
+<p><a id="结构" name="结构"></a></p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>JSON 头必须以 8 个字节为界结束，否则，在 JSON 头尾部填充空格（<code>0x20</code>）以满足此要求。</p>
+<p>二进制体必须以 8 个字节为界开始和结束。为了满足此要求，可以用任意值填充空白部分。</p>
+<p>二进制属性必须以一个字节偏移量开始，该字节偏移量是必须是属性隐含类型大小的倍数。例如，组件的某个元素有 4 个字节长度的属性 <code>FLOAT</code> ，因此必须以 4 的倍数计算偏移量。为了满足此要求，可以用任意值填充空白部分。</p>
+<hr>
+<p><a id="JSON头" name="JSON头"></a></p>
+<h3 id="JSON-头"><a href="#JSON-头" class="headerlink" title="JSON 头"></a>JSON 头</h3><p>批处理表值可以两种不同的方式在 JSON 标头中表示：</p>
+<ol>
+<li><p>值的数组，例如，<code>"name" : ['name1', 'name2', 'name3']</code>或<code>"height" : [10.0, 20.0, 15.0]</code>。</p>
+<ul>
+<li><p>数组元素可以是任何有效的 JSON 数据类型，包括对象和数组。元素可能是<code>null</code>。</p>
+</li>
+<li><p>每个数组的长度等于 <code>batchLength</code>，以每种数据格式指定。这是数据中要素的数量。例如，<code>batchLength</code> 可以是 b3dm 数据中的模型数，i3dm 数据中的实例数，或 pnts 数据中的点数（或对象数）。</p>
+</li>
+</ul>
+</li>
+<li><p>引用数据的二进制体，通过<code>byteOffset</code>表示对象，<code>componentType</code> 和 <code>type</code> 属性，例如，<code>"height" : { "byteOffset" : 24, "componentType" : "FLOAT", "type" : "SCALAR"}</code>。</p>
+<ul>
+<li><code>byteOffset</code> 指定相对于二进制主体从零开始的偏移量。 <code>byteOffset</code> 的值必须是该属性<code>componentType</code>字节大小的倍数 ，例如，属性具有组件类型 <code>FLOAT</code> 的 <code>byteOffset</code> 的值必须是<code>4</code>的倍数。</li>
+<li><code>componentType</code> 是组件特定的数据类型。允许的值是<code>"BYTE"</code>，<code>"UNSIGNED_BYTE"</code>，<code>"SHORT"</code>，<code>"UNSIGNED_SHORT"</code>，<code>"INT"</code>，<code>"UNSIGNED_INT"</code>，<code>"FLOAT"</code>，和<code>"DOUBLE"</code>。</li>
+<li><code>type</code> 指定属性是标量还是向量。允许的值是<code>"SCALAR"</code>，<code>"VEC2"</code>，<code>"VEC3"</code>，和<code>"VEC4"</code>。</li>
+</ul>
+</li>
+</ol>
+<p>批处理表 JSON 是 <code>UTF-8</code> 的 JSON 字符串。</p>
+<blockquote>
+<p>注意：在 JavaScript 中，可以使用<code>ArrayBuffer</code>的<code>TextDecoder</code>JavaScript API 来提取 Batch Table JSON，并使用<code>JSON.parse</code>转换为 JavaScript 对象。</p>
+</blockquote>
+<p><code>batchId</code>用于访问每个数组中的元素并提取相应的属性。例如，以下批处理表有两个要素的一批属性：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"unique id"</span><span class="token punctuation">,</span> <span class="token string">"another unique id"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"displayName"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"Building name"</span><span class="token punctuation">,</span> <span class="token string">"Another building name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"yearBuilt"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1999</span><span class="token punctuation">,</span> <span class="token number">2015</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"address"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Main Street"</span><span class="token punctuation">,</span> <span class="token property">"houseNumber"</span><span class="token operator">:</span> <span class="token string">"1"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Main Street"</span><span class="token punctuation">,</span> <span class="token property">"houseNumber"</span><span class="token operator">:</span> <span class="token string">"2"</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>要素<code>batchId = 0</code>的属性是：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">id<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'unique id'</span>
+displayName<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Building name'</span>
+yearBuilt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1999</span>
+address<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> street<span class="token punctuation">:</span> <span class="token string">'Main Street'</span><span class="token punctuation">,</span> houseNumber<span class="token punctuation">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>要素<code>batchId = 1</code>的属性是：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">id<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'another unique id'</span>
+displayName<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Another building name'</span>
+yearBuilt<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2015</span>
+address<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> street<span class="token punctuation">:</span> <span class="token string">'Main Street'</span><span class="token punctuation">,</span> houseNumber<span class="token punctuation">:</span> <span class="token string">'2'</span> <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>完整的 JSON 头定义，详见<a href="#属性参考" class="self">属性参考</a>。以下是一个完整的 JSON 格式。</p>
+<p><a id="JSONSchema" name="JSONSchema"></a></p>
+<p><a href="hhttps://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/batchTable.schema.json">JSON:</a></p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"batchTable.schema.json"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Batch Table"</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A set of properties defining application-specific metadata for features in a tile."</span><span class="token punctuation">,</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"additionalProperties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/property"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"binaryBodyReference"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"BinaryBodyReference"</span><span class="token punctuation">,</span>
+      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining the reference to a section of the binary body of the batch table where the property values are stored if not defined directly in the JSON."</span><span class="token punctuation">,</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+          <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The datatype of components in the property."</span><span class="token punctuation">,</span>
+          <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"BYTE"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_BYTE"</span><span class="token punctuation">,</span>
+            <span class="token string">"SHORT"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_SHORT"</span><span class="token punctuation">,</span>
+            <span class="token string">"INT"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_INT"</span><span class="token punctuation">,</span>
+            <span class="token string">"FLOAT"</span><span class="token punctuation">,</span>
+            <span class="token string">"DOUBLE"</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Specifies if the property is a scalar or vector."</span><span class="token punctuation">,</span>
+          <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"SCALAR"</span><span class="token punctuation">,</span> <span class="token string">"VEC2"</span><span class="token punctuation">,</span> <span class="token string">"VEC3"</span><span class="token punctuation">,</span> <span class="token string">"VEC4"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">,</span> <span class="token string">"componentType"</span><span class="token punctuation">,</span> <span class="token string">"type"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"property"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Property"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A user-defined property which specifies per-feature application-specific metadata in a tile. Values either can be defined directly in the JSON as an array, or can refer to sections in the binary body with a `BinaryBodyReference` object."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/binaryBodyReference"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="二进制体" name="二进制体"></a></p>
+<h3 id="二进制体"><a href="#二进制体" class="headerlink" title="二进制体"></a>二进制体</h3><p>当 JSON 头包含对二进制部分的引用时，所提供的 <code>byteOffset</code> 用于索引数据，如下图所示：</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/batch-table-binary-index.png"></p>
+<p>可以使用要素长度来数据值<code>batchLength</code>；所需的批量表 ID<code>batchId</code>; <code>componentType</code> 和 <code>type</code> 定义在 JSON 头中。</p>
+<p>下表可用于计算属性的字节大小。</p>
+<table>
+<thead>
+<tr>
+<th><code>componentType</code></th>
+<th>字节大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>"BYTE"</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>"UNSIGNED_BYTE"</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>"SHORT"</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>"UNSIGNED_SHORT"</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>"INT"</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>"UNSIGNED_INT"</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>"FLOAT"</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>"DOUBLE"</code></td>
+<td>8</td>
+</tr>
+</tbody></table>
+<br>
+
+<table>
+<thead>
+<tr>
+<th><code>type</code></th>
+<th>部件数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>"SCALAR"</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>"VEC2"</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>"VEC3"</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>"VEC4"</code></td>
+<td>4</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a id="扩展" name="扩展"></a></p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>以下扩展可以应用于批处理表。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/extensions/3DTILES_batch_table_hierarchy">3DTILES_batch_table_hierarchy</a></p>
+<hr>
+<p><a id="实例" name="实例"></a></p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><em>本节是非规范性的</em></p>
+<p>以下示例访问批处理表 JSON 的<code>"height"</code>和<code>"geographic"</code>的值<code>batchLength</code>的长度是 10：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"height"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token string">"FLOAT"</span><span class="token punctuation">,</span>
+    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"SCALAR"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"geographic"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
+    <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token string">"DOUBLE"</span><span class="token punctuation">,</span>
+    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"VEC3"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>获得<code>"height"</code>的值：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> height <span class="token operator">=</span> batchTableJSON<span class="token punctuation">.</span>height
+<span class="token keyword">var</span> byteOffset <span class="token operator">=</span> height<span class="token punctuation">.</span>byteOffset
+<span class="token keyword">var</span> componentType <span class="token operator">=</span> height<span class="token punctuation">.</span>componentType
+<span class="token keyword">var</span> type <span class="token operator">=</span> height<span class="token punctuation">.</span>type
+
+<span class="token keyword">var</span> heightArrayByteLength <span class="token operator">=</span>
+  batchLength <span class="token operator">*</span> <span class="token function">sizeInBytes</span><span class="token punctuation">(</span>componentType<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">numberOfComponents</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 10 * 4 * 1</span>
+<span class="token keyword">var</span> heightArray <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Float32Array</span><span class="token punctuation">(</span>
+  batchTableBinary<span class="token punctuation">.</span>buffer<span class="token punctuation">,</span>
+  byteOffset<span class="token punctuation">,</span>
+  heightArrayByteLength
+<span class="token punctuation">)</span>
+<span class="token keyword">var</span> heightOfFeature <span class="token operator">=</span> heightArray<span class="token punctuation">[</span>batchId<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>获得<code>"geographic"</code>的值：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> geographic <span class="token operator">=</span> batchTableJSON<span class="token punctuation">.</span>geographic
+<span class="token keyword">var</span> byteOffset <span class="token operator">=</span> geographic<span class="token punctuation">.</span>byteOffset
+<span class="token keyword">var</span> componentType <span class="token operator">=</span> geographic<span class="token punctuation">.</span>componentType
+<span class="token keyword">var</span> type <span class="token operator">=</span> geographic<span class="token punctuation">.</span>type
+<span class="token keyword">var</span> componentSizeInBytes <span class="token operator">=</span> <span class="token function">sizeInBytes</span><span class="token punctuation">(</span>componentType<span class="token punctuation">)</span>
+<span class="token keyword">var</span> numberOfComponents <span class="token operator">=</span> <span class="token function">numberOfComponents</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> geographicArrayByteLength <span class="token operator">=</span>
+  batchLength <span class="token operator">*</span> componentSizeInBytes <span class="token operator">*</span> numberOfComponents <span class="token comment" spellcheck="true">// 10 * 8 * 3</span>
+<span class="token keyword">var</span> geographicArray <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Float64Array</span><span class="token punctuation">(</span>
+  batchTableBinary<span class="token punctuation">.</span>buffer<span class="token punctuation">,</span>
+  byteOffset<span class="token punctuation">,</span>
+  geographicArrayByteLength
+<span class="token punctuation">)</span>
+<span class="token keyword">var</span> geographicOfFeature <span class="token operator">=</span> positionArray<span class="token punctuation">.</span><span class="token function">subarray</span><span class="token punctuation">(</span>
+  batchId <span class="token operator">*</span> numberOfComponents<span class="token punctuation">,</span>
+  batchId <span class="token operator">*</span> numberOfComponents <span class="token operator">+</span> numberOfComponents
+<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Using subarray creates a view into the array, and not a new array.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>CesiumJS 的 3D Tiles 实现了读取批量表的功能，<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Scene/Cesium3DTileBatchTable.js">Cesium3DTileBatchTable.js</a>。</p>
+<hr>
+<p><a id="属性参考" name="属性参考"></a></p>
+<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><p><a href="#r批处理表" class="self">批处理表</a><br><a href="#r二进制体引用" class="self">二进制体引用</a><br><a href="#r属性" class="self">属性</a></p>
+<hr>
+<p><a id="r批处理表" name="r批处理表"></a></p>
+<h3 id="批处理表"><a href="#批处理表" class="headerlink" title="批处理表"></a>批处理表</h3><p>一组属性，用于定义数据中要素的应用程序特定元数据。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>extensions</strong></td>
+<td><code>object</code></td>
+<td>特定扩展对象的字典对象</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>extras</strong></td>
+<td><code>any</code></td>
+<td>应用程序的特定数据</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<p>允许其他属性。</p>
+<hr>
+<p><a id="r二进制体引用" name="r二进制体引用"></a></p>
+<h3 id="二进制体引用"><a href="#二进制体引用" class="headerlink" title="二进制体引用"></a>二进制体引用</h3><p>一个对象，用于定义对要素表的二进制主体部分的引用，如果未在 JSON 头中直接定义属性值，则在该部分存储。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>byteOffset</strong></td>
+<td><code>number</code></td>
+<td>缓冲区的偏移量（以字节为单位）</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+<tr>
+<td><strong>componentType</strong></td>
+<td><code>string</code></td>
+<td>属性所属部分的数据类型</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><code>string</code></td>
+<td>指定属性是标量还是向量</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+</tbody></table>
+<p>允许其他属性。</p>
+<hr>
+<p><a id="r属性" name="r属性"></a></p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>用户定义的属性，用于在数据中指定每个功能的特定于应用程序的元数据。值可以直接在 JSON 中定义为数组，也可以使用 <a href="#r二进制体引用" class="self"><code>二进制体引用</code></a> 对象引用二进制主体中的部分。</p>
+<p>JSON 参考，<a href="#JSONSchema" class="self">见上面</a>。</p>
+<hr>
+<hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 
@@ -897,7 +1247,7 @@ JSON 头
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.7k</span>&nbsp;字
+                class="white-color">32.5k</span>&nbsp;字
             
             <br>
             

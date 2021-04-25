@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batched-3d-model-specification/</loc>
+    <lastmod>2021-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batch-table-specification/</loc>
+    <lastmod>2021-04-25</lastmod>
+  </url>
+  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
-    <lastmod>2021-04-24</lastmod>
+    <lastmod>2021-04-25</lastmod>
   </url>
   <url>
     <loc>https://tanghaojie.github.io/2021/04/23/artical-a-target-default/</loc>
@@ -25,15 +33,7 @@
     <lastmod>2021-04-24</lastmod>
   </url>
   <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batched-3d-model-specification/</loc>
-    <lastmod>2021-04-24</lastmod>
-  </url>
-  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
-    <lastmod>2021-04-24</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batch-table-specification/</loc>
     <lastmod>2021-04-24</lastmod>
   </url>
   <url>

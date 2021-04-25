@@ -500,12 +500,12 @@ JSON 头
 <p><a id="文件结构" name="文件结构"></a></p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>要素表由两部分组成：JSON 头和可选的小端字节序二进制主体。JSON 属性名称是数据格式特定的语法，并且它们的值可以直接在 JSON 中定义，也可以引用二进制主体部分。将长数字数组存储在二进制体中的效率更高。下图显示了要素表布局：</p>
 <p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/feature-table-layout.png"></p>
-<p>当一种数据包括要素表时，要素表紧随在若干个字节的文件头后。文件头还要包含 <code>featureTableJSONByteLength</code> 和 <code>featureTableBinaryByteLength</code> <code>uint32</code> 字段，可用于表示要素表的各个部分。</p>
+<p>当一种数据包括要素表时，要素表紧随在若干个字节的文件头后。文件头还要包含 <code>featureTableJSONByteLength</code> 和 <code>featureTableBinaryByteLength</code> 的 <code>uint32</code> 字段，可用于表示要素表的各个部分。</p>
 <hr>
 <p><a id="结构" name="结构"></a></p>
 <h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>JSON 头必须以 8 个字节为界结束，否则，在 JSON 头尾部填充空格（<code>0x20</code>）以满足此要求。</p>
 <p>二进制体必须以 8 个字节为界开始和结束。为了满足此要求，可以用任意值填充空白部分。</p>
-<p>二进制属性必须以一个字节偏移量开始，该字节偏移量是必须是属性隐含类型大小的倍数。例如，组件的每个元素有 4 个字节长度的属性 <code>FLOAT</code> ，因此必须以 4 的倍数计算偏移量。为了满足此要求，可以用任意值填充空白部分。</p>
+<p>二进制属性必须以一个字节偏移量开始，该字节偏移量是必须是属性隐含类型大小的倍数。例如，组件的某个元素有 4 个字节长度的属性 <code>FLOAT</code> ，因此必须以 4 的倍数计算偏移量。为了满足此要求，可以用任意值填充空白部分。</p>
 <p><em>这里如果看不懂，先把后面看完再回头来看，应该就懂了。</em></p>
 <hr>
 <p><a id="JSON头" name="JSON头"></a></p>
@@ -709,7 +709,7 @@ JSON 头
 <span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// There are three components for each POSITION feature.</span>
 <span class="token keyword">var</span> position <span class="token operator">=</span> positionArray<span class="token punctuation">.</span><span class="token function">subarray</span><span class="token punctuation">(</span>featureId <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">,</span> featureId <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Using subarray creates a view into the array, and not a new array.</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>CesiumJS 的 3D Tiles 实现了要素表的读取功能，<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Scene/Cesium3DTileFeatureTable.js">Cesium3DTileFeatureTable.js</a>。</p>
+<p>CesiumJS 的 3D Tiles 实现了读取要素表的功能，<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Scene/Cesium3DTileFeatureTable.js">Cesium3DTileFeatureTable.js</a>。</p>
 <hr>
 <p><a id="属性参考" name="属性参考"></a></p>
 <h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><p><a href="#r要素表" class="self">要素表</a></p>
@@ -987,11 +987,23 @@ JSON 头
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+                            导航
+引
+概述
+文件结构
+结构
+JSON 头
+二进制体
 
 
+实例
+属性参考
+
+
+
+引官网文档
+
+概述批处理表是瓦片二进制体的一个组成部分，包含瓦片中每个要素的应用程序特定属性。在运行时查询这些属性以声明样式和任何应用程序特定的用法，例如填充
                         
                     </div>
                     <div class="publish-info">
@@ -1188,7 +1200,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.7k</span>&nbsp;字
+                class="white-color">32.5k</span>&nbsp;字
             
             <br>
             
