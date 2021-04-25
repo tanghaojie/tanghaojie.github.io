@@ -59,7 +59,7 @@ tags:
 
 ![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/feature-table-layout.png)
 
-当一种数据包括要素表时，要素表紧随在若干个字节的文件头后。文件头还要包含 `featureTableJSONByteLength` 和 `featureTableBinaryByteLength` `uint32` 字段，可用于表示要素表的各个部分。
+当一种数据包括要素表时，要素表紧随在若干个字节的文件头后。文件头还要包含 `featureTableJSONByteLength` 和 `featureTableBinaryByteLength` 的 `uint32` 字段，可用于表示要素表的各个部分。
 
 ---
 
@@ -71,7 +71,7 @@ JSON 头必须以 8 个字节为界结束，否则，在 JSON 头尾部填充空
 
 二进制体必须以 8 个字节为界开始和结束。为了满足此要求，可以用任意值填充空白部分。
 
-二进制属性必须以一个字节偏移量开始，该字节偏移量是必须是属性隐含类型大小的倍数。例如，组件的每个元素有 4 个字节长度的属性 `FLOAT` ，因此必须以 4 的倍数计算偏移量。为了满足此要求，可以用任意值填充空白部分。
+二进制属性必须以一个字节偏移量开始，该字节偏移量是必须是属性隐含类型大小的倍数。例如，组件的某个元素有 4 个字节长度的属性 `FLOAT` ，因此必须以 4 的倍数计算偏移量。为了满足此要求，可以用任意值填充空白部分。
 
 _这里如果看不懂，先把后面看完再回头来看，应该就懂了。_
 
@@ -296,7 +296,7 @@ var positionArray = new Float32Array(
 var position = positionArray.subarray(featureId * 3, featureId * 3 + 3) // Using subarray creates a view into the array, and not a new array.
 ```
 
-CesiumJS 的 3D Tiles 实现了要素表的读取功能，[Cesium3DTileFeatureTable.js](https://github.com/CesiumGS/cesium/blob/master/Source/Scene/Cesium3DTileFeatureTable.js)。
+CesiumJS 的 3D Tiles 实现了读取要素表的功能，[Cesium3DTileFeatureTable.js](https://github.com/CesiumGS/cesium/blob/master/Source/Scene/Cesium3DTileFeatureTable.js)。
 
 ---
 
