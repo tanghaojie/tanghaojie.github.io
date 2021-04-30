@@ -23,7 +23,7 @@ tags:
 - <a href="#引" class="self">引</a>
 - <a href="#概述" class="self">概述</a>
 - <a href="#文件结构" class="self">文件结构</a>
-  - <a href="#结构" class="self">结构</a>
+  - <a href="#结构填充" class="self">结构填充</a>
   - <a href="#JSON头" class="self">JSON 头</a>
   - <a href="#二进制体" class="self">二进制体</a>
 - <a href="#实例" class="self">实例</a>
@@ -63,9 +63,9 @@ tags:
 
 ---
 
-<a id="结构" name="结构"></a>
+<a id="结构填充" name="结构填充"></a>
 
-### 结构
+### 结构填充
 
 JSON 头必须以 8 个字节为界结束，否则，在 JSON 头尾部填充空格（`0x20`）以满足此要求。
 
