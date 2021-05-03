@@ -9,7 +9,7 @@
 引
 概述
 文件结构
-结构
+结构填充
 JSON 头
 二进制体
 
@@ -21,7 +21,7 @@ JSON 头
 
 引官网文档
 
-概述批处理表是瓦片二进制体的一个组成部分，包含瓦片中每个要素的应用程序特定属性。在运行时查询这些属性以声明样式和任何应用程序特定的用法，例如填充">
+概述批处理表是瓦片二进制体的一个组成部分，包含瓦片中每个要素的应用程序特定属性。在运行时查询这些属性以声明样式和任何应用程序特定的用法，例如">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -479,7 +479,7 @@ JSON 头
 <li><a href="#引" class="self">引</a></li>
 <li><a href="#概述" class="self">概述</a></li>
 <li><a href="#文件结构" class="self">文件结构</a><ul>
-<li><a href="#结构" class="self">结构</a></li>
+<li><a href="#结构填充" class="self">结构填充</a></li>
 <li><a href="#JSON头" class="self">JSON 头</a></li>
 <li><a href="#二进制体" class="self">二进制体</a></li>
 </ul>
@@ -504,8 +504,8 @@ JSON 头
 <p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/batch-table-layout.png"></p>
 <p>当瓦片数据包含批处理表时，批处理表将紧随瓦片的要素表之后。文件头还将包含 <code>batchTableJSONByteLength</code> 和 <code>batchTableBinaryByteLength</code> 的 <code>uint32</code> 字段，可用于提取批处理表的各个部分。</p>
 <hr>
-<p><a id="结构" name="结构"></a></p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>JSON 头必须以 8 个字节为界结束，否则，在 JSON 头尾部填充空格（<code>0x20</code>）以满足此要求。</p>
+<p><a id="结构填充" name="结构填充"></a></p>
+<h3 id="结构填充"><a href="#结构填充" class="headerlink" title="结构填充"></a>结构填充</h3><p>JSON 头必须以 8 个字节为界结束，否则，在 JSON 头尾部填充空格（<code>0x20</code>）以满足此要求。</p>
 <p>二进制体必须以 8 个字节为界开始和结束。为了满足此要求，可以用任意值填充空白部分。</p>
 <p>二进制属性必须以一个字节偏移量开始，该字节偏移量是必须是属性隐含类型大小的倍数。例如，组件的某个元素有 4 个字节长度的属性 <code>FLOAT</code> ，因此必须以 4 的倍数计算偏移量。为了满足此要求，可以用任意值填充空白部分。</p>
 <hr>
@@ -1090,7 +1090,7 @@ To do
 引
 概述
 文件结构
-结构
+结构填充
 JSON 头
 二进制体
 
@@ -1103,7 +1103,7 @@ JSON 头
 引官网文档
 
 
-概述要素表(Feature Table)是瓦片的实例二进制组件，用户描述每一个瓦片在 渲染 时的位置和外观属性。而批处理表(Batch Tab
+概述要素表(Feature Table)是瓦片的实例二进制组件，用户描述每一个瓦片在 渲染 时的位置和外观属性。而批处理表(Batch T
                         
                     </div>
                     <div class="publish-info">
@@ -1247,7 +1247,7 @@ JSON 头
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.5k</span>&nbsp;字
+                class="white-color">36.6k</span>&nbsp;字
             
             <br>
             

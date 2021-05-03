@@ -5,11 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="3D Tiles实例3D模型(Instanced 3D Model)数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+    <meta name="description" content="导航
 
-">
+引官网文档
+
+
+概述实例 3D 模型是一种切片数据格式，用于高效地流式传输和渲染大数据量的模型，称为实例，但会稍有变化。在最简单的情况下，例如，同一棵树模型可能会放置在多个地方（实例化）。每个实例都引用相同的模型，但每个实例都有属性">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -440,14 +441,14 @@ To do
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        37
+                        1.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        8 分
                     </div>
                     
                 
@@ -463,8 +464,318 @@ To do
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/Instanced3DModel">官网文档</a></p>
-<h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><hr>
+                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><hr>
+<p><a id="引" name="引"></a></p>
+<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/Instanced3DModel">官网文档</a></p>
+<hr>
+<p><a id="概述" name="概述"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>实例 3D 模型</code>是一种切片数据格式，用于高效地流式传输和渲染大数据量的模型，称为实例，但会稍有变化。在最简单的情况下，例如，同一棵树模型可能会放置在多个地方（实例化）。每个实例都引用相同的模型，但每个实例都有属性，例如位置。使用 core 3D Tiles 规范语言，每个实例是一个要素。</p>
+<p>除树木外，实例 3D 模型还可用于表面特征（例如消火栓，下水道盖，灯和交通信号灯），以及用于内部 CAD 特征（例如螺栓，阀门和电源插座）。</p>
+<p>实例化 3D 模型数据是小端字节序的二进制 Blob。</p>
+<blockquote>
+<p>实现提示：<a href="/2021/04/23/3d-tiles-composite-specification">复合对象 (Composite)</a>可以通过组合不同类型的实例模型来创建，例如，通过合并两个实例化 3D 模型图块来绘制树木和交通信号灯。</p>
+</blockquote>
+<blockquote>
+<p>实现提示：实例化 3D 模型可以很好地映射到 <a target="_blank" rel="noopener" href="https://www.khronos.org/registry/webgl/extensions/ANGLE_instanced_arrays/">ANGLE_instanced_arrays</a> 扩展，以便使用 WebGL 进行高效渲染。</p>
+</blockquote>
+<hr>
+<p><a id="文件结构" name="文件结构"></a></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>数据由文件头部分和紧随其后的二进制主体组成。下图显示了实例化 3D 模型的布局（破折号表示可选字段）：</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/header-layout.png"></p>
+<hr>
+<p><a id="结构填充" name="结构填充"></a></p>
+<h3 id="结构填充"><a href="#结构填充" class="headerlink" title="结构填充"></a>结构填充</h3><p>数据 <code>byteLength</code> 必须以 8 个字节进行边界对齐。包含的<a href="/2021/04/23/3d-tiles-feature-table-specification#%E7%BB%93%E6%9E%84%E5%A1%AB%E5%85%85">要素表(Feature Table)</a>和<a href="/2021/04/23/3d-tiles-batch-table-specification#%E7%BB%93%E6%9E%84%E5%A1%AB%E5%85%85">批处理表(Batch Table)</a>必须符合其各自的填充要求。</p>
+<p><a href="#二进制glTF" class="self">二进制 glTF</a> （如果存在）的开始和结束位置必须以 8 个字节进行边界对齐，以便满足 glTF 的字节对齐要求。这可以通过填充功能表或批处理表（如果存在）来实现。</p>
+<p>否则，如果 glTF 字段是 UTF-8 字符串，则必须用尾随空格字符（<code>0x20</code>）填充它，以满足数据的对齐要求，在请求 glTF 数据之前，必须在运行时将其删除。</p>
+<hr>
+<p><a id="文件头" name="文件头"></a></p>
+<h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><p>32 字节的文件头包含以下字段：</p>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Data type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>magic</code></td>
+<td>4-byte ANSI string</td>
+<td><code>"i3dm"</code>。用于将内容标识为“实例 3D 模型”</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>uint32</code></td>
+<td>版本。现在是<code>1</code>。</td>
+</tr>
+<tr>
+<td><code>byteLength</code></td>
+<td><code>uint32</code></td>
+<td>整个数据的长度（包括文件头），以字节为单位</td>
+</tr>
+<tr>
+<td><code>featureTableJSONByteLength</code></td>
+<td><code>uint32</code></td>
+<td>要素表 JSON 部分的长度（以字节为单位）</td>
+</tr>
+<tr>
+<td><code>featureTableBinaryByteLength</code></td>
+<td><code>uint32</code></td>
+<td>要素表二进制部分的长度（以字节为单位）</td>
+</tr>
+<tr>
+<td><code>batchTableJSONByteLength</code></td>
+<td><code>uint32</code></td>
+<td>批处理表 JSON 部分的长度（以字节为单位），零表示没有批处理表</td>
+</tr>
+<tr>
+<td><code>batchTableBinaryByteLength</code></td>
+<td><code>uint32</code></td>
+<td>批处理表二进制部分的长度（以字节为单位），如果<code>batchTableJSONByteLength</code>为零，则也将为零。</td>
+</tr>
+<tr>
+<td><code>gltfFormat</code></td>
+<td><code>uint32</code></td>
+<td>指示主体的 glTF 字段的格式。 <code>0</code>表示它是一个 uri，<code>1</code>表示它是嵌入式二进制 glTF。请参阅下面的 <a href="#glTF" class="self">glTF</a> 部分。</td>
+</tr>
+</tbody></table>
+<p>主体部分紧着文件头，并且由三个字段组成：<code>Feature Table</code>，<code>Batch Table</code>，和<code>glTF</code>。</p>
+<hr>
+<p><a id="要素表" name="要素表"></a></p>
+<h2 id="要素表"><a href="#要素表" class="headerlink" title="要素表"></a>要素表</h2><p>要素表包含<code>i3dm</code>用于创建实例模型的语法值。更多信息请查看<a href="/2021/04/23/3d-tiles-feature-table-specification">要素表(Feature Table)规范</a>。</p>
+<p>在<a href="#属性参考" class="self">属性参考</a> 查看<code>i3dm</code> 要素表的参考。完整 JSON 定义<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/i3dm.featureTable.schema.json">i3dm.featureTable.schema.json</a>。</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"i3dm.featureTable.schema.json"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Instanced 3D Model Feature Table"</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A set of Instanced 3D Model semantics that contains values defining the position and appearance properties for instanced models in a tile."</span><span class="token punctuation">,</span>
+  <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"POSITION"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"POSITION_QUANTIZED"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_UP"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_RIGHT"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_UP_OCT32P"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_RIGHT_OCT32P"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"SCALE"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"SCALE_NON_UNIFORM"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"BATCH_ID"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `BinaryBodyReference` object defining the reference to a section of the binary body where the property values are stored. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/binaryBodyReference"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"INSTANCES_LENGTH"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `GlobalPropertyScalar` object defining a numeric property for all features. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/globalPropertyScalar"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"RTC_CENTER"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `GlobalPropertyCartesian3` object defining a 3-component numeric property for all features. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/globalPropertyCartesian3"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"QUANTIZED_VOLUME_OFFSET"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `GlobalPropertyCartesian3` object defining a 3-component numeric property for all features. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/globalPropertyCartesian3"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"QUANTIZED_VOLUME_SCALE"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `GlobalPropertyCartesian3` object defining a 3-component numeric property for all features. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/globalPropertyCartesian3"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"EAST_NORTH_UP"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `GlobalPropertyBoolean` object defining a boolean property for all features. See the corresponding property semantic in [Semantics](/specification/TileFormats/Instanced3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
+          <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/globalPropertyBoolean"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"POSITION"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"POSITION_QUANTIZED"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"POSITION_QUANTIZED"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">"QUANTIZED_VOLUME_OFFSET"</span><span class="token punctuation">,</span>
+          <span class="token string">"QUANTIZED_VOLUME_SCALE"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_UP"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"NORMAL_RIGHT"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_RIGHT"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"NORMAL_UP"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_UP_OCT32P"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"NORMAL_RIGHT_OCT32P"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"NORMAL_RIGHT_OCT32P"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"NORMAL_UP_OCT32P"</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"INSTANCES_LENGTH"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="语法" name="语法"></a></p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><a id="实例语法" name="实例语法"></a></p>
+<h3 id="实例语法"><a href="#实例语法" class="headerlink" title="实例语法"></a>实例语法</h3><p>语法映射到要素值的数组，用于创建实例的。对于语法，这些数组的长度必须相同，并且必须等于实例数。每个实例的值必须是对要素表二进制主体的引用；它们不能嵌入要素表的 JSON 头中。</p>
+<p>如果一个语法依赖于另一个语法，则必须定义该语法。如果实例同时定义了 <code>SCALE</code> 和 <code>SCALE_NON_UNIFORM</code>，则将应用两个缩放操作。如果实例同时定义了 <code>POSITION</code> 和 <code>POSITION_QUANTIZED</code>，更高精度的<code>POSITION</code> 将被使用。如果实例同时定义了 <code>NORMAL_UP</code>，<code>NORMAL_RIGHT</code>，<code>NORMAL_UP_OCT32P</code>，和 <code>NORMAL_RIGHT_OCT32P</code>，更高精度的 <code>NORMAL_UP</code> 和 <code>NORMAL_RIGHT</code> 将被使用。</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>数据类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>POSITION</code></td>
+<td><code>float32[3]</code></td>
+<td>3 个部分的数组包含<code>x</code>，<code>y</code>以及<code>z</code>的笛卡尔坐标表示实例的位置</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes, 除非定义了 <code>POSITION_QUANTIZED</code></td>
+</tr>
+<tr>
+<td><code>POSITION_QUANTIZED</code></td>
+<td><code>uint16[3]</code></td>
+<td>3 个部分的数组包含<code>x</code>，<code>y</code>以及<code>z</code>的量化笛卡尔坐标（quantized Cartesian coordinates）表示实例的位置</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes, 除非定义了 <code>POSITION</code></td>
+</tr>
+<tr>
+<td><code>NORMAL_UP</code></td>
+<td><code>float32[3]</code></td>
+<td>定义实例<code>up</code>方向的单位向量</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, 除非定义了 <code>NORMAL_RIGHT</code></td>
+</tr>
+<tr>
+<td><code>NORMAL_RIGHT</code></td>
+<td><code>float32[3]</code></td>
+<td>定义实例<code>right</code>方向的单位向量，必须与<code>up</code>方向正交</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, 除非定义了 <code>NORMAL_UP</code></td>
+</tr>
+<tr>
+<td><code>NORMAL_UP_OCT32P</code></td>
+<td><code>uint16[2]</code></td>
+<td>32 位精度的八进制编码的单位矢量，<code>up</code>用于定义实例定向的方向</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, 除非定义了 <code>NORMAL_RIGHT_OCT32P</code></td>
+</tr>
+<tr>
+<td><code>NORMAL_RIGHT_OCT32P</code></td>
+<td><code>uint16[2]</code></td>
+<td>32 位精度的八进制编码的单位矢量，<code>right</code>用于定义实例定向的方向，必须与<code>up</code>方向正交</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, 除非定义了 <code>NORMAL_UP_OCT32P</code></td>
+</tr>
+<tr>
+<td><code>SCALE</code></td>
+<td><code>float32</code></td>
+<td>一个数字用于定义实例所有轴的比例</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>SCALE_NON_UNIFORM</code></td>
+<td><code>float32[3]</code></td>
+<td>3 个部分数组的比例数字，定义实例<code>x</code>，<code>y</code>以及<code>z</code>轴的比例</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>BATCH_ID</code></td>
+<td><code>uint8</code>, <code>uint16</code> (default), or <code>uint32</code></td>
+<td>实例的<code>batchId</code>用于从<code>Batch Table</code>检索元数据</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a id="全局语法" name="全局语法"></a></p>
+<h3 id="全局语法"><a href="#全局语法" class="headerlink" title="全局语法"></a>全局语法</h3><hr>
+<p><a id="批处理表" name="批处理表"></a></p>
+<h2 id="批处理表"><a href="#批处理表" class="headerlink" title="批处理表"></a>批处理表</h2><hr>
+<p><a id="glTF" name="glTF"></a></p>
+<h2 id="glTF"><a href="#glTF" class="headerlink" title="glTF"></a>glTF</h2><hr>
+<p><a id="属性参考" name="属性参考"></a></p>
+<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 
@@ -743,14 +1054,16 @@ To do
 
 文件结构
 
-详细内容
+结构填充
 
+
+文件头
 
 要素表
 
 语法定义
-要素定义
-全局定义
+要素语法
+全局语法
 
 
 
@@ -773,13 +1086,7 @@ To do
 
 引官网文档
 
-概述
-
-文件结构
-
-详细内容
-
-要
+概述批处理 3D 模型允
                         
                     </div>
                     <div class="publish-info">
@@ -923,7 +1230,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.5k</span>&nbsp;字
+                class="white-color">36.6k</span>&nbsp;字
             
             <br>
             
