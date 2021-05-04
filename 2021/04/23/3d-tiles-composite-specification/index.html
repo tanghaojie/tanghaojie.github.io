@@ -5,11 +5,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="3D Tiles复合对象(Composite)数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+    <meta name="description" content="导航
+引
 
-">
+概述
+
+文件结构
+
+结构填充
+
+
+文件头
+
+内部瓦片
+
+文件扩展名和 MIME 类型
+
+实现示例
+
+
+
+
+引官网文档
+
+概述复合对象格式允许拼接的不同格式的数据变成一个区块。
+3D 瓦片和复合对象瓦片为流式异构数据集提供了灵活性">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -440,14 +460,14 @@ To do
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        37
+                        817
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -463,8 +483,123 @@ To do
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/Composite">官网文档</a></p>
-<h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><hr>
+                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li><p><a href="#引" class="self">引</a></p>
+</li>
+<li><p><a href="#概述" class="self">概述</a></p>
+</li>
+<li><p><a href="#文件结构" class="self">文件结构</a></p>
+<ul>
+<li><a href="#结构填充" class="self">结构填充</a></li>
+</ul>
+</li>
+<li><p><a href="#文件头" class="self">文件头</a></p>
+</li>
+<li><p><a href="#内部瓦片" class="self">内部瓦片</a></p>
+</li>
+<li><p><a href="#文件扩展名和MIME类型" class="self">文件扩展名和 MIME 类型</a></p>
+</li>
+<li><p><a href="#实现示例" class="self">实现示例</a></p>
+</li>
+</ul>
+<hr>
+<p><a id="引" name="引"></a></p>
+<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/Composite">官网文档</a></p>
+<p><a id="概述" name="概述"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>复合对象格式允许拼接的不同格式的数据变成一个区块。</p>
+<p>3D 瓦片和复合对象瓦片为流式异构数据集提供了灵活性。例如，建筑物和树木可以存储在两个单独的“批处理 3D 模型”和“实例化 3D 模型”图块中，或者可以使用“复合”图块进行组合。</p>
+<p>支持瓦片间（同一数据集中不同格式的不同瓦片）和瓦片内（同一复合图块中不同格式的瓦片）选项的异构数据集，使转换工具可以在多个请求之间进行权衡，优化特定类型的细分方式，以及可见/隐藏层的流式传输方式。</p>
+<p>复合数据是小端字节序的二进制 Blob。</p>
+<hr>
+<p><a id="文件结构" name="文件结构"></a></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>复合数据的文件结构（破折号表示可选字段）：</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/composite-layout.png"></p>
+<hr>
+<p><a id="结构填充" name="结构填充"></a></p>
+<h3 id="结构填充"><a href="#结构填充" class="headerlink" title="结构填充"></a>结构填充</h3><p>数据 <code>byteLength</code> 必须以 8 个字节进行边界对齐。包含的所有数据也必须对齐 8 个字节的边界。</p>
+<hr>
+<p><a id="文件头" name="文件头"></a></p>
+<h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><p>16 字节的文件头包含以下字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>magic</code></td>
+<td>4 字节 ANSI 字符串</td>
+<td><code>"cmpt"</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>uint32</code></td>
+<td>版本。现在是<code>1</code></td>
+</tr>
+<tr>
+<td><code>byteLength</code></td>
+<td><code>uint32</code></td>
+<td>整个复合数据的长度（包括标头和每个内部数据），以字节为单位</td>
+</tr>
+<tr>
+<td><code>tilesLength</code></td>
+<td><code>uint32</code></td>
+<td>复合中的图块数</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a id="内部瓦片" name="内部瓦片"></a></p>
+<h2 id="内部瓦片"><a href="#内部瓦片" class="headerlink" title="内部瓦片"></a>内部瓦片</h2><p>内部瓦片字段紧跟在文件头部分之后。以下信息描述了复合图块读取器可能利用其来查找内部图块边界的所有图块格式的一般特征：</p>
+<ul>
+<li><p>每个图块均以 4 字节 ANSI 字符串开头，该字符串 <code>magic</code> 可用于确定图块格式以进行进一步解析。有关可能格式的列表，请参见<a href="/2021/04/21/3d-tiles-specification/#%E7%93%A6%E7%89%87%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83">瓦片格式规范</a>。复合图块可以包含复合图块。</p>
+</li>
+<li><p>每个图块的标头包含一个 <code>uint32</code> <code>byteLength</code>，用于定义内部图块的长度（包括其标头），以字节为单位。这可用于遍历内部瓦片。</p>
+</li>
+<li><p>对于任何版本为 1 的图块格式，所有图块的前 12 个字节为以下字段：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>magic</code></td>
+<td>4 字节 ANSI 字符串</td>
+<td>表示图块格式</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>uint32</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>byteLength</code></td>
+<td><code>uint32</code></td>
+<td>整个图块的长度（以字节为单位）</td>
+</tr>
+</tbody></table>
+<p>有关更多详细信息，请参考每种图块格式的规范。</p>
+<hr>
+<p><a id="文件扩展名和MIME类型" name="文件扩展名和MIME类型"></a></p>
+<h2 id="文件扩展名和-MIME-类型"><a href="#文件扩展名和-MIME-类型" class="headerlink" title="文件扩展名和 MIME 类型"></a>文件扩展名和 MIME 类型</h2><p>复合图块使用<code>.cmpt</code>扩展名和<code>application/octet-stream</code>MIME 类型。</p>
+<p>显式文件扩展名是可选的。有效的实现可能会忽略它，并通过 <code>magic</code> 其标头中的字段标识内容的格式。</p>
+<hr>
+<p><a id="实现示例" name="实现示例"></a></p>
+<h2 id="实现示例"><a href="#实现示例" class="headerlink" title="实现示例"></a>实现示例</h2><p>本节是非规范性的</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Geopipe/gltf2glb">Python gltf2glb 工具集中的 <code>packcmpt</code> 工具</a>包含用于将一个或多个“批处理 3D 模型”或“实例化 3D 模型”图块组合到单个“复合”图块文件中的代码。</p>
+</li>
+<li><p>可以在 3D Tiles 的 CesiumJS 实现 <a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Scene/Composite3DTileContent.js">Composite3DTileContent.js</a> 中找到用于读取文件头的代码 。</p>
+</li>
+</ul>
+<hr>
+<hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 
@@ -749,10 +884,46 @@ JSON 头
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+                            导航
+引
 
+概述
+
+文件结构
+
+结构填充
+
+
+文件头
+
+要素表
+
+语法定义
+
+点语法
+全局语法
+
+
+点位置
+
+坐标系
+RTC_CENTER
+量化位置
+
+
+点颜色
+
+点法线
+
+八进制编码的法向向量
+
+
+批处理点
+
+例子
+
+仅位置
+位置和颜色
 
                         
                     </div>
@@ -897,7 +1068,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">39.3k</span>&nbsp;字
+                class="white-color">40.4k</span>&nbsp;字
             
             <br>
             
