@@ -6,11 +6,43 @@
     <meta charset="utf-8">
     <meta name="keywords" content="3D Tiles实例3D模型(Instanced 3D Model)数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="导航
+引
 
-引官网文档
+概述
+
+文件结构
+
+结构填充
 
 
-概述实例 3D 模型是一种切片数据格式，用于高效地流式传输和渲染大数据量的模型，称为实例，但会稍有变化。在最简单的情况下，例如，同一棵树模型可能会放置在多个地方（实例化）。每个实例都引用相同的模型，但每个实例都有属性">
+文件头
+
+要素表
+
+语法定义
+
+实例语法
+全局语法
+
+
+实例方向
+
+八进制编码的法向向量
+默认方向
+
+
+实例位置
+
+RTC_CENTER
+量化位置
+
+
+实例缩放
+
+例子
+
+仅位置
+量化位置和八进">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -441,14 +473,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.9k
+                        4.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        19 分
                     </div>
                     
                 
@@ -464,7 +496,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><hr>
+                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li><p><a href="#引" class="self">引</a></p>
+</li>
+<li><p><a href="#概述" class="self">概述</a></p>
+</li>
+<li><p><a href="#文件结构" class="self">文件结构</a></p>
+<ul>
+<li><a href="#结构填充" class="self">结构填充</a></li>
+</ul>
+</li>
+<li><p><a href="#文件头" class="self">文件头</a></p>
+</li>
+<li><p><a href="#要素表" class="self">要素表</a></p>
+<ul>
+<li><p><a href="#语法定义" class="self">语法定义</a></p>
+<ul>
+<li><a href="#实例语法" class="self">实例语法</a></li>
+<li><a href="#全局语法" class="self">全局语法</a></li>
+</ul>
+</li>
+<li><p><a href="#实例方向" class="self">实例方向</a></p>
+<ul>
+<li><a href="#八进制编码的法向向量" class="self">八进制编码的法向向量</a></li>
+<li><a href="#默认方向" class="self">默认方向</a></li>
+</ul>
+</li>
+<li><p><a href="#实例位置" class="self">实例位置</a></p>
+<ul>
+<li><a href="#RTC_CENTER" class="self">RTC_CENTER</a></li>
+<li><a href="#量化位置" class="self">量化位置</a></li>
+</ul>
+</li>
+<li><p><a href="#实例缩放" class="self">实例缩放</a></p>
+</li>
+<li><p><a href="#例子" class="self">例子</a></p>
+<ul>
+<li><a href="#仅位置" class="self">仅位置</a></li>
+<li><a href="#量化位置和八进制编码法线" class="self">量化位置和八进制编码法线</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#批处理表" class="self">批处理表</a></p>
+</li>
+<li><p><a href="#glTF" class="self">glTF</a></p>
+<ul>
+<li><a href="#坐标系" class="self">坐标系</a></li>
+</ul>
+</li>
+<li><p><a href="#文件扩展名和MIME类型" class="self">文件扩展名和 MIME 类型</a></p>
+</li>
+<li><p><a href="#属性参考" class="self">属性参考</a></p>
+</li>
+</ul>
+<hr>
 <p><a id="引" name="引"></a></p>
 <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/Instanced3DModel">官网文档</a></p>
 <hr>
@@ -699,9 +785,9 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<p><a id="语法" name="语法"></a></p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><a id="实例语法" name="实例语法"></a></p>
-<h3 id="实例语法"><a href="#实例语法" class="headerlink" title="实例语法"></a>实例语法</h3><p>语法映射到要素值的数组，用于创建实例的。对于语法，这些数组的长度必须相同，并且必须等于实例数。每个实例的值必须是对要素表二进制主体的引用；它们不能嵌入要素表的 JSON 头中。</p>
+<p><a id="语法定义" name="语法定义"></a></p>
+<h3 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h3><p><a id="实例语法" name="实例语法"></a></p>
+<h4 id="实例语法"><a href="#实例语法" class="headerlink" title="实例语法"></a>实例语法</h4><p>语法映射到要素值的数组，用于创建实例的。对于语法，这些数组的长度必须相同，并且必须等于实例数。每个实例的值必须是对要素表二进制主体的引用；它们不能嵌入要素表的 JSON 头中。</p>
 <p>如果一个语法依赖于另一个语法，则必须定义该语法。如果实例同时定义了 <code>SCALE</code> 和 <code>SCALE_NON_UNIFORM</code>，则将应用两个缩放操作。如果实例同时定义了 <code>POSITION</code> 和 <code>POSITION_QUANTIZED</code>，更高精度的<code>POSITION</code> 将被使用。如果实例同时定义了 <code>NORMAL_UP</code>，<code>NORMAL_RIGHT</code>，<code>NORMAL_UP_OCT32P</code>，和 <code>NORMAL_RIGHT_OCT32P</code>，更高精度的 <code>NORMAL_UP</code> 和 <code>NORMAL_RIGHT</code> 将被使用。</p>
 <table>
 <thead>
@@ -769,13 +855,496 @@
 </tbody></table>
 <hr>
 <p><a id="全局语法" name="全局语法"></a></p>
-<h3 id="全局语法"><a href="#全局语法" class="headerlink" title="全局语法"></a>全局语法</h3><hr>
+<h4 id="全局语法"><a href="#全局语法" class="headerlink" title="全局语法"></a>全局语法</h4><p>这些语法定义了所有实例的全局属性。</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>数据类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>INSTANCES_LENGTH</code></td>
+<td><code>uint32</code></td>
+<td>要生成的实例数。实例语义的每个数组值的长度应等于此长度</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes.</td>
+</tr>
+<tr>
+<td><code>RTC_CENTER</code></td>
+<td><code>float32[3]</code></td>
+<td>当实例位置相对于中心定义时，由三部分组成的数字数组定义中心位.</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>QUANTIZED_VOLUME_OFFSET</code></td>
+<td><code>float32[3]</code></td>
+<td>由三部分组成的数字数组，用于定义量化体积的偏移量</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, 除非定义了 <code>POSITION_QUANTIZED</code></td>
+</tr>
+<tr>
+<td><code>QUANTIZED_VOLUME_SCALE</code></td>
+<td><code>float32[3]</code></td>
+<td>由三部分组成的数字数组，用于定义量化体积的比例</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, 除非定义了 <code>POSITION_QUANTIZED</code></td>
+</tr>
+<tr>
+<td><code>EAST_NORTH_UP</code></td>
+<td><code>boolean</code></td>
+<td>当<code>true</code>未定义按实例的方向时，每个实例将默认为椭球<code>east/north/up</code>上参考框架的方向<code>WGS84</code></td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a id="实例方向" name="实例方向"></a></p>
+<h3 id="实例方向"><a href="#实例方向" class="headerlink" title="实例方向"></a>实例方向</h3><p>实例的方向由<code>up</code>和<code>right</code>矢量创建的正交基准定义。方向将通过<a href="/2021/04/21/3d-tiles-specification/#%E7%93%A6%E7%89%87%E5%8F%98%E6%8D%A2%EF%BC%88Tiletransforms%EF%BC%89">瓦片变换</a> 进行。</p>
+<p><code>x</code>标准基向量在变换时映射到<code>right</code>基向量，<code>y</code>向量映射到<code>up</code>向量。<code>z</code>向量映射到<code>forward</code>向量，但它忽略，因为它总是<code>right</code>和<code>up</code>的正交。</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/box-standard-basis.png"></p>
+<p>在标准坐标轴中的盒子</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/box-rotated-basis.png"></p>
+<p>经过旋转变换的盒子</p>
+<hr>
+<p><a id="八进制编码的法向向量" name="八进制编码的法向向量"></a></p>
+<h4 id="八进制编码的法向向量"><a href="#八进制编码的法向向量" class="headerlink" title="八进制编码的法向向量"></a>八进制编码的法向向量</h4><p>如果<code>NORMAL_UP</code>与<code>NORMAL_RIGHT</code>不被实例所定义，其取向可以被存储为八进制编码的法向<code>NORMAL_UP_OCT32P</code>和<code>NORMAL_RIGHT_OCT32P</code>。它们定义<code>up</code>和<code>right</code>使用<a target="_blank" rel="noopener" href="http://jcgt.org/published/0003/02/01/">独立单位向量的有效表示法</a>中描述的八进制编码。八进制编码的值存储在无符号的非规范化范围（<code>[0, 65535]</code>）中，然后在运行时映射到有符号（<code>[-1.0, 1.0]</code>）的规范化范围。</p>
+<blockquote>
+<p>在 CesiumJS 的<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Core/AttributeCompression.js">AttributeCompression</a>模块中可以找到对这些单位矢量进行编码和解码的实现。</p>
+</blockquote>
+<hr>
+<p><a id="默认方向" name="默认方向"></a></p>
+<h4 id="默认方向"><a href="#默认方向" class="headerlink" title="默认方向"></a>默认方向</h4><p>如果不存在<code>NORMAL_UP</code>和<code>NORMAL_RIGHT</code>或<code>NORMAL_UP_OCT32P</code>和<code>NORMAL_RIGHT_OCT32P</code>，则实例将没有自定义方向。如果<code>EAST_NORTH_UP</code>为 <code>true</code>，则假定该实例位于<code>WGS84</code>椭球体上，并且其方向将默认为<code>east/north/up</code>参考框架在其制图位置处的位置。这适用于诸如树木之类的实例模型，其方向始终从其在椭球表面上的位置朝上。</p>
+<hr>
+<p><a id="实例位置" name="实例位置"></a></p>
+<h3 id="实例位置"><a href="#实例位置" class="headerlink" title="实例位置"></a>实例位置</h3><p><code>POSITION</code>定义实例的位置，在应用任何变换之前。</p>
+<hr>
+<p><a id="RTC_CENTER" name="RTC_CENTER"></a></p>
+<h4 id="RTC-CENTER"><a href="#RTC-CENTER" class="headerlink" title="RTC_CENTER"></a>RTC_CENTER</h4><p>可以相对于中心定义位置以进行高精度渲染，请参见<a target="_blank" rel="noopener" href="http://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm">Precisions，Precisions</a>。如果定义，则 <code>RTC_CENTER</code> 指定中心位置，并且所有实例位置均相对于此值。</p>
+<hr>
+<p><a id="量化位置" name="量化位置"></a></p>
+<h4 id="量化位置"><a href="#量化位置" class="headerlink" title="量化位置"></a>量化位置</h4><p>如果没有为实例定义<code>POSITION</code>，则其位置可以存储在<code>POSITION_QUANTIZED</code>中，其定义了相对于量化体的实例位置。如果没有 <code>POSITION</code> 或 <code>POSITION_QUANTIZED</code> 定义，实例将不会被创建。</p>
+<p>量化体由<code>offset</code>和<code>scale</code>定义，并将量化的位置映射到局部空间，如下图所示：</p>
+<p><img src="https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quantized-volume.png"></p>
+<p><code>offset</code>全局语义存储在<code>QUANTIZED_VOLUME_OFFSET</code>，<code>scale</code>全局语义存储在<code>QUANTIZED_VOLUME_SCALE</code>。如果未定义这些全局语义，则<code>POSITION_QUANTIZED</code>无法使用。</p>
+<p>可以使用以下公式将量化的位置映射到本地空间：</p>
+<p><code>POSITION = POSITION_QUANTIZED \* QUANTIZED_VOLUME_SCALE / 65535.0 + QUANTIZED_VOLUME_OFFSET</code></p>
+<hr>
+<p><a id="实例缩放" name="实例缩放"></a></p>
+<h3 id="实例缩放"><a href="#实例缩放" class="headerlink" title="实例缩放"></a>实例缩放</h3><p>缩放可以使用<code>SCALE</code>和<code>SCALE_NON_UNIFORM</code>语义应用于实例。 <code>SCALE</code>沿着所有轴应用统一的缩放，<code>SCALE_NON_UNIFORM</code>分别在<code>x</code>，<code>y</code>和<code>z</code>轴应用独立的缩放。</p>
+<hr>
+<p><a id="例子" name="例子"></a></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>这些示例说明如何为要素表生成 JSON 和二进制缓冲区。</p>
+<p><a id="仅位置" name="仅位置"></a></p>
+<h4 id="仅位置"><a href="#仅位置" class="headerlink" title="仅位置"></a>仅位置</h4><p>在这个最小的示例中，我们将四个实例以默认方向放置在单位长度正方形的角上：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> featureTableJSON <span class="token operator">=</span> <span class="token punctuation">{</span>
+  INSTANCES_LENGTH<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  POSITION<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    byteOffset<span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> featureTableBinary <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>
+  <span class="token keyword">new</span> <span class="token class-name">Float32Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>buffer
+<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="量化位置和八进制编码法线" name="量化位置和八进制编码法线"></a></p>
+<h4 id="量化位置和八进制编码法线"><a href="#量化位置和八进制编码法线" class="headerlink" title="量化位置和八进制编码法线"></a>量化位置和八进制编码法线</h4><p>在此示例中，四个实例会被放置在<code>up</code>方向为<code>[0.0, 1.0, 0.0]</code>，<code>right</code> 为<code>[1.0, 0.0, 0.0]</code>的八进制编码格式，并且将它们放置在量化体积的角上，该量化体积在<code>x</code>和<code>z</code>方向上跨度为<code>-250.0</code> 到 <code>250.0 </code>个单位：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> featureTableJSON <span class="token operator">=</span> <span class="token punctuation">{</span>
+  INSTANCES_LENGTH<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  QUANTIZED_VOLUME_OFFSET<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">250.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">250.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  QUANTIZED_VOLUME_SCALE<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">500.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">500.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  POSITION_QUANTIZED<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    byteOffset<span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  NORMAL_UP_OCT32P<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    byteOffset<span class="token punctuation">:</span> <span class="token number">24</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  NORMAL_RIGHT_OCT32P<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    byteOffset<span class="token punctuation">:</span> <span class="token number">40</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> positionQuantizedBinary <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>
+  <span class="token keyword">new</span> <span class="token class-name">Uint16Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>buffer
+<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> normalUpOct32PBinary <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>
+  <span class="token keyword">new</span> <span class="token class-name">Uint16Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>buffer
+<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> normalRightOct32PBinary <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>
+  <span class="token keyword">new</span> <span class="token class-name">Uint16Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">32768</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>buffer
+<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> featureTableBinary <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  positionQuantizedBinary<span class="token punctuation">,</span>
+  normalUpOct32PBinary<span class="token punctuation">,</span>
+  normalRightOct32PBinary
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
 <p><a id="批处理表" name="批处理表"></a></p>
-<h2 id="批处理表"><a href="#批处理表" class="headerlink" title="批处理表"></a>批处理表</h2><hr>
+<h2 id="批处理表"><a href="#批处理表" class="headerlink" title="批处理表"></a>批处理表</h2><p>包含由<code>batchId</code>组成的元数据，可用于样式声明。有关更多信息，请参见<a href="/2021/04/23/3d-tiles-batch-table-specification">批处理表(Batch Table)</a>。</p>
+<hr>
 <p><a id="glTF" name="glTF"></a></p>
-<h2 id="glTF"><a href="#glTF" class="headerlink" title="glTF"></a>glTF</h2><hr>
+<h2 id="glTF"><a href="#glTF" class="headerlink" title="glTF"></a>glTF</h2><p>实例化 3D 模型嵌入了包含模型几何和纹理信息的 <a target="_blank" rel="noopener" href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0">glTF 2.0</a>。</p>
+<p>glTF 资源存储在要素表和批处理表之后。它可能嵌入了所有的几何，纹理和动画，或者可能引用了某些或所有这些数据的外部来源。</p>
+<p><code>header.gltfFormat</code> 确定 glTF 字段的格式</p>
+<ul>
+<li>当 <code>header.gltfFormat</code> 的值是 <code>0</code>， glTF 字段是 UTF-8 字符串，其包含 glTF 或二进制 glTF 模型的内容的 URI。</li>
+<li>当 <code>header.gltfFormat</code> 的值是 <code>1</code>，glTF 字段是包含<a target="_blank" rel="noopener" href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#binary-gltf-layout">二进制 glTF</a> 的二进制 blob 。</li>
+</ul>
+<hr>
+<p><a id="坐标系" name="坐标系"></a></p>
+<h3 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h3><p>默认情况下，glTF 使用右手坐标系，其中 y 轴朝上。为了与 3D Tiles 的 z 向上坐标系保持一致，必须在运行时转换 glTF。有关更多详细信息，请参见<a href="/2021/04/21/3d-tiles-specification/#glTF%E5%8F%98%E6%8D%A2%EF%BC%88glTFtransforms%EF%BC%89">glTF 变换</a> 。</p>
+<hr>
+<p><a id="文件扩展名和MIME类型" name="文件扩展名和MIME类型"></a></p>
+<h2 id="文件扩展名和-MIME-类型"><a href="#文件扩展名和-MIME-类型" class="headerlink" title="文件扩展名和 MIME 类型"></a>文件扩展名和 MIME 类型</h2><p>实例化 3D 模型使用<code>.i3dm </code>扩展名和 <code>application/octet-stream</code> MIME 类型。</p>
+<p>显式文件扩展名是可选的。有效的实现可能会忽略它，并通过 <code>magic</code> 其标头中的字段标识内容的格式。</p>
+<hr>
 <p><a id="属性参考" name="属性参考"></a></p>
-<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><hr>
+<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><ul>
+<li><p><a href="#r实例化3D模型要素表" class="self">实例化 3D 模型要素表</a></p>
+<ul>
+<li><a href="#r二进制体引用" class="self">二进制体引用</a></li>
+<li><a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a></li>
+<li><a href="#r全局标量属性" class="self">全局标量属性</a></li>
+<li><a href="#r全局布尔属性" class="self">全局布尔属性</a></li>
+<li><a href="#r属性" class="self">属性</a></li>
+</ul>
+</li>
+</ul>
+<p><a id="r实例化3D模型要素表" name="r实例化3D模型要素表"></a></p>
+<h3 id="实例化-3D-模型要素表"><a href="#实例化-3D-模型要素表" class="headerlink" title="实例化 3D 模型要素表"></a>实例化 3D 模型要素表</h3><p>一组实例化 3D 模型语义，其中包含定义图块中实例化模型的位置和外观属性的值。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>extensions</strong></td>
+<td><code>object</code></td>
+<td>扩展特定的字典对象</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>extras</strong></td>
+<td><code>any</code></td>
+<td>应用特定数据</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>POSITION</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>POSITION_QUANTIZED</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>NORMAL_UP</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>NORMAL_RIGHT</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>NORMAL_UP_OCT32P</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>NORMAL_RIGHT_OCT32P</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>SCALE</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>SCALE_NON_UNIFORM</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>BATCH_ID</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>INSTANCES_LENGTH</strong></td>
+<td><code>object</code>, <code>number</code> <code>[1]</code>, <code>number</code></td>
+<td><a href="#r全局标量属性" class="self">全局标量属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+<tr>
+<td><strong>RTC_CENTER</strong></td>
+<td><code>object</code>, <code>number</code> <code>[3]</code></td>
+<td><a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a> 对象，定义所有要素的 3 部分数值属性。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>QUANTIZED_VOLUME_OFFSET</strong></td>
+<td><code>object</code>, <code>number</code> <code>[3]</code></td>
+<td><a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a> 对象，定义所有要素的 3 部分数值属性。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>QUANTIZED_VOLUME_SCALE</strong></td>
+<td><code>object</code>, <code>number</code> <code>[3]</code></td>
+<td><a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a> 对象，定义所有要素的 3 部分数值属性。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>EAST_NORTH_UP</strong></td>
+<td><code>boolean</code></td>
+<td><a href="#r全局布尔属性" class="self">全局布尔属性</a> 对象，定义所有要素的布尔值属性。查看相应属性的定义<a href="#语法" class="self">语法</a></td>
+<td>No</td>
+</tr>
+</tbody></table>
+<p>允许其他属性。</p>
+<hr>
+<p><a id="r二进制体引用" name="r二进制体引用"></a></p>
+<h3 id="二进制体引用"><a href="#二进制体引用" class="headerlink" title="二进制体引用"></a>二进制体引用</h3><p>一个对象，用于定义对要素表的二进制主体部分的引用，如果未在 JSON 中直接定义属性值，则在该部分存储属性值。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>byteOffset</strong></td>
+<td><code>number</code></td>
+<td>缓冲区的偏移量（以字节为单位）</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+</tbody></table>
+<p>允许其他属性。</p>
+<hr>
+<p><a id="r全局笛卡尔坐标系属性" name="r全局笛卡尔坐标系属性"></a></p>
+<h3 id="全局笛卡尔坐标系属性"><a href="#全局笛卡尔坐标系属性" class="headerlink" title="全局笛卡尔坐标系属性"></a>全局笛卡尔坐标系属性</h3><p>为所有要素定义全局 3 组分数值属性值的对象。</p>
+<hr>
+<p><a id="r全局标量属性" name="r全局标量属性"></a></p>
+<h3 id="全局标量属性"><a href="#全局标量属性" class="headerlink" title="全局标量属性"></a>全局标量属性</h3><p>为所有要素定义全局数值属性值的对象。</p>
+<hr>
+<p><a id="r全局布尔属性" name="r全局布尔属性"></a></p>
+<h3 id="全局布尔属性"><a href="#全局布尔属性" class="headerlink" title="全局布尔属性"></a>全局布尔属性</h3><p>为所有要素定义全局布尔属性值的对象。</p>
+<hr>
+<p><a id="r属性" name="r属性"></a></p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>用户自定义的属性，用来在数据中指定每个要素的应用程序特定的元数据。值可以直接在 JSON 中定义为数组，也可以引用<a href="#r二进制体引用" class="self">二进制体</a>中的部分。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/featureTable.schema.json">JSON 定义示例</a></p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Feature Table"</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A set of semantics containing per-tile and per-feature values defining the position and appearance properties for features in a tile."</span><span class="token punctuation">,</span>
+  <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"binaryBodyReference"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"BinaryBodyReference"</span><span class="token punctuation">,</span>
+      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining the reference to a section of the binary body of the features table where the property values are stored if not defined directly in the JSON."</span><span class="token punctuation">,</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+          <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The datatype of components in the property. This is defined only if the semantic allows for overriding the implicit component type. These cases are specified in each tile format."</span><span class="token punctuation">,</span>
+          <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"BYTE"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_BYTE"</span><span class="token punctuation">,</span>
+            <span class="token string">"SHORT"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_SHORT"</span><span class="token punctuation">,</span>
+            <span class="token string">"INT"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_INT"</span><span class="token punctuation">,</span>
+            <span class="token string">"FLOAT"</span><span class="token punctuation">,</span>
+            <span class="token string">"DOUBLE"</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"numericArray"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+      <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"property"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Property"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A user-defined property which specifies per-feature application-specific metadata in a tile. Values either can be defined directly in the JSON as an array, or can refer to sections in the binary body with a `BinaryBodyReference` object."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/binaryBodyReference"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyBoolean"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyBoolean"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global boolean property value for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"boolean"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyScalar"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyScalar"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global numeric property value for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+              <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+              <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">1</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+          <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyCartesian3"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyCartesian3"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global 3-component numeric property values for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+              <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+              <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyCartesian4"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyCartesian4"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global 4-component numeric property values for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+              <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+              <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+          <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">4</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"additionalProperties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/property"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 
@@ -1230,7 +1799,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">36.6k</span>&nbsp;字
+                class="white-color">39.3k</span>&nbsp;字
             
             <br>
             
