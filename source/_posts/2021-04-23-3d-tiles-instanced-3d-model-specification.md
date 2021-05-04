@@ -20,6 +20,44 @@ tags:
 
 ## 导航
 
+- <a href="#引" class="self">引</a>
+- <a href="#概述" class="self">概述</a>
+- <a href="#文件结构" class="self">文件结构</a>
+
+  - <a href="#结构填充" class="self">结构填充</a>
+
+- <a href="#文件头" class="self">文件头</a>
+- <a href="#要素表" class="self">要素表</a>
+
+  - <a href="#语法定义" class="self">语法定义</a>
+
+    - <a href="#实例语法" class="self">实例语法</a>
+    - <a href="#全局语法" class="self">全局语法</a>
+
+  - <a href="#实例方向" class="self">实例方向</a>
+
+    - <a href="#八进制编码的法向向量" class="self">八进制编码的法向向量</a>
+    - <a href="#默认方向" class="self">默认方向</a>
+
+  - <a href="#实例位置" class="self">实例位置</a>
+
+    - <a href="#RTC_CENTER" class="self">RTC_CENTER</a>
+    - <a href="#量化位置" class="self">量化位置</a>
+
+  - <a href="#实例缩放" class="self">实例缩放</a>
+
+  - <a href="#例子" class="self">例子</a>
+
+    - <a href="#仅位置" class="self">仅位置</a>
+    - <a href="#量化位置和八进制编码法线" class="self">量化位置和八进制编码法线</a>
+
+- <a href="#批处理表" class="self">批处理表</a>
+- <a href="#glTF" class="self">glTF</a>
+  - <a href="#坐标系" class="self">坐标系</a>
+- <a href="#文件扩展名和MIME类型" class="self">文件扩展名和 MIME 类型</a>
+
+- <a href="#属性参考" class="self">属性参考</a>
+
 ---
 
 <a id="引" name="引"></a>
@@ -255,13 +293,13 @@ tags:
 
 ---
 
-<a id="语法" name="语法"></a>
+<a id="语法定义" name="语法定义"></a>
 
-### 语法
+### 语法定义
 
 <a id="实例语法" name="实例语法"></a>
 
-### 实例语法
+#### 实例语法
 
 语法映射到要素值的数组，用于创建实例的。对于语法，这些数组的长度必须相同，并且必须等于实例数。每个实例的值必须是对要素表二进制主体的引用；它们不能嵌入要素表的 JSON 头中。
 
@@ -283,7 +321,196 @@ tags:
 
 <a id="全局语法" name="全局语法"></a>
 
-### 全局语法
+#### 全局语法
+
+这些语法定义了所有实例的全局属性。
+
+| 语法                      | 数据类型     | 描述                                                                                     | 是否必须                                         |
+| ------------------------- | ------------ | ---------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `INSTANCES_LENGTH`        | `uint32`     | 要生成的实例数。实例语义的每个数组值的长度应等于此长度                                   | :white_check_mark: Yes.                          |
+| `RTC_CENTER`              | `float32[3]` | 当实例位置相对于中心定义时，由三部分组成的数字数组定义中心位.                            | :red_circle: No.                                 |
+| `QUANTIZED_VOLUME_OFFSET` | `float32[3]` | 由三部分组成的数字数组，用于定义量化体积的偏移量                                         | :red_circle: No, 除非定义了 `POSITION_QUANTIZED` |
+| `QUANTIZED_VOLUME_SCALE`  | `float32[3]` | 由三部分组成的数字数组，用于定义量化体积的比例                                           | :red_circle: No, 除非定义了 `POSITION_QUANTIZED` |
+| `EAST_NORTH_UP`           | `boolean`    | 当`true`未定义按实例的方向时，每个实例将默认为椭球`east/north/up`上参考框架的方向`WGS84` | :red_circle: No.                                 |
+
+---
+
+<a id="实例方向" name="实例方向"></a>
+
+### 实例方向
+
+实例的方向由`up`和`right`矢量创建的正交基准定义。方向将通过[瓦片变换](/2021/04/21/3d-tiles-specification/#瓦片变换（Tiletransforms）) 进行。
+
+`x`标准基向量在变换时映射到`right`基向量，`y`向量映射到`up`向量。`z`向量映射到`forward`向量，但它忽略，因为它总是`right`和`up`的正交。
+
+![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/box-standard-basis.png)
+
+在标准坐标轴中的盒子
+
+![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/box-rotated-basis.png)
+
+经过旋转变换的盒子
+
+---
+
+<a id="八进制编码的法向向量" name="八进制编码的法向向量"></a>
+
+#### 八进制编码的法向向量
+
+如果`NORMAL_UP`与`NORMAL_RIGHT`不被实例所定义，其取向可以被存储为八进制编码的法向`NORMAL_UP_OCT32P`和`NORMAL_RIGHT_OCT32P`。它们定义`up`和`right`使用[独立单位向量的有效表示法](http://jcgt.org/published/0003/02/01/)中描述的八进制编码。八进制编码的值存储在无符号的非规范化范围（`[0, 65535]`）中，然后在运行时映射到有符号（`[-1.0, 1.0]`）的规范化范围。
+
+> 在 CesiumJS 的[AttributeCompression](https://github.com/CesiumGS/cesium/blob/master/Source/Core/AttributeCompression.js)模块中可以找到对这些单位矢量进行编码和解码的实现。
+
+---
+
+<a id="默认方向" name="默认方向"></a>
+
+#### 默认方向
+
+如果不存在`NORMAL_UP`和`NORMAL_RIGHT`或`NORMAL_UP_OCT32P`和`NORMAL_RIGHT_OCT32P`，则实例将没有自定义方向。如果`EAST_NORTH_UP`为 `true`，则假定该实例位于`WGS84`椭球体上，并且其方向将默认为`east/north/up`参考框架在其制图位置处的位置。这适用于诸如树木之类的实例模型，其方向始终从其在椭球表面上的位置朝上。
+
+---
+
+<a id="实例位置" name="实例位置"></a>
+
+### 实例位置
+
+`POSITION`定义实例的位置，在应用任何变换之前。
+
+---
+
+<a id="RTC_CENTER" name="RTC_CENTER"></a>
+
+#### RTC_CENTER
+
+可以相对于中心定义位置以进行高精度渲染，请参见[Precisions，Precisions](http://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm)。如果定义，则 `RTC_CENTER` 指定中心位置，并且所有实例位置均相对于此值。
+
+---
+
+<a id="量化位置" name="量化位置"></a>
+
+#### 量化位置
+
+如果没有为实例定义`POSITION`，则其位置可以存储在`POSITION_QUANTIZED`中，其定义了相对于量化体的实例位置。如果没有 `POSITION` 或 `POSITION_QUANTIZED` 定义，实例将不会被创建。
+
+量化体由`offset`和`scale`定义，并将量化的位置映射到局部空间，如下图所示：
+
+![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quantized-volume.png)
+
+`offset`全局语义存储在`QUANTIZED_VOLUME_OFFSET`，`scale`全局语义存储在`QUANTIZED_VOLUME_SCALE`。如果未定义这些全局语义，则`POSITION_QUANTIZED`无法使用。
+
+可以使用以下公式将量化的位置映射到本地空间：
+
+`POSITION = POSITION_QUANTIZED \* QUANTIZED_VOLUME_SCALE / 65535.0 + QUANTIZED_VOLUME_OFFSET`
+
+---
+
+<a id="实例缩放" name="实例缩放"></a>
+
+### 实例缩放
+
+缩放可以使用`SCALE`和`SCALE_NON_UNIFORM`语义应用于实例。 `SCALE`沿着所有轴应用统一的缩放，`SCALE_NON_UNIFORM`分别在`x`，`y`和`z`轴应用独立的缩放。
+
+---
+
+<a id="例子" name="例子"></a>
+
+### 例子
+
+这些示例说明如何为要素表生成 JSON 和二进制缓冲区。
+
+<a id="仅位置" name="仅位置"></a>
+
+#### 仅位置
+
+在这个最小的示例中，我们将四个实例以默认方向放置在单位长度正方形的角上：
+
+```javascript
+var featureTableJSON = {
+  INSTANCES_LENGTH: 4,
+  POSITION: {
+    byteOffset: 0
+  }
+}
+
+var featureTableBinary = new Buffer(
+  new Float32Array([
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    0.0,
+    1.0
+  ]).buffer
+)
+```
+
+---
+
+<a id="量化位置和八进制编码法线" name="量化位置和八进制编码法线"></a>
+
+#### 量化位置和八进制编码法线
+
+在此示例中，四个实例会被放置在`up`方向为`[0.0, 1.0, 0.0]`，`right` 为`[1.0, 0.0, 0.0]`的八进制编码格式，并且将它们放置在量化体积的角上，该量化体积在`x`和`z`方向上跨度为`-250.0` 到 `250.0 `个单位：
+
+```javascript
+var featureTableJSON = {
+  INSTANCES_LENGTH: 4,
+  QUANTIZED_VOLUME_OFFSET: [-250.0, 0.0, -250.0],
+  QUANTIZED_VOLUME_SCALE: [500.0, 0.0, 500.0],
+  POSITION_QUANTIZED: {
+    byteOffset: 0
+  },
+  NORMAL_UP_OCT32P: {
+    byteOffset: 24
+  },
+  NORMAL_RIGHT_OCT32P: {
+    byteOffset: 40
+  }
+}
+
+var positionQuantizedBinary = new Buffer(
+  new Uint16Array([0, 0, 0, 65535, 0, 0, 0, 0, 65535, 65535, 0, 65535]).buffer
+)
+
+var normalUpOct32PBinary = new Buffer(
+  new Uint16Array([
+    32768,
+    65535,
+    32768,
+    65535,
+    32768,
+    65535,
+    32768,
+    65535
+  ]).buffer
+)
+
+var normalRightOct32PBinary = new Buffer(
+  new Uint16Array([
+    65535,
+    32768,
+    65535,
+    32768,
+    65535,
+    32768,
+    65535,
+    32768
+  ]).buffer
+)
+
+var featureTableBinary = Buffer.concat([
+  positionQuantizedBinary,
+  normalUpOct32PBinary,
+  normalRightOct32PBinary
+])
+```
 
 ---
 
@@ -291,17 +518,289 @@ tags:
 
 ## 批处理表
 
+包含由`batchId`组成的元数据，可用于样式声明。有关更多信息，请参见[批处理表(Batch Table)](/2021/04/23/3d-tiles-batch-table-specification)。
+
 ---
 
 <a id="glTF" name="glTF"></a>
 
 ## glTF
 
+实例化 3D 模型嵌入了包含模型几何和纹理信息的 [glTF 2.0](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0)。
+
+glTF 资源存储在要素表和批处理表之后。它可能嵌入了所有的几何，纹理和动画，或者可能引用了某些或所有这些数据的外部来源。
+
+`header.gltfFormat` 确定 glTF 字段的格式
+
+- 当 `header.gltfFormat` 的值是 `0`， glTF 字段是 UTF-8 字符串，其包含 glTF 或二进制 glTF 模型的内容的 URI。
+- 当 `header.gltfFormat` 的值是 `1`，glTF 字段是包含[二进制 glTF](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#binary-gltf-layout) 的二进制 blob 。
+
+---
+
+<a id="坐标系" name="坐标系"></a>
+
+### 坐标系
+
+默认情况下，glTF 使用右手坐标系，其中 y 轴朝上。为了与 3D Tiles 的 z 向上坐标系保持一致，必须在运行时转换 glTF。有关更多详细信息，请参见[glTF 变换](/2021/04/21/3d-tiles-specification/#glTF变换（glTFtransforms）) 。
+
+---
+
+<a id="文件扩展名和MIME类型" name="文件扩展名和MIME类型"></a>
+
+## 文件扩展名和 MIME 类型
+
+实例化 3D 模型使用`.i3dm `扩展名和 `application/octet-stream` MIME 类型。
+
+显式文件扩展名是可选的。有效的实现可能会忽略它，并通过 `magic` 其标头中的字段标识内容的格式。
+
 ---
 
 <a id="属性参考" name="属性参考"></a>
 
 ## 属性参考
+
+- <a href="#r实例化3D模型要素表" class="self">实例化 3D 模型要素表</a>
+
+  - <a href="#r二进制体引用" class="self">二进制体引用</a>
+  - <a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a>
+  - <a href="#r全局标量属性" class="self">全局标量属性</a>
+  - <a href="#r全局布尔属性" class="self">全局布尔属性</a>
+  - <a href="#r属性" class="self">属性</a>
+
+<a id="r实例化3D模型要素表" name="r实例化3D模型要素表"></a>
+
+### 实例化 3D 模型要素表
+
+一组实例化 3D 模型语义，其中包含定义图块中实例化模型的位置和外观属性的值。
+
+|                             | 类型                               | 描述                                                                                                                                                                | 是否必须               |
+| --------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| **extensions**              | `object`                           | 扩展特定的字典对象                                                                                                                                                  | No                     |
+| **extras**                  | `any`                              | 应用特定数据                                                                                                                                                        | No                     |
+| **POSITION**                | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **POSITION_QUANTIZED**      | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **NORMAL_UP**               | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **NORMAL_RIGHT**            | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **NORMAL_UP_OCT32P**        | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **NORMAL_RIGHT_OCT32P**     | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **SCALE**                   | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **SCALE_NON_UNIFORM**       | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **BATCH_ID**                | `object`                           | <a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法" class="self">语法</a>          | No                     |
+| **INSTANCES_LENGTH**        | `object`, `number` `[1]`, `number` | <a href="#r全局标量属性" class="self">全局标量属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法" class="self">语法</a>                            | :white_check_mark: Yes |
+| **RTC_CENTER**              | `object`, `number` `[3]`           | <a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a> 对象，定义所有要素的 3 部分数值属性。查看相应属性的定义<a href="#语法" class="self">语法</a> | No                     |
+| **QUANTIZED_VOLUME_OFFSET** | `object`, `number` `[3]`           | <a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a> 对象，定义所有要素的 3 部分数值属性。查看相应属性的定义<a href="#语法" class="self">语法</a> | No                     |
+| **QUANTIZED_VOLUME_SCALE**  | `object`, `number` `[3]`           | <a href="#r全局笛卡尔坐标系属性" class="self">全局笛卡尔坐标系属性</a> 对象，定义所有要素的 3 部分数值属性。查看相应属性的定义<a href="#语法" class="self">语法</a> | No                     |
+| **EAST_NORTH_UP**           | `boolean`                          | <a href="#r全局布尔属性" class="self">全局布尔属性</a> 对象，定义所有要素的布尔值属性。查看相应属性的定义<a href="#语法" class="self">语法</a>                      | No                     |
+
+允许其他属性。
+
+---
+
+<a id="r二进制体引用" name="r二进制体引用"></a>
+
+### 二进制体引用
+
+一个对象，用于定义对要素表的二进制主体部分的引用，如果未在 JSON 中直接定义属性值，则在该部分存储属性值。
+
+|                | 类型     | 描述                           | 是否必须               |
+| -------------- | -------- | ------------------------------ | ---------------------- |
+| **byteOffset** | `number` | 缓冲区的偏移量（以字节为单位） | :white_check_mark: Yes |
+
+允许其他属性。
+
+---
+
+<a id="r全局笛卡尔坐标系属性" name="r全局笛卡尔坐标系属性"></a>
+
+### 全局笛卡尔坐标系属性
+
+为所有要素定义全局 3 组分数值属性值的对象。
+
+---
+
+<a id="r全局标量属性" name="r全局标量属性"></a>
+
+### 全局标量属性
+
+为所有要素定义全局数值属性值的对象。
+
+---
+
+<a id="r全局布尔属性" name="r全局布尔属性"></a>
+
+### 全局布尔属性
+
+为所有要素定义全局布尔属性值的对象。
+
+---
+
+<a id="r属性" name="r属性"></a>
+
+### 属性
+
+用户自定义的属性，用来在数据中指定每个要素的应用程序特定的元数据。值可以直接在 JSON 中定义为数组，也可以引用<a href="#r二进制体引用" class="self">二进制体</a>中的部分。
+
+[JSON 定义示例](https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/featureTable.schema.json)
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "featureTable.schema.json",
+  "title": "Feature Table",
+  "type": "object",
+  "description": "A set of semantics containing per-tile and per-feature values defining the position and appearance properties for features in a tile.",
+  "definitions": {
+    "binaryBodyReference": {
+      "title": "BinaryBodyReference",
+      "type": "object",
+      "description": "An object defining the reference to a section of the binary body of the features table where the property values are stored if not defined directly in the JSON.",
+      "properties": {
+        "byteOffset": {
+          "type": "number",
+          "description": "The offset into the buffer in bytes.",
+          "minimum": 0
+        },
+        "componentType": {
+          "type": "number",
+          "description": "The datatype of components in the property. This is defined only if the semantic allows for overriding the implicit component type. These cases are specified in each tile format.",
+          "enum": [
+            "BYTE",
+            "UNSIGNED_BYTE",
+            "SHORT",
+            "UNSIGNED_SHORT",
+            "INT",
+            "UNSIGNED_INT",
+            "FLOAT",
+            "DOUBLE"
+          ]
+        }
+      },
+      "required": ["byteOffset"]
+    },
+    "numericArray": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "property": {
+      "title": "Property",
+      "description": "A user-defined property which specifies per-feature application-specific metadata in a tile. Values either can be defined directly in the JSON as an array, or can refer to sections in the binary body with a `BinaryBodyReference` object.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/binaryBodyReference"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "globalPropertyBoolean": {
+      "title": "GlobalPropertyBoolean",
+      "description": "An object defining a global boolean property value for all features.",
+      "type": "boolean"
+    },
+    "globalPropertyScalar": {
+      "title": "GlobalPropertyScalar",
+      "description": "An object defining a global numeric property value for all features.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "byteOffset": {
+              "type": "number",
+              "description": "The offset into the buffer in bytes.",
+              "minimum": 0
+            }
+          },
+          "required": ["byteOffset"]
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        {
+          "type": "number",
+          "minimum": 0
+        }
+      ]
+    },
+    "globalPropertyCartesian3": {
+      "title": "GlobalPropertyCartesian3",
+      "description": "An object defining a global 3-component numeric property values for all features.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "byteOffset": {
+              "type": "number",
+              "description": "The offset into the buffer in bytes.",
+              "minimum": 0
+            }
+          },
+          "required": ["byteOffset"]
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        }
+      ]
+    },
+    "globalPropertyCartesian4": {
+      "title": "GlobalPropertyCartesian4",
+      "description": "An object defining a global 4-component numeric property values for all features.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "byteOffset": {
+              "type": "number",
+              "description": "The offset into the buffer in bytes.",
+              "minimum": 0
+            }
+          },
+          "required": ["byteOffset"]
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      ]
+    }
+  },
+  "properties": {
+    "extensions": {
+      "$ref": "extension.schema.json"
+    },
+    "extras": {
+      "$ref": "extras.schema.json"
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/definitions/property"
+  }
+}
+```
+
+---
 
 ---
 
