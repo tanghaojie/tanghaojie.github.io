@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="metashape-cluster, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="1.所有电脑在同一局域网，设置固定IP地址，使用千兆交换机（如果只有两台设备，可以采用网线直连）。2.共享网络文件夹，右键需共享的工程目录文件夹，选择属性-共享，选择everyone，点击共享。选择高级共享，打勾共享文件夹，点击权限，选择e">
+    <meta name="description" content="1.所有电脑在同一局域网，设置固定 IP 地址，使用千兆交换机（如果只有两台设备，可以采用网线直连）。
+2.共享网络文件夹，右键需共享的工程目录文件夹，选择属性-共享，选择 everyone，点击共享。选择高级共享，打勾共享文件夹，点击权限">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -134,7 +135,7 @@
         <div class="logo-name">桀士</div>
         <div class="logo-desc">
             
-            看天空的女孩是寂寞的，看天空的男孩是找UFO！
+            我们追逐的绝不是别人的起点，而是每一个未知的明天！
             
         </div>
     </div>
@@ -288,7 +289,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -357,7 +358,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1.所有电脑在同一局域网，设置固定IP地址，使用千兆交换机（如果只有两台设备，可以采用网线直连）。<br>2.共享网络文件夹，右键需共享的工程目录文件夹，选择属性-共享，选择everyone，点击共享。选择高级共享，打勾共享文件夹，点击权限，选择everyone，权限选择完全控制。<br>3.打开软件，菜单栏工具——偏好设置——网络，勾选network，填入服务端IP地址（不能使用127.0.0.1）和项目所在目录（就是上面共享的目录）。<br>4.作为服务端的电脑，打开cmd，输入（不能出现中文字符）：<code>“C\Program Files\Agisoft\Metashape Pro\Metashape.exe” --server --control 192.168.0.1:5840 --dispatch 192.168.0.1:5841</code>。也可以把这段话保存成：server.bat文件，打开就自动执行了。<br>5.作为节点的电脑，打开cmd，输入（不能出现中文字符）：<code>"C:\Program Files\Agisoft\Metashape Pro\Metashape.exe" --node --dispatch 192.168.0.1:5841 --root \\DESKTOP-PC\Cluster</code>，–dispatch参数要一样，–root就是保存项目所有文件的共享文件夹，共享目录名用计算机名的形式，别用ip形式。同样也可以保存成：node.bat，方便使用。<br>6.打开Agisoft Network Monitor，输入主机的ip和端口，点击connect，就可以查看连接的电脑了。<br>7.打开软件，按照正常流程创建工程后保存，一定要保存到共享目录下面。之后进行运算的时候软件会询问是否通过集群进行计算。</p>
+                <p>1.所有电脑在同一局域网，设置固定 IP 地址，使用千兆交换机（如果只有两台设备，可以采用网线直连）。</p>
+<p>2.共享网络文件夹，右键需共享的工程目录文件夹，选择属性-共享，选择 everyone，点击共享。选择高级共享，打勾共享文件夹，点击权限，选择 everyone，权限选择完全控制。</p>
+<p>3.打开软件，菜单栏工具——偏好设置——网络，勾选 network，填入服务端 IP 地址（不能使用 127.0.0.1）和项目所在目录（就是上面共享的目录）。</p>
+<p>4.作为服务端的电脑，打开 cmd，输入（不能出现中文字符）：<code>“C\Program Files\Agisoft\Metashape Pro\Metashape.exe” --server --control 192.168.0.1:5840 --dispatch 192.168.0.1:5841</code>。也可以把这段话保存成：server.bat 文件，打开就自动执行了。</p>
+<p>5.作为节点的电脑，打开 cmd，输入（不能出现中文字符）：<code>"C:\Program Files\Agisoft\Metashape Pro\Metashape.exe" --node --dispatch 192.168.0.1:5841 --root \\DESKTOP-PC\Cluster</code>，–dispatch 参数要一样，–root 就是保存项目所有文件的共享文件夹，共享目录名用计算机名的形式，别用 ip 形式。同样也可以保存成：node.bat，方便使用。</p>
+<p>6.打开 Agisoft Network Monitor，输入主机的 ip 和端口，点击 connect，就可以查看连接的电脑了。</p>
+<p>7.打开软件，按照正常流程创建工程后保存，一定要保存到共享目录下面。之后进行运算的时候软件会询问是否通过集群进行计算。</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -569,7 +576,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="DJI照片元数据主要信息列表">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="DJI照片元数据主要信息列表">
                         
                         <span class="card-title">DJI照片元数据主要信息列表</span>
                     </div>
@@ -610,11 +617,23 @@ fo
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Jackie Tang(唐浩桀)
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/specification/" class="post-category" target="_blank">
+                                    specification
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/specification/" target="_blank">
+                        <span class="chip bg-color">specification</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -630,7 +649,7 @@ fo
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Agisoft photoscan/metashape 使用教程">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Agisoft photoscan/metashape 使用教程">
                         
                         <span class="card-title">Agisoft photoscan/metashape 使用教程</span>
                     </div>
@@ -638,7 +657,7 @@ fo
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Photoscan，新版本改名叫Metashape了，相较于context capture（smart3d）进行空三计算效果更好，速度更快，配置更灵活，空三结果可以导入context capture进行三维重建。因此，我经常使用Metash
+                            Photoscan，新版本改名叫 Metashape 了，相较于 context capture（smart3d）进行空三计算效果更好，速度更快，配置更灵活，空三结果可以导入 context capture 进行三维重建。因此，我经常使用 
                         
                     </div>
                     <div class="publish-info">
@@ -677,7 +696,7 @@ fo
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.4k</span>&nbsp;字
+                class="white-color">40.5k</span>&nbsp;字
             
             <br>
             

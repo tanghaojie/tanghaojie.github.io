@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="git commit规范化，设置Commitizen，符合Angular的规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="安装配置commitizen地址cz-conventional-changelo地址：规范要求，不同的适配器要求不同conventional-changelog地址：生成changelog.md
-npm install -g commiti">
+    <meta name="description" content="安装配置commitizen 地址cz-conventional-changelo 地址：规范要求，不同的适配器要求不同conventional-changelog 地址：生成 changelog.md
+npm install -g com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -135,7 +135,7 @@ npm install -g commiti">
         <div class="logo-name">桀士</div>
         <div class="logo-desc">
             
-            看天空的女孩是寂寞的，看天空的男孩是找UFO！
+            我们追逐的绝不是别人的起点，而是每一个未知的明天！
             
         </div>
     </div>
@@ -289,7 +289,7 @@ npm install -g commiti">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -404,12 +404,33 @@ npm install -g commiti">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/other/" target="_blank">
+                                <span class="chip bg-color">other</span>
+                            </a>
+                        
+                            <a href="/tags/git/" target="_blank">
+                                <span class="chip bg-color">git</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/git/" class="post-category" target="_blank">
+                                git
+                            </a>
+                        
+                            <a href="/categories/git/other/" class="post-category" target="_blank">
+                                other
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -424,7 +445,7 @@ npm install -g commiti">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        283
+                        285
                     </div>
                     
 
@@ -447,16 +468,16 @@ npm install -g commiti">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p><a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-cli">commitizen地址</a><br><a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-conventional-changelog">cz-conventional-changelo地址：规范要求，不同的适配器要求不同</a><br><a target="_blank" rel="noopener" href="https://github.com/ajoslin/conventional-changelog">conventional-changelog地址：生成changelog.md</a></p>
+                <h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p><a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-cli">commitizen 地址</a><br><a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-conventional-changelog">cz-conventional-changelo 地址：规范要求，不同的适配器要求不同</a><br><a target="_blank" rel="noopener" href="https://github.com/ajoslin/conventional-changelog">conventional-changelog 地址：生成 changelog.md</a></p>
 <pre><code>npm install -g commitizen
 npm install -g cz-conventional-changelog
 npm install -g conventional-changelog-cli
 commitizen init cz-conventional-changelog --save-dev --save-exact
 </code></pre>
-<p>如果已经有其他适配器了，会报错，用  <code>--force</code> 替换掉，即：</p>
+<p>如果已经有其他适配器了，会报错，用 <code>--force</code> 替换掉，即：</p>
 <pre><code>commitizen init cz-conventional-changelog --save-dev --save-exact --force
 </code></pre>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>以后提交代码就用<code>git cz -m</code>替代<code>git commit -m</code>就好了，或者不输入message跟着提示走就没问题。<br>type值：  </p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>以后提交代码就用<code>git cz -m</code>替代<code>git commit -m</code>就好了，或者不输入 message 跟着提示走就没问题。<br>type 值：</p>
 <table>
 <thead>
 <tr>
@@ -470,7 +491,7 @@ commitizen init cz-conventional-changelog --save-dev --save-exact
 </tr>
 <tr>
 <td>fix</td>
-<td>修复一个Bug</td>
+<td>修复一个 Bug</td>
 </tr>
 <tr>
 <td>docs</td>
@@ -494,11 +515,11 @@ commitizen init cz-conventional-changelog --save-dev --save-exact
 </tr>
 <tr>
 <td>build</td>
-<td>变更项目构建或外部依赖（例如scopes: webpack、gulp、npm等）</td>
+<td>变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）</td>
 </tr>
 <tr>
 <td>ci</td>
-<td>更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等</td>
+<td>更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等</td>
 </tr>
 <tr>
 <td>chore</td>
@@ -509,7 +530,7 @@ commitizen init cz-conventional-changelog --save-dev --save-exact
 <td>代码回退</td>
 </tr>
 </tbody></table>
-<p>生成changelog：<br><code>conventional-changelog -p angular -i CHANGELOG.md -s</code></p>
+<p>生成 changelog：<br><code>conventional-changelog -p angular -i CHANGELOG.md -s</code></p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -721,7 +742,7 @@ commitizen init cz-conventional-changelog --save-dev --save-exact
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="jenkins从github拉取nuxt项目部署到docker, windows平台">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="jenkins从github拉取nuxt项目部署到docker, windows平台">
                         
                         <span class="card-title">jenkins从github拉取nuxt项目部署到docker, windows平台</span>
                     </div>
@@ -745,11 +766,23 @@ jenkins 插件：github、git、publish over ssh。提前要
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Jackie Tang(唐浩桀)
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/other/" class="post-category" target="_blank">
+                                    other
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/other/" target="_blank">
+                        <span class="chip bg-color">other</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -765,7 +798,7 @@ jenkins 插件：github、git、publish over ssh。提前要
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="docker速查表">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="docker速查表">
                         
                         <span class="card-title">docker速查表</span>
                     </div>
@@ -787,11 +820,31 @@ docker update
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Jackie Tang(唐浩桀)
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/docker/" class="post-category" target="_blank">
+                                    docker
+                                </a>
+                            
+                            <a href="/categories/docker/cheat-sheet/" class="post-category" target="_blank">
+                                    cheat sheet
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cheat-sheet/" target="_blank">
+                        <span class="chip bg-color">cheat sheet</span>
+                    </a>
+                    
+                    <a href="/tags/docker/" target="_blank">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -910,7 +963,7 @@ docker update
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.4k</span>&nbsp;字
+                class="white-color">40.5k</span>&nbsp;字
             
             <br>
             
