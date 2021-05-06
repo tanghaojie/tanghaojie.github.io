@@ -501,7 +501,7 @@ JSON 头
 <hr>
 <p><a id="文件结构" name="文件结构"></a></p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>批处理表由两部分组成：JSON 头和可选的小端字节序二进制主体。JSON 描述了属性，这些属性的值可以直接在 JSON 中定义为数组，也可以引用二进制主体中的部分。将长数字数组存储在二进制体中的效率更高。下图显示了批处理表布局：</p>
-<p><img src="https://jackie_tang.gitee.io/_images/2021-04/3d-tiles/batch-table-layout.png"></p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/batch-table-layout.png"></p>
 <p>当瓦片数据包含批处理表时，批处理表将紧随瓦片的要素表之后。文件头还将包含 <code>batchTableJSONByteLength</code> 和 <code>batchTableBinaryByteLength</code> 的 <code>uint32</code> 字段，可用于提取批处理表的各个部分。</p>
 <hr>
 <p><a id="结构填充" name="结构填充"></a></p>
@@ -622,7 +622,7 @@ address<span class="token punctuation">[</span><span class="token number">1</spa
 <hr>
 <p><a id="二进制体" name="二进制体"></a></p>
 <h3 id="二进制体"><a href="#二进制体" class="headerlink" title="二进制体"></a>二进制体</h3><p>当 JSON 头包含对二进制部分的引用时，所提供的 <code>byteOffset</code> 用于索引数据，如下图所示：</p>
-<p><img src="https://jackie_tang.gitee.io/_images/2021-04/3d-tiles/batch-table-binary-index.png"></p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/batch-table-binary-index.png"></p>
 <p>可以使用要素长度来数据值<code>batchLength</code>；所需的批量表 ID<code>batchId</code>; <code>componentType</code> 和 <code>type</code> 定义在 JSON 头中。</p>
 <p>下表可用于计算属性的字节大小。</p>
 <table>
