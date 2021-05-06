@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="相机内参和畸变校正参数说明, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="以大疆Phantom4RTK为例，以记事本方式打开任意一张照片，搜索DewarpData，可以看到校正参数：drone-dji:DewarpData=&#34; 2020-05-13;3714.070000000000,3707.070000000">
+    <meta name="description" content="以大疆 Phantom4RTK 为例，以记事本方式打开任意一张照片，搜索DewarpData，可以看到校正参数：drone-dji:DewarpData=&#34; 2020-05-13;3714.070000000000,3707.0700000">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -134,7 +134,7 @@
         <div class="logo-name">桀士</div>
         <div class="logo-desc">
             
-            看天空的女孩是寂寞的，看天空的男孩是找UFO！
+            我们追逐的绝不是别人的起点，而是每一个未知的明天！
             
         </div>
     </div>
@@ -288,7 +288,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -314,12 +314,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/tools/" target="_blank">
+                                <span class="chip bg-color">tools</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category" target="_blank">
+                                tools
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -334,7 +347,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        360
+                        365
                     </div>
                     
 
@@ -357,7 +370,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>以大疆Phantom4RTK为例，以记事本方式打开任意一张照片，搜索<code>DewarpData</code>，可以看到校正参数：<code>drone-dji:DewarpData=" 2020-05-13;3714.070000000000,3707.070000000000,-8.280000000000,-17.520000000000,-0.279234000000,0.125598000000,0.001187790000,-0.000255019000,-0.041078200000"</code></p>
+                <p>以大疆 Phantom4RTK 为例，以记事本方式打开任意一张照片，搜索<code>DewarpData</code>，可以看到校正参数：<code>drone-dji:DewarpData=" 2020-05-13;3714.070000000000,3707.070000000000,-8.280000000000,-17.520000000000,-0.279234000000,0.125598000000,0.001187790000,-0.000255019000,-0.041078200000"</code></p>
 <p>值顺序为：<code>calibrate_date;fx,fy,cx,cy,k1,k2,p1,p2,k3</code></p>
 <p>分别的意思：</p>
 <table>
@@ -375,47 +388,47 @@
 </tr>
 <tr>
 <td>fx</td>
-<td>以像素为单位标定出的焦距x坐标</td>
+<td>以像素为单位标定出的焦距 x 坐标</td>
 <td>相机像素焦距则为： (fx + fy) / 2 像素</td>
 </tr>
 <tr>
 <td>fy</td>
-<td>以像素为单位标定出的焦距y坐标</td>
-<td>相机毫米焦距则为：（Phantom4rtk一像元尺寸2.4微米）(fx + fy) / 2 * (2.4 * 0.001) 毫米</td>
+<td>以像素为单位标定出的焦距 y 坐标</td>
+<td>相机毫米焦距则为：（Phantom4rtk 一像元尺寸 2.4 微米）(fx + fy) / 2 _ (2.4 _ 0.001) 毫米</td>
 </tr>
 <tr>
 <td>cx</td>
-<td>以像素为单位标定出的像主点（原点为影像中心）x坐标</td>
-<td>建图软件（Pix4D、Context Capture等）默认原点为影像左上角，所以要换算到影像中心。以Phantom4rtk为例，若照片比例为3:2，则像素为5472 * 3648。（4:3同理，像素为4864 * 3648）</td>
+<td>以像素为单位标定出的像主点（原点为影像中心）x 坐标</td>
+<td>建图软件（Pix4D、Context Capture 等）默认原点为影像左上角，所以要换算到影像中心。以 Phantom4rtk 为例，若照片比例为 3:2，则像素为 5472 _ 3648。（4:3 同理，像素为 4864 _ 3648）</td>
 </tr>
 <tr>
 <td>cy</td>
-<td>以像素为单位标定出的像主点（原点为影像中心）y坐标</td>
-<td>像主点x = 5472 / 2 + cx；像主点y = 3648 / 2 + cy。</td>
+<td>以像素为单位标定出的像主点（原点为影像中心）y 坐标</td>
+<td>像主点 x = 5472 / 2 + cx；像主点 y = 3648 / 2 + cy。</td>
 </tr>
 <tr>
 <td>k1</td>
-<td>径向畸变校正参数k1</td>
+<td>径向畸变校正参数 k1</td>
 <td></td>
 </tr>
 <tr>
 <td>k2</td>
-<td>径向畸变校正参数k2</td>
+<td>径向畸变校正参数 k2</td>
 <td></td>
 </tr>
 <tr>
 <td>k3</td>
-<td>径向畸变校正参数k3</td>
+<td>径向畸变校正参数 k3</td>
 <td></td>
 </tr>
 <tr>
 <td>p1</td>
-<td>切向畸变校正参数p1</td>
+<td>切向畸变校正参数 p1</td>
 <td></td>
 </tr>
 <tr>
 <td>p2</td>
-<td>切向畸变校正参数p2</td>
+<td>切向畸变校正参数 p2</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -631,7 +644,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="大疆/千寻卫星后处理解算信息说明">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="大疆/千寻卫星后处理解算信息说明">
                         
                         <span class="card-title">大疆/千寻卫星后处理解算信息说明</span>
                     </div>
@@ -639,7 +652,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大疆PPK文件也是用的千寻解算，格式一样。
+                            大疆 PPK 文件也是用的千寻解算，格式一样。
 
 
 
@@ -656,12 +669,12 @@ Station
 
 Timestamp(ms)
 毫秒
-UTC时间戳
+UTC 时间戳
 
 
 GPSWeek
 -
-GPS周
+GPS 周
 
 
 TOW(s)
@@ -669,7 +682,7 @@ TOW(s)
 周内秒
 
 
-Latitu
+La
                         
                     </div>
                     <div class="publish-info">
@@ -678,11 +691,23 @@ Latitu
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Jackie Tang(唐浩桀)
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/specification/" class="post-category" target="_blank">
+                                    specification
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/specification/" target="_blank">
+                        <span class="chip bg-color">specification</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -698,7 +723,7 @@ Latitu
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="DJI大疆PPK后差分处理文件导入像控预处理">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="DJI大疆PPK后差分处理文件导入像控预处理">
                         
                         <span class="card-title">DJI大疆PPK后差分处理文件导入像控预处理</span>
                     </div>
@@ -727,11 +752,23 @@ Latitu
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Jackie Tang(唐浩桀)
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category" target="_blank">
+                                    tools
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/tools/" target="_blank">
+                        <span class="chip bg-color">tools</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -757,7 +794,7 @@ Latitu
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.4k</span>&nbsp;字
+                class="white-color">40.5k</span>&nbsp;字
             
             <br>
             
