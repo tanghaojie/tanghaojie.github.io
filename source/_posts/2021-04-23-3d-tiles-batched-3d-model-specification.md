@@ -67,7 +67,7 @@ tags:
 
 数据由两部分组成：文件头和紧随其后的主体。下图显示了“批处理 3D 模型”文件结构（虚线表示可选字段）：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/layout.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/layout.png)
 
 <a id="结构填充" name="结构填充"></a>
 

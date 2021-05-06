@@ -115,7 +115,7 @@ _注意：glTF 已经有版本分支了_
 
 瓦片(Tile)以树形结构组织，其中结合了详细层次结构（HLOD：Hierarchical Level of Detail）的概念，以实现空间数据的最佳渲染呈现。每个图块都有一个边界盒（bounding volume），即一个对象，该对象定义了一个完全包围其内容的空间范围。树具有<a href="#边界体空间连续性（Boundingvolumespatialcoherence）" class="self">空间连贯性</a>; 子瓦片的内容完整的包含在父级的边界盒之内。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tree.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/tree.png)
 
 切片集可以使用类似于栅格和矢量切片（如 Web 地图切片服务（WMTS）或 XYZ 方案）的 2D 空间切片方案，该二维空间切片方案以多级别（LOD）（或缩放级别）提供预定义的切片。但是，由于切片集的内容通常是不一致的，很难仅在二维上组织，因此树可以是具有空间一致性的任何<a href="#空间数据结构（Spatialdatastructures）" class="self">空间数据结构</a>，包括 k-d 树，四叉树，八叉树和网格。
 
@@ -234,7 +234,7 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 `boundingVolume.box`属性是由 12 个数字组成的数组，在右手 3 轴（x，y，z）笛卡尔坐标系中定义的一个有向包围盒，其中 z 轴是。前三个元素定义框中心的 x，y 和 z 值。接下来的三个元素（索引为 3、4 和 5）定义了 x 轴方向和一半长度（half-length）。接下来的三个元素（索引 6、7 和 8）定义 y 轴方向和一半长度（half-length）。最后三个元素（索引 9、10 和 11）定义 z 轴方向和一半长度（half-length）。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingBox.jpg)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/BoundingBox.jpg)
 
 ```json
 "boundingVolume": {
@@ -255,7 +255,7 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 `boundingVolume.sphere`属性是由 4 个数字组成的数组定义的边界球。前三个元素在右手 3 轴（x，y，z）笛卡尔坐标系中定义球体中心的 x，y 和 z 值，其中 z 轴朝上。最后一个元素（索引为 3）以米为单位定义半径。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingSphere.jpg)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/BoundingSphere.jpg)
 
 ```json
 "boundingVolume": {
@@ -276,7 +276,7 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 `boundingVolume.region`属性是一个由 6 个数字组成的数组，定义了由纬度，经度和高度坐标的地理边界区，使用`[west, south, east, north, minimum height, maximum height]`的顺序。纬度和经度是在 [EPSG 4979](http://spatialreference.org/ref/epsg/4979/) 中定义的 WGS 84 基准，以弧度表示。高度在 [WGS 84 椭球](http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf)上方（或下方）以米为单位。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/BoundingRegion.jpg)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/BoundingRegion.jpg)
 
 ```json
 "boundingVolume": {
@@ -469,7 +469,7 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 为数据集计算变换的例子：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tileTransform.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/tileTransform.png)
 
 每个 Tile 的变换为：
 
@@ -501,7 +501,7 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 瓦片 JSON 对象由以下属性组成。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tile.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/tile.png)
 
 以下示例展示了一个非叶子瓦片。
 
@@ -552,7 +552,7 @@ Tileset 的根图块需要细化类型；对于所有其他磁贴，它是可选
 
 下面的截图显示了 Canary Wharf 的根图块的边界体积。 `boundingVolume` 以红色显示，将整个区域的数据集包围起来；`content.boundingVolume` 以蓝色显示，仅将根图块中的四个要素（模型）封闭起来。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/contentsBox.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/contentsBox.png)
 
 可选的 `transform` 属性（上面列出）定义 4×4 的仿射变换矩阵，该矩阵变换瓦片的 `content`，`boundingVolume` 和 `viewerRequestVolume`。
 
@@ -709,7 +709,7 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 创建树的子节点，数据的`content.uri`可以指向一个外部数据集（另一个 数据集 JSON 文件的 uri）。例如，可以将每个城市存储在一个数据集中，然后组成一个全球数据集。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tilesets.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/tilesets.png)
 
 当瓦片指向外部数据集时，瓦片：
 
@@ -717,7 +717,7 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 - 不能有循环，例如，通过指向包含该图块的同一图块文件或指向另一个图块集文件，然后再指向包含该图块的初始文件，来创建循环。
 - 会同时通过瓦片的 `transform` 和根瓦片的`transform`进行变换。例如，在下面的数据集引用外部数据集，`T3` 计算变换为 `[T0][T1][T2][T3]`。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/tileTransformExternalTileset.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/tileTransformExternalTileset.png)
 
 ---
 
@@ -727,9 +727,9 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 如上所述，树具有空间连贯性。每个瓦片都有一个完全包围其内容的边界体，子瓦片的内容完全位于父级的边界体之内。但这并不意味着子级的边界体完全在其父级的边界体之内。例如：
 
-![地形数据的边界球](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/parentBoundingSphere.jpg)
+![地形数据的边界球](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/parentBoundingSphere.jpg)
 
-![4个子瓦片的边界球。子级的内容完全在父级的边界球之内，但是子项的边界球并不在父级的边界球内，因为它们不紧密适配。](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/childBoundingSphere.jpg)
+![4个子瓦片的边界球。子级的内容完全在父级的边界球之内，但是子项的边界球并不在父级的边界球内，因为它们不紧密适配。](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/childBoundingSphere.jpg)
 
 ---
 
@@ -753,15 +753,15 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 当每个瓦片具有四个统一细分的子级（例如，使用中心纬度和经度）时，将创建一个四叉树，类似于典型的 2D 地理空间切片方案。空的子图块可以省略。
 
-![传统四叉树细分](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quadtree.png)
+![传统四叉树细分](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/quadtree.png)
 
 3D Tiles 可以使用四叉树变体，例如非均匀细分和非紧密的边界体（例如，与边界不同，对稀疏数据集来说，父级的 25％是浪费的）。
 
-![四叉树，子级有更紧密的边界](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quadtree-tight.png)
+![四叉树，子级有更紧密的边界](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/quadtree-tight.png)
 
 3D Tiles 还支持其他四叉树变形，例如[松散四叉树](http://www.tulrich.com/geekstuff/partitioning.html)，其中子瓦片相互重叠，但仍保持空间连贯性，即，父瓦片完全包围了其所有子级。这种方法对于避免在瓦片之间分割要素（例如 3D 模型）很有用。
 
-![不均匀且重叠的四叉树。](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quadtree-overlap.png)
+![不均匀且重叠的四叉树。](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/quadtree-overlap.png)
 
 ---
 
@@ -771,7 +771,7 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 当瓦片具有两个由平行于 x，y 或 z 轴（或纬度，经度，高度）的分割面分隔的子代时，会创建 kd 树。随着树级别的递增，拆分轴通常是循环旋转的（可以参考平衡 K-d 树理解），可以选择中位数，表面积启发法（surface area heuristics）或其他方法来选择拆分平面。
 
-![k-d树示例，非均匀切分](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/kdtree.png)
+![k-d树示例，非均匀切分](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/kdtree.png)
 
 注意，k-d 树不像典型的 2D 地理空间切片方案那样具有统一的均匀细分，因此可以为稀疏和非均匀分布的数据集创建更加平衡的树。
 
@@ -785,9 +785,9 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 八叉树通过扩展四叉树使用三个正交拆分平面将图块细分为八个子级。像四叉树一样，3D Tiles 允许对八叉树变体，例如不均匀的细分，非紧密的边界体和重叠的子代。
 
-![传统八叉树细分](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/octree.png)
+![传统八叉树细分](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/octree.png)
 
-![使用添加模式优化（additive refinement）](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/pointcloud-octree.jpg)
+![使用添加模式优化（additive refinement）](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/pointcloud-octree.jpg)
 
 ---
 
@@ -797,7 +797,7 @@ Tilset JSON 有四个顶级属性：`asset`，`properties`，`geometricError`，
 
 3D Tiles 通过支持任意数量的子瓦片来实现均匀，不均匀和重叠的网格。例如，这是剑桥的不均匀重叠网格的俯视图：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/grid.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/grid.png)
 
 3D Tiles 利用了空瓦片：那些具有边界体但没有内容的瓦片。由于瓦片的`content`不必须要被定义的属性，因此可以使用空的非叶子节点的瓦片来分层剔除，以加速非均匀网格。本质上，这会创建一个四叉树或八叉树，而没有层次的详细信息（HLOD）。
 

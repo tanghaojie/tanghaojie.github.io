@@ -90,7 +90,7 @@ tags:
 
 数据由文件头部分和紧随其后的二进制主体组成。下图显示了实例化 3D 模型的布局（破折号表示可选字段）：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/header-layout.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/header-layout.png)
 
 ---
 
@@ -343,11 +343,11 @@ tags:
 
 `x`标准基向量在变换时映射到`right`基向量，`y`向量映射到`up`向量。`z`向量映射到`forward`向量，但它忽略，因为它总是`right`和`up`的正交。
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/box-standard-basis.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/box-standard-basis.png)
 
 在标准坐标轴中的盒子
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/box-rotated-basis.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/box-rotated-basis.png)
 
 经过旋转变换的盒子
 
@@ -395,7 +395,7 @@ tags:
 
 量化体由`offset`和`scale`定义，并将量化的位置映射到局部空间，如下图所示：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/quantized-volume.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/quantized-volume.png)
 
 `offset`全局语义存储在`QUANTIZED_VOLUME_OFFSET`，`scale`全局语义存储在`QUANTIZED_VOLUME_SCALE`。如果未定义这些全局语义，则`POSITION_QUANTIZED`无法使用。
 

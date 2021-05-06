@@ -57,7 +57,7 @@ tags:
 
 批处理表由两部分组成：JSON 头和可选的小端字节序二进制主体。JSON 描述了属性，这些属性的值可以直接在 JSON 中定义为数组，也可以引用二进制主体中的部分。将长数字数组存储在二进制体中的效率更高。下图显示了批处理表布局：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/batch-table-layout.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/batch-table-layout.png)
 
 当瓦片数据包含批处理表时，批处理表将紧随瓦片的要素表之后。文件头还将包含 `batchTableJSONByteLength` 和 `batchTableBinaryByteLength` 的 `uint32` 字段，可用于提取批处理表的各个部分。
 
@@ -205,7 +205,7 @@ address[1] = { street: 'Main Street', houseNumber: '2' }
 
 当 JSON 头包含对二进制部分的引用时，所提供的 `byteOffset` 用于索引数据，如下图所示：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/batch-table-binary-index.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/batch-table-binary-index.png)
 
 可以使用要素长度来数据值`batchLength`；所需的批量表 ID`batchId`; `componentType` 和 `type` 定义在 JSON 头中。
 

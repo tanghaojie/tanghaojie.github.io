@@ -57,7 +57,7 @@ tags:
 
 要素表由两部分组成：JSON 头和可选的小端字节序二进制主体。JSON 属性名称是数据格式特定的语法，并且它们的值可以直接在 JSON 中定义，也可以引用二进制主体部分。将长数字数组存储在二进制体中的效率更高。下图显示了要素表布局：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/feature-table-layout.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/feature-table-layout.png)
 
 当一种数据包括要素表时，要素表紧随在若干个字节的文件头后。文件头还要包含 `featureTableJSONByteLength` 和 `featureTableBinaryByteLength` 的 `uint32` 字段，可用于表示要素表的各个部分。
 
@@ -271,7 +271,7 @@ _这里如果看不懂，先把后面看完再回头来看，应该就懂了。_
 
 当 JSON 头包含对二进制文件的引用时，所提供的`byteOffset`内容将用于索引数据。下图显示了如何在要素表二进制体中索引数据：
 
-![](https://gitee.com/Jackie_Tang/Jackie_Tang/raw/master/my_images/2021-04/3d-tiles/feature-table-binary-index.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/feature-table-binary-index.png)
 
 使用要素数量来检索值,`featuresLength`；要素 ID,`featureId`；以及要素定义的其他数据类型（属性类型和长度）。
 
