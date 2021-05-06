@@ -5,10 +5,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="3D Tiles点云(Point Cloud)数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+    <meta name="description" content="导航
+引
 
+概述
+
+文件结构
+
+结构填充
+
+
+文件头
+
+要素表
+
+语法定义
+
+点语法
+全局语法
+
+
+点位置
+
+坐标系
+RTC_CENTER
+量化位置
+
+
+点颜色
+
+点法线
+
+八进制编码的法向向量
+
+
+批处理点
+
+例子
+
+仅位置
+位置和颜色
 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -440,7 +476,7 @@ To do
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        37
+                        344
                     </div>
                     
 
@@ -463,8 +499,143 @@ To do
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/PointCloud">官网文档</a></p>
-<h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><hr>
+                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li><p><a href="#引" class="self">引</a></p>
+</li>
+<li><p><a href="#概述" class="self">概述</a></p>
+</li>
+<li><p><a href="#文件结构" class="self">文件结构</a></p>
+<ul>
+<li><a href="#结构填充" class="self">结构填充</a></li>
+</ul>
+</li>
+<li><p><a href="#文件头" class="self">文件头</a></p>
+</li>
+<li><p><a href="#要素表" class="self">要素表</a></p>
+<ul>
+<li><p><a href="#语法定义" class="self">语法定义</a></p>
+<ul>
+<li><a href="#点语法" class="self">点语法</a></li>
+<li><a href="#全局语法" class="self">全局语法</a></li>
+</ul>
+</li>
+<li><p><a href="#点位置" class="self">点位置</a></p>
+<ul>
+<li><a href="#坐标系" class="self">坐标系</a></li>
+<li><a href="#RTC_CENTER" class="self">RTC_CENTER</a></li>
+<li><a href="#量化位置" class="self">量化位置</a></li>
+</ul>
+</li>
+<li><p><a href="#点颜色" class="self">点颜色</a></p>
+</li>
+<li><p><a href="#点法线" class="self">点法线</a></p>
+<ul>
+<li><a href="#八进制编码的法向向量" class="self">八进制编码的法向向量</a></li>
+</ul>
+</li>
+<li><p><a href="#批处理点" class="self">批处理点</a></p>
+</li>
+<li><p><a href="#例子" class="self">例子</a></p>
+<ul>
+<li><a href="#仅位置" class="self">仅位置</a></li>
+<li><a href="#位置和颜色" class="self">位置和颜色</a></li>
+<li><a href="#量化位置和八进制编码法线" class="self">量化位置和八进制编码法线</a></li>
+<li><a href="#批处理点sub" class="self">批处理点</a></li>
+<li><a href="#每个点的属性" class="self">每个点的属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#批量表" class="self">批量表</a></p>
+</li>
+<li><p><a href="#扩展" class="self">扩展</a></p>
+</li>
+<li><p><a href="#文件扩展名和MIME类型" class="self">文件扩展名和 MIME 类型</a></p>
+</li>
+<li><p><a href="#实现示例" class="self">实现示例</a></p>
+</li>
+<li><p><a href="#属性参考" class="self">属性参考</a></p>
+</li>
+</ul>
+<hr>
+<p><a id="引" name="引"></a></p>
+<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/PointCloud">官网文档</a></p>
+<p><a id="概述" name="概述"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><hr>
+<p><a id="文件结构" name="文件结构"></a></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><hr>
+<p><a id="结构填充" name="结构填充"></a></p>
+<h3 id="结构填充"><a href="#结构填充" class="headerlink" title="结构填充"></a>结构填充</h3><hr>
+<p><a id="文件头" name="文件头"></a></p>
+<h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><hr>
+<p><a id="要素表" name="要素表"></a></p>
+<h2 id="要素表"><a href="#要素表" class="headerlink" title="要素表"></a>要素表</h2><hr>
+<p><a id="语法定义" name="语法定义"></a></p>
+<h3 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h3><hr>
+<p><a id="点语法" name="点语法"></a></p>
+<h4 id="点语法"><a href="#点语法" class="headerlink" title="点语法"></a>点语法</h4><hr>
+<p><a id="全局语法" name="全局语法"></a></p>
+<h4 id="全局语法"><a href="#全局语法" class="headerlink" title="全局语法"></a>全局语法</h4><hr>
+<p><a id="点位置" name="点位置"></a></p>
+<h3 id="点位置"><a href="#点位置" class="headerlink" title="点位置"></a>点位置</h3><hr>
+<p><a id="坐标系" name="坐标系"></a></p>
+<h4 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h4><hr>
+<p><a id="RTC_CENTER" name="RTC_CENTER"></a></p>
+<h4 id="RTC-CENTER"><a href="#RTC-CENTER" class="headerlink" title="RTC_CENTER"></a>RTC_CENTER</h4><hr>
+<p><a id="量化位置" name="量化位置"></a></p>
+<h4 id="量化位置"><a href="#量化位置" class="headerlink" title="量化位置"></a>量化位置</h4><hr>
+<p><a id="点颜色" name="点颜色"></a></p>
+<h3 id="点颜色"><a href="#点颜色" class="headerlink" title="点颜色"></a>点颜色</h3><hr>
+<p><a id="点法线" name="点法线"></a></p>
+<h3 id="点法线"><a href="#点法线" class="headerlink" title="点法线"></a>点法线</h3><hr>
+<p><a id="八进制编码的法向向量" name="八进制编码的法向向量"></a></p>
+<h4 id="八进制编码的法向向量"><a href="#八进制编码的法向向量" class="headerlink" title="八进制编码的法向向量"></a>八进制编码的法向向量</h4><hr>
+<p><a id="批处理点" name="批处理点"></a></p>
+<h3 id="批处理点"><a href="#批处理点" class="headerlink" title="批处理点"></a>批处理点</h3><hr>
+<p><a id="例子" name="例子"></a></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><hr>
+<p><a id="仅位置" name="仅位置"></a></p>
+<h4 id="仅位置"><a href="#仅位置" class="headerlink" title="仅位置"></a>仅位置</h4><hr>
+<p><a id="位置和颜色" name="位置和颜色"></a></p>
+<h4 id="位置和颜色"><a href="#位置和颜色" class="headerlink" title="位置和颜色"></a>位置和颜色</h4><hr>
+<p><a id="量化位置和八进制编码法线" name="量化位置和八进制编码法线"></a></p>
+<h4 id="量化位置和八进制编码法线"><a href="#量化位置和八进制编码法线" class="headerlink" title="量化位置和八进制编码法线"></a>量化位置和八进制编码法线</h4><hr>
+<p><a id="批处理点sub" name="批处理点sub"></a></p>
+<h4 id="批处理点-1"><a href="#批处理点-1" class="headerlink" title="批处理点"></a>批处理点</h4><hr>
+<p><a id="每个点的属性" name="每个点的属性"></a></p>
+<h4 id="每个点的属性"><a href="#每个点的属性" class="headerlink" title="每个点的属性"></a>每个点的属性</h4><hr>
+<p><a id="批量表" name="批量表"></a></p>
+<h2 id="批量表"><a href="#批量表" class="headerlink" title="批量表"></a>批量表</h2><hr>
+<p><a id="扩展" name="扩展"></a></p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><hr>
+<p><a id="文件扩展名和MIME类型" name="文件扩展名和MIME类型"></a></p>
+<h2 id="文件扩展名和-MIME-类型"><a href="#文件扩展名和-MIME-类型" class="headerlink" title="文件扩展名和 MIME 类型"></a>文件扩展名和 MIME 类型</h2><hr>
+<p><a id="实现示例" name="实现示例"></a></p>
+<h2 id="实现示例"><a href="#实现示例" class="headerlink" title="实现示例"></a>实现示例</h2><hr>
+<p><a id="属性参考" name="属性参考"></a></p>
+<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><ul>
+<li><a href="#r点云要素表" class="self">点云要素表</a><ul>
+<li><a href="#r二进制体引用" class="self">二进制体引用</a></li>
+<li><a href="#r全局笛卡尔3坐标系属性" class="self">全局笛卡尔 3 坐标系属性</a></li>
+<li><a href="#r全局笛卡尔4坐标系属性" class="self">全局笛卡尔 4 坐标系属性</a></li>
+<li><a href="#r全局标量属性" class="self">全局标量属性</a></li>
+<li><a href="#r属性" class="self">属性</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="r点云要素表" name="r点云要素表"></a></p>
+<h3 id="点云要素表"><a href="#点云要素表" class="headerlink" title="点云要素表"></a>点云要素表</h3><hr>
+<p><a id="r二进制体引用" name="r二进制体引用"></a></p>
+<h3 id="二进制体引用"><a href="#二进制体引用" class="headerlink" title="二进制体引用"></a>二进制体引用</h3><hr>
+<p><a id="r全局笛卡尔3坐标系属性" name="r全局笛卡尔3坐标系属性"></a></p>
+<h3 id="全局笛卡尔-3-坐标系属性"><a href="#全局笛卡尔-3-坐标系属性" class="headerlink" title="全局笛卡尔 3 坐标系属性"></a>全局笛卡尔 3 坐标系属性</h3><hr>
+<p><a id="r全局笛卡尔4坐标系属性" name="r全局笛卡尔4坐标系属性"></a></p>
+<h3 id="全局笛卡尔-4-坐标系属性"><a href="#全局笛卡尔-4-坐标系属性" class="headerlink" title="全局笛卡尔 4 坐标系属性"></a>全局笛卡尔 4 坐标系属性</h3><hr>
+<p><a id="r全局标量属性" name="r全局标量属性"></a></p>
+<h3 id="全局标量属性"><a href="#全局标量属性" class="headerlink" title="全局标量属性"></a>全局标量属性</h3><hr>
+<p><a id="r属性" name="r属性"></a></p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 
@@ -683,11 +854,31 @@ To do
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+                            导航
+引
+
+概述
+
+文件结构
+
+结构填充
 
 
+文件头
+
+内部瓦片
+
+文件扩展名和 MIME 类型
+
+实现示例
+
+
+
+
+引官网文档
+
+概述复合对象格式允许拼接的不同格式的数据变成一个区块。
+3D 瓦片和复合对象瓦片为流式异构数据集提供了灵活性
                         
                     </div>
                     <div class="publish-info">
@@ -736,11 +927,44 @@ To do
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+                            导航
+引
+
+概述
+
+文件结构
+
+结构填充
 
 
+文件头
+
+要素表
+
+语法定义
+
+实例语法
+全局语法
+
+
+实例方向
+
+八进制编码的法向向量
+默认方向
+
+
+实例位置
+
+RTC_CENTER
+量化位置
+
+
+实例缩放
+
+例子
+
+仅位置
+量化位置和八进
                         
                     </div>
                     <div class="publish-info">
@@ -884,7 +1108,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.7k</span>&nbsp;字
+                class="white-color">40.4k</span>&nbsp;字
             
             <br>
             
