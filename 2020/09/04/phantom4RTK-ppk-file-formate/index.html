@@ -7,8 +7,8 @@
     <meta name="keywords" content="大疆精灵Phantom4RTK PPK文件说明, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="
 EVENTLOG.bin 二进制格式的曝光时间戳记录文件
-PPKRAW.bin RTCM3.2MSM5格式的移动端卫星观测值数据及星历数据
-PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校验是否为该飞行器生">
+PPKRAW.bin RTCM3.2MSM5 格式的移动端卫星观测值数据及星历数据
+PPKRAW.sig 官方没解释，猜测是 signature。身份校验文件，用于校验是否为该飞行">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -137,7 +137,7 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
         <div class="logo-name">桀士</div>
         <div class="logo-desc">
             
-            看天空的女孩是寂寞的，看天空的男孩是找UFO！
+            我们追逐的绝不是别人的起点，而是每一个未知的明天！
             
         </div>
     </div>
@@ -291,7 +291,7 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -317,12 +317,25 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/specification/" target="_blank">
+                                <span class="chip bg-color">specification</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/specification/" class="post-category" target="_blank">
+                                specification
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -337,7 +350,7 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        820
+                        825
                     </div>
                     
 
@@ -362,17 +375,14 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
             <div id="articleContent">
                 <ul>
 <li><strong>EVENTLOG.bin</strong> 二进制格式的曝光时间戳记录文件</li>
-<li><strong>PPKRAW.bin</strong> RTCM3.2MSM5格式的移动端卫星观测值数据及星历数据</li>
-<li><strong>PPKRAW.sig</strong> 官方没解释，猜测是signature。身份校验文件，用于校验是否为该飞行器生成的数据，如为非该飞行器生成的数据将无法加载。</li>
-<li><strong>Rinex.obs</strong> 实施转码出的Rinex观测值文件</li>
-<li><strong>Timestamps.MRK</strong> ASCII格式的明码曝光时间戳，每张照片拍照时刻定位结果，拍照时刻定位状态，定位标准差，拍照时刻等记录文件。格式说明：</li>
-</ul>
-<p><strong>第一列</strong><br>照片的编号<br><strong>第二列</strong><br>每张照片曝光时刻的UTC时间，以GPS时间格式表示时的周内秒部分。<br><strong>第三列</strong><br>每张照片曝光时刻的UTC时间，以GPS时间格式表示时的GPS周部分。<br><strong>第四列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在北方向（N）的偏差，单位为毫米，CMOS中心在天线相位中心偏北方向为正，偏南方向为负。<br><strong>第五列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在东方向（E）的偏差，单位为毫米，CMOS中心在天线相位中心偏东方向为正，偏西方向为负。<br><strong>第六列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机CMOS传感器中心的在垂直方向（V）的偏差，单位为毫米，CMOS中心在天线相位中心偏下为正，偏上为负。<br><strong>第七列</strong><br>曝光时刻获取的CMOS中心的实时位置纬度（Lat），单位为度。当飞机定位处于RTK模式下时，此时的位置为RTK位置加上曝光时刻天线相位中心到CMOS中心的位置，精度为RTK精度（厘米级）；当飞机定位处于GPS模式下时，此时的位置为GPS单点定位位置加上曝光时刻天线相位中心到CMOS中心的位置，精度为GPS单点定位的精度（米级）<br><strong>第八列</strong><br>曝光时刻获取的CMOS中心的实时位置经度（Lon），单位为度。<br><strong>第九列</strong><br>曝光时刻获取的CMOS中心的实时高度，单位为米。该高度为大地高（俗称椭球高），（用户自行定义其椭球模型，默认为WGS84，用户可以通过接入不同的CORS站系统/基准，设定其为其他椭球，如CGCS2000）表面的高度。注意，此高度并非基于国家85高程基准或56高程基准（正常高），也并非基于全球范围内比较通用的EGM96/2008高程基准（正高）。<br><strong>第十至十二列</strong><br>北、东、天三个方向定位结果的标准差，表征在三个方向上定位的相对精度。单位为米<br><strong>第十三列（很常用）</strong><br>RTK状态位：</p>
-<ul>
+<li><strong>PPKRAW.bin</strong> RTCM3.2MSM5 格式的移动端卫星观测值数据及星历数据</li>
+<li><strong>PPKRAW.sig</strong> 官方没解释，猜测是 signature。身份校验文件，用于校验是否为该飞行器生成的数据，如为非该飞行器生成的数据将无法加载。</li>
+<li><strong>Rinex.obs</strong> 实施转码出的 Rinex 观测值文件</li>
+<li><strong>Timestamps.MRK</strong> ASCII 格式的明码曝光时间戳，每张照片拍照时刻定位结果，拍照时刻定位状态，定位标准差，拍照时刻等记录文件。格式说明：<br><strong>第一列</strong><br>照片的编号<br><strong>第二列</strong><br>每张照片曝光时刻的 UTC 时间，以 GPS 时间格式表示时的周内秒部分。<br><strong>第三列</strong><br>每张照片曝光时刻的 UTC 时间，以 GPS 时间格式表示时的 GPS 周部分。<br><strong>第四列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机 CMOS 传感器中心的在北方向（N）的偏差，单位为毫米，CMOS 中心在天线相位中心偏北方向为正，偏南方向为负。<br><strong>第五列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机 CMOS 传感器中心的在东方向（E）的偏差，单位为毫米，CMOS 中心在天线相位中心偏东方向为正，偏西方向为负。<br><strong>第六列</strong><br>每张照片曝光时刻瞬间天线相位中心到相机 CMOS 传感器中心的在垂直方向（V）的偏差，单位为毫米，CMOS 中心在天线相位中心偏下为正，偏上为负。<br><strong>第七列</strong><br>曝光时刻获取的 CMOS 中心的实时位置纬度（Lat），单位为度。当飞机定位处于 RTK 模式下时，此时的位置为 RTK 位置加上曝光时刻天线相位中心到 CMOS 中心的位置，精度为 RTK 精度（厘米级）；当飞机定位处于 GPS 模式下时，此时的位置为 GPS 单点定位位置加上曝光时刻天线相位中心到 CMOS 中心的位置，精度为 GPS 单点定位的精度（米级）<br><strong>第八列</strong><br>曝光时刻获取的 CMOS 中心的实时位置经度（Lon），单位为度。<br><strong>第九列</strong><br>曝光时刻获取的 CMOS 中心的实时高度，单位为米。该高度为大地高（俗称椭球高），（用户自行定义其椭球模型，默认为 WGS84，用户可以通过接入不同的 CORS 站系统/基准，设定其为其他椭球，如 CGCS2000）表面的高度。注意，此高度并非基于国家 85 高程基准或 56 高程基准（正常高），也并非基于全球范围内比较通用的 EGM96/2008 高程基准（正高）。<br><strong>第十至十二列</strong><br>北、东、天三个方向定位结果的标准差，表征在三个方向上定位的相对精度。单位为米<br><strong>第十三列（很常用）</strong><br>RTK 状态位：</li>
 <li>0-无定位</li>
 <li>16-单点定位模式</li>
-<li>34-RTK浮点解</li>
-<li>50-RTK固定解<br>当某张照片标志位不为50的时候，不推荐使用此照片直接进行建图。</li>
+<li>34-RTK 浮点解</li>
+<li>50-RTK 固定解<br>当某张照片标志位不为 50 的时候，不推荐使用此照片直接进行建图。</li>
 </ul>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
@@ -585,7 +595,7 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="华测、中海达等用RTK进行PPK后差分解算测量">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="华测、中海达等用RTK进行PPK后差分解算测量">
                         
                         <span class="card-title">华测、中海达等用RTK进行PPK后差分解算测量</span>
                     </div>
@@ -593,9 +603,9 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            华测、中海达等这些厂商都开始提供PPK后差分解算软件了。使用很简单，先得到1个（3个最好）的已知点，然后RTK设置为静态模式架设不动。无人机或者其他设备用PPK模型进行测绘，之后就可以用软件解算了。
+                            华测、中海达等这些厂商都开始提供 PPK 后差分解算软件了。使用很简单，先得到 1 个（3 个最好）的已知点，然后 RTK 设置为静态模式架设不动。无人机或者其他设备用 PPK 模型进行测绘，之后就可以用软件解算了。
 
-版权声明：除非注明，本博文章均为原创，
+版权声明：除非注明，
                         
                     </div>
                     <div class="publish-info">
@@ -624,7 +634,7 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="无人机多层航线建模失败解决方案">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="无人机多层航线建模失败解决方案">
                         
                         <span class="card-title">无人机多层航线建模失败解决方案</span>
                     </div>
@@ -671,7 +681,7 @@ PPKRAW.sig 官方没解释，猜测是signature。身份校验文件，用于校
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.4k</span>&nbsp;字
+                class="white-color">40.5k</span>&nbsp;字
             
             <br>
             

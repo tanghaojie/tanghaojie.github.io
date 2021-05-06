@@ -8,7 +8,7 @@
     <meta name="description" content="git 从远程拉取代码、推代码的步骤
 如果是几个人共同管理项目，并且你的队友在你之前推过代码，那你就需要 git pull 一下，把代码拉到本地，解决一下冲突，再执行以下步骤，将本地代码推到远程仓库。
 
-git status        ">
+git status #git 仓库">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -137,7 +137,7 @@ git status        ">
         <div class="logo-name">桀士</div>
         <div class="logo-desc">
             
-            看天空的女孩是寂寞的，看天空的男孩是找UFO！
+            我们追逐的绝不是别人的起点，而是每一个未知的明天！
             
         </div>
     </div>
@@ -291,7 +291,7 @@ git status        ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -317,12 +317,33 @@ git status        ">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/git/" target="_blank">
+                                <span class="chip bg-color">git</span>
+                            </a>
+                        
+                            <a href="/tags/cheat-sheet/" target="_blank">
+                                <span class="chip bg-color">cheat sheet</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/git/" class="post-category" target="_blank">
+                                git
+                            </a>
+                        
+                            <a href="/categories/git/cheat-sheet/" class="post-category" target="_blank">
+                                cheat sheet
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -337,7 +358,7 @@ git status        ">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        398
+                        399
                     </div>
                     
 
@@ -363,53 +384,53 @@ git status        ">
                 <p>git 从远程拉取代码、推代码的步骤</p>
 <p>如果是几个人共同管理项目，并且你的队友在你之前推过代码，那你就需要 git pull 一下，把代码拉到本地，解决一下冲突，再执行以下步骤，将本地代码推到远程仓库。</p>
 <blockquote>
-<p>git status            #git仓库状态</p>
+<p>git status #git 仓库状态</p>
 </blockquote>
 <blockquote>
-<p>git add *             #更新的代码添加到暂存区</p>
+<p>git add * #更新的代码添加到暂存区</p>
 </blockquote>
 <blockquote>
-<p>git commit -m “msg”   #将暂存区的更新提交到仓库区</p>
+<p>git commit -m “msg” #将暂存区的更新提交到仓库区</p>
 </blockquote>
 <blockquote>
-<p>git pull              #先git pull,拉取远程仓库所有分支更新并合并到本地</p>
+<p>git pull #先 git pull,拉取远程仓库所有分支更新并合并到本地</p>
 </blockquote>
 <blockquote>
-<p>git push origin master    #将本地分支的更新全部推送到远程仓库</p>
+<p>git push origin master #将本地分支的更新全部推送到远程仓库</p>
 </blockquote>
 <blockquote>
-<p>git reset –mixed [哈希码]    #回滚到这个哈希码，将本地归档区和缓冲区也进行回滚</p>
+<p>git reset –mixed [哈希码] #回滚到这个哈希码，将本地归档区和缓冲区也进行回滚</p>
 </blockquote>
 <blockquote>
-<p>git reset –hard [哈希码]     #使用强制还原这个哈希码</p>
+<p>git reset –hard [哈希码] #使用强制还原这个哈希码</p>
 </blockquote>
 <blockquote>
-<p>git reset –soft [哈希码]     #回滚到这个哈希码，只将本地归档区回滚</p>
+<p>git reset –soft [哈希码] #回滚到这个哈希码，只将本地归档区回滚</p>
 </blockquote>
 <blockquote>
-<p>git revert [哈希码]           #只是针对这个哈希码版本进行删除回滚操作</p>
+<p>git revert [哈希码] #只是针对这个哈希码版本进行删除回滚操作</p>
 </blockquote>
 <blockquote>
-<p>git log               #查看日志</p>
+<p>git log #查看日志</p>
 </blockquote>
 <blockquote>
-<p>git reflog            #查看操作记录，能找到之前的操作记录和哈希码</p>
+<p>git reflog #查看操作记录，能找到之前的操作记录和哈希码</p>
 </blockquote>
 <p>多分支开发</p>
 <blockquote>
-<p>git branch -v         #查看我们当前有哪些分支？</p>
+<p>git branch -v #查看我们当前有哪些分支？</p>
 </blockquote>
 <blockquote>
-<p>git branch [name]   #创建name分支</p>
+<p>git branch [name] #创建 name 分支</p>
 </blockquote>
 <blockquote>
-<p>git checkout [name] #切换到name分支</p>
+<p>git checkout [name] #切换到 name 分支</p>
 </blockquote>
 <blockquote>
-<p>git checkout -b [name]  #创建并切换到name分支</p>
+<p>git checkout -b [name] #创建并切换到 name 分支</p>
 </blockquote>
 <blockquote>
-<p>git merge [name] 将name分支合并到master分支</p>
+<p>git merge [name] 将 name 分支合并到 master 分支</p>
 </blockquote>
 <p>查看远端</p>
 <blockquote>
@@ -630,7 +651,7 @@ git status        ">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="docker速查表">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="docker速查表">
                         
                         <span class="card-title">docker速查表</span>
                     </div>
@@ -652,11 +673,31 @@ docker update
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Jackie Tang(唐浩桀)
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/docker/" class="post-category" target="_blank">
+                                    docker
+                                </a>
+                            
+                            <a href="/categories/docker/cheat-sheet/" class="post-category" target="_blank">
+                                    cheat sheet
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cheat-sheet/" target="_blank">
+                        <span class="chip bg-color">cheat sheet</span>
+                    </a>
+                    
+                    <a href="/tags/docker/" target="_blank">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -672,7 +713,7 @@ docker update
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="几何算法延伸">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="几何算法延伸">
                         
                         <span class="card-title">几何算法延伸</span>
                     </div>
@@ -694,8 +735,8 @@ $$\frac{A_x}{A_y} = \frac{B_x}{B_y} = \frac{B_z}{B_z}$$
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%87%A0%E4%BD%95%E8%AE%A1%E7%AE%97/" class="post-category" target="_blank">
-                                    几何计算
+                            <a href="/categories/other/" class="post-category" target="_blank">
+                                    other
                                 </a>
                             
                             
@@ -705,8 +746,8 @@ $$\frac{A_x}{A_y} = \frac{B_x}{B_y} = \frac{B_z}{B_z}$$
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%87%A0%E4%BD%95%E8%AE%A1%E7%AE%97/" target="_blank">
-                        <span class="chip bg-color">几何计算</span>
+                    <a href="/tags/other/" target="_blank">
+                        <span class="chip bg-color">other</span>
                     </a>
                     
                 </div>
@@ -734,7 +775,7 @@ $$\frac{A_x}{A_y} = \frac{B_x}{B_y} = \frac{B_z}{B_z}$$
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.4k</span>&nbsp;字
+                class="white-color">40.5k</span>&nbsp;字
             
             <br>
             

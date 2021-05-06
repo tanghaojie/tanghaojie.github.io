@@ -2,49 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batch-table-specification/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/02/03/cesium-vue-big-model-example/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batched-3d-model-specification/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-instanced-3d-model-specification/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/21/3d-tiles-specification/</loc>
+    <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
     
     <lastmod>2021-05-06</lastmod>
     
@@ -72,7 +30,28 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2020/11/25/Mean-SeaLevel-GPS-TheGeoid/</loc>
+    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/glTF-specification/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/artical-a-target-default/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-styling-specification/</loc>
     
     <lastmod>2021-05-06</lastmod>
     
@@ -86,268 +65,289 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-styling-specification/</loc>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-instanced-3d-model-specification/</loc>
     
-    <lastmod>2021-04-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2019/12/12/entityframeworkcorewithpostgis/</loc>
-    
-    <lastmod>2021-04-23</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2019/10/12/gisstandard/</loc>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
     
-    <lastmod>2021-04-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2019/10/12/gisForFunWebsites/</loc>
-    
-    <lastmod>2021-04-23</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2019/10/12/gisdatawebsites/</loc>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
     
-    <lastmod>2021-04-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/glTF-specification/</loc>
-    
-    <lastmod>2021-04-23</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/artical-a-target-default/</loc>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batched-3d-model-specification/</loc>
     
-    <lastmod>2021-04-23</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2020/04/03/myblogaddress/</loc>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batch-table-specification/</loc>
     
-    <lastmod>2021-02-03</lastmod>
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/21/3d-tiles-specification/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2021/02/03/cesium-vue-big-model-example/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2021/01/07/web-design-mode/</loc>
     
-    <lastmod>2021-01-07</lastmod>
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/11/25/Mean-SeaLevel-GPS-TheGeoid/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/11/25/DJI-XMP-Meta-Data-Info-Explain/</loc>
     
-    <lastmod>2020-11-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/11/10/metashape-cluster/</loc>
-    
-    <lastmod>2020-11-10</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/11/10/metashape-workflow/</loc>
     
-    <lastmod>2020-11-10</lastmod>
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/11/10/metashape-cluster/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/11/05/DJI-PPK-Format-Meaning/</loc>
     
-    <lastmod>2020-11-05</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/09/29/camera-calibrate/</loc>
     
-    <lastmod>2020-09-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/09/22/dji-ppk-file-process/</loc>
-    
-    <lastmod>2020-09-22</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/09/22/qgis-shp2kml-py/</loc>
     
-    <lastmod>2020-09-22</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/09/22/qgis-add-map-services/</loc>
     
-    <lastmod>2020-09-22</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2020/09/04/rtk-ppk/</loc>
+    <loc>https://tanghaojie.github.io/2020/09/22/dji-ppk-file-process/</loc>
     
-    <lastmod>2020-09-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/09/04/phantom4RTK-ppk-file-formate/</loc>
-    
-    <lastmod>2020-09-04</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/09/04/uav-multi-height-route/</loc>
     
-    <lastmod>2020-09-04</lastmod>
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/09/04/rtk-ppk/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/09/04/phantom4RTK-ppk-file-formate/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/08/14/gsd-calculator/</loc>
     
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2019/10/12/website/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/12/vueVideo/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/27/post/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/08/12/post/</loc>
     
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/05/14/git-cheat-sheet/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/05/10/hexo-LaTex/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/05/09/surveying-qualification/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/04/12/qgis-plugin/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/06/10/nuxt-docker/</loc>
-    
-    <lastmod>2020-08-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2020/05/15/docker-cheat-sheet/</loc>
-    
-    <lastmod>2020-05-15</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/05/15/git-commitizen/</loc>
     
-    <lastmod>2020-05-15</lastmod>
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/15/docker-cheat-sheet/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/14/git-cheat-sheet/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/06/10/nuxt-docker/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2019/10/12/website/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/05/10/spatial-calculate-basic/</loc>
     
-    <lastmod>2020-05-15</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/2020/04/10/fast-uniapp/</loc>
+    <loc>https://tanghaojie.github.io/2020/05/10/hexo-LaTex/</loc>
     
-    <lastmod>2020-05-14</lastmod>
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/04/03/weatherPlugin/</loc>
     
-    <lastmod>2020-05-14</lastmod>
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/05/09/surveying-qualification/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://tanghaojie.github.io/2020/05/09/scrapy-tutorial/</loc>
     
-    <lastmod>2020-05-09</lastmod>
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/04/12/qgis-plugin/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/27/post/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/19/office2016ToVol/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/03/12/vueVideo/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2019/12/12/entityframeworkcorewithpostgis/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2019/10/12/gisstandard/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2019/10/12/gisForFunWebsites/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2019/10/12/gisdatawebsites/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/2020/04/10/fast-uniapp/</loc>
+    
+    <lastmod>2021-05-06</lastmod>
     
   </url>
   
@@ -396,21 +396,7 @@
 
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/tips/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/tags/GIS/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/website/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -424,14 +410,14 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/fun/</loc>
+    <loc>https://tanghaojie.github.io/tags/website/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/entityframework/</loc>
+    <loc>https://tanghaojie.github.io/tags/vue/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -439,13 +425,6 @@
   
   <url>
     <loc>https://tanghaojie.github.io/tags/net-core/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/postgis/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -466,91 +445,7 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/Android/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/iOS/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/map/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/webview/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/vue/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/video-js/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/rtmp/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/location/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/%E5%AE%9A%E4%BD%8D/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/plugin/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/blog/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/tags/uniapp/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -578,14 +473,42 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/%E5%87%A0%E4%BD%95%E8%AE%A1%E7%AE%97/</loc>
+    <loc>https://tanghaojie.github.io/tags/git/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/%E7%A7%91%E6%99%AE/</loc>
+    <loc>https://tanghaojie.github.io/tags/cheat-sheet/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/tags/docker/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/tags/tools/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/tags/specification/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/tags/cesium/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -593,6 +516,20 @@
   
   <url>
     <loc>https://tanghaojie.github.io/tags/3D-Tiles/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/tags/shorthand/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/tags/glTF/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -615,14 +552,21 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/C/</loc>
+    <loc>https://tanghaojie.github.io/categories/vue/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/GIS/tips/</loc>
+    <loc>https://tanghaojie.github.io/categories/GIS/data/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/net-core/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -643,42 +587,14 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/vue/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/categories/C/GIS/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/categories/plugin/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/categories/blog/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/categories/GIS/tips/website/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/categories/uniapp/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/net-core/GIS/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -699,35 +615,28 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/%E5%87%A0%E4%BD%95%E8%AE%A1%E7%AE%97/</loc>
+    <loc>https://tanghaojie.github.io/categories/git/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/flutter/map/</loc>
+    <loc>https://tanghaojie.github.io/categories/docker/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/flutter/location/</loc>
+    <loc>https://tanghaojie.github.io/categories/tools/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/GIS/tips/website/data/</loc>
-    <lastmod>2021-05-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/categories/%E7%A7%91%E6%99%AE/</loc>
+    <loc>https://tanghaojie.github.io/categories/specification/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -748,7 +657,28 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/%E7%A7%91%E6%99%AE/GIS/</loc>
+    <loc>https://tanghaojie.github.io/categories/git/cheat-sheet/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/vue/cesium/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/shorthand/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/docker/cheat-sheet/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -756,6 +686,41 @@
   
   <url>
     <loc>https://tanghaojie.github.io/categories/3D-Tiles/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/git/other/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/vue/cesium/3D-Tiles/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/3D-Tiles/specification/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/glTF/</loc>
+    <lastmod>2021-05-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/glTF/specification/</loc>
     <lastmod>2021-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

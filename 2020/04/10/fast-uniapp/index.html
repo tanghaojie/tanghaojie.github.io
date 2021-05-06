@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="uniapp快速实践, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="介绍之前给文保局做了GIS系统和物联网监控系统效果不错，现在想弄个erp，问了一下业务规模，几乎约等于“零”。咋办，单一业务线走到底呗。本来说最近一直在搞flutter，就用flutter给他们弄一个，app和web（beta）一套直接就生">
+    <meta name="description" content="介绍之前给文保局做了 GIS 系统和物联网监控系统效果不错，现在想弄个 erp，问了一下业务规模，几乎约等于“零”。咋办，单一业务线走到底呗。本来说最近一直在搞 flutter，就用 flutter 给他们弄一个，app 和 web（bet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -134,7 +134,7 @@
         <div class="logo-name">桀士</div>
         <div class="logo-desc">
             
-            看天空的女孩是寂寞的，看天空的男孩是找UFO！
+            我们追逐的绝不是别人的起点，而是每一个未知的明天！
             
         </div>
     </div>
@@ -288,7 +288,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -409,10 +409,6 @@
                                 <span class="chip bg-color">uniapp</span>
                             </a>
                         
-                            <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" target="_blank">
-                                <span class="chip bg-color">微信小程序</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -440,7 +436,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        855
+                        861
                     </div>
                     
 
@@ -463,12 +459,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>之前给文保局做了GIS系统和物联网监控系统效果不错，现在想弄个erp，问了一下业务规模，几乎约等于“零”。咋办，单一业务线走到底呗。本来说最近一直在搞flutter，就用flutter给他们弄一个，app和web（beta）一套直接就生成了。方便快速（省事）。结果呢，人家要用微信小程序…哎，甲方是爸爸。<br>结合已有技术经验和业务规模（如果有的话{笑}），还要考虑可能出现的业务平台变更这种吊炸天需求，调研了几个平台，这里我列一下：</p>
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>之前给文保局做了 GIS 系统和物联网监控系统效果不错，现在想弄个 erp，问了一下业务规模，几乎约等于“零”。咋办，单一业务线走到底呗。本来说最近一直在搞 flutter，就用 flutter 给他们弄一个，app 和 web（beta）一套直接就生成了。方便快速（省事）。结果呢，人家要用微信小程序…哎，甲方是爸爸。<br>结合已有技术经验和业务规模（如果有的话{笑}），还要考虑可能出现的业务平台变更这种吊炸天需求，调研了几个平台，这里我列一下：</p>
 <blockquote>
-<p>1.微信小程序原生：难用的ide，技术栈就是web变种。<br>2.H5+app：原生代码少不了，Android和iOS要单独适配，涉及到兼容性的问题。<br>3.mpvue：美团搞的，基于Vue.js的小程序开发框架，小程序和H5一套搞定型。<br>4.uni-app：Dcloud搞的，也是基于Vue.js的框架，iOS、Android、H5、各种小程序一套搞定型。</p>
+<p>1.微信小程序原生：难用的 ide，技术栈就是 web 变种。<br>2.H5+app：原生代码少不了，Android 和 iOS 要单独适配，涉及到兼容性的问题。<br>3.mpvue：美团搞的，基于 Vue.js 的小程序开发框架，小程序和 H5 一套搞定型。<br>4.uni-app：Dcloud 搞的，也是基于 Vue.js 的框架，iOS、Android、H5、各种小程序一套搞定型。</p>
 </blockquote>
-<p>对比了一下，微信小程序原生、H5+app，我直接就放弃了，微信小程序那个IDE简直不要太难用，而且改平台就是重写代码；H5+app一个人弄太费事不说，缺少优化可能效果也一般，虽然有原生app的超高天花板，但是谁叫咱就一个人，还要快速出活呢；mpvue本来我是准备选的，小程序+H5，基本上都能干了，后面要改原生app的话，我就套webview的壳，关键是开源免费，怪就怪在开源吧，我上github看了下commits和issues，最近的commit是八个月前了…issues也有点混乱的感觉，加上之前爆出美团的KPI事件，我觉得为了我的KPI和头发，还是算了吧。都说到这了，还有的选吗？最开始我是觉得uniapp商业话太严重（推广），加上不开源，还是有些顾虑的，但是好像现在是（部分）开源了？推广说明官方很重视，那。。还说什么呢，淦</p>
-<h2 id="淦"><a href="#淦" class="headerlink" title="淦"></a>淦</h2><p>因为微信小程序和uniapp都没搞过，花时间分别看了下文档，都是web变种，会web就会开发。主要是熟悉下整体的框架，为啥这样设计，有哪些个组件分别能干啥事，有哪些API。细节千万别看，太花时间，而且你肯定记不住，所以就直接上手吧。<br>uniapp支持Weex，在app端，用vue页面的话就是用webview渲染的，用nvue的话就是用原生渲染。(｡･∀･)ﾉﾞ嗨，等于说码量还是不小啊，坑还是多啊。不过uniapp支持<code>#ifdef #endif</code>条件编译语法，这个没啥好说的，写后端的都知道，赞一个。<br>然后就是写项目了，如果看了微信小程序文档和uniapp的文档，你就会发现，其实就是个web前端的东西，无非就是语法变了一点，配置文件针对多端合并重封装了，写代码的时候要注意兼容，一个ui组件把几个端都同时考虑进来，用条件编译。就行了，就是这么简单，快速实践就介绍完了（其实是不知道说啥了）。（逃）</p>
+<p>对比了一下，微信小程序原生、H5+app，我直接就放弃了，微信小程序那个 IDE 简直不要太难用，而且改平台就是重写代码；H5+app 一个人弄太费事不说，缺少优化可能效果也一般，虽然有原生 app 的超高天花板，但是谁叫咱就一个人，还要快速出活呢；mpvue 本来我是准备选的，小程序+H5，基本上都能干了，后面要改原生 app 的话，我就套 webview 的壳，关键是开源免费，怪就怪在开源吧，我上 github 看了下 commits 和 issues，最近的 commit 是八个月前了…issues 也有点混乱的感觉，加上之前爆出美团的 KPI 事件，我觉得为了我的 KPI 和头发，还是算了吧。都说到这了，还有的选吗？最开始我是觉得 uniapp 商业话太严重（推广），加上不开源，还是有些顾虑的，但是好像现在是（部分）开源了？推广说明官方很重视，那。。还说什么呢，淦</p>
+<h2 id="淦"><a href="#淦" class="headerlink" title="淦"></a>淦</h2><p>因为微信小程序和 uniapp 都没搞过，花时间分别看了下文档，都是 web 变种，会 web 就会开发。主要是熟悉下整体的框架，为啥这样设计，有哪些个组件分别能干啥事，有哪些 API。细节千万别看，太花时间，而且你肯定记不住，所以就直接上手吧。<br>uniapp 支持 Weex，在 app 端，用 vue 页面的话就是用 webview 渲染的，用 nvue 的话就是用原生渲染。(｡･∀･)ﾉﾞ嗨，等于说码量还是不小啊，坑还是多啊。不过 uniapp 支持<code>#ifdef #endif</code>条件编译语法，这个没啥好说的，写后端的都知道，赞一个。<br>然后就是写项目了，如果看了微信小程序文档和 uniapp 的文档，你就会发现，其实就是个 web 前端的东西，无非就是语法变了一点，配置文件针对多端合并重封装了，写代码的时候要注意兼容，一个 ui 组件把几个端都同时考虑进来，用条件编译。就行了，就是这么简单，快速实践就介绍完了（其实是不知道说啥了）。（逃）</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -680,7 +676,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="QGIS plugin开发使用">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="QGIS plugin开发使用">
                         
                         <span class="card-title">QGIS plugin开发使用</span>
                     </div>
@@ -688,7 +684,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            起步1.刚来就不建议看文档手动创建plugin了，python很熟悉的人可以看文档试试，否则还是别手动创建了，几乎所有的开发者都是通过Plugin Builder这个Plugin来创建的Plugin，安装好了以后，打开Plugin Buil
+                            起步1.刚来就不建议看文档手动创建 plugin 了，python 很熟悉的人可以看文档试试，否则还是别手动创建了，几乎所有的开发者都是通过Plugin Builder这个 Plugin 来创建的 Plugin，安装好了以后，打开 Plug
                         
                     </div>
                     <div class="publish-info">
@@ -737,7 +733,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="网页插件">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="网页插件">
                         
                         <span class="card-title">网页插件</span>
                     </div>
@@ -757,8 +753,8 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/plugin/" class="post-category" target="_blank">
-                                    plugin
+                            <a href="/categories/other/" class="post-category" target="_blank">
+                                    other
                                 </a>
                             
                             
@@ -768,8 +764,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/plugin/" target="_blank">
-                        <span class="chip bg-color">plugin</span>
+                    <a href="/tags/other/" target="_blank">
+                        <span class="chip bg-color">other</span>
                     </a>
                     
                 </div>
@@ -890,7 +886,7 @@
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.4k</span>&nbsp;字
+                class="white-color">40.5k</span>&nbsp;字
             
             <br>
             
