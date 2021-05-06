@@ -11,19 +11,18 @@ img:
 coverImg:
 password:
 summary:
-keywords: flutter,location,定位
+keywords: flutter
 categories:
- - flutter
- - location
+  - flutter
 tags:
- - flutter
- - location
- - 定位
+  - flutter
 ---
 
-iOS没测试，Android需要用到GMS来辅助定位，所以国内不能用！不能用！！不能用！！！
+iOS 没测试，Android 需要用到 GMS 来辅助定位，所以国内不能用！不能用！！不能用！！！
 
 ---
-*版权声明：*
-*除非注明，本博文章均为原创，转载请以链接形式标明本文地址。*
+
+_版权声明：_
+_除非注明，本博文章均为原创，转载请以链接形式标明本文地址。_
+
 ---

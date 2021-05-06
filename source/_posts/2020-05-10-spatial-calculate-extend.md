@@ -13,9 +13,9 @@ coverImg:
 password:
 summary:
 categories:
- - 几何计算
+  - other
 tags:
- - 几何计算
+  - other
 ---
 
 ### 线平行
@@ -51,21 +51,21 @@ $\vec A$ $\times$ $\vec B$ = 0 , $\vec A$ $\vec B$共线。
 
 ## 计算任意多边形面积
 ### 计算三角形面积
-![计算三角形面积](https://jackie_tang.gitee.io/pic_cloud/tri.jpg)  
+![计算三角形面积](https://jackie_tang.gitee.io/pic_cloud/2020-05/tri.jpg)  
 根据上一篇几何基础，向量叉乘结果为带符号的平行四边形面积，那么三角形的面积为：  
 $$
 Area = \frac{\vec {AB} \times \vec {AC}}{2}
 $$
 面积结果为带符号的值，正面积则ABC成左手系，负面积则ABC成右手系。 
 ### 计算任意凹凸多边形面积
-![计算任意多边形面积](https://jackie_tang.gitee.io/pic_cloud/area.jpg)
+![计算任意多边形面积](https://jackie_tang.gitee.io/pic_cloud/2020-05/area.jpg)
 计算多边形面积就是把多边形切分为多个三角形计算就好了。  
 由于面积计算的结果是带符号的，因此，此结果对于凹凸多边形都是有效。  
 甚至可以选取多边形外的一个点，来构建三角形计算，也是同样有效的，像这样：  
-![外部选点](https://jackie_tang.gitee.io/pic_cloud/area2.jpg)  
+![外部选点](https://jackie_tang.gitee.io/pic_cloud/2020-05/area2.jpg)  
 当然一般不会选择外部的点。  
 ### 计算带孔多边形的面积
-![孔洞多边形](https://jackie_tang.gitee.io/pic_cloud/area3.jpg) 
+![孔洞多边形](https://jackie_tang.gitee.io/pic_cloud/2020-05/area3.jpg) 
 当多边形存在“孔洞”时， 第一层孔洞的环序是与外环序一定是相反的，因此孔洞的面积和外环的面积结果也是相反的，直接相加即可。多层孔洞当然也是一样的道理。  
 **注意**  
 1. 环序是很重要的，同一层环进行面积计算的时候，要始终保持同一个方向的环序进行计算。  
@@ -83,7 +83,7 @@ $$
 多边形面积为正：逆时针；面积为负：顺时针； 
 
 ### 凸多边形
-![凸多边形计算环序方向](https://jackie_tang.gitee.io/pic_cloud/director.jpg) 
+![凸多边形计算环序方向](https://jackie_tang.gitee.io/pic_cloud/2020-05/director.jpg) 
 任取一点叉乘：  
 $$
 \vec {AB} \times \vec{BC}

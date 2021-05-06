@@ -13,7 +13,13 @@ coverImg:
 password:
 summary:
 categories:
+  - vue
+  - cesium
+  - 3D Tiles
 tags:
+  - vue
+  - cesium
+  - 3D Tiles
 ---
 
 [点击跳转](http://117.139.247.104:60001/jt-earth-cesium-example/)

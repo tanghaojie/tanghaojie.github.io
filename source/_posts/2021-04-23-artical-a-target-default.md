@@ -13,7 +13,9 @@ coverImg:
 password:
 summary:
 categories:
+  - other
 tags:
+  - other
 ---
 
 <a id="reference-1" name="reference-1"></a>

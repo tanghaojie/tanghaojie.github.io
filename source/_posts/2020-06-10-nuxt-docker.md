@@ -13,7 +13,9 @@ coverImg:
 password:
 summary:
 categories:
+  - other
 tags:
+  - other
 ---
 
 ## 准备

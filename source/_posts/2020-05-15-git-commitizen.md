@@ -13,44 +13,57 @@ coverImg:
 password:
 summary:
 categories:
+  - git
+  - other
 tags:
+  - git
+  - other
 ---
+
 ## 安装配置
-[commitizen地址](https://github.com/commitizen/cz-cli)
-[cz-conventional-changelo地址：规范要求，不同的适配器要求不同](https://github.com/commitizen/cz-conventional-changelog)
-[conventional-changelog地址：生成changelog.md](https://github.com/ajoslin/conventional-changelog)
+
+[commitizen 地址](https://github.com/commitizen/cz-cli)
+[cz-conventional-changelo 地址：规范要求，不同的适配器要求不同](https://github.com/commitizen/cz-conventional-changelog)
+[conventional-changelog 地址：生成 changelog.md](https://github.com/ajoslin/conventional-changelog)
+
 ```
 npm install -g commitizen
 npm install -g cz-conventional-changelog
 npm install -g conventional-changelog-cli
 commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
-如果已经有其他适配器了，会报错，用  `--force` 替换掉，即：
+
+如果已经有其他适配器了，会报错，用 `--force` 替换掉，即：
+
 ```
 commitizen init cz-conventional-changelog --save-dev --save-exact --force
 ```
+
 ## 使用
-以后提交代码就用`git cz -m`替代`git commit -m`就好了，或者不输入message跟着提示走就没问题。  
-type值：  
 
-| 值 | 描述 |
-| ---- | ---- |
-| feat | 新增一个功能 |
-| fix | 修复一个Bug |
-| docs | 文档变更 |
-| style | 代码格式（不影响功能，例如空格、分号等格式修正） |
-| refactor | 代码重构 |
-| perf | 改善性能 |
-| test | 测试 |
-| build | 变更项目构建或外部依赖（例如scopes: webpack、gulp、npm等） |
-| ci | 更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等 |
-| chore | 变更构建流程或辅助工具 |
-| revert | 代码回退 |
+以后提交代码就用`git cz -m`替代`git commit -m`就好了，或者不输入 message 跟着提示走就没问题。  
+type 值：
 
-生成changelog：
+| 值       | 描述                                                                                   |
+| -------- | -------------------------------------------------------------------------------------- |
+| feat     | 新增一个功能                                                                           |
+| fix      | 修复一个 Bug                                                                           |
+| docs     | 文档变更                                                                               |
+| style    | 代码格式（不影响功能，例如空格、分号等格式修正）                                       |
+| refactor | 代码重构                                                                               |
+| perf     | 改善性能                                                                               |
+| test     | 测试                                                                                   |
+| build    | 变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）                           |
+| ci       | 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等 |
+| chore    | 变更构建流程或辅助工具                                                                 |
+| revert   | 代码回退                                                                               |
+
+生成 changelog：
 `conventional-changelog -p angular -i CHANGELOG.md -s`
 
 ---
-*版权声明：*
-*除非注明，本博文章均为原创，转载请以链接形式标明本文地址。*
+
+_版权声明：_
+_除非注明，本博文章均为原创，转载请以链接形式标明本文地址。_
+
 ---

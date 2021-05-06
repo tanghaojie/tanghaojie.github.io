@@ -11,11 +11,13 @@ keywords:
 img:
 coverImg:
 password:
-summary:
+summary: 如题
 categories:
   - 3D Tiles
+  - specification
 tags:
   - 3D Tiles
+  - specification
 ---
 
 ## 导航

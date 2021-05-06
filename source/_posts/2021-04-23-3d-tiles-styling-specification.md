@@ -14,8 +14,10 @@ password:
 summary:
 categories:
   - 3D Tiles
+  - specification
 tags:
   - 3D Tiles
+  - specification
 ---
 
 ## 引

@@ -13,7 +13,9 @@ coverImg:
 password:
 summary:
 categories:
+  - tools
 tags:
+  - tools
 ---
 
 {% raw %}
@@ -162,7 +164,6 @@ tags:
   </script>
 
 {% endraw %}
-
 
 显示效果不好，点击下面打开单独的网页
 

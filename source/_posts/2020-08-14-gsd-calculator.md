@@ -11,9 +11,11 @@ keywords:
 img:
 coverImg:
 password:
-summary:
+summary: 在线地面采样距离（GSD）计算器
 categories:
+  - tools
 tags:
+  - tools
 ---
 
 {% raw %}

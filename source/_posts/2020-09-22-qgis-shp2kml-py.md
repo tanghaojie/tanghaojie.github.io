@@ -13,7 +13,11 @@ coverImg:
 password:
 summary:
 categories:
+  - QGIS
+  - python
 tags:
+  - QGIS
+  - python
 ---
 
 ```python
@@ -37,6 +41,8 @@ for l in list:
 ```
 
 ---
-*版权声明：*
-*除非注明，本博文章均为原创，转载请以链接形式标明本文地址。*
+
+_版权声明：_
+_除非注明，本博文章均为原创，转载请以链接形式标明本文地址。_
+
 ---

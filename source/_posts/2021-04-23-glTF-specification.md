@@ -13,7 +13,11 @@ coverImg:
 password:
 summary:
 categories:
+  - glTF
+  - specification
 tags:
+  - glTF
+  - specification
 ---
 
 ## 引
