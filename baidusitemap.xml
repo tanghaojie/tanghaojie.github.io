@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batch-table-specification/</loc>
+    <lastmod>2021-05-06</lastmod>
+  </url>
+  <url>
+    <loc>https://tanghaojie.github.io/2021/02/03/cesium-vue-big-model-example/</loc>
+    <lastmod>2021-05-06</lastmod>
+  </url>
+  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
     <lastmod>2021-05-06</lastmod>
   </url>
@@ -9,7 +17,15 @@
     <lastmod>2021-05-06</lastmod>
   </url>
   <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batched-3d-model-specification/</loc>
+    <lastmod>2021-05-06</lastmod>
+  </url>
+  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-instanced-3d-model-specification/</loc>
+    <lastmod>2021-05-06</lastmod>
+  </url>
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/21/3d-tiles-specification/</loc>
     <lastmod>2021-05-06</lastmod>
   </url>
   <url>
@@ -26,22 +42,6 @@
   </url>
   <url>
     <loc>https://tanghaojie.github.io/2020/11/25/Mean-SeaLevel-GPS-TheGeoid/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/02/03/cesium-vue-big-model-example/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batch-table-specification/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-batched-3d-model-specification/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/21/3d-tiles-specification/</loc>
     <lastmod>2021-05-06</lastmod>
   </url>
   <url>
