@@ -567,7 +567,7 @@ RTC_CENTER
 <hr>
 <p><a id="文件结构" name="文件结构"></a></p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>数据由文件头部分和紧随其后的二进制主体组成。下图显示了实例化 3D 模型的布局（破折号表示可选字段）：</p>
-<p><img src="https://jackie_tang.gitee.io/_images/2021-04/3d-tiles/header-layout.png"></p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/header-layout.png"></p>
 <hr>
 <p><a id="结构填充" name="结构填充"></a></p>
 <h3 id="结构填充"><a href="#结构填充" class="headerlink" title="结构填充"></a>结构填充</h3><p>数据 <code>byteLength</code> 必须以 8 个字节进行边界对齐。包含的<a href="/2021/04/23/3d-tiles-feature-table-specification#%E7%BB%93%E6%9E%84%E5%A1%AB%E5%85%85">要素表(Feature Table)</a>和<a href="/2021/04/23/3d-tiles-batch-table-specification#%E7%BB%93%E6%9E%84%E5%A1%AB%E5%85%85">批处理表(Batch Table)</a>必须符合其各自的填充要求。</p>
@@ -900,9 +900,9 @@ RTC_CENTER
 <p><a id="实例方向" name="实例方向"></a></p>
 <h3 id="实例方向"><a href="#实例方向" class="headerlink" title="实例方向"></a>实例方向</h3><p>实例的方向由<code>up</code>和<code>right</code>矢量创建的正交基准定义。方向将通过<a href="/2021/04/21/3d-tiles-specification/#%E7%93%A6%E7%89%87%E5%8F%98%E6%8D%A2%EF%BC%88Tiletransforms%EF%BC%89">瓦片变换</a> 进行。</p>
 <p><code>x</code>标准基向量在变换时映射到<code>right</code>基向量，<code>y</code>向量映射到<code>up</code>向量。<code>z</code>向量映射到<code>forward</code>向量，但它忽略，因为它总是<code>right</code>和<code>up</code>的正交。</p>
-<p><img src="https://jackie_tang.gitee.io/_images/2021-04/3d-tiles/box-standard-basis.png"></p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/box-standard-basis.png"></p>
 <p>在标准坐标轴中的盒子</p>
-<p><img src="https://jackie_tang.gitee.io/_images/2021-04/3d-tiles/box-rotated-basis.png"></p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/box-rotated-basis.png"></p>
 <p>经过旋转变换的盒子</p>
 <hr>
 <p><a id="八进制编码的法向向量" name="八进制编码的法向向量"></a></p>
@@ -923,7 +923,7 @@ RTC_CENTER
 <p><a id="量化位置" name="量化位置"></a></p>
 <h4 id="量化位置"><a href="#量化位置" class="headerlink" title="量化位置"></a>量化位置</h4><p>如果没有为实例定义<code>POSITION</code>，则其位置可以存储在<code>POSITION_QUANTIZED</code>中，其定义了相对于量化体的实例位置。如果没有 <code>POSITION</code> 或 <code>POSITION_QUANTIZED</code> 定义，实例将不会被创建。</p>
 <p>量化体由<code>offset</code>和<code>scale</code>定义，并将量化的位置映射到局部空间，如下图所示：</p>
-<p><img src="https://jackie_tang.gitee.io/_images/2021-04/3d-tiles/quantized-volume.png"></p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/quantized-volume.png"></p>
 <p><code>offset</code>全局语义存储在<code>QUANTIZED_VOLUME_OFFSET</code>，<code>scale</code>全局语义存储在<code>QUANTIZED_VOLUME_SCALE</code>。如果未定义这些全局语义，则<code>POSITION_QUANTIZED</code>无法使用。</p>
 <p>可以使用以下公式将量化的位置映射到本地空间：</p>
 <p><code>POSITION = POSITION_QUANTIZED \* QUANTIZED_VOLUME_SCALE / 65535.0 + QUANTIZED_VOLUME_OFFSET</code></p>
