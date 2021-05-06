@@ -600,9 +600,9 @@
       
         <tags>
             
-            <tag> scrapy </tag>
-            
             <tag> python </tag>
+            
+            <tag> scrapy </tag>
             
         </tags>
       
@@ -629,9 +629,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> QGIS </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -1037,11 +1037,11 @@
             
             <tag> tips </tag>
             
-            <tag> fun </tag>
-            
             <tag> GIS </tag>
             
             <tag> website </tag>
+            
+            <tag> fun </tag>
             
         </tags>
       
