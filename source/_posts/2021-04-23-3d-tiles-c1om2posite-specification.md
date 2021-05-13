@@ -66,7 +66,7 @@ tags:
 
 复合数据的文件结构（破折号表示可选字段）：
 
-![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/composite-layout.png)
+![](https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/ccc.png)
 
 ---
 
