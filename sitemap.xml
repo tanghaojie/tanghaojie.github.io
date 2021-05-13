@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-c1om2posite-specification/</loc>
+    
+    <lastmod>2021-05-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
     
     <lastmod>2021-05-06</lastmod>
@@ -73,13 +80,6 @@
   
   <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
     
     <lastmod>2021-05-06</lastmod>
     
@@ -431,14 +431,14 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/flutter/</loc>
+    <loc>https://tanghaojie.github.io/tags/other/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/other/</loc>
+    <loc>https://tanghaojie.github.io/tags/flutter/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/scrapy/</loc>
+    <loc>https://tanghaojie.github.io/tags/QGIS/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -466,7 +466,7 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/QGIS/</loc>
+    <loc>https://tanghaojie.github.io/tags/scrapy/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -552,13 +552,6 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/GIS/data/</loc>
-    <lastmod>2021-05-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/categories/net-core/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
@@ -573,7 +566,7 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/flutter/</loc>
+    <loc>https://tanghaojie.github.io/categories/GIS/data/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -581,6 +574,13 @@
   
   <url>
     <loc>https://tanghaojie.github.io/categories/other/</loc>
+    <lastmod>2021-05-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/flutter/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -601,14 +601,14 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/scrapy/</loc>
+    <loc>https://tanghaojie.github.io/categories/QGIS/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/QGIS/</loc>
+    <loc>https://tanghaojie.github.io/categories/scrapy/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -643,13 +643,6 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/scrapy/python/</loc>
-    <lastmod>2021-05-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/categories/QGIS/python/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
@@ -657,14 +650,7 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/git/cheat-sheet/</loc>
-    <lastmod>2021-05-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/categories/docker/cheat-sheet/</loc>
+    <loc>https://tanghaojie.github.io/categories/scrapy/python/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -678,7 +664,7 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/git/other/</loc>
+    <loc>https://tanghaojie.github.io/categories/git/cheat-sheet/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -693,6 +679,20 @@
   
   <url>
     <loc>https://tanghaojie.github.io/categories/3D-Tiles/</loc>
+    <lastmod>2021-05-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/docker/cheat-sheet/</loc>
+    <lastmod>2021-05-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/git/other/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-c1om2posite-specification/</loc>
+    <lastmod>2021-05-13</lastmod>
+  </url>
+  <url>
     <loc>https://tanghaojie.github.io/2020/03/31/flutter-location/</loc>
     <lastmod>2021-05-06</lastmod>
   </url>
@@ -42,10 +46,6 @@
   </url>
   <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-feature-table-specification/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-composite-specification/</loc>
     <lastmod>2021-05-06</lastmod>
   </url>
   <url>
