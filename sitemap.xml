@@ -417,14 +417,14 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/vue/</loc>
+    <loc>https://tanghaojie.github.io/tags/net-core/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/tags/net-core/</loc>
+    <loc>https://tanghaojie.github.io/tags/vue/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -552,21 +552,14 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/vue/</loc>
-    <lastmod>2021-05-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tanghaojie.github.io/categories/GIS/data/</loc>
-    <lastmod>2021-05-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/categories/net-core/</loc>
+    <lastmod>2021-05-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/vue/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -587,7 +580,7 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/uniapp/</loc>
+    <loc>https://tanghaojie.github.io/categories/GIS/data/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -595,6 +588,13 @@
   
   <url>
     <loc>https://tanghaojie.github.io/categories/net-core/GIS/</loc>
+    <lastmod>2021-05-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/uniapp/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -657,13 +657,6 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/git/cheat-sheet/</loc>
-    <lastmod>2021-05-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tanghaojie.github.io/categories/vue/cesium/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
@@ -678,14 +671,21 @@
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/docker/cheat-sheet/</loc>
+    <loc>https://tanghaojie.github.io/categories/3D-Tiles/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tanghaojie.github.io/categories/3D-Tiles/</loc>
+    <loc>https://tanghaojie.github.io/categories/git/cheat-sheet/</loc>
+    <lastmod>2021-05-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tanghaojie.github.io/categories/docker/cheat-sheet/</loc>
     <lastmod>2021-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
