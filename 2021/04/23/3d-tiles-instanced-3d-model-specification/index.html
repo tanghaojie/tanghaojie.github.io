@@ -600,7 +600,7 @@ RTC_CENTER
 <tr>
 <td><code>version</code></td>
 <td><code>uint32</code></td>
-<td>版本。现在是<code>1</code>。</td>
+<td>版本。现在是<code>1</code></td>
 </tr>
 <tr>
 <td><code>byteLength</code></td>
@@ -625,7 +625,7 @@ RTC_CENTER
 <tr>
 <td><code>batchTableBinaryByteLength</code></td>
 <td><code>uint32</code></td>
-<td>批处理表二进制部分的长度（以字节为单位），如果<code>batchTableJSONByteLength</code>为零，则也将为零。</td>
+<td>批处理表二进制部分的长度（以字节为单位），如果<code>batchTableJSONByteLength</code>为零，则也将为零</td>
 </tr>
 <tr>
 <td><code>gltfFormat</code></td>
@@ -952,21 +952,10 @@ RTC_CENTER
 
 <span class="token keyword">var</span> featureTableBinary <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>
   <span class="token keyword">new</span> <span class="token class-name">Float32Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">1.0</span><span class="token punctuation">,</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">1.0</span><span class="token punctuation">,</span>
-    <span class="token number">1.0</span><span class="token punctuation">,</span>
-    <span class="token number">0.0</span><span class="token punctuation">,</span>
-    <span class="token number">1.0</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span>
   <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>buffer
 <span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="量化位置和八进制编码法线" name="量化位置和八进制编码法线"></a></p>
 <h4 id="量化位置和八进制编码法线"><a href="#量化位置和八进制编码法线" class="headerlink" title="量化位置和八进制编码法线"></a>量化位置和八进制编码法线</h4><p>在此示例中，四个实例会被放置在<code>up</code>方向为<code>[0.0, 1.0, 0.0]</code>，<code>right</code> 为<code>[1.0, 0.0, 0.0]</code>的八进制编码格式，并且将它们放置在量化体积的角上，该量化体积在<code>x</code>和<code>z</code>方向上跨度为<code>-250.0</code> 到 <code>250.0 </code>个单位：</p>
@@ -991,27 +980,13 @@ RTC_CENTER
 
 <span class="token keyword">var</span> normalUpOct32PBinary <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>
   <span class="token keyword">new</span> <span class="token class-name">Uint16Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token number">32768</span><span class="token punctuation">,</span>
-    <span class="token number">65535</span><span class="token punctuation">,</span>
-    <span class="token number">32768</span><span class="token punctuation">,</span>
-    <span class="token number">65535</span><span class="token punctuation">,</span>
-    <span class="token number">32768</span><span class="token punctuation">,</span>
-    <span class="token number">65535</span><span class="token punctuation">,</span>
-    <span class="token number">32768</span><span class="token punctuation">,</span>
-    <span class="token number">65535</span>
+    <span class="token number">32768</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">32768</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">32768</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">32768</span><span class="token punctuation">,</span> <span class="token number">65535</span>
   <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>buffer
 <span class="token punctuation">)</span>
 
 <span class="token keyword">var</span> normalRightOct32PBinary <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span>
   <span class="token keyword">new</span> <span class="token class-name">Uint16Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token number">65535</span><span class="token punctuation">,</span>
-    <span class="token number">32768</span><span class="token punctuation">,</span>
-    <span class="token number">65535</span><span class="token punctuation">,</span>
-    <span class="token number">32768</span><span class="token punctuation">,</span>
-    <span class="token number">65535</span><span class="token punctuation">,</span>
-    <span class="token number">32768</span><span class="token punctuation">,</span>
-    <span class="token number">65535</span><span class="token punctuation">,</span>
-    <span class="token number">32768</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">32768</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">32768</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">32768</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">32768</span>
   <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>buffer
 <span class="token punctuation">)</span>
 
@@ -1020,7 +995,7 @@ RTC_CENTER
   normalUpOct32PBinary<span class="token punctuation">,</span>
   normalRightOct32PBinary
 <span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="批处理表" name="批处理表"></a></p>
 <h2 id="批处理表"><a href="#批处理表" class="headerlink" title="批处理表"></a>批处理表</h2><p>包含由<code>batchId</code>组成的元数据，可用于样式声明。有关更多信息，请参见<a href="/2021/04/23/3d-tiles-batch-table-specification">批处理表(Batch Table)</a>。</p>
@@ -1859,7 +1834,7 @@ RTC_CENTER
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.5k</span>&nbsp;字
+                class="white-color">44.6k</span>&nbsp;字
             
             <br>
             

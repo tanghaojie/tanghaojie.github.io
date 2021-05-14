@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-styling-specification/</loc>
+    <lastmod>2021-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-instanced-3d-model-specification/</loc>
+    <lastmod>2021-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-point-cloud-specification/</loc>
+    <lastmod>2021-05-14</lastmod>
+  </url>
+  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-c1om2posite-specification/</loc>
     <lastmod>2021-05-13</lastmod>
   </url>
@@ -30,18 +42,6 @@
   </url>
   <url>
     <loc>https://tanghaojie.github.io/2021/04/23/artical-a-target-default/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-styling-specification/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-point-cloud-specification/</loc>
-    <lastmod>2021-05-06</lastmod>
-  </url>
-  <url>
-    <loc>https://tanghaojie.github.io/2021/04/23/3d-tiles-instanced-3d-model-specification/</loc>
     <lastmod>2021-05-06</lastmod>
   </url>
   <url>
