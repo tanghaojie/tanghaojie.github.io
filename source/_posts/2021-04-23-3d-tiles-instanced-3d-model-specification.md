@@ -117,12 +117,12 @@ tags:
 | Field name                     | Data type          | Description                                                                                                                               |
 | ------------------------------ | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `magic`                        | 4-byte ANSI string | `"i3dm"`。用于将内容标识为“实例 3D 模型”                                                                                                  |
-| `version`                      | `uint32`           | 版本。现在是`1`。                                                                                                                         |
+| `version`                      | `uint32`           | 版本。现在是`1`                                                                                                                           |
 | `byteLength`                   | `uint32`           | 整个数据的长度（包括文件头），以字节为单位                                                                                                |
 | `featureTableJSONByteLength`   | `uint32`           | 要素表 JSON 部分的长度（以字节为单位）                                                                                                    |
 | `featureTableBinaryByteLength` | `uint32`           | 要素表二进制部分的长度（以字节为单位）                                                                                                    |
 | `batchTableJSONByteLength`     | `uint32`           | 批处理表 JSON 部分的长度（以字节为单位），零表示没有批处理表                                                                              |
-| `batchTableBinaryByteLength`   | `uint32`           | 批处理表二进制部分的长度（以字节为单位），如果`batchTableJSONByteLength`为零，则也将为零。                                                |
+| `batchTableBinaryByteLength`   | `uint32`           | 批处理表二进制部分的长度（以字节为单位），如果`batchTableJSONByteLength`为零，则也将为零                                                  |
 | `gltfFormat`                   | `uint32`           | 指示主体的 glTF 字段的格式。 `0`表示它是一个 uri，`1`表示它是嵌入式二进制 glTF。请参阅下面的 <a href="#glTF" class="self">glTF</a> 部分。 |
 
 主体部分紧着文件头，并且由三个字段组成：`Feature Table`，`Batch Table`，和`glTF`。
@@ -437,18 +437,7 @@ var featureTableJSON = {
 
 var featureTableBinary = new Buffer(
   new Float32Array([
-    0.0,
-    0.0,
-    0.0,
-    1.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    1.0,
-    1.0,
-    0.0,
-    1.0
+    0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0
   ]).buffer
 )
 ```
@@ -483,27 +472,13 @@ var positionQuantizedBinary = new Buffer(
 
 var normalUpOct32PBinary = new Buffer(
   new Uint16Array([
-    32768,
-    65535,
-    32768,
-    65535,
-    32768,
-    65535,
-    32768,
-    65535
+    32768, 65535, 32768, 65535, 32768, 65535, 32768, 65535
   ]).buffer
 )
 
 var normalRightOct32PBinary = new Buffer(
   new Uint16Array([
-    65535,
-    32768,
-    65535,
-    32768,
-    65535,
-    32768,
-    65535,
-    32768
+    65535, 32768, 65535, 32768, 65535, 32768, 65535, 32768
   ]).buffer
 )
 
