@@ -5,11 +5,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="3D Tiles样式数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+    <meta name="description" content="导航
+引
 
-">
+概述
+
+概念
+
+要素样式
+
+
+
+
+
+引官网文档
+
+
+概述3D Tiles 样式为 tileset 要素提供了简洁的声明式样式。样式通常基于存储在图块的批处理表(Batch Table)中的特征属性来定义表达式，以评定要素的显示表">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -448,14 +460,14 @@ To do
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        37
+                        620
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -471,8 +483,73 @@ To do
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">官网文档</a></p>
-<h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><hr>
+                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li><p><a href="#引" class="self">引</a></p>
+</li>
+<li><p><a href="#概述" class="self">概述</a></p>
+</li>
+<li><p><a href="#概念" class="self">概念</a></p>
+<ul>
+<li><a href="#要素样式" class="self">要素样式</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="引" name="引"></a></p>
+<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">官网文档</a></p>
+<hr>
+<p><a id="概述" name="概述"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>3D Tiles 样式为 tileset 要素提供了简洁的声明式样式。样式通常基于存储在图块的<a href="/2021/04/23/3d-tiles-batch-table-specification">批处理表(Batch Table)</a>中的特征属性来定义表达式，以评定要素的显示表达，例如 <code>color</code>（RGB 和半透明）和 <code>show</code> 属性。</p>
+<p>样式可以应用于不包含要素的图块，在这种情况下，图块被视为没有属性的隐式单个要素。</p>
+<p>尽管可以为数据集创建样式并参考数据集的属性，但是样式独立于数据集，因此任何样式都可以应用于任何数据集。</p>
+<p>样式使用 JSON 定义，并使用一部分 JavaScript 的表达式进行了增强扩展。此外，样式语言提供了一组内置函数来支持常见的数学运算。</p>
+<p>以下示例根据建筑物高度分配颜色。</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"${Area} > 0"</span><span class="token punctuation">,</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"conditions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">[</span><span class="token string">"${Height} &lt; 60"</span><span class="token punctuation">,</span> <span class="token string">"color('#13293D')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"${Height} &lt; 120"</span><span class="token punctuation">,</span> <span class="token string">"color('#1B98E0')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"true"</span><span class="token punctuation">,</span> <span class="token string">"color('#E8F1F2', 0.5)"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/example.png"></p>
+<hr>
+<p><a id="概念" name="概念"></a></p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><a id="要素样式" name="要素样式"></a></p>
+<h3 id="要素样式"><a href="#要素样式" class="headerlink" title="要素样式"></a>要素样式</h3><p>用于要素样式的视觉属性是 <code>show</code> 属性，该属性的赋值表达式将评估为确定要素是否可见的布尔值，而 <code>color</code> 属性的赋值表达式将赋值为一个 <code>Color</code> 对象（RGB 和半透明）的属性来确定要素显示的颜色。</p>
+<p>以下样式将默认的显示和颜色属性分配给每个要素：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"color('#ffffff')"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>show</code>可以依赖于要素属性的表达式进行显示，而不是显示所有要素，例如，以下表达式将仅显示 zip code 为 19341 的要素：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"${ZipCode} === '19341'"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>show</code>也可以用于更复杂的查询；例如，此处使用复合条件和正则表达式来仅显示<code>County</code>以<code>'Chest'</code>开始，且其<code>YearBuilt</code>大于或等于 1970 的要素：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"(regExp('^Chest').test(${County})) &amp;&amp; (${YearBuilt} >= 1970)"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>颜色也可以通过要素属性的表达式来定义。例如，以下表达式为温度高于 90 的特征为红色，其余为白色：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"(${Temperature} > 90) ? color('red') : color('white')"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>颜色的 Alpha 部分定义了要素的不透明度。例如，以下内容根据要素的属性设置要素的 RGB 颜色部分，并使体积大于 100 的要素透明：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"rgba(${red}, ${green}, ${blue}, (${volume} > 100 ? 0.5 : 1.0))"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>未完待续</strong></p>
+<hr>
+<p><a id="" name=""></a></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
 
@@ -692,11 +769,23 @@ To do
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引官网文档
-To do
-版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本文地址。
+                            导航
+引
+
+概述
+
+概念
+
+要素样式
 
 
+
+
+
+引官网文档
+
+
+概述3D Tiles 样式为 tileset 要素提供了简洁的声明式样式。样式通常基于存储在图块的批处理表(Batch Table)中的特征属性来定义表达式，以评定要素的显示表
                         
                     </div>
                     <div class="publish-info">
@@ -922,7 +1011,7 @@ JSON 头
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.5k</span>&nbsp;字
+                class="white-color">44.6k</span>&nbsp;字
             
             <br>
             
