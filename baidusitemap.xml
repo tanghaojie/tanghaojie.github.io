@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tanghaojie.github.io/2021/06/01/2021-2021-06-01-js-string-to-rgb/</loc>
+    <lastmod>2021-06-01</lastmod>
+  </url>
+  <url>
     <loc>https://tanghaojie.github.io/2021/04/23/2021-3d-tiles-2021-04-23-3d-tiles-styling-specification/</loc>
-    <lastmod>2021-05-19</lastmod>
+    <lastmod>2021-05-27</lastmod>
   </url>
   <url>
     <loc>https://tanghaojie.github.io/2021/04/23/2021-2021-04-23-glTF-specification/</loc>
