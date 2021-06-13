@@ -4,38 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="大疆/千寻卫星后处理解算信息说明, JackieTang, 唐浩桀, 桀士, JT, GIS">
-    <meta name="description" content="大疆 PPK 文件也是用的千寻解算，格式一样。
-
-
-
-列字段
-单位
-说明
-
-
-
-Station
--
-轨迹点序列
-
-
-Timestamp(ms)
-毫秒
-UTC 时间戳
-
-
-GPSWeek
--
-GPS 周
-
-
-TOW(s)
-秒
-周内秒
-
-
-La">
+    <meta name="keywords" content="vue3+cesium+typescript踩坑之路, JackieTang, 唐浩桀, 桀士, JT, GIS">
+    <meta name="description" content="cesium 对象挂载到全局 window新建global-cesium.d.ts，文件，文件名随意（以.d.ts结尾就行），然后输入：
+/* eslint-disable */
+declare namespace globalThis {">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -43,7 +15,7 @@ La">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>大疆/千寻卫星后处理解算信息说明 | 桀士</title>
+    <title>vue3+cesium+typescript踩坑之路 | 桀士</title>
     <link rel="icon" type="image/png" href="/favicon.icon">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -318,13 +290,13 @@ La">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        大疆/千寻卫星后处理解算信息说明
+                        vue3+cesium+typescript踩坑之路
                     </div>
                 </div>
             </div>
@@ -334,35 +306,111 @@ La">
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #703838;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #222020;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #222020;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/specification/" target="_blank">
-                                <span class="chip bg-color">specification</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/specification/" class="post-category" target="_blank">
-                                specification
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -370,14 +418,14 @@ La">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-05
+                    2021-06-13
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        211
+                        209
                     </div>
                     
 
@@ -400,81 +448,32 @@ La">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>大疆 PPK 文件也是用的千寻解算，格式一样。</p>
-<table>
-<thead>
-<tr>
-<th>列字段</th>
-<th>单位</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Station</td>
-<td>-</td>
-<td>轨迹点序列</td>
-</tr>
-<tr>
-<td>Timestamp(ms)</td>
-<td>毫秒</td>
-<td>UTC 时间戳</td>
-</tr>
-<tr>
-<td>GPSWeek</td>
-<td>-</td>
-<td>GPS 周</td>
-</tr>
-<tr>
-<td>TOW(s)</td>
-<td>秒</td>
-<td>周内秒</td>
-</tr>
-<tr>
-<td>Latitude(deg)</td>
-<td>度</td>
-<td>纬度</td>
-</tr>
-<tr>
-<td>Longitude(deg)</td>
-<td>度</td>
-<td>经度</td>
-</tr>
-<tr>
-<td>H-Ell(m)</td>
-<td>米</td>
-<td>椭球高程</td>
-</tr>
-<tr>
-<td>X(m)</td>
-<td>米</td>
-<td>高斯平面坐标系 X（如果指定『中央子午线』则有此输出字段）</td>
-</tr>
-<tr>
-<td>Y(m)</td>
-<td>米</td>
-<td>高斯平面坐标系 Y（如果指定『中央子午线』则有此输出字段）</td>
-</tr>
-<tr>
-<td>SDNorth(m)</td>
-<td>米</td>
-<td>北方向标准差</td>
-</tr>
-<tr>
-<td>SDEast(m)</td>
-<td>米</td>
-<td>东方向标准差</td>
-</tr>
-<tr>
-<td>SDHeight(m)</td>
-<td>米</td>
-<td>高程标准差</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>-</td>
-<td>解算质量标志位：1：固定解(大疆：50)；2：浮点解(大疆：34)；3：单点解(大疆：16)；4：未解出(大疆：0)；</td>
-</tr>
-</tbody></table>
+                <h2 id="cesium-对象挂载到全局-window"><a href="#cesium-对象挂载到全局-window" class="headerlink" title="cesium 对象挂载到全局 window"></a>cesium 对象挂载到全局 window</h2><p>新建<code>global-cesium.d.ts</code>，文件，文件名随意（以<code>.d.ts</code>结尾就行），然后输入：</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">/* eslint-disable */</span>
+<span class="token keyword">declare</span> namespace globalThis <span class="token punctuation">{</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'cesium'</span><span class="token punctuation">)</span>
+  <span class="token keyword">import</span> <span class="token operator">*</span> as Cesium <span class="token keyword">from</span> <span class="token string">'cesium'</span>
+
+  <span class="token keyword">interface</span> <span class="token class-name">Window</span> <span class="token punctuation">{</span>
+    viewer<span class="token punctuation">:</span> Cesium<span class="token punctuation">.</span>Viewer
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>即可在 window 上挂载 viewer 对象了，要挂载其他对象，请自行扩展。</p>
+<h2 id="vue-全局挂载-cesium-对象"><a href="#vue-全局挂载-cesium-对象" class="headerlink" title="vue 全局挂载 cesium 对象"></a>vue 全局挂载 cesium 对象</h2><p>在<code>main.ts</code>文件中，新增代码：</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token operator">*</span> as Cesium <span class="token keyword">from</span> <span class="token string">'cesium'</span>
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">'@vue/runtime-core'</span> <span class="token punctuation">{</span>
+  <span class="token keyword">interface</span> <span class="token class-name">cesium</span> <span class="token punctuation">{</span>
+    viewer<span class="token punctuation">:</span> Cesium<span class="token punctuation">.</span>Viewer
+    viewerContainer<span class="token operator">?</span><span class="token punctuation">:</span> HTMLElement
+  <span class="token punctuation">}</span>
+  <span class="token keyword">interface</span> <span class="token class-name">ComponentCustomProperties</span> <span class="token punctuation">{</span>
+    $vcesium<span class="token punctuation">:</span> cesium
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-next/pull/982">官方讨论</a></p>
+<p><code>interface cesium{}</code>是我自己定义的数据类型，方便后续扩展更多的属性上去，然后就可以全局通过<code>this.$vcesium</code>进行访问了。比之前 vue2 的时候，挂载到根组件上的方式更灵活更好。</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -636,9 +635,9 @@ La">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《大疆/千寻卫星后处理解算信息说明》
+                    《vue3+cesium+typescript踩坑之路》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/11/05/2020-2020-11-05-DJI-PPK-Format-Meaning/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/06/13/2021-cesium-2021-06-13-vue3-cesium/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jackie Tang(唐浩桀)
             </a> 采用
@@ -678,29 +677,74 @@ La">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/10/2020-2020-11-10-metashape-workflow/">
+                <a href="/2021/06/13/2021-cesium-2021-06-13-vue3-cesium/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Agisoft photoscan/metashape 使用教程">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="vue3+cesium+typescript踩坑之路">
                         
-                        <span class="card-title">Agisoft photoscan/metashape 使用教程</span>
+                        <span class="card-title">vue3+cesium+typescript踩坑之路</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Photoscan，新版本改名叫 Metashape 了，相较于 context capture（smart3d）进行空三计算效果更好，速度更快，配置更灵活，空三结果可以导入 context capture 进行三维重建。因此，我经常使用 
+                            cesium 对象挂载到全局 window新建global-cesium.d.ts，文件，文件名随意（以.d.ts结尾就行），然后输入：
+/* eslint-disable */
+declare namespace globalThis {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-10
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jackie Tang(唐浩桀)
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/01/2021-2021-06-01-js-string-to-rgb/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="js任意string转随机颜色">
+                        
+                        <span class="card-title">js任意string转随机颜色</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            function hashCode(str) {
+  // java String#hashCode
+  var hash = 0
+  for (var i = 0; i &lt; str.length; i++) {
+    hash =
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -713,61 +757,105 @@ La">
             </div>
         </div>
         
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/09/29/2020-2020-09-29-camera-calibrate/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="相机内参和畸变校正参数说明">
-                        
-                        <span class="card-title">相机内参和畸变校正参数说明</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            以大疆 Phantom4RTK 为例，以记事本方式打开任意一张照片，搜索DewarpData，可以看到校正参数：drone-dji:DewarpData=" 2020-05-13;3714.070000000000,3707.0700000
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/tools/" class="post-category" target="_blank">
-                                    tools
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/tools/" target="_blank">
-                        <span class="chip bg-color">tools</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
     </div>
 </article>
 </div>
 
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
     
 
 </main>
