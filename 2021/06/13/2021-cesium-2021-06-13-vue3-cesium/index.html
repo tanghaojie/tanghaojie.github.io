@@ -459,7 +459,7 @@ declare namespace globalThis {">
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>即可在 window 上挂载 viewer 对象了，要挂载其他对象，请自行扩展。</p>
+<p>即可在 window 上挂载 viewer 对象了，要挂载其他属性，请自行扩展。</p>
 <h2 id="vue-全局挂载-cesium-对象"><a href="#vue-全局挂载-cesium-对象" class="headerlink" title="vue 全局挂载 cesium 对象"></a>vue 全局挂载 cesium 对象</h2><p>在<code>main.ts</code>文件中，新增代码：</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token operator">*</span> as Cesium <span class="token keyword">from</span> <span class="token string">'cesium'</span>
 <span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">'@vue/runtime-core'</span> <span class="token punctuation">{</span>
