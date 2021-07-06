@@ -67,10 +67,10 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -483,14 +483,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.4k
+                        2.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        10 分
+                        11 分
                     </div>
                     
                 
@@ -609,45 +609,45 @@
 <p><a href="/2021/04/23/3d-tiles-feature-table-specification">要素表(Feature Table)</a> 查看更多信息。</p>
 <p><a href="#属性参考" class="self">属性参考</a> 查看 <code>b3dm</code> 要素表的更多参考。</p>
 <p>完整 <a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/b3dm.featureTable.schema.json">JSON</a> 定义：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
   <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"b3dm.featureTable.schema.json"</span><span class="token punctuation">,</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Batched 3D Model Feature Table"</span><span class="token punctuation">,</span>
   <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A set of Batched 3D Model semantics that contain additional information about features in a tile."</span><span class="token punctuation">,</span>
   <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"BATCH_LENGTH"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token property">"BATCH_LENGTH"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `GlobalPropertyScalar` object defining a numeric property for all features. See the corresponding property semantic in [Semantics](/specification/TileFormats/Batched3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
           <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-            <span class="token punctuation">{</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
               <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/globalPropertyScalar"</span>
-            <span class="token punctuation">}</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
           <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token property">"RTC_CENTER"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token property">"RTC_CENTER"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A `GlobalPropertyCartesian3` object defining a 3-component numeric property for all features. See the corresponding property semantic in [Semantics](/specification/TileFormats/Batched3DModel/README.md#semantics)."</span><span class="token punctuation">,</span>
           <span class="token property">"allOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-            <span class="token punctuation">{</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
               <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json#/definitions/globalPropertyCartesian3"</span>
-            <span class="token punctuation">}</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
           <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token property">"extensions"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token property">"extras"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
       <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"BATCH_LENGTH"</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a id="语法定义" name="语法定义"></a></p>
 <h3 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h3><p><a id="要素语法" name="要素语法"></a></p>
@@ -698,16 +698,16 @@ normal:   [xyz, xyz, xyz, ..., xyz, xyz, xyz, ..., xyz, xyz, xyz, ...]
 <p>注意，一个顶点不能属于多个模型。在这种情况下，需要复制顶点，以便<code>batchId</code>s 可以分配。</p>
 <p><code>batchId</code> 参数是在 glTF <a target="_blank" rel="noopener" href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-primitive">图元</a>中通过设置<code>_BATCHID </code>属性定义的，<code>batchId</code>的值对应 <a target="_blank" rel="noopener" href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#accessors">accessor</a> 的顺序索引。例如，</p>
 <pre class="line-numbers language-json"><code class="language-json"><span class="token property">"primitives"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-        <span class="token property">"attributes"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token property">"attributes"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token property">"_BATCHID"</span><span class="token operator">:</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"accessors"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"bufferView"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
       <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
       <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token number">5126</span><span class="token punctuation">,</span>
@@ -715,9 +715,9 @@ normal:   [xyz, xyz, xyz, ..., xyz, xyz, xyz, ..., xyz, xyz, xyz, ...]
       <span class="token property">"max"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token property">"min"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"SCALAR"</span>
-    <span class="token punctuation">}</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>accessor.type</code>的值必须是<code>"SCALAR"</code>。所有其他属性必须符合 glTF 模式，但没有其他额外要求。</p>
 <p>当批处理表存在或<code>BATCH_LENGTH</code>属性大于<code>0</code>时，<code>_BATCHID</code>属性为必填；否则，可以不填。</p>
@@ -813,24 +813,24 @@ normal:   [xyz, xyz, xyz, ..., xyz, xyz, xyz, ..., xyz, xyz, xyz, ...]
 <h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>用户自定义的属性，用来在数据中指定每个要素的应用程序特定的元数据。值可以直接在 JSON 中定义为数组，也可以引用<a href="#r二进制体引用" class="self">二进制体</a>中的部分。</p>
 <hr>
 <p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/featureTable.schema.json">JSON 定义示例</a></p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
   <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json"</span><span class="token punctuation">,</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Feature Table"</span><span class="token punctuation">,</span>
   <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A set of semantics containing per-tile and per-feature values defining the position and appearance properties for features in a tile."</span><span class="token punctuation">,</span>
-  <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"binaryBodyReference"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"definitions"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"binaryBodyReference"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"BinaryBodyReference"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining the reference to a section of the binary body of the features table where the property values are stored if not defined directly in the JSON."</span><span class="token punctuation">,</span>
-      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token property">"byteOffset"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
           <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
           <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token property">"componentType"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
           <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The datatype of components in the property. This is defined only if the semantic allows for overriding the implicit component type. These cases are specified in each tile format."</span><span class="token punctuation">,</span>
           <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -843,131 +843,131 @@ normal:   [xyz, xyz, xyz, ..., xyz, xyz, xyz, ..., xyz, xyz, xyz, ...]
             <span class="token string">"FLOAT"</span><span class="token punctuation">,</span>
             <span class="token string">"DOUBLE"</span>
           <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
       <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"numericArray"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"numericArray"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
-      <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"items"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"property"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"property"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Property"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A user-defined property which specifies per-feature application-specific metadata in a tile. Values either can be defined directly in the JSON as an array, or can refer to sections in the binary body with a `BinaryBodyReference` object."</span><span class="token punctuation">,</span>
       <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/binaryBodyReference"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
-          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
-          <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
+          &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
-        <span class="token punctuation">}</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"globalPropertyBoolean"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyBoolean"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyBoolean"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global boolean property value for all features."</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"boolean"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"globalPropertyScalar"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyScalar"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyScalar"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global numeric property value for all features."</span><span class="token punctuation">,</span>
       <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
-          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
               <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
               <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
               <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
-            <span class="token punctuation">}</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+          &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
-          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
           <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">1</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
           <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"globalPropertyCartesian3"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyCartesian3"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyCartesian3"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global 3-component numeric property values for all features."</span><span class="token punctuation">,</span>
       <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
-          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
               <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
               <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
               <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
-            <span class="token punctuation">}</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+          &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
-          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
           <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">3</span>
-        <span class="token punctuation">}</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"globalPropertyCartesian4"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyCartesian4"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyCartesian4"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global 4-component numeric property values for all features."</span><span class="token punctuation">,</span>
       <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
-          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
               <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
               <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
               <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
-            <span class="token punctuation">}</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+          &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
-          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
           <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">4</span>
-        <span class="token punctuation">}</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"extensions"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"extras"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"additionalProperties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"additionalProperties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/property"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
@@ -1430,7 +1430,7 @@ RTC_CENTER
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.4k</span>&nbsp;字
             
             <br>
             

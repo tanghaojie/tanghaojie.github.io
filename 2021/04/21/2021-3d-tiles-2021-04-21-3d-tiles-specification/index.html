@@ -50,10 +50,10 @@ Tiles
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -466,14 +466,14 @@ Tiles
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        9.3k
+                        9.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        37 分
+                        38 分
                     </div>
                     
                 
@@ -655,33 +655,33 @@ Tiles
 <p><a id="边界盒（Box）" name="边界盒（Box）"></a></p>
 <h5 id="边界盒（Box）"><a href="#边界盒（Box）" class="headerlink" title="边界盒（Box）"></a>边界盒（Box）</h5><p><code>boundingVolume.box</code>属性是由 12 个数字组成的数组，在右手 3 轴（x，y，z）笛卡尔坐标系中定义的一个有向包围盒，其中 z 轴是。前三个元素定义框中心的 x，y 和 z 值。接下来的三个元素（索引为 3、4 和 5）定义了 x 轴方向和一半长度（half-length）。接下来的三个元素（索引 6、7 和 8）定义 y 轴方向和一半长度（half-length）。最后三个元素（索引 9、10 和 11）定义 z 轴方向和一半长度（half-length）。</p>
 <p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/BoundingBox.jpg"></p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"box"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">10</span><span class="token punctuation">,</span>
     <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">10</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="边界球（Sphere）" name="边界球（Sphere）"></a></p>
 <h5 id="边界球（Sphere）"><a href="#边界球（Sphere）" class="headerlink" title="边界球（Sphere）"></a>边界球（Sphere）</h5><p><code>boundingVolume.sphere</code>属性是由 4 个数字组成的数组定义的边界球。前三个元素在右手 3 轴（x，y，z）笛卡尔坐标系中定义球体中心的 x，y 和 z 值，其中 z 轴朝上。最后一个元素（索引为 3）以米为单位定义半径。</p>
 <p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/BoundingSphere.jpg"></p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"sphere"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token number">10</span><span class="token punctuation">,</span>
     <span class="token number">141.4214</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="边界区（Region）" name="边界区（Region）"></a></p>
 <h5 id="边界区（Region）"><a href="#边界区（Region）" class="headerlink" title="边界区（Region）"></a>边界区（Region）</h5><p><code>boundingVolume.region</code>属性是一个由 6 个数字组成的数组，定义了由纬度，经度和高度坐标的地理边界区，使用<code>[west, south, east, north, minimum height, maximum height]</code>的顺序。纬度和经度是在 <a target="_blank" rel="noopener" href="http://spatialreference.org/ref/epsg/4979/">EPSG 4979</a> 中定义的 WGS 84 基准，以弧度表示。高度在 <a target="_blank" rel="noopener" href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS 84 椭球</a>上方（或下方）以米为单位。</p>
 <p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/BoundingRegion.jpg"></p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"region"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     -<span class="token number">1.3197004795898053</span><span class="token punctuation">,</span>
     <span class="token number">0.6988582109</span><span class="token punctuation">,</span>
@@ -690,16 +690,16 @@ Tiles
     <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token number">20</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="观察请求盒/体（Viewerrequestvolume）" name="观察请求盒/体（Viewerrequestvolume）"></a></p>
 <h4 id="观察请求盒-体（Viewer-request-volume）"><a href="#观察请求盒-体（Viewer-request-volume）" class="headerlink" title="观察请求盒/体（Viewer request volume）"></a>观察请求盒/体（Viewer request volume）</h4><p>瓦片的 观察请求盒/体（Viewer request volume） 可以用于组合异构数据集，也可以与外部数据集组合。</p>
 <p>以下示例是一个在<code>b3dm</code>瓦片中的建筑物，并在建筑物中包含了在<code>pnts</code>瓦片中的点云。点云瓦片的<code>boundingVolume</code>是半径为 <code>1.25</code> 的边界球。它还有一个更大的，半径为 <code>15</code> 的<code>viewerRequestVolume</code>边界球配置。由于 <code>geometricError</code> 值为零，因此当观察者位于由<code>viewerRequestVolume</code>所定义的大的边界球内时，始终会渲染点云的内容。</p>
 <p>简单来说，<code>viewerRequestVolume</code>是一个比<code>boundingVolume</code>优先级更高的显示配置，当视角进入<code>viewerRequestVolume</code>中是，瓦片就会显示，就不必须通过<code>boundingVolume</code>和<code>geometricError</code>来配置了。</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"children"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"transform"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token number">4.843178171884396</span><span class="token punctuation">,</span>
         <span class="token number">1.2424271388626869</span><span class="token punctuation">,</span>
@@ -718,15 +718,15 @@ Tiles
         <span class="token number">4081650.708604793</span><span class="token punctuation">,</span>
         <span class="token number">1</span>
       <span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"box"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.701</span><span class="token punctuation">,</span> <span class="token number">3.738</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3.72</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">13.402</span><span class="token punctuation">]</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
       <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
-      <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"content"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"building.b3dm"</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"transform"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token number">0.968635634376879</span><span class="token punctuation">,</span>
         <span class="token number">0.24848542777253732</span><span class="token punctuation">,</span>
@@ -745,19 +745,19 @@ Tiles
         <span class="token number">4081651.6414821907</span><span class="token punctuation">,</span>
         <span class="token number">1</span>
       <span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token property">"viewerRequestVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"viewerRequestVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"sphere"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+      <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"sphere"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1.25</span><span class="token punctuation">]</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
       <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-      <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"content"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"points.pnts"</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="变换（Transforms）" name="变换（Transforms）"></a></p>
@@ -857,8 +857,8 @@ Tiles
 <h4 id="瓦片-JSON"><a href="#瓦片-JSON" class="headerlink" title="瓦片 JSON"></a>瓦片 JSON</h4><p>瓦片 JSON 对象由以下属性组成。</p>
 <p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/tile.png"></p>
 <p>以下示例展示了一个非叶子瓦片。</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"region"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
       -<span class="token number">1.2419052957251926</span><span class="token punctuation">,</span>
       <span class="token number">0.7395016240301894</span><span class="token punctuation">,</span>
@@ -867,11 +867,11 @@ Tiles
       <span class="token number">0</span><span class="token punctuation">,</span>
       <span class="token number">20.4</span>
     <span class="token punctuation">]</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
   <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token number">43.88464075650763</span><span class="token punctuation">,</span>
   <span class="token property">"refine"</span> <span class="token operator">:</span> <span class="token string">"ADD"</span><span class="token punctuation">,</span>
-  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"content"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"region"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         -<span class="token number">1.2418882438584018</span><span class="token punctuation">,</span>
         <span class="token number">0.7395016240301894</span><span class="token punctuation">,</span>
@@ -880,11 +880,11 @@ Tiles
         <span class="token number">0</span><span class="token punctuation">,</span>
         <span class="token number">19.4</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
     <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"2/0/0.b3dm"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
   <span class="token property">"children"</span><span class="token operator">:</span> <span class="token punctuation">[</span>...<span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>boundingVolume</code>定义瓦片的封闭体，并且被用来确定哪些瓦片在运行时进行渲染。上面的示例使用一个<code>region</code>边界体，也可以使用<a href="#边界盒/边界体（Boundingvolumes）" class="self">其他边界体</a>，例如<code>box</code>或<code>sphere</code>。</p>
 <p><code>geometricError</code>属性是一个非负数，用于定义误差（以米为单位），用来决定渲染此瓦片但不渲染其子瓦片。在运行时，几何误差用于计算屏幕空间误差（SSE），即以像素为单位的误差。SSE 确定某个瓦片是否对于当前视图足够详细，或者是否应考虑渲染其子视图。详见<a href="#几何误差（Geometric error）" class="self">几何误差</a>。</p>
@@ -898,37 +898,37 @@ Tiles
 <p>可选的 <code>transform</code> 属性（上面列出）定义 4×4 的仿射变换矩阵，该矩阵变换瓦片的 <code>content</code>，<code>boundingVolume</code> 和 <code>viewerRequestVolume</code>。</p>
 <p><code>children</code>属性是定义一组子瓦片的对象数组。每个子瓦片的内容都被其父瓦片的<code>boundingVolume </code>完全包围，通常 <code>geometricError</code> 小于其父级的 <code>geometricError</code>。对于叶瓦片，此数组的长度为零，children 可以不定义。请参阅下面的<a href="#TilesetJSON" class="self">Tileset JSON</a>部分。</p>
 <p>完整的 json 定义</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
   <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"tile.schema.json"</span><span class="token punctuation">,</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Tile"</span><span class="token punctuation">,</span>
   <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A tile in a 3D Tiles tileset."</span><span class="token punctuation">,</span>
-  <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The bounding volume that encloses the tile."</span><span class="token punctuation">,</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"boundingVolume.schema.json"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"viewerRequestVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"viewerRequestVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Optional bounding volume that defines the volume the viewer must be inside of before the tile's content will be requested and before the tile will be refined based on geometricError."</span><span class="token punctuation">,</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"boundingVolume.schema.json"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"geometricError"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The error, in meters, introduced if this tile is rendered and its children are not. At runtime, the geometric error is used to compute screen space error (SSE), i.e., the error measured in pixels."</span><span class="token punctuation">,</span>
       <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"refine"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"refine"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Specifies if additive or replacement refinement is used when traversing the tileset for rendering.  This property is required for the root tile of a tileset; it is optional for all other tiles.  The default is to inherit from the parent tile."</span><span class="token punctuation">,</span>
       <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"ADD"</span><span class="token punctuation">,</span> <span class="token string">"REPLACE"</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"transform"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"transform"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A floating-point 4x4 affine transformation matrix, stored in column-major order, that transforms the tile's content--i.e., its features as well as content.boundingVolume, boundingVolume, and viewerRequestVolume--from the tile's local coordinate system to the parent tile's coordinate system, or, in the case of a root tile, from the tile's local coordinate system to the tileset's coordinate system.  transform does not apply to geometricError, nor does it apply any volume property when the volume is a region, defined in EPSG:4979 coordinates."</span><span class="token punctuation">,</span>
-      <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"items"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
       <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
       <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
       <span class="token property">"default"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -949,48 +949,48 @@ Tiles
         <span class="token number">0.0</span><span class="token punctuation">,</span>
         <span class="token number">1.0</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"content"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Metadata about the tile's content and a link to the content. When this is omitted the tile is just used for culling. This is required for leaf tiles."</span><span class="token punctuation">,</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"tile.content.schema.json"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"children"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"children"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An array of objects that define child tiles. Each child tile content is fully enclosed by its parent tile's bounding volume and, generally, has a geometricError less than its parent tile's geometricError. For leaf tiles, the length of this array is zero, and children may not be defined."</span><span class="token punctuation">,</span>
-      <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"items"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"tile.schema.json"</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
       <span class="token property">"uniqueItems"</span><span class="token operator">:</span> <span class="token boolean">true</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"extensions"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"extras"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
   <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"boundingVolume"</span><span class="token punctuation">,</span> <span class="token string">"geometricError"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"additionalProperties"</span><span class="token operator">:</span> <span class="token boolean">false</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="TilesetJSON" name="TilesetJSON"></a></p>
 <h3 id="Tileset-JSON"><a href="#Tileset-JSON" class="headerlink" title="Tileset JSON"></a>Tileset JSON</h3><p>3D Tiles 使用一个主 tileset JSON 文件作为定义数据集（Tileset）的入口。入口和外部 tileset JSON 文件都不需要遵循任何命名规则。</p>
 <p>这是一个 tileset JSON 的数据集</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"asset"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"asset"</span> <span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0"</span><span class="token punctuation">,</span>
     <span class="token property">"tilesetVersion"</span><span class="token operator">:</span> <span class="token string">"e575c6f1-a45b-420a-b172-6449fa6e0a59"</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"Height"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"Height"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
       <span class="token property">"maximum"</span><span class="token operator">:</span> <span class="token number">241.6</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
   <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token number">494.50961650991815</span><span class="token punctuation">,</span>
-  <span class="token property">"root"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"root"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"region"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         -<span class="token number">0.0005682966577418737</span><span class="token punctuation">,</span>
         <span class="token number">0.8987233516605286</span><span class="token punctuation">,</span>
@@ -999,12 +999,12 @@ Tiles
         <span class="token number">0</span><span class="token punctuation">,</span>
         <span class="token number">241.6</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
     <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token number">268.37878244706053</span><span class="token punctuation">,</span>
     <span class="token property">"refine"</span><span class="token operator">:</span> <span class="token string">"ADD"</span><span class="token punctuation">,</span>
-    <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"content"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"0/0/0.b3dm"</span><span class="token punctuation">,</span>
-      <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token property">"region"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
           -<span class="token number">0.0004001690908972599</span><span class="token punctuation">,</span>
           <span class="token number">0.8988700116775743</span><span class="token punctuation">,</span>
@@ -1013,11 +1013,11 @@ Tiles
           <span class="token number">0</span><span class="token punctuation">,</span>
           <span class="token number">241.6</span>
         <span class="token punctuation">]</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
     <span class="token property">"children"</span><span class="token operator">:</span> <span class="token punctuation">[</span>..<span class="token punctuation">]</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Tilset JSON 有四个顶级属性：<code>asset</code>，<code>properties</code>，<code>geometricError</code>，和<code>root</code>。</p>
 <p><code>asset</code> 是一个包含有关整个数据集的元数据对象。<code>asset.version</code> 属性是一个定义 3D Tiles 版本的字符串，指定 tilset 的 JSON 模式和基本的 tile 格式。 <code>tilesetVersion</code> 属性是一个可选字符串，用于定义特定应用程序的 tileset 版本，例如，表示 tilset 是否被更新。</p>
@@ -1076,7 +1076,7 @@ Tiles
 <hr>
 <p><a id="扩展" name="扩展"></a></p>
 <h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>扩展允许使用新功能扩展基本规范。可以将可选的 <code>extensions</code> 字典属性添加到任何 3D Tiles JSON 对象，该对象包含扩展名和扩展特定的对象。</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"transform"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token number">4.843178171884396</span><span class="token punctuation">,</span>
     <span class="token number">1.2424271388626869</span><span class="token punctuation">,</span>
@@ -1095,30 +1095,30 @@ Tiles
     <span class="token number">4081650.708604793</span><span class="token punctuation">,</span>
     <span class="token number">1</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"box"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.701</span><span class="token punctuation">,</span> <span class="token number">3.738</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3.72</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">13.402</span><span class="token punctuation">]</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
   <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
-  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"content"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"building.b3dm"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"VENDOR_collision_volume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"extensions"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"VENDOR_collision_volume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"box"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.8</span><span class="token punctuation">,</span> <span class="token number">3.8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3.8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">13.5</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>数据集或子级的外部数据集中使用的所有扩展，都必须在入口 tileset JSON 的顶级<code>extensionsUsed</code>数组属性中列出，例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"extensionsUsed"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"VENDOR_collision_volume"</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>所有扩展中，需要加载和渲染数据集或子级的外部数据集时，也必须在入口 tileset JSON 的顶级<code>extensionsRequired</code>数组属性中列出，<code>extensionsRequired</code>数组是<code>extensionsUsed</code>数组的子级。<code>extensionsRequired</code>中列出的值在<code>extensionsUsed</code>中也必须存在。</p>
 <hr>
 <p><a id="附加功能" name="附加功能"></a></p>
 <h4 id="附加功能"><a href="#附加功能" class="headerlink" title="附加功能"></a>附加功能</h4><p><code>extras</code>属性允许将特定于应用程序的元数据添加到任何 3D Tiles JSON 对象。以下示例显示了一个具有附加应用程序特定名称属性的 tile 对象。</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"transform"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token number">4.843178171884396</span><span class="token punctuation">,</span>
     <span class="token number">1.2424271388626869</span><span class="token punctuation">,</span>
@@ -1137,17 +1137,17 @@ Tiles
     <span class="token number">4081650.708604793</span><span class="token punctuation">,</span>
     <span class="token number">1</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"boundingVolume"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"boundingVolume"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"box"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6.701</span><span class="token punctuation">,</span> <span class="token number">3.738</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3.72</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">13.402</span><span class="token punctuation">]</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
   <span class="token property">"geometricError"</span><span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
-  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"content"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"building.b3dm"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"extras"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Empire State Building"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="瓦片格式规范" name="瓦片格式规范"></a></p>
@@ -1182,9 +1182,9 @@ Tiles
 <h2 id="声明式样式规范"><a href="#声明式样式规范" class="headerlink" title="声明式样式规范"></a>声明式样式规范</h2><p>3D Tiles 包含使用 JSON 定义的简洁声明式样式以及用一部分 JavaScript 增强的样式编写表达式。</p>
 <p>样式定义要素如何显示，例如 <code>show</code> 和 <code>color</code>（RGB 和透明度），在要素属性上使用表达式。</p>
 <p>下面的示例将高度超过 90 的要素涂为红色，将其他涂为白色。</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"(${Height} > 90) ? color('red') : color('white')"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"($&amp;#123;Height&amp;#125; &gt; 90) ? color('red') : color('white')"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>更多内容，详见<a href="/2021/04/23/3d-tiles-styling-specification">3D Tiles 样式</a>规范。</p>
 <hr>
@@ -1357,11 +1357,11 @@ Tiles
 <p><a id="reference-extras" name="reference-extras"></a></p>
 <h3 id="Extras"><a href="#Extras" class="headerlink" title="Extras"></a>Extras</h3><p>应用程序的附加数据。</p>
 <p>JSON 样式：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Extras"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Application-specific data."</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="reference-properties" name="reference-properties"></a></p>
@@ -1951,7 +1951,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.4k</span>&nbsp;字
             
             <br>
             

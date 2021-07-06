@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="office2016零售版转VOL版, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="以下代码复制为：.bat 文件
-@ECHO OFF&amp;PUSHD %~DP0
-setlocal EnableDelayedExpansion&amp;color 3e &amp; cd /d &#34;%~dp0&#34;
-title office2016 retail转换">
+@ECHO OFF&amp;amp;PUSHD %~DP0
+setlocal EnableDelayedExpansion&amp;amp;color 3e &amp;amp; cd /d &#34;%~dp0&#34;
+title office2">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,10 +31,10 @@ title office2016 retail转换">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -350,7 +350,7 @@ title office2016 retail转换">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        494
+                        505
                     </div>
                     
 
@@ -374,11 +374,11 @@ title office2016 retail转换">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>以下代码复制为：.bat 文件</p>
-<pre class="line-numbers language-shell"><code class="language-shell">@ECHO OFF&PUSHD %~DP0
-setlocal EnableDelayedExpansion&color 3e & cd /d "%~dp0"
+<pre class="line-numbers language-shell"><code class="language-shell">@ECHO OFF&amp;PUSHD %~DP0
+setlocal EnableDelayedExpansion&amp;color 3e &amp; cd /d "%~dp0"
 title office2016 retail转换vol版
 %1 %2
-mshta vbscript:createobject("shell.application").shellexecute("%~s0","goto :runas","","runas",1)(window.close)&goto :eof
+mshta vbscript:createobject("shell.application").shellexecute("%~s0","goto :runas","","runas",1)(window.close)&amp;goto :eof
 :runas
 if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
 if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
@@ -406,34 +406,34 @@ goto:WH
 :1
 cls
 echo 正在安装 KMS 许可证...
-for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul
+for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
 echo 正在安装 MAK 许可证...
-for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul
+for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
 set /p y=请输入激活密钥，按回车确定:
 cscript ospp.vbs /inpkey:%y%
 goto :e
 :2
 cls
 echo 正在安装 KMS 许可证...
-for /f %%x in ('dir /b ..\root\Licenses16\visio???vl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul
+for /f %%x in ('dir /b ..\root\Licenses16\visio???vl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
 echo 正在安装 MAK 许可证...
-for /f %%x in ('dir /b ..\root\Licenses16\visio???vl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul
+for /f %%x in ('dir /b ..\root\Licenses16\visio???vl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
 set /p y=请输入激活密钥，按回车确定:
 cscript ospp.vbs /inpkey:%y%
 goto :e
 :3
 cls
 echo 正在安装 KMS 许可证...
-for /f %%x in ('dir /b ..\root\Licenses16\project???vl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul
+for /f %%x in ('dir /b ..\root\Licenses16\project???vl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
 echo 正在安装 MAK 许可证...
-for /f %%x in ('dir /b ..\root\Licenses16\project???vl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul
+for /f %%x in ('dir /b ..\root\Licenses16\project???vl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" &gt;nul
 set /p y=请输入激活密钥，按回车确定:
 cscript ospp.vbs /inpkey:%y%
 goto :e
 :e
 echo.
 echo 转化完成，按任意键退出！
-pause >nul
+pause &gt;nul
 exit
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>让填写秘钥时，输入 XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99</p>
@@ -765,7 +765,7 @@ npm install --save videojs-flash //如果需要用fl
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.4k</span>&nbsp;字
             
             <br>
             

@@ -32,10 +32,10 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -440,7 +440,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        552
+                        560
                     </div>
                     
 
@@ -469,10 +469,10 @@
 <p><a id="reference-2" name="reference-2"></a></p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>修改配置的话，在<code>/themes/hexo-theme-matery/source/js/matery.js</code>这个文件下面的：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"> <span class="token comment" spellcheck="true">/*文章内容详情的一些初始化特性*/</span>
-  <span class="token keyword">let</span> articleInit <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> articleInit <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#articleContent a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'target'</span><span class="token punctuation">,</span> <span class="token string">'_blank'</span><span class="token punctuation">)</span>
    <span class="token operator">...</span>
-   <span class="token punctuation">}</span>
+   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="reference-3" name="reference-3"></a></p>
@@ -480,11 +480,11 @@
 <p>但是修改默认值这种方式会影响到全局，可能引入不必要的错误，所以这里推荐一种更好用的方式。</p>
 <p>在下面添加一行，写上：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"> <span class="token comment" spellcheck="true">/*文章内容详情的一些初始化特性*/</span>
-  <span class="token keyword">let</span> articleInit <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> articleInit <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#articleContent a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'target'</span><span class="token punctuation">,</span> <span class="token string">'_blank'</span><span class="token punctuation">)</span>
     <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#articleContent a.self'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'target'</span><span class="token punctuation">,</span> <span class="token string">'_self'</span><span class="token punctuation">)</span>
    <span class="token operator">...</span>
-   <span class="token punctuation">}</span>
+   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>之前写的文章会继续按照默认的方式运行，如果想在当前页内跳转的话，就使用 <code>&lt;a class="self" href="跳转的地址"&gt;跳转按钮&lt;/a&gt;</code>，这样的写法，重点是<code>class="self"</code>，就会在当前页内跳转了。</p>
 <hr>
@@ -974,7 +974,7 @@ To do
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.4k</span>&nbsp;字
             
             <br>
             

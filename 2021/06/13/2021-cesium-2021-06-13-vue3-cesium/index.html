@@ -7,7 +7,7 @@
     <meta name="keywords" content="vue3+cesium+typescript踩坑之路, JackieTang, 唐浩桀, 桀士, JT, GIS">
     <meta name="description" content="cesium 对象挂载到全局 window新建global-cesium.d.ts，文件，文件名随意（以.d.ts结尾就行），然后输入：
 /* eslint-disable */
-declare namespace globalThis {">
+declare namespace globalThis &amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -30,10 +30,10 @@ declare namespace globalThis {">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -425,7 +425,7 @@ declare namespace globalThis {">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        353
+                        389
                     </div>
                     
 
@@ -450,38 +450,38 @@ declare namespace globalThis {">
             <div id="articleContent">
                 <h2 id="cesium-对象挂载到全局-window"><a href="#cesium-对象挂载到全局-window" class="headerlink" title="cesium 对象挂载到全局 window"></a>cesium 对象挂载到全局 window</h2><p>新建<code>global-cesium.d.ts</code>，文件，文件名随意（以<code>.d.ts</code>结尾就行），然后输入：</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">/* eslint-disable */</span>
-<span class="token keyword">declare</span> namespace globalThis <span class="token punctuation">{</span>
+<span class="token keyword">declare</span> namespace globalThis <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'cesium'</span><span class="token punctuation">)</span>
   <span class="token keyword">import</span> <span class="token operator">*</span> as Cesium <span class="token keyword">from</span> <span class="token string">'cesium'</span>
 
-  <span class="token keyword">interface</span> <span class="token class-name">Window</span> <span class="token punctuation">{</span>
+  <span class="token keyword">interface</span> <span class="token class-name">Window</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     viewer<span class="token punctuation">:</span> Cesium<span class="token punctuation">.</span>Viewer
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>即可在 window 上挂载 viewer 对象了，要挂载其他属性，请自行扩展。</p>
 <h2 id="vue-全局挂载-cesium-对象"><a href="#vue-全局挂载-cesium-对象" class="headerlink" title="vue 全局挂载 cesium 对象"></a>vue 全局挂载 cesium 对象</h2><p>新建<code>cesium-vue.ts</code>文件，写入代码：</p>
-<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> App <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> App <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">import</span> <span class="token operator">*</span> as Cesium <span class="token keyword">from</span> <span class="token string">'cesium'</span>
 
-<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">'@vue/runtime-core'</span> <span class="token punctuation">{</span>
-  <span class="token keyword">interface</span> <span class="token class-name">CesiumVue</span> <span class="token punctuation">{</span>
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">'@vue/runtime-core'</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">interface</span> <span class="token class-name">CesiumVue</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     viewer<span class="token punctuation">:</span> Cesium<span class="token punctuation">.</span>Viewer <span class="token operator">|</span> <span class="token keyword">null</span>
     viewerContainer<span class="token punctuation">:</span> HTMLElement <span class="token operator">|</span> <span class="token keyword">null</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">interface</span> <span class="token class-name">ComponentCustomProperties</span> <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token keyword">interface</span> <span class="token class-name">ComponentCustomProperties</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     readonly $vc<span class="token punctuation">:</span> CesiumVue
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  install<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>app<span class="token punctuation">:</span> App<span class="token operator">&lt;</span>Element<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
-    app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>globalProperties<span class="token punctuation">.</span>$vc <span class="token operator">=</span> <span class="token punctuation">{</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  install<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>app<span class="token punctuation">:</span> App<span class="token operator">&lt;</span>Element<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>globalProperties<span class="token punctuation">.</span>$vc <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       viewer<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
       viewerContainer<span class="token punctuation">:</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在<code>main.ts</code>中：</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">import</span> cesiumVue <span class="token keyword">from</span> <span class="token string">'./libs/cesium-vue'</span>
@@ -491,7 +491,7 @@ app<span class="token punctuation">.</span><span class="token function">use</spa
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>@vue/runtime-core</code>声明只能写在<code>.ts</code>文件中，至于为什么官方也没说，<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-next/pull/982">官方讨论</a></p>
 <p><code>interface CesiumVue</code>是我自己定义的数据类型，方便后续扩展更多的属性上去，然后就可以全局通过<code>this.$vc</code>进行访问了。比之前 vue2 的时候，挂载到根组件上的方式更灵活更好。</p>
-<p><strong>重要提醒：</strong> 记得在合适的运行时初始化<code>$vc</code>中的<code>viewer</code>，否则他就一直都是<code>null</code>。<br><strong>重要提醒：</strong> <code>$vc</code>是<strong>readonly</strong>属性，所以记得永远不要再次初始化<code>$vc</code>。当然，严格模式的 ts 会在二次赋值时提醒你，但就怕你用的非严格模式。</p>
+<p><strong>重要提醒：</strong> 记得在合适的运行时初始化<code>$vc</code>中的<code>viewer</code>，否则他就一直都是<code>null</code>。<br><strong>重要提醒：</strong> <code>$vc</code>是<strong>readonly</strong>属性，所以记得永远不要再次初始化<code>$vc</code>。当然，严格模式的 ts 会在二次赋值时提醒你，但就怕用的非严格模式。</p>
 <hr>
 <p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
 <hr>
@@ -695,32 +695,31 @@ app<span class="token punctuation">.</span><span class="token function">use</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/13/2021-cesium-2021-06-13-vue3-cesium/">
+                <a href="/2021/06/18/2021-2021-06-18-vue3-typescript/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="vue3+cesium+typescript踩坑之路">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="vue3+typescript踩坑之路">
                         
-                        <span class="card-title">vue3+cesium+typescript踩坑之路</span>
+                        <span class="card-title">vue3+typescript踩坑之路</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            cesium 对象挂载到全局 window新建global-cesium.d.ts，文件，文件名随意（以.d.ts结尾就行），然后输入：
-/* eslint-disable */
-declare namespace globalThis {
+                            vue 的 ref 数据类型如果在普通的 DOM 元素上使用，数据类型为：HTMLElement；如果用在子组件上，数据类型为：ComponentPublicInstance。
+
+版权声明：除非注明，本博文章均为原创，转载请以链接形式标明本
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -729,7 +728,6 @@ declare namespace globalThis {
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -752,11 +750,10 @@ declare namespace globalThis {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            function hashCode(str) {
+                            function hashCode(str) &amp;#123;
   // java String#hashCode
   var hash = 0
-  for (var i = 0; i &lt; str.length; i++) {
-    hash =
+  for (var i = 0; i &lt; str.length; i++) &am
                         
                     </div>
                     <div class="publish-info">
@@ -888,7 +885,7 @@ declare namespace globalThis {
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.4k</span>&nbsp;字
             
             <br>
             

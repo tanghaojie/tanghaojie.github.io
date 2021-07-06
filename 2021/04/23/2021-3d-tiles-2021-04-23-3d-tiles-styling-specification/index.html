@@ -59,10 +59,10 @@ RegExp
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -475,14 +475,14 @@ RegExp
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        6.7k
+                        7.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        28 分
+                        33 分
                     </div>
                     
                 
@@ -542,16 +542,16 @@ RegExp
 <p>尽管可以为数据集创建样式并参考数据集的属性，但是样式独立于数据集，因此任何样式都可以应用于任何数据集。</p>
 <p>样式使用 JSON 定义，并使用一部分 JavaScript 的表达式进行了增强扩展。此外，样式语言提供了一组内置函数来支持常见的数学运算。</p>
 <p>以下示例根据建筑物高度分配颜色。</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"${Area} > 0"</span><span class="token punctuation">,</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;Area&amp;#125; &gt; 0"</span><span class="token punctuation">,</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"conditions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">[</span><span class="token string">"${Height} &lt; 60"</span><span class="token punctuation">,</span> <span class="token string">"color('#13293D')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token punctuation">[</span><span class="token string">"${Height} &lt; 120"</span><span class="token punctuation">,</span> <span class="token string">"color('#1B98E0')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"$&amp;#123;Height&amp;#125; &lt; 60"</span><span class="token punctuation">,</span> <span class="token string">"color('#13293D')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"$&amp;#123;Height&amp;#125; &lt; 120"</span><span class="token punctuation">,</span> <span class="token string">"color('#1B98E0')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token punctuation">[</span><span class="token string">"true"</span><span class="token punctuation">,</span> <span class="token string">"color('#E8F1F2', 0.5)"</span><span class="token punctuation">]</span>
     <span class="token punctuation">]</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/example.png"></p>
 <hr>
@@ -559,116 +559,116 @@ RegExp
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><a id="要素样式" name="要素样式"></a></p>
 <h3 id="要素样式"><a href="#要素样式" class="headerlink" title="要素样式"></a>要素样式</h3><p>用于要素样式的视觉属性是 <code>show</code> 属性，该属性的赋值表达式将评估为确定要素是否可见的布尔值，而 <code>color</code> 属性的赋值表达式将赋值为一个 <code>Color</code> 对象（RGB 和半透明）的属性来确定要素显示的颜色。</p>
 <p>以下样式将默认的显示和颜色属性分配给每个要素：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span>
   <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"color('#ffffff')"</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>show</code>可以依赖于要素属性的表达式进行显示，而不是显示所有要素，例如，以下表达式将仅显示 zip code 为 19341 的要素：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"${ZipCode} === '19341'"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;ZipCode&amp;#125; === '19341'"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><code>show</code>也可以用于更复杂的查询；例如，此处使用复合条件和正则表达式来仅显示<code>County</code>以<code>'Chest'</code>开始，且其<code>YearBuilt</code>大于或等于 1970 的要素：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"(regExp('^Chest').test(${County})) &amp;&amp; (${YearBuilt} >= 1970)"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"(regExp('^Chest').test($&amp;#123;County&amp;#125;)) &amp;&amp; ($&amp;#123;YearBuilt&amp;#125; &gt;= 1970)"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>颜色也可以通过要素属性的表达式来定义。例如，以下表达式为温度高于 90 的特征为红色，其余为白色：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"(${Temperature} > 90) ? color('red') : color('white')"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"($&amp;#123;Temperature&amp;#125; &gt; 90) ? color('red') : color('white')"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>颜色的 Alpha 部分定义了要素的不透明度。例如，以下内容根据要素的属性设置要素的 RGB 颜色部分，并使体积大于 100 的要素透明：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"rgba(${red}, ${green}, ${blue}, (${volume} > 100 ? 0.5 : 1.0))"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"rgba($&amp;#123;red&amp;#125;, $&amp;#123;green&amp;#125;, $&amp;#123;blue&amp;#125;, ($&amp;#123;volume&amp;#125; &gt; 100 ? 0.5 : 1.0))"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="条件表达式" name="条件表达式"></a></p>
 <h3 id="条件表达式（Conditions）"><a href="#条件表达式（Conditions）" class="headerlink" title="条件表达式（Conditions）"></a>条件表达式（Conditions）</h3><p>除了包含表达式的字符串外，<code>color</code>和<code>show</code>可以定义一系列条件的数组（类似于<code>if...else</code>语句）。例如，可以使用条件制作具有任何类型的包含/排除间隔的颜色图和颜色渐变。</p>
 <p>例如，以下表达式将 ID 属性映射到颜色。按条件顺序求值，因此如果<code>${id}</code>不是<code>'1'</code>或<code>'2'</code>，则<code>"true"</code>条件返回白色。如果不满足任何条件，则要是的颜色将为<code>undefined</code>：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"conditions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">[</span><span class="token string">"${id} === '1'"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token punctuation">[</span><span class="token string">"${id} === '2'"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"$&amp;#123;id&amp;#125; === '1'"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"$&amp;#123;id&amp;#125; === '2'"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token punctuation">[</span><span class="token string">"true"</span><span class="token punctuation">,</span> <span class="token string">"color('#FFFFFF')"</span><span class="token punctuation">]</span>
     <span class="token punctuation">]</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>下一个示例显示如何使用条件使用包含下限值和上限值的间隔来创建色带：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"color"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"color"</span> <span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"conditions"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 1.0)  &amp;&amp; (${Height} &lt; 10.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF00FF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 10.0) &amp;&amp; (${Height} &lt; 30.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 30.0) &amp;&amp; (${Height} &lt; 50.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FFFF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 50.0) &amp;&amp; (${Height} &lt; 70.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 70.0) &amp;&amp; (${Height} &lt; 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FFFF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF')"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 1.0)  &amp;&amp; ($&amp;#123;Height&amp;#125; &lt; 10.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF00FF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 10.0) &amp;&amp; ($&amp;#123;Height&amp;#125; &lt; 30.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 30.0) &amp;&amp; ($&amp;#123;Height&amp;#125; &lt; 50.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FFFF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 50.0) &amp;&amp; ($&amp;#123;Height&amp;#125; &lt; 70.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 70.0) &amp;&amp; ($&amp;#123;Height&amp;#125; &lt; 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FFFF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF')"</span><span class="token punctuation">]</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>由于条件是按顺序判断的，因此以上内容可以写得更简洁：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"color"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"color"</span> <span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"conditions"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 70.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FFFF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 50.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 30.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FFFF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 10.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token string">"(${Height} >= 1.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF00FF')"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 70.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FFFF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 50.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 30.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FFFF00')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 10.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 1.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF00FF')"</span><span class="token punctuation">]</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="定义变量" name="定义变量"></a></p>
 <h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><p>常用的表达式可以以<code>defines</code>变量名作为键存储在对象中。如果变量引用了已定义表达式的名称，则将其替换为所引用的求值表达式的结果：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"defines"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"NewHeight"</span><span class="token operator">:</span> <span class="token string">"clamp((${Height} - 0.5) / 2.0, 1.0, 255.0)"</span><span class="token punctuation">,</span>
-    <span class="token property">"HeightColor"</span><span class="token operator">:</span> <span class="token string">"rgb(${Height}, ${Height}, ${Height})"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"defines"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"NewHeight"</span><span class="token operator">:</span> <span class="token string">"clamp(($&amp;#123;Height&amp;#125; - 0.5) / 2.0, 1.0, 255.0)"</span><span class="token punctuation">,</span>
+    <span class="token property">"HeightColor"</span><span class="token operator">:</span> <span class="token string">"rgb($&amp;#123;Height&amp;#125;, $&amp;#123;Height&amp;#125;, $&amp;#123;Height&amp;#125;)"</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"conditions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">[</span><span class="token string">"(${NewHeight} >= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF') * ${HeightColor}"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token punctuation">[</span><span class="token string">"(${NewHeight} >= 50.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00') * ${HeightColor}"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token punctuation">[</span><span class="token string">"(${NewHeight} >= 1.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000') * ${HeightColor}"</span><span class="token punctuation">]</span>
+      <span class="token punctuation">[</span><span class="token string">"($&amp;#123;NewHeight&amp;#125; &gt;= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF') * $&amp;#123;HeightColor&amp;#125;"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"($&amp;#123;NewHeight&amp;#125; &gt;= 50.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FF00') * $&amp;#123;HeightColor&amp;#125;"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"($&amp;#123;NewHeight&amp;#125; &gt;= 1.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000') * $&amp;#123;HeightColor&amp;#125;"</span><span class="token punctuation">]</span>
     <span class="token punctuation">]</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"${NewHeight} &lt; 200.0"</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;NewHeight&amp;#125; &lt; 200.0"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>定义表达式不能引用其他定义。但是，它可能引用具有相同名称的要素属性。在下面的样式中，高度为 150 的要素将获得红色：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"defines"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"Height"</span><span class="token operator">:</span> <span class="token string">"${Height}/2.0}"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"defines"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"Height"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;Height&amp;#125;/2.0&amp;#125;"</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"conditions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">[</span><span class="token string">"(${Height} >= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token punctuation">[</span><span class="token string">"(${Height} >= 1.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span>
+      <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 100.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#0000FF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">[</span><span class="token string">"($&amp;#123;Height&amp;#125; &gt;= 1.0)"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF0000')"</span><span class="token punctuation">]</span>
     <span class="token punctuation">]</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="元属性" name="元属性"></a></p>
 <h3 id="元属性"><a href="#元属性" class="headerlink" title="元属性"></a>元属性</h3><p>可以使用<code>meta</code>属性定义要素的非可视属性。例如，以下设置元属性的一个<code>description</code>为包含要素名称的字符串：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"meta"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"'Hello, ${featureName}.'"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"meta"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"'Hello, $&amp;#123;featureName&amp;#125;.'"</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>元属性表达式可以求值为任何类型。例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"meta"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"featureColor"</span><span class="token operator">:</span> <span class="token string">"rgb(${red}, ${green}, ${blue})"</span><span class="token punctuation">,</span>
-    <span class="token property">"featureVolume"</span><span class="token operator">:</span> <span class="token string">"${height} * ${width} * ${depth}"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"meta"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"featureColor"</span><span class="token operator">:</span> <span class="token string">"rgb($&amp;#123;red&amp;#125;, $&amp;#123;green&amp;#125;, $&amp;#123;blue&amp;#125;)"</span><span class="token punctuation">,</span>
+    <span class="token property">"featureVolume"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;height&amp;#125; * $&amp;#123;width&amp;#125; * $&amp;#123;depth&amp;#125;"</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="表达式" name="表达式"></a></p>
@@ -853,13 +853,13 @@ RegExp
 <li><code>exec(string : String) : String</code>-在指定的字符串中搜索匹配项。如果搜索成功，则返回已捕获的第一个实例<code>String</code>。如果搜索失败，则返回<code>null</code>。</li>
 </ul>
 <p>例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"Name"</span><span class="token operator">:</span> <span class="token string">"Building 1"</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-json"><code class="language-json">regExp('a'<span class="token punctuation">)</span>.test('abc'<span class="token punctuation">)</span> === <span class="token boolean">true</span>
 regExp('a(.<span class="token punctuation">)</span>'<span class="token punctuation">,</span> 'i'<span class="token punctuation">)</span>.exec('Abc'<span class="token punctuation">)</span> === 'b'
-regExp('Building\s(\d<span class="token punctuation">)</span>'<span class="token punctuation">)</span>.exec($<span class="token punctuation">{</span>Name<span class="token punctuation">}</span><span class="token punctuation">)</span> === '<span class="token number">1</span>'
+regExp('Building\s(\d<span class="token punctuation">)</span>'<span class="token punctuation">)</span>.exec($&amp;#<span class="token number">123</span><span class="token punctuation">;</span>Name&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> === '<span class="token number">1</span>'
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>正则表达式具有<code>toString</code>方法显式（隐式）转换为<code>'pattern'</code>格式的字符串：</p>
 <ul>
@@ -956,15 +956,15 @@ regExp('a'<span class="token punctuation">)</span> !~ 'bcd'
 </ul>
 <p><a id="PI" name="PI"></a></p>
 <h4 id="PI"><a href="#PI" class="headerlink" title="PI"></a>PI</h4><p>数学常数 PI 为圆的周长除以其直径，约<code>3.14159</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-     “ show ”：“ cos（$ <span class="token punctuation">{</span>Angle<span class="token punctuation">}</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span>PI）<span class="token operator">&lt;</span><span class="token number">0</span> ”
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     “ show ”：“ cos（$ <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>Angle<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span>PI）<span class="token operator">&lt;</span><span class="token number">0</span> ”
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="E" name="E"></a></p>
 <h4 id="E"><a href="#E" class="headerlink" title="E"></a>E</h4><p>欧拉常数和自然对数的底数，约<code>2.71828</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-     “ color ”：“ color（）<span class="token operator">*</span> pow（Math<span class="token punctuation">.</span>E <span class="token operator">/</span> <span class="token number">2.0</span>，$ <span class="token punctuation">{</span>Temperature<span class="token punctuation">}</span>）”
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     “ color ”：“ color（）<span class="token operator">*</span> pow（Math<span class="token punctuation">.</span>E <span class="token operator">/</span> <span class="token number">2.0</span>，$ <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>Temperature<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>）”
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="变量" name="变量"></a></p>
@@ -983,17 +983,17 @@ regExp('a'<span class="token punctuation">)</span> !~ 'bcd'
 <li><code>Array</code></li>
 </ul>
 <p>例如：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token string">"enabled"</span> <span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token string">"description"</span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
     <span class="token string">"order"</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
     <span class="token string">"name"</span> <span class="token punctuation">:</span> <span class="token string">"Feature name"</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-javascript"><code class="language-javascript">$<span class="token punctuation">{</span>enabled<span class="token punctuation">}</span> <span class="token operator">===</span> <span class="token boolean">true</span>
-$<span class="token punctuation">{</span>description<span class="token punctuation">}</span> <span class="token operator">===</span> <span class="token keyword">null</span>
-$<span class="token punctuation">{</span>order<span class="token punctuation">}</span> <span class="token operator">===</span> <span class="token number">1</span>
-$<span class="token punctuation">{</span>name<span class="token punctuation">}</span> <span class="token operator">===</span> <span class="token string">'Feature name'</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript">$<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>enabled<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">===</span> <span class="token boolean">true</span>
+$<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>description<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">===</span> <span class="token keyword">null</span>
+$<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>order<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">===</span> <span class="token number">1</span>
+$<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>name<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">===</span> <span class="token string">'Feature name'</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>此外，存储在<a href="/2021/04/23/3d-tiles-batch-table-specification#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%93">批处理表(Batch Table)二进制文件</a>中矢量属性的变量被视为矢量类型：</p>
 <table>
@@ -1017,64 +1017,64 @@ $<span class="token punctuation">{</span>name<span class="token punctuation">}</
 </tr>
 </tbody></table>
 <p>变量可用于构造颜色或向量。例如：</p>
-<pre class="line-numbers language-json"><code class="language-json">rgba($<span class="token punctuation">{</span>red<span class="token punctuation">}</span><span class="token punctuation">,</span> $<span class="token punctuation">{</span>green<span class="token punctuation">}</span><span class="token punctuation">,</span> $<span class="token punctuation">{</span>blue<span class="token punctuation">}</span><span class="token punctuation">,</span> $<span class="token punctuation">{</span>alpha<span class="token punctuation">}</span><span class="token punctuation">)</span>
-vec4($<span class="token punctuation">{</span>temperature<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-json"><code class="language-json">rgba($&amp;#<span class="token number">123</span><span class="token punctuation">;</span>red&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> $&amp;#<span class="token number">123</span><span class="token punctuation">;</span>green&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> $&amp;#<span class="token number">123</span><span class="token punctuation">;</span>blue&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> $&amp;#<span class="token number">123</span><span class="token punctuation">;</span>alpha&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+vec4($&amp;#<span class="token number">123</span><span class="token punctuation">;</span>temperature&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>点或括号符号用于访问要素子属性。例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"address.street"</span><span class="token operator">:</span> <span class="token string">"Maple Street"</span><span class="token punctuation">,</span>
-  <span class="token property">"address"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"address"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Oak Street"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-json"><code class="language-json">$<span class="token punctuation">{</span>address.street<span class="token punctuation">}</span> === `Example street`
-$<span class="token punctuation">{</span>address<span class="token punctuation">[</span>'street'<span class="token punctuation">]</span><span class="token punctuation">}</span> === `Example street`
+<pre class="line-numbers language-json"><code class="language-json">$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>address.street&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Example street`
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>address<span class="token punctuation">[</span>'street'<span class="token punctuation">]</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Example street`
 
-$<span class="token punctuation">{</span>address.city<span class="token punctuation">}</span> === `Example city`
-$<span class="token punctuation">{</span>address<span class="token punctuation">[</span>'city'<span class="token punctuation">]</span><span class="token punctuation">}</span> === `Example city`
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>address.city&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Example city`
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>address<span class="token punctuation">[</span>'city'<span class="token punctuation">]</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Example city`
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>括号表示法仅支持字符串文字。</p>
 <p>可以显式使用<code>feature</code>关键字的括号表示法访问顶级属性。例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"address.street"</span><span class="token operator">:</span> <span class="token string">"Maple Street"</span><span class="token punctuation">,</span>
-  <span class="token property">"address"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"address"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Oak Street"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-json"><code class="language-json">$<span class="token punctuation">{</span>address.street<span class="token punctuation">}</span> === `Oak Street`
-$<span class="token punctuation">{</span>feature.address.street<span class="token punctuation">}</span> === `Oak Street`
-$<span class="token punctuation">{</span>feature<span class="token punctuation">[</span>'address'<span class="token punctuation">]</span>.street<span class="token punctuation">}</span> === `Oak Street`
-$<span class="token punctuation">{</span>feature<span class="token punctuation">[</span>'address.street'<span class="token punctuation">]</span><span class="token punctuation">}</span> === `Maple Street`
+<pre class="line-numbers language-json"><code class="language-json">$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>address.street&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Oak Street`
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>feature.address.street&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Oak Street`
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>feature<span class="token punctuation">[</span>'address'<span class="token punctuation">]</span>.street&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Oak Street`
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>feature<span class="token punctuation">[</span>'address.street'<span class="token punctuation">]</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `Maple Street`
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>要访问名为<code>feature</code>的要素，请使用变量<code>${feature}</code>。这等效于访问<code>${feature.feature}</code></p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"feature"</span><span class="token operator">:</span> <span class="token string">"building"</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-json"><code class="language-json">$<span class="token punctuation">{</span>feature<span class="token punctuation">}</span> === `building`
-$<span class="token punctuation">{</span>feature.feature<span class="token punctuation">}</span> === `building`
+<pre class="line-numbers language-json"><code class="language-json">$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>feature&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `building`
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>feature.feature&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === `building`
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>也可以在用反引号定义的字符串内替换变量，例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"order"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Feature name"</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-json"><code class="language-json">`Name is $<span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token punctuation">,</span> order is $<span class="token punctuation">{</span>order<span class="token punctuation">}</span>`
+<pre class="line-numbers language-json"><code class="language-json">`Name is $&amp;#<span class="token number">123</span><span class="token punctuation">;</span>name&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> order is $&amp;#<span class="token number">123</span><span class="token punctuation">;</span>order&amp;#<span class="token number">125</span><span class="token punctuation">;</span>`
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>括号符号用于访问要素子属性或数组。例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"temperatures"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"temperatures"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"scale"</span><span class="token operator">:</span> <span class="token string">"fahrenheit"</span><span class="token punctuation">,</span>
     <span class="token property">"values"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">70</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">]</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-json"><code class="language-json">$<span class="token punctuation">{</span>temperatures<span class="token punctuation">[</span>'scale'<span class="token punctuation">]</span><span class="token punctuation">}</span> === 'fahrenheit'
-$<span class="token punctuation">{</span>temperatures.values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span> === <span class="token number">70</span>
-$<span class="token punctuation">{</span>temperatures<span class="token punctuation">[</span>'values'<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span> === <span class="token number">70</span> // Same as (temperatures<span class="token punctuation">[</span>values<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> and temperatures.values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<pre class="line-numbers language-json"><code class="language-json">$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>temperatures<span class="token punctuation">[</span>'scale'<span class="token punctuation">]</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === 'fahrenheit'
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>temperatures.values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === <span class="token number">70</span>
+$&amp;#<span class="token number">123</span><span class="token punctuation">;</span>temperatures<span class="token punctuation">[</span>'values'<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span> === <span class="token number">70</span> // Same as (temperatures<span class="token punctuation">[</span>values<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> and temperatures.values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="内置函数" name="内置函数"></a></p>
@@ -1118,9 +1118,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">abs</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>x</code>的绝对值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-     <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"abs(${temperature}) > 20.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"abs($&amp;#123;temperature&amp;#125;) &gt; 20.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="sqrt" name="sqrt"></a></p>
 <h4 id="sqrt"><a href="#sqrt" class="headerlink" title="sqrt"></a>sqrt</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">sqrt</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1129,14 +1129,14 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">sqrt</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当<code>x &gt;= 0</code>时，返回<code>x</code>的平方根。当<code>x &lt; 0</code>时返回<code>NaN</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token string">"conditions"</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span>
-            <span class="token punctuation">[</span><span class="token string">"${temperature} >= 0.5"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FFFF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token punctuation">[</span><span class="token string">"${temperature} >= 0.0"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF00FF')"</span><span class="token punctuation">]</span>
+            <span class="token punctuation">[</span><span class="token string">"$&amp;#123;temperature&amp;#125; &gt;= 0.5"</span><span class="token punctuation">,</span> <span class="token string">"color('#00FFFF')"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token string">"$&amp;#123;temperature&amp;#125; &gt;= 0.0"</span><span class="token punctuation">,</span> <span class="token string">"color('#FF00FF')"</span><span class="token punctuation">]</span>
         <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a id="cos" name="cos"></a></p>
 <h4 id="cos"><a href="#cos" class="headerlink" title="cos"></a>cos</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">cos</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1145,9 +1145,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">cos</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>angle</code>弧度的余弦值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"cos(${Angle}) > 0.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"cos($&amp;#123;Angle&amp;#125;) &gt; 0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="sin" name="sin"></a></p>
 <h4 id="sin"><a href="#sin" class="headerlink" title="sin"></a>sin</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">sin</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1156,9 +1156,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">sin</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>angle</code>弧度的正弦值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"sin(${Angle}) > 0.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"sin($&amp;#123;Angle&amp;#125;) &gt; 0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="tan" name="tan"></a></p>
 <h4 id="tan"><a href="#tan" class="headerlink" title="tan"></a>tan</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">tan</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1167,9 +1167,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">tan</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>angle</code>弧度的正切值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"tan(${Angle}) > 0.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"tan($&amp;#123;Angle&amp;#125;) &gt; 0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="acos" name="acos"></a></p>
 <h4 id="acos"><a href="#acos" class="headerlink" title="acos"></a>acos</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">acos</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1178,9 +1178,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">acos</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>angle</code>弧度的反余弦值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"acos(${Angle}) > 0.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"acos($&amp;#123;Angle&amp;#125;) &gt; 0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="asin" name="asin"></a></p>
 <h4 id="asin"><a href="#asin" class="headerlink" title="asin"></a>asin</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">asin</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1189,9 +1189,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">asin</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>angle</code>弧度的反正弦值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"asin(${Angle}) > 0.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"asin($&amp;#123;Angle&amp;#125;) &gt; 0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="atan" name="atan"></a></p>
 <h4 id="atan"><a href="#atan" class="headerlink" title="atan"></a>atan</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">atan</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1200,9 +1200,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">atan</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>angle</code>弧度的反正切值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"atan(${Angle}) > 0.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"atan($&amp;#123;Angle&amp;#125;) &gt; 0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="atan2" name="atan2"></a></p>
 <h4 id="atan2"><a href="#atan2" class="headerlink" title="atan2"></a>atan2</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">atan2</span><span class="token punctuation">(</span>y <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1211,9 +1211,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">atan2</span><span class="token punctuation">(</span>y <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span> x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>y</code>和<code>x</code>商的反正切值。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"atan2(${GridY}, ${GridX}) > 0.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"atan2($&amp;#123;GridY&amp;#125;, $&amp;#123;GridX&amp;#125;) &gt; 0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="radians" name="radians"></a></p>
 <h4 id="radians"><a href="#radians" class="headerlink" title="radians"></a>radians</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">radians</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1222,9 +1222,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">radians</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>angle</code>从度转换为弧度。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"radians(${Angle}) > 0.5"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"radians($&amp;#123;Angle&amp;#125;) &gt; 0.5"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="degrees" name="degrees"></a></p>
 <h4 id="degrees"><a href="#degrees" class="headerlink" title="degrees"></a>degrees</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">degrees</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1233,9 +1233,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">degrees</span><span class="token punctuation">(</span>angle <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>angle</code>从弧度转换为度。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"degrees(${Angle}) > 45.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"degrees($&amp;#123;Angle&amp;#125;) &gt; 45.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="sign" name="sign"></a></p>
 <h4 id="sign"><a href="#sign" class="headerlink" title="sign"></a>sign</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">sign</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1244,9 +1244,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">sign</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当<code>x</code>正数时返回 1.0 ，当<code>x</code>零时返回 0.0 ，当<code>x</code>负数时返回-1.0 。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"sign(${Temperature}) * sign(${Velocity}) === 1.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"sign($&amp;#123;Temperature&amp;#125;) * sign($&amp;#123;Velocity&amp;#125;) === 1.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="floor" name="floor"></a></p>
 <h4 id="floor"><a href="#floor" class="headerlink" title="floor"></a>floor</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">floor</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1255,9 +1255,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">floor</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回小于或等于<code>x</code>的最接近的整数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"floor(${Position}) === 0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"floor($&amp;#123;Position&amp;#125;) === 0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="ceil" name="ceil"></a></p>
 <h4 id="ceil"><a href="#ceil" class="headerlink" title="ceil"></a>ceil</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">ceil</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1266,9 +1266,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">ceil</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回大于或等于<code>x</code>的最接近的整数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"ceil(${Position}) === 1"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"ceil($&amp;#123;Position&amp;#125;) === 1"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="round" name="round"></a></p>
 <h4 id="round"><a href="#round" class="headerlink" title="round"></a>round</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">round</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1277,9 +1277,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">round</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回最接近<code>x</code>的整数。小数为 0.5 的数字将按实现定义的方向四舍五入。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"round(${Position}) === 1"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"round($&amp;#123;Position&amp;#125;) === 1"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="exp" name="exp"></a></p>
 <h4 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">exp</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1288,9 +1288,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">exp</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>e</code>的<code>x</code>次幂，其中<code>e</code>欧拉常数，约为<code>2.71828</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"exp(${Density}) > 1.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"exp($&amp;#123;Density&amp;#125;) &gt; 1.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="log" name="log"></a></p>
 <h4 id="log"><a href="#log" class="headerlink" title="log"></a>log</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">log</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1299,9 +1299,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">log</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回自然数为底（<code>e</code>）<code>x</code>的对数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"log(${Density}) > 1.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"log($&amp;#123;Density&amp;#125;) &gt; 1.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="exp2" name="exp2"></a></p>
 <h4 id="exp2"><a href="#exp2" class="headerlink" title="exp2"></a>exp2</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">exp2</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1310,9 +1310,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">exp2</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回 2 的<code>x</code>次幂。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"exp2(${Density}) > 1.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"exp2($&amp;#123;Density&amp;#125;) &gt; 1.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="log2" name="log2"></a></p>
 <h4 id="log2"><a href="#log2" class="headerlink" title="log2"></a>log2</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">log2</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1321,9 +1321,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">log2</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回的以 2 为底<code>x</code>的对数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"log2(${Density}) > 1.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"log2($&amp;#123;Density&amp;#125;) &gt; 1.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="fract" name="fract"></a></p>
 <h4 id="fract"><a href="#fract" class="headerlink" title="fract"></a>fract</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">fract</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1332,9 +1332,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">fract</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>x</code>的小数部分。等同于<code>x - floor(x)</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token string">"color() * fract(${Density})"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token string">"color() * fract($&amp;#123;Density&amp;#125;)"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="pow" name="pow"></a></p>
 <h4 id="pow"><a href="#pow" class="headerlink" title="pow"></a>pow</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">pow</span><span class="token punctuation">(</span>base <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> exponent <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1343,9 +1343,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">pow</span><span class="token punctuation">(</span>base <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span> exponent <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回基数<code>base</code>的<code>exponent</code>次幂。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"pow(${Density}, ${Temperature}) > 1.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"pow($&amp;#123;Density&amp;#125;, $&amp;#123;Temperature&amp;#125;) &gt; 1.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="min" name="min"></a></p>
 <h4 id="min"><a href="#min" class="headerlink" title="min"></a>min</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">min</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> y <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1358,9 +1358,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">min</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span> y <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>x</code>和<code>y</code>中小的数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"min(${Width}, ${Height}) > 10.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"min($&amp;#123;Width&amp;#125;, $&amp;#123;Height&amp;#125;) &gt; 10.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="max" name="max"></a></p>
 <h4 id="max"><a href="#max" class="headerlink" title="max"></a>max</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">max</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> y <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1373,9 +1373,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">max</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span> y <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回<code>x</code>和<code>y</code>中大的数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"max(${Width}, ${Height}) > 10.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"max($&amp;#123;Width&amp;#125;, $&amp;#123;Height&amp;#125;) &gt; 10.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="clamp" name="clamp"></a></p>
 <h4 id="clamp"><a href="#clamp" class="headerlink" title="clamp"></a>clamp</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">clamp</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">,</span>  min <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> max <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1388,9 +1388,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">clamp</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span>  min <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> max <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>约束<code>x</code>位于<code>min</code>和之间<code>max</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token string">"color() * clamp(${temperature}, 0.1, 0.2)"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token string">"color() * clamp($&amp;#123;temperature&amp;#125;, 0.1, 0.2)"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="mix" name="mix"></a></p>
 <h4 id="mix"><a href="#mix" class="headerlink" title="mix"></a>mix</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">mix</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">,</span>  y <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> a <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1403,9 +1403,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">mix</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span>  y <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span> a <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>计算<code>x</code>和<code>y</code>的线性内插。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"mix(20.0, ${Angle}, 0.5) > 25.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"mix(20.0, $&amp;#123;Angle&amp;#125;, 0.5) &gt; 25.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="length" name="length"></a></p>
 <h4 id="length"><a href="#length" class="headerlink" title="length"></a>length</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">length</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1414,9 +1414,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">length</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>计算向量的长度<code>x</code>，即分量平方之和的平方根。如果<code>x</code>是数字，则<code>length</code>返回<code>x</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"length(${Dimensions}) > 10.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"length($&amp;#123;Dimensions&amp;#125;) &gt; 10.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="distance" name="distance"></a></p>
 <h4 id="distance"><a href="#distance" class="headerlink" title="distance"></a>distance</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">distance</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> y <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1425,9 +1425,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">distance</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span> y <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>计算两个点之间的距离<code>x</code>和<code>y</code>，即<code>length(x - y)</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"distance(${BottomRight}, ${UpperLeft}) > 50.0"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"distance($&amp;#123;BottomRight&amp;#125;, $&amp;#123;UpperLeft&amp;#125;) &gt; 50.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="normalize" name="normalize"></a></p>
 <h4 id="normalize"><a href="#normalize" class="headerlink" title="normalize"></a>normalize</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">normalize</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1436,9 +1436,9 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">normalize</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>返回长度为 1.0 的向量，该向量与<code>x</code>平行。当<code>x</code>为数字时，<code>normalize</code>返回 1.0。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"normalize(${RightVector}, ${UpVector}) > 0.5"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"normalize($&amp;#123;RightVector&amp;#125;, $&amp;#123;UpVector&amp;#125;) &gt; 0.5"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="dot" name="dot"></a></p>
 <h4 id="dot"><a href="#dot" class="headerlink" title="dot"></a>dot</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">dot</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> Number<span class="token punctuation">,</span> y <span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token punctuation">:</span> Number
@@ -1447,17 +1447,17 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <span class="token function">dot</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec4<span class="token punctuation">,</span> y <span class="token punctuation">:</span> vec4<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec4
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>计算<code>x</code>和<code>y</code>的点积。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"dot(${RightVector}, ${UpVector}) > 0.5"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"show"</span> <span class="token punctuation">:</span> <span class="token string">"dot($&amp;#123;RightVector&amp;#125;, $&amp;#123;UpVector&amp;#125;) &gt; 0.5"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><a id="cross" name="cross"></a></p>
 <h4 id="cross"><a href="#cross" class="headerlink" title="cross"></a>cross</h4><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">cross</span><span class="token punctuation">(</span>x <span class="token punctuation">:</span> vec3<span class="token punctuation">,</span> y <span class="token punctuation">:</span> vec3<span class="token punctuation">)</span> <span class="token punctuation">:</span> vec3
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>计算<code>x</code>和<code>y</code>的叉积。该函数仅接受<code>vec3</code>参数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token string">"vec4(cross(${RightVector}, ${UpVector}), 1.0)"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token string">"color"</span> <span class="token punctuation">:</span> <span class="token string">"vec4(cross($&amp;#123;RightVector&amp;#125;, $&amp;#123;UpVector&amp;#125;), 1.0)"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="特殊说明" name="特殊说明"></a></p>
@@ -1465,10 +1465,10 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <hr>
 <p><a id="点云" name="点云"></a></p>
 <h2 id="点云"><a href="#点云" class="headerlink" title="点云"></a>点云</h2><p><a href="/2021/04/23/3d-tiles-point-cloud-specification">点云 (Point Cloud)</a>数据集可以像其他要素一样设计样式。除了点的<code>color</code>和<code>show</code>属性，点云的样式可以设置为<code>pointSize</code>，或每个像素点的大小。默认<code>pointSize</code>值为<code>1.0</code>。</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"color('red')"</span><span class="token punctuation">,</span>
-  <span class="token property">"pointSize"</span><span class="token operator">:</span> <span class="token string">"${Temperature} * 0.5"</span>
-<span class="token punctuation">}</span>
+  <span class="token property">"pointSize"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;Temperature&amp;#125; * 0.5"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实现时，可以限制<code>pointSize</code>在系统支持的点大小范围内。例如，当<code>POINTS</code>渲染时，WebGL 渲染器可能会查询<code>ALIASED_POINT_SIZE_RANGE</code>以获取系统限制。<code>pointSize</code>为<code>1.0</code>必须得到支持。</p>
 <p>点云样式还可以引用<a href="/2021/04/23/3d-tiles-point-cloud-specification#%E8%A6%81%E7%B4%A0%E8%A1%A8">点云要素表</a>语法，包括位置，颜色和法线，以允许对源数据进行更灵活的样式设置。</p>
@@ -1479,11 +1479,11 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
 <li><code>${NORMAL}</code>在应用 tile 变换之前，以<code>vec3</code>存储点的法线（以笛卡尔坐标表示）。当法线被八进制编码时，<code>${NORMAL}</code>引用解码后的法线。如果在要素表中未定义法线，则<code>${NORMAL}</code>的结果为<code>undefined</code>。</li>
 </ul>
 <p>例如：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"${COLOR} * color('red')'"</span><span class="token punctuation">,</span>
-  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"${POSITION}.x > 0.5"</span><span class="token punctuation">,</span>
-  <span class="token property">"pointSize"</span><span class="token operator">:</span> <span class="token string">"${NORMAL}.x > 0 ? 2 : 1"</span>
-<span class="token punctuation">}</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"color"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;COLOR&amp;#125; * color('red')'"</span><span class="token punctuation">,</span>
+  <span class="token property">"show"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;POSITION&amp;#125;.x &gt; 0.5"</span><span class="token punctuation">,</span>
+  <span class="token property">"pointSize"</span><span class="token operator">:</span> <span class="token string">"$&amp;#123;NORMAL&amp;#125;.x &gt; 0 ? 2 : 1"</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong>实施注意：</strong>点云样式引擎可能经常使用着色器（GLSL）实现，但是在纯 GLSL 实现中，表达语言的某些功能是不可能的。其中一些功能包括：</p>
@@ -1861,11 +1861,10 @@ $<span class="token punctuation">{</span>temperatures<span class="token punctuat
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            function hashCode(str) {
+                            function hashCode(str) &amp;#123;
   // java String#hashCode
   var hash = 0
-  for (var i = 0; i &lt; str.length; i++) {
-    hash =
+  for (var i = 0; i &lt; str.length; i++) &am
                         
                     </div>
                     <div class="publish-info">
@@ -2070,7 +2069,7 @@ JSON 头
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.4k</span>&nbsp;字
             
             <br>
             

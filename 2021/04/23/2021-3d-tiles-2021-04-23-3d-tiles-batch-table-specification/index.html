@@ -44,10 +44,10 @@ JSON 头
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -460,7 +460,7 @@ JSON 头
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.7k
+                        1.8k
                     </div>
                     
 
@@ -541,60 +541,60 @@ JSON 头
 <p>注意：在 JavaScript 中，可以使用<code>ArrayBuffer</code>的<code>TextDecoder</code>JavaScript API 来提取 Batch Table JSON，并使用<code>JSON.parse</code>转换为 JavaScript 对象。</p>
 </blockquote>
 <p><code>batchId</code>用于访问每个数组中的元素并提取相应的属性。例如，以下批处理表有两个要素的一批属性：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"id"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"unique id"</span><span class="token punctuation">,</span> <span class="token string">"another unique id"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"displayName"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"Building name"</span><span class="token punctuation">,</span> <span class="token string">"Another building name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"yearBuilt"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1999</span><span class="token punctuation">,</span> <span class="token number">2015</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"address"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span> <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Main Street"</span><span class="token punctuation">,</span> <span class="token property">"houseNumber"</span><span class="token operator">:</span> <span class="token string">"1"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span> <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Main Street"</span><span class="token punctuation">,</span> <span class="token property">"houseNumber"</span><span class="token operator">:</span> <span class="token string">"2"</span> <span class="token punctuation">}</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Main Street"</span><span class="token punctuation">,</span> <span class="token property">"houseNumber"</span><span class="token operator">:</span> <span class="token string">"1"</span> &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    &amp;#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token property">"street"</span><span class="token operator">:</span> <span class="token string">"Main Street"</span><span class="token punctuation">,</span> <span class="token property">"houseNumber"</span><span class="token operator">:</span> <span class="token string">"2"</span> &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>要素<code>batchId = 0</code>的属性是：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript">id<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'unique id'</span>
 displayName<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Building name'</span>
 yearBuilt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1999</span>
-address<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> street<span class="token punctuation">:</span> <span class="token string">'Main Street'</span><span class="token punctuation">,</span> houseNumber<span class="token punctuation">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span>
+address<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> street<span class="token punctuation">:</span> <span class="token string">'Main Street'</span><span class="token punctuation">,</span> houseNumber<span class="token punctuation">:</span> <span class="token string">'1'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>要素<code>batchId = 1</code>的属性是：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript">id<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'another unique id'</span>
 displayName<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Another building name'</span>
 yearBuilt<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2015</span>
-address<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> street<span class="token punctuation">:</span> <span class="token string">'Main Street'</span><span class="token punctuation">,</span> houseNumber<span class="token punctuation">:</span> <span class="token string">'2'</span> <span class="token punctuation">}</span>
+address<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> street<span class="token punctuation">:</span> <span class="token string">'Main Street'</span><span class="token punctuation">,</span> houseNumber<span class="token punctuation">:</span> <span class="token string">'2'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>完整的 JSON 头定义，详见<a href="#属性参考" class="self">属性参考</a>。以下是一个完整的 JSON 格式。</p>
 <p><a id="JSONSchema" name="JSONSchema"></a></p>
 <p><a href="hhttps://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/batchTable.schema.json">JSON:</a></p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
   <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"batchTable.schema.json"</span><span class="token punctuation">,</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Batch Table"</span><span class="token punctuation">,</span>
   <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A set of properties defining application-specific metadata for features in a tile."</span><span class="token punctuation">,</span>
-  <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"extensions"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"extras"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"additionalProperties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"additionalProperties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/property"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"binaryBodyReference"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"definitions"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"binaryBodyReference"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"BinaryBodyReference"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining the reference to a section of the binary body of the batch table where the property values are stored if not defined directly in the JSON."</span><span class="token punctuation">,</span>
-      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token property">"byteOffset"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
           <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
           <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token property">"componentType"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
           <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The datatype of components in the property."</span><span class="token punctuation">,</span>
           <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -607,25 +607,25 @@ address<span class="token punctuation">[</span><span class="token number">1</spa
             <span class="token string">"FLOAT"</span><span class="token punctuation">,</span>
             <span class="token string">"DOUBLE"</span>
           <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
           <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Specifies if the property is a scalar or vector."</span><span class="token punctuation">,</span>
           <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"SCALAR"</span><span class="token punctuation">,</span> <span class="token string">"VEC2"</span><span class="token punctuation">,</span> <span class="token string">"VEC3"</span><span class="token punctuation">,</span> <span class="token string">"VEC4"</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
       <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">,</span> <span class="token string">"componentType"</span><span class="token punctuation">,</span> <span class="token string">"type"</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"property"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token property">"property"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Property"</span><span class="token punctuation">,</span>
       <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A user-defined property which specifies per-feature application-specific metadata in a tile. Values either can be defined directly in the JSON as an array, or can refer to sections in the binary body with a `BinaryBodyReference` object."</span><span class="token punctuation">,</span>
       <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span> <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/binaryBodyReference"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span> <span class="token punctuation">}</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/binaryBodyReference"</span> &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        &amp;#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span> &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p><a id="二进制体" name="二进制体"></a></p>
@@ -707,18 +707,18 @@ address<span class="token punctuation">[</span><span class="token number">1</spa
 <p><a id="实例" name="实例"></a></p>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><em>本节是非规范性的</em></p>
 <p>以下示例访问批处理表 JSON 的<code>"height"</code>和<code>"geographic"</code>的值<code>batchLength</code>的长度是 10：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"height"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"height"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token string">"FLOAT"</span><span class="token punctuation">,</span>
     <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"SCALAR"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"geographic"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token property">"geographic"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
     <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token string">"DOUBLE"</span><span class="token punctuation">,</span>
     <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"VEC3"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>获得<code>"height"</code>的值：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> height <span class="token operator">=</span> batchTableJSON<span class="token punctuation">.</span>height
@@ -1298,7 +1298,7 @@ JSON 头
             <br> -->
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.4k</span>&nbsp;字
             
             <br>
             
