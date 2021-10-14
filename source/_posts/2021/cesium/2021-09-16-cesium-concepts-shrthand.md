@@ -1,0 +1,39 @@
+---
+title: Cesium 相关概念速记
+top: false
+cover: false
+toc: true
+mathjax: false
+comment: true
+date: 2021-09-16 21:04:49
+author:
+keywords:
+img:
+coverImg:
+password:
+summary:
+categories:
+tags:
+---
+
+## 深度检测
+
+`viewer.scene.globe.depthTestAgainstTerrain`：渲染时确保不同远近物体的透视关系；如果不启用深度检测，物体的叠加顺序取决于先后的渲染顺序。
+
+## 多视锥渲染
+
+Cesium 原来的多视锥体实现是使用 3 个视锥体，其分割距离分别是 [1, 1000]，[1000, 100w], [100w, 10e] 米。
+这些视锥体从后到前（相对于相机）的顺序进行渲染，并且在每个视锥体深度缓存中被清除。
+渲染开始时，根据绘制命令（DrawCommands）的包裹范围（boundingVolume），将绘制命令放置在一个或多个圆锥体中。
+在**两个视锥边界**的绘制命令则两边都会绘制一次，为了优化重复绘制，Cesium 从视点触发，根据最近和最远的包裹范围计算合适的近平面和远平面距离，以最大程度减少视锥。
+
+## 对数深度
+
+`viewer.scene.logarithmicDepthFarToNearRatio`：对数深度是因为 cesium 的坐标范围过大，渲染的时候深度缓冲的精度不够（距离越远误差越多，非线性），cesium 既要保证近处可见，也要保证远处的东西深度覆盖正确，这就是一个两难的选择。对数深度是一种技术，可以把深度的递减修改为对数变化，这样有利满足上面说的效果，当然它也有弊端，过大的平面容易被裁减。
+
+---
+
+_版权声明：_
+_除非注明，本博文章均为原创，转载请以链接形式标明本文地址。_
+
+---
