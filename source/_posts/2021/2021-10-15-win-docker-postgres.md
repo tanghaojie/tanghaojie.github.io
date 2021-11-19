@@ -24,11 +24,11 @@ tags:
 
 > docker volume create postgres-data
 
-_windows 版本的 docker，默认 volume 存放位置在：C:\Users\UserName\AppData\Roaming\Microsoft\Windows\Network Shortcuts\docker volumes_
+_windows 版本的 docker，默认 volume 存放位置在：`\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes`实际位置一般在`C:\Users\UserName\AppData\Roaming\Microsoft\Windows\Network Shortcuts\docker volumes`_
 
 ## 创建容器
 
-> docker run -it --name postgres --restart always -e POSTGRES_PASSWORD='abc123' -e ALLOW_IP_RANGE=0.0.0.0/0 -v postgres-data:/var/lib/postgresql/data -p 5432:5432 -d postgres
+> docker run -it \-\-name postgres \-\-restart always -e POSTGRES_PASSWORD=\'abc123\' -e ALLOW_IP_RANGE=0.0.0.0/0 -v postgres-data:/var/lib/postgresql/data -p 5432:5432 -d postgres
 
 ## （可选）进入 postgres 容器
 
