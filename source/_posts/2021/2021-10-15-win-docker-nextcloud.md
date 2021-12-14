@@ -22,7 +22,7 @@ tags:
 
 ## 创建容器
 
-> docker run -d -p 9000:80 -v e:/nextcloud/main:/var/www/html -v e:/nextcloud/apps:/var/www/html/custom_apps -v e:/nextcloud/config:/var/www/html/config -v e:/nextcloud/data:/var/www/html/data \-\-name nextcloud nextcloud
+> docker run -d -p 9000:80 \-\-restart always -v /mnt/d/docker/win-mount/nextcloud-data:/var/www/html/data -v nextcloud:/var/www/html \-\-name nextcloud nextcloud
 
 
 然后直接访问就行了。
