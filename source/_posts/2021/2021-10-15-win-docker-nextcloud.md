@@ -46,7 +46,7 @@ tags:
 
 在宿主机执行:
 
-> docker exec --user www-data -i nextcloud php -f /var/www/html/cron.php
+> docker exec -u www-data -i nextcloud php -f /var/www/html/cron.php
 
 测试是否能成功执行。
 
@@ -56,7 +56,7 @@ tags:
 
 在文本编辑器中输入(以下代表每五分钟执行一次)：
 
-`*/5 * * * docker exec --user www-data -i nextcloud php -f /var/www/html/cron.php`
+`*/5 * * * * docker exec --user www-data -i nextcloud php -f /var/www/html/cron.php`
 
 查看定时任务：
 

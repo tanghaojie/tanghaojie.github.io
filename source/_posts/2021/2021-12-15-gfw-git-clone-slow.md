@@ -29,6 +29,15 @@ tags:
 
 > git config --global http.postBuffer 524288000
 
+## 使用代理
+
+`后面对应你代理软件的ip和端口`
+
+> git config --global https.proxy http://127.0.0.1:1080
+> git config --global https.proxy https://127.0.0.1:1080
+> git config --global http.proxy 'socks5://127.0.0.1:1080'
+> git config --global https.proxy 'socks5://127.0.0.1:1080'
+
 ---
 
 _版权声明：_
