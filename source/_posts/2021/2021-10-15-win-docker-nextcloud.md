@@ -109,6 +109,17 @@ array (
 
 之后在`/var/log`下面，就有`cron.log`文件了
 
+## 您的安装没有设置默认的电话区域
+
+`config.pho`添加一行：`'default_phone_region' => 'CN',`
+
+## 此实例中的 php-imagick 模块不支持 SVG
+
+1. 进入容器
+2. > apt search libmagickcore-                    #查找包
+3. > apt install libmagickcore-6.q16-6-extra       #安装包
+4. 退出容器，重启
+
 _版权声明：_
 _除非注明，本博文章均为原创，转载请以链接形式标明本文地址。_
 

@@ -37,6 +37,14 @@ Cesium 原来的多视锥体实现是使用 3 个视锥体，其分割距离分�
 硬件：提高网速、提升显卡
 代码：设置最大屏幕空间误差、启用 indexDB 、降低分辨率 dpr 优化、加上跳跃层次细节、关闭阴影、设置加载 3dtiles 的最大最小层级、设置瓦片的请求范围、开启背面剔除等一系列措施搞上去。
 
+## 通视分析（射线法）
+
+[https://sandcastle.cesium.com/?src=development%2FPick%20From%20Ray.html&label=Development](https://sandcastle.cesium.com/?src=development%2FPick%20From%20Ray.html&label=Development)
+
+## Primitives.remove 后不默认执行 destroy
+
+`viewer.scene.primitives.destroyPrimitives = false`
+
 ---
 
 _版权声明：_
