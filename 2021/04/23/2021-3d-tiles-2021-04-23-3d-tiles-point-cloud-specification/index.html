@@ -1,0 +1,1878 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="3D Tiles点云(Point Cloud)数据格式标准规范, JackieTang, 唐浩桀, 桀士, JT, GIS">
+    <meta name="description" content="导航
+引
+
+概述
+
+文件结构
+
+结构填充
+
+
+文件头
+
+要素表
+
+语法定义
+
+点语法
+全局语法
+
+
+点位置
+
+坐标系
+RTC_CENTER
+量化位置
+
+
+点颜色
+
+点法线
+
+八进制编码的法向向量
+
+
+批处理点
+
+例子
+
+仅位置
+位置和颜色
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>3D Tiles点云(Point Cloud)数据格式标准规范 | 桀士</title>
+    <link rel="icon" type="image/png" href="/favicon.icon">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">桀士</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+	<li class="hide-on-med-and-down nav-item" >
+		
+					  <a href="/" class="waves-effect waves-light">
+						
+						<i class="fa fa-home"></i>
+						
+						<span>首页</span>
+					</a>
+          
+        </li>
+    
+	<li class="hide-on-med-and-down nav-item" >
+		
+					  <a href="/categories" class="waves-effect waves-light">
+						
+						<i class="fa fa-bookmark"></i>
+						
+						<span>分类</span>
+					</a>
+          
+        </li>
+    
+	<li class="hide-on-med-and-down nav-item" >
+		
+					  <a href="/archives" class="waves-effect waves-light">
+						
+						<i class="fa fa-archive"></i>
+						
+						<span>时光轴</span>
+					</a>
+          
+        </li>
+    
+	<li class="hide-on-med-and-down nav-item" >
+		
+					  <a href="/about" class="waves-effect waves-light">
+						
+						<i class="fa fa-user-circle-o"></i>
+						
+						<span>关于</span>
+					</a>
+          
+        </li>
+    
+	<li class="hide-on-med-and-down nav-item" >
+		
+					  <a href="/contact" class="waves-effect waves-light">
+						
+						<i class="fa fa-comments"></i>
+						
+						<span>留言板</span>
+					</a>
+          
+        </li>
+    
+	<li class="hide-on-med-and-down nav-item" >
+		
+					  <a href="/friends" class="waves-effect waves-light">
+						
+						<i class="fa fa-address-book"></i>
+						
+						<span>收藏</span>
+					</a>
+          
+        </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">桀士</div>
+        <div class="logo-desc">
+            
+            我们追逐的绝不是别人的起点，而是每一个未知的明天！
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa fa-fw fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa fa-fw fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa fa-fw fa-archive"></i>
+			
+			时光轴
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa fa-fw fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa fa-fw fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa fa-fw fa-address-book"></i>
+			
+			收藏
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/tanghaojie/tanghaojie.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #3c4859;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/tanghaojie/tanghaojie.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        3D Tiles点云(Point Cloud)数据格式标准规范
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #703838;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #222020;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #222020;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/specification/" target="_blank">
+                                <span class="chip bg-color">specification</span>
+                            </a>
+                        
+                            <a href="/tags/3D-Tiles/" target="_blank">
+                                <span class="chip bg-color">3D Tiles</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/3D-Tiles/" class="post-category" target="_blank">
+                                3D Tiles
+                            </a>
+                        
+                            <a href="/categories/3D-Tiles/specification/" class="post-category" target="_blank">
+                                specification
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-04-23
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        3.9k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        16 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li><p><a href="#引" class="self">引</a></p>
+</li>
+<li><p><a href="#概述" class="self">概述</a></p>
+</li>
+<li><p><a href="#文件结构" class="self">文件结构</a></p>
+<ul>
+<li><a href="#结构填充" class="self">结构填充</a></li>
+</ul>
+</li>
+<li><p><a href="#文件头" class="self">文件头</a></p>
+</li>
+<li><p><a href="#要素表" class="self">要素表</a></p>
+<ul>
+<li><p><a href="#语法定义" class="self">语法定义</a></p>
+<ul>
+<li><a href="#点语法" class="self">点语法</a></li>
+<li><a href="#全局语法" class="self">全局语法</a></li>
+</ul>
+</li>
+<li><p><a href="#点位置" class="self">点位置</a></p>
+<ul>
+<li><a href="#坐标系" class="self">坐标系</a></li>
+<li><a href="#RTC_CENTER" class="self">RTC_CENTER</a></li>
+<li><a href="#量化位置" class="self">量化位置</a></li>
+</ul>
+</li>
+<li><p><a href="#点颜色" class="self">点颜色</a></p>
+</li>
+<li><p><a href="#点法线" class="self">点法线</a></p>
+<ul>
+<li><a href="#八进制编码的法向向量" class="self">八进制编码的法向向量</a></li>
+</ul>
+</li>
+<li><p><a href="#批处理点" class="self">批处理点</a></p>
+</li>
+<li><p><a href="#例子" class="self">例子</a></p>
+<ul>
+<li><a href="#仅位置" class="self">仅位置</a></li>
+<li><a href="#位置和颜色" class="self">位置和颜色</a></li>
+<li><a href="#量化位置和八进制编码法线" class="self">量化位置和八进制编码法线</a></li>
+<li><a href="#批处理点sub" class="self">批处理点</a></li>
+<li><a href="#每个点的属性" class="self">每个点的属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#批量表" class="self">批量表</a></p>
+</li>
+<li><p><a href="#扩展" class="self">扩展</a></p>
+</li>
+<li><p><a href="#文件扩展名和MIME类型" class="self">文件扩展名和 MIME 类型</a></p>
+</li>
+<li><p><a href="#实现示例" class="self">实现示例</a></p>
+</li>
+<li><p><a href="#属性参考" class="self">属性参考</a></p>
+</li>
+</ul>
+<hr>
+<p><a id="引" name="引"></a></p>
+<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/TileFormats/PointCloud">官网文档</a></p>
+<p><a id="概述" name="概述"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>点云</code>瓦片格式支持大规模的点云三维可视化的高效数据流。每个点都由位置和可选的外观属性定义（例如颜色和法线）以及可选的定义特定于应用程序的元数据属性。</p>
+<p>使用 3D Tiles 术语，每个点都是一个要是。</p>
+<p>点云数据是小端字节序的二进制 Blob。</p>
+<hr>
+<p><a id="文件结构" name="文件结构"></a></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>数据由文件头部分和紧随其后的二进制主体组成。下图显示了实例化 3D 模型的布局（破折号表示可选字段）：</p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/point-cloud-layout.png"></p>
+<hr>
+<p><a id="结构填充" name="结构填充"></a></p>
+<h3 id="结构填充"><a href="#结构填充" class="headerlink" title="结构填充"></a>结构填充</h3><p>数据 <code>byteLength</code> 必须以 8 个字节进行边界对齐。包含的<a href="/2021/04/23/3d-tiles-feature-table-specification#%E7%BB%93%E6%9E%84%E5%A1%AB%E5%85%85">要素表(Feature Table)</a>和<a href="/2021/04/23/3d-tiles-batch-table-specification#%E7%BB%93%E6%9E%84%E5%A1%AB%E5%85%85">批处理表(Batch Table)</a>必须符合其各自的填充要求。</p>
+<hr>
+<p><a id="文件头" name="文件头"></a></p>
+<h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><p>28 字节的文件头包含以下字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>magic</code></td>
+<td>4-byte ANSI string</td>
+<td><code>"pnts"</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>uint32</code></td>
+<td>版本。现在是<code>1</code></td>
+</tr>
+<tr>
+<td><code>byteLength</code></td>
+<td><code>uint32</code></td>
+<td>整个数据的长度（包括文件头）（以字节为单位）</td>
+</tr>
+<tr>
+<td><code>featureTableJSONByteLength</code></td>
+<td><code>uint32</code></td>
+<td>要素表 JSON 部分的长度（以字节为单位）</td>
+</tr>
+<tr>
+<td><code>featureTableBinaryByteLength</code></td>
+<td><code>uint32</code></td>
+<td>要素表二进制部分的长度（以字节为单位）</td>
+</tr>
+<tr>
+<td><code>batchTableJSONByteLength</code></td>
+<td><code>uint32</code></td>
+<td>批处理表 JSON 部分的长度（以字节为单位），零表示没有批处理表</td>
+</tr>
+<tr>
+<td><code>batchTableBinaryByteLength</code></td>
+<td><code>uint32</code></td>
+<td>批处理表二进制部分的长度（以字节为单位），如果<code>batchTableJSONByteLength</code>为零，则也将为零</td>
+</tr>
+</tbody></table>
+<p>主体部分紧着文件头，并且由<code>Feature Table</code>，<code>Batch Table</code>组成。</p>
+<hr>
+<p><a id="要素表" name="要素表"></a></p>
+<h2 id="要素表"><a href="#要素表" class="headerlink" title="要素表"></a>要素表</h2><p>包含每块和每点的值，这些值定义在何处以及如何渲染点。详见<a href="/2021/04/23/3d-tiles-feature-table-specification">要素表(Feature Table)</a>。</p>
+<p><code>pnts</code> 要素表模式的<a href="#属性参考" class="self">属性参考</a>。完整的 JSON 模式可以在 <a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/pnts.featureTable.schema.json">pnts.featureTable.schema.json</a> 中找到。</p>
+<hr>
+<p><a id="语法定义" name="语法定义"></a></p>
+<h3 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h3><hr>
+<p><a id="点语法" name="点语法"></a></p>
+<h4 id="点语法"><a href="#点语法" class="headerlink" title="点语法"></a>点语法</h4><p>这些语法映射定义每个点的一组要素值数组。对于所有语法定义，这些数组的长度必须相同，并且等于点数。每个点语法的值必须是对要素表二进制主体的引用；它们不能嵌入要素表的 JSON 头中。</p>
+<p>如果一个语法依赖于另一个语法，则必须定义该语法。如果同时为点定义 <code>POSITION</code> 和 <code>POSITION_QUANTIZED</code> ，<code>POSITION</code> 将使用更高精度的值。如果同时为点定义 <code>NORMAL</code> 和 <code>NORMAL_OCT16P</code> ，<code>NORMAL</code> 将使用更高精度的值。</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>数据类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>POSITION</code></td>
+<td><code>float32[3]</code></td>
+<td>由三部分组成的数组，包含点的笛卡尔坐标系<code>x</code>，<code>y</code>和<code>z</code>的位置</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes, 是，除非定义了 <code>POSITION_QUANTIZED</code></td>
+</tr>
+<tr>
+<td><code>POSITION_QUANTIZED</code></td>
+<td><code>uint16[3]</code></td>
+<td>由三部分组成的数组，包含点的量化笛卡尔坐标系<code>x</code>，<code>y</code>和<code>z</code>的位置</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes, 是，除非定义了 <code>POSITION</code></td>
+</tr>
+<tr>
+<td><code>RGBA</code></td>
+<td><code>uint8[4]</code></td>
+<td>由四部分组成的数组，包含点的<code>RGBA</code>颜色值</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>RGB</code></td>
+<td><code>uint8[3]</code></td>
+<td>由三部分组成的数组，包含点的<code>RGB</code>颜色值</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>RGB565</code></td>
+<td><code>uint16</code></td>
+<td>一种有损压缩的颜色格式，将<code>RGB</code>颜色打包为 16 位，其中红色 5 位，绿色 6 位和蓝色 5 位</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>NORMAL</code></td>
+<td><code>float32[3]</code></td>
+<td>定义点法线的单位向量</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>NORMAL_OCT16P</code></td>
+<td><code>uint8[2]</code></td>
+<td>具有 16 位精度的八进制编码单位向量，用于定义点的法线</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>BATCH_ID</code></td>
+<td><code>uint8</code>, <code>uint16</code> (默认), or <code>uint32</code></td>
+<td><code>batchId</code>用于从<code>Batch Table</code>检索点的元数据</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a id="全局语法" name="全局语法"></a></p>
+<h4 id="全局语法"><a href="#全局语法" class="headerlink" title="全局语法"></a>全局语法</h4><p>这些语法定义了所有点的全局属性。</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>数据类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>POINTS_LENGTH</code></td>
+<td><code>uint32</code></td>
+<td>渲染的点数。点定义的每个数组值的长度应等于此长度</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes.</td>
+</tr>
+<tr>
+<td><code>RTC_CENTER</code></td>
+<td><code>float32[3]</code></td>
+<td>由三部分组成的数组，包含当点相对于中心定义时的位置</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>QUANTIZED_VOLUME_OFFSET</code></td>
+<td><code>float32[3]</code></td>
+<td>由三部分组成的数组，定义量化体积的偏移量</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, unless <code>POSITION_QUANTIZED</code> is defined.</td>
+</tr>
+<tr>
+<td><code>QUANTIZED_VOLUME_SCALE</code></td>
+<td><code>float32[3]</code></td>
+<td>由三部分组成的数组，定义量化体积的比例。</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, unless <code>POSITION_QUANTIZED</code> is defined.</td>
+</tr>
+<tr>
+<td><code>CONSTANT_RGBA</code></td>
+<td><code>uint8[4]</code></td>
+<td>由四部分组成的数组，定义所有点的<code>RGBA</code>颜色值</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No.</td>
+</tr>
+<tr>
+<td><code>BATCH_LENGTH</code></td>
+<td><code>uint32</code></td>
+<td>唯一的<code>BATCH_ID</code>值的数量</td>
+<td><span class="github-emoji"><span>🔴</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f534.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> No, unless <code>BATCH_ID</code> is defined.</td>
+</tr>
+</tbody></table>
+<p>使用这些语法的示例可以在下面的<a href="#实现示例" class="self">实现示例</a>中找到。</p>
+<hr>
+<p><a id="点位置" name="点位置"></a></p>
+<h3 id="点位置"><a href="#点位置" class="headerlink" title="点位置"></a>点位置</h3><p><code>POSITION</code> 在应用任何图块转换之前定义点的位置。</p>
+<hr>
+<p><a id="坐标系" name="坐标系"></a></p>
+<h4 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h4><p>3D Tiles 局部坐标系统使用右手 3 轴（x，y，z）直角坐标系；<em>x</em> 和 <em>y</em> 的叉积得出 <em>z</em> 。3D Tiles 定义 z 轴向上。</p>
+<hr>
+<p><a id="RTC_CENTER" name="RTC_CENTER"></a></p>
+<h4 id="RTC-CENTER"><a href="#RTC-CENTER" class="headerlink" title="RTC_CENTER"></a>RTC_CENTER</h4><p>可以相对于中心位置定义以进行高精度渲染，参见 <a target="_blank" rel="noopener" href="http://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm">Precisions，Precisions</a>。如果定义，则 <code>RTC_CENTER</code> 指定中心位置，并将所有点位置都视为相对于该值的位置。</p>
+<hr>
+<p><a id="量化位置" name="量化位置"></a></p>
+<h4 id="量化位置"><a href="#量化位置" class="headerlink" title="量化位置"></a>量化位置</h4><p>如果 <code>POSITION</code> 未定义，则位置可以存储在<code>POSITION_QUANTIZED</code>中，该位置定义了相对于量化体积的点位置。如果 <code>POSITION</code> 和 <code>POSITION_QUANTIZED</code> 都未定义，则不需要渲染数据。</p>
+<p>量化体积由<code>offset</code>和<code>scale</code>定义量化位置到本地空间位置的映射。下图显示了基于 <code>offset</code> 和 <code>scale</code>的量化体积：</p>
+<p><img src="https://jackie_tang.gitee.io/pic_cloud/2021-04/3d-tiles/quantized-volume.png"></p>
+<p><code>offset</code>保存在全局语义<code>QUANTIZED_VOLUME_OFFSET</code>中，<code>scale</code>保存在全局语义<code>QUANTIZED_VOLUME_SCALE</code>中。如果这些全局语义未定义，<code>POSITION_QUANTIZED</code> 无法使用。</p>
+<p>可以使用以下公式将量化位置映射到本地空间位置：</p>
+<p><code>POSITION = POSITION_QUANTIZED * QUANTIZED_VOLUME_SCALE / 65535.0 + QUANTIZED_VOLUME_OFFSET</code></p>
+<hr>
+<p><a id="点颜色" name="点颜色"></a></p>
+<h3 id="点颜色"><a href="#点颜色" class="headerlink" title="点颜色"></a>点颜色</h3><p>如果定义多种颜色，则优先顺序是 <code>RGBA</code>，<code>RGB</code>，<code>RGB565</code>，<code>CONSTANT_RGBA</code>。例如，如果图块的要素表同时包含 <code>RGBA</code> 和 <code>CONSTANT_RGBA</code> 属性，则运行时使用<code>RGBA</code> 对每个点颜色进行渲染 。</p>
+<p>如果没有颜色定义，则运行时可以使用特定于应用程序的默认颜色来自由设置点颜色。</p>
+<p>任何情况下，运行时都可以使用 <a href="/2021/04/23/3d-tiles-styling-specification">3D Tiles 样式</a> 更改最终渲染的颜色和其他视觉属性。</p>
+<hr>
+<p><a id="点法线" name="点法线"></a></p>
+<h3 id="点法线"><a href="#点法线" class="headerlink" title="点法线"></a>点法线</h3><p>每个点的法线是一个可选属性，可以通过启用照明、隐藏的表面移除（hidden surface removal）和其他渲染技术来帮助改善点的视觉质量。使用平铺变换的逆转置来变换法线。</p>
+<hr>
+<p><a id="八进制编码的法向向量" name="八进制编码的法向向量"></a></p>
+<h4 id="八进制编码的法向向量"><a href="#八进制编码的法向向量" class="headerlink" title="八进制编码的法向向量"></a>八进制编码的法向向量</h4><p>在<a target="_blank" rel="noopener" href="http://jcgt.org/published/0003/02/01/">独立单位向量的有效表示法</a>中描述的八进制编码。八进制编码的值存储在无符号的非归一化范围（<code>[0, 255]</code>）中，然后在运行时映射到有符号的规范化范围（<code>[-1.0, 1.0]</code>）。</p>
+<blockquote>
+<p>在 CesiumJS 的<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Core/AttributeCompression.js">AttributeCompression</a>模块中可以找到对这些单位矢量进行编码和解码的实现。</p>
+</blockquote>
+<hr>
+<p><a id="批处理点" name="批处理点"></a></p>
+<h3 id="批处理点"><a href="#批处理点" class="headerlink" title="批处理点"></a>批处理点</h3><p>使用<code>BATCH_ID</code>可以将点云特定功能的点批处理在一起。例如，组成房屋门的所有点可以分配相同的<code>BATCH_ID</code>，而组成窗户的所有点分配不同的<code>BATCH_ID</code>。这对于按对象选择和存储应用程序特定的元数据以进行样式声明和特定于应用程序的用例（例如，填充 UI 或基于每个对象而不是基于每个点发出 REST API 请求）很有用。</p>
+<p><code>BATCH_ID</code>语义可以有一个 <code>componentType</code> 的 <code>UNSIGNED_BYTE</code>，<code>UNSIGNED_SHORT</code> 或 <code>UNSIGNED_INT</code>。当 <code>componentType</code> 不存在时，使用 <code>UNSIGNED_SHORT</code>。全局语义 <code>BATCH_LENGTH</code> 定义唯一 <code>batchId</code> 值的数量，类似于 Batched 3D Model 标头中的 <code>batchLength </code>字段。</p>
+<hr>
+<p><a id="例子" name="例子"></a></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><em>本节是非规范性的</em></p>
+<p>这些示例说明如何为要素表生成 JSON 和二进制缓冲区。</p>
+<hr>
+<p><a id="仅位置" name="仅位置"></a></p>
+<h4 id="仅位置"><a href="#仅位置" class="headerlink" title="仅位置"></a>仅位置</h4><p>这个最小示例在单位长度正方形的角上有四个点：</p>
+<pre class="line-numbers language-json"><code class="language-json">var featureTableJSON = <span class="token punctuation">{</span>
+    <span class="token property">"POINTS_LENGTH"</span> <span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token property">"POSITION"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+var featureTableBinary = new Buffer(new Float32Array(<span class="token punctuation">[</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="位置和颜色" name="位置和颜色"></a></p>
+<h4 id="位置和颜色"><a href="#位置和颜色" class="headerlink" title="位置和颜色"></a>位置和颜色</h4><p>以下示例在地球上方有四个点（红，绿，蓝和黄）。它们的位置是相对于中心定义的：</p>
+<pre class="line-numbers language-json"><code class="language-json">var featureTableJSON = <span class="token punctuation">{</span>
+    <span class="token property">"POINTS_LENGTH"</span> <span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token property">"RTC_CENTER"</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1215013.8</span><span class="token punctuation">,</span> -<span class="token number">4736316.7</span><span class="token punctuation">,</span> <span class="token number">4081608.4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"POSITION"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"RGB"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">48</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+var positionBinary = new Buffer(new Float32Array(<span class="token punctuation">[</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var colorBinary = new Buffer(new Uint8Array(<span class="token punctuation">[</span>
+    <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span>
+    <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var featureTableBinary = Buffer.concat(<span class="token punctuation">[</span>positionBinary<span class="token punctuation">,</span> colorBinary<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="量化位置和八进制编码法线" name="量化位置和八进制编码法线"></a></p>
+<h4 id="量化位置和八进制编码法线"><a href="#量化位置和八进制编码法线" class="headerlink" title="量化位置和八进制编码法线"></a>量化位置和八进制编码法线</h4><p>在此示例中，四个点的法线以八进制编码格式指向朝上<code>[0.0, 1.0, 0.0]</code>，并且将它们放置在量化体积的角上，在<code>x</code>和<code>z</code>方向上的跨度为<code>-250.0</code> 到 <code>250.0</code> 个单位：</p>
+<pre class="line-numbers language-json"><code class="language-json">var featureTableJSON = <span class="token punctuation">{</span>
+    <span class="token property">"POINTS_LENGTH"</span> <span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token property">"QUANTIZED_VOLUME_OFFSET"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>-<span class="token number">250.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> -<span class="token number">250.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"QUANTIZED_VOLUME_SCALE"</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">500.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">500.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"POSITION_QUANTIZED "</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"NORMAL_OCT16P"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">24</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+var positionQuantizedBinary = new Buffer(new Uint16Array(<span class="token punctuation">[</span>
+    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">,</span>
+    <span class="token number">65535</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">65535</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var normalOct16PBinary = new Buffer(new Uint8Array(<span class="token punctuation">[</span>
+    <span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span>
+    <span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span>
+    <span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span>
+    <span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">255</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var featureTableBinary = Buffer.concat(<span class="token punctuation">[</span>positionQuantizedBinary<span class="token punctuation">,</span> normalOct16PBinary<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="批处理点sub" name="批处理点sub"></a></p>
+<h4 id="批处理点-1"><a href="#批处理点-1" class="headerlink" title="批处理点"></a>批处理点</h4><p>在此示例中，前两个点的<code>batchId</code>为<code>0</code>，后两个点的<code>batchId </code>为<code>1</code>。请注意，批处理表只有两个名称：</p>
+<pre class="line-numbers language-json"><code class="language-json">var featureTableJSON = <span class="token punctuation">{</span>
+    <span class="token property">"POINTS_LENGTH"</span> <span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token property">"BATCH_LENGTH"</span> <span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token property">"POSITION"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    BATCH_ID <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">48</span><span class="token punctuation">,</span>
+        <span class="token property">"componentType"</span> <span class="token operator">:</span> <span class="token string">"UNSIGNED_BYTE"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+var positionBinary = new Buffer(new Float32Array(<span class="token punctuation">[</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var batchIdBinary = new Buffer(new Uint8Array(<span class="token punctuation">[</span>
+    <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token number">1</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var featureTableBinary = Buffer.concat(<span class="token punctuation">[</span>positionBinary<span class="token punctuation">,</span> batchIdBinary<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var batchTableJSON = <span class="token punctuation">{</span>
+    <span class="token property">"names"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>'object1'<span class="token punctuation">,</span> 'object2'<span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="每个点的属性" name="每个点的属性"></a></p>
+<h4 id="每个点的属性"><a href="#每个点的属性" class="headerlink" title="每个点的属性"></a>每个点的属性</h4><p>在此示例中，这 4 个点中的每个点都将元数据存储在 Batch Table JSON 和二进制文件中。</p>
+<pre class="line-numbers language-json"><code class="language-json">var featureTableJSON = <span class="token punctuation">{</span>
+    <span class="token property">"POINTS_LENGTH "</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token property">"POSITION"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span> <span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+var featureTableBinary = new Buffer(new Float32Array(<span class="token punctuation">[</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>.buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+var batchTableJSON = <span class="token punctuation">{</span>
+    <span class="token property">"names"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>'point1'<span class="token punctuation">,</span> 'point2'<span class="token punctuation">,</span> 'point3'<span class="token punctuation">,</span> 'point4'<span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><a id="批量表" name="批量表"></a></p>
+<h2 id="批量表"><a href="#批量表" class="headerlink" title="批量表"></a>批量表</h2><p><code>批处理表</code>包含应用程序特定的元数据，通过<code>batchId</code>进行索引，可被用于声明式样式和应用特定的用例如填充 UI 或者发出 REST API 请求。</p>
+<ul>
+<li>如果<code>BATCH_ID</code>定义，则批处理表将存储每个元数据<code>batchId</code>，并且批处理表数组的长度将等于<code>BATCH_LENGTH</code>。</li>
+<li>如果<code>BATCH_ID</code>未定义，则批处理表将存储每个点的元数据，并且批处理表数组的长度将等于<code>POINTS_LENGTH</code>。</li>
+</ul>
+<p>更多信息，请参见<a href="/2021/04/23/3d-tiles-batch-table-specification">批处理表(Batch Table)</a>。</p>
+<hr>
+<p><a id="扩展" name="扩展"></a></p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>以下扩展可以应用于点云瓦片。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/tree/master/extensions/3DTILES_draco_point_compression">3DTILES_draco_point_compression</a></li>
+</ul>
+<hr>
+<p><a id="文件扩展名和MIME类型" name="文件扩展名和MIME类型"></a></p>
+<h2 id="文件扩展名和-MIME-类型"><a href="#文件扩展名和-MIME-类型" class="headerlink" title="文件扩展名和 MIME 类型"></a>文件扩展名和 MIME 类型</h2><p>点云瓦片使用<code>.pnts </code>扩展名和 <code>application/octet-stream</code> MIME 类型。</p>
+<p>显式文件扩展名是可选的。有效的实现可能会忽略它，并通过 <code>magic</code> 其标头中的字段标识内容的格式。</p>
+<hr>
+<p><a id="实现示例" name="实现示例"></a></p>
+<h2 id="实现示例"><a href="#实现示例" class="headerlink" title="实现示例"></a>实现示例</h2><p><em>本节是非规范性的</em></p>
+<p>可以在 3D Tiles 的 CesiumJS 实现<a target="_blank" rel="noopener" href="https://github.com/CesiumGS/cesium/blob/master/Source/Scene/PointCloud3DTileContent.js">PointCloud3DModelTileContent.js</a>中找到用于读取标头的代码。</p>
+<hr>
+<p><a id="属性参考" name="属性参考"></a></p>
+<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><ul>
+<li><a href="#r点云要素表" class="self">点云要素表</a><ul>
+<li><a href="#r二进制体引用" class="self">二进制体引用</a></li>
+<li><a href="#r全局笛卡尔3坐标系属性" class="self">全局笛卡尔 3 坐标系属性</a></li>
+<li><a href="#r全局笛卡尔4坐标系属性" class="self">全局笛卡尔 4 坐标系属性</a></li>
+<li><a href="#r全局标量属性" class="self">全局标量属性</a></li>
+<li><a href="#r属性" class="self">属性</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="r点云要素表" name="r点云要素表"></a></p>
+<h3 id="点云要素表"><a href="#点云要素表" class="headerlink" title="点云要素表"></a>点云要素表</h3><p>一组点云语义，其中包含定义图块中点的位置和外观属性的值。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>extensions</strong></td>
+<td><code>object</code></td>
+<td>扩展特定的字典对象</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>extras</strong></td>
+<td><code>any</code></td>
+<td>应用特定数据</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>POSITION</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>POSITION_QUANTIZED</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>RGBA</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>RGB</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>RGB565</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>NORMAL</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>NORMAL_OCT16P</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>BATCH_ID</strong></td>
+<td><code>object</code></td>
+<td><a href="#r二进制体引用" class="self">二进制体引用</a> 对象，定义存储了属性值的二进制体部分的引用。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>POINTS_LENGTH</strong></td>
+<td><code>object</code>, <code>number</code> <code>[1]</code>, <code>number</code></td>
+<td><a href="#r全局标量属性" class="self">全局标量属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+<tr>
+<td><strong>RTC_CENTER</strong></td>
+<td><code>object</code>, <code>number</code> <code>[3]</code></td>
+<td><a href="#r全局笛卡尔3坐标系属性" class="self">全局笛卡尔 3 坐标系属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>QUANTIZED_VOLUME_OFFSET</strong></td>
+<td><code>object</code>, <code>number</code> <code>[3]</code></td>
+<td><a href="#r全局笛卡尔3坐标系属性" class="self">全局笛卡尔 3 坐标系属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>QUANTIZED_VOLUME_SCALE</strong></td>
+<td><code>object</code>, <code>number</code> <code>[3]</code></td>
+<td><a href="#r全局笛卡尔3坐标系属性" class="self">全局笛卡尔 3 坐标系属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>CONSTANT_RGBA</strong></td>
+<td><code>object</code>, <code>number</code> <code>[4]</code></td>
+<td><a href="#r全局笛卡尔4坐标系属性" class="self">全局笛卡尔 4 坐标系属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>BATCH_LENGTH</strong></td>
+<td><code>object</code>, <code>number</code> <code>[1]</code>, <code>number</code></td>
+<td><a href="#r全局标量属性" class="self">全局标量属性</a> 对象，定义所有要素的数量。查看相应属性的定义<a href="#语法定义" class="self">语法定义</a></td>
+<td>No</td>
+</tr>
+</tbody></table>
+<p>允许其他属性。</p>
+<hr>
+<p><a id="r二进制体引用" name="r二进制体引用"></a></p>
+<h3 id="二进制体引用"><a href="#二进制体引用" class="headerlink" title="二进制体引用"></a>二进制体引用</h3><p>一个对象，用于定义对要素表的二进制主体部分的引用，如果未在 JSON 中直接定义属性值，则在该部分存储属性值。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>描述</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>byteOffset</strong></td>
+<td><code>number</code></td>
+<td>缓冲区的偏移量（以字节为单位）</td>
+<td><span class="github-emoji"><span>✅</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Yes</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a id="r全局笛卡尔3坐标系属性" name="r全局笛卡尔3坐标系属性"></a></p>
+<h3 id="全局笛卡尔-3-坐标系属性"><a href="#全局笛卡尔-3-坐标系属性" class="headerlink" title="全局笛卡尔 3 坐标系属性"></a>全局笛卡尔 3 坐标系属性</h3><p>为所有要素定义全局 3 组分数值属性值的对象。</p>
+<hr>
+<p><a id="r全局笛卡尔4坐标系属性" name="r全局笛卡尔4坐标系属性"></a></p>
+<h3 id="全局笛卡尔-4-坐标系属性"><a href="#全局笛卡尔-4-坐标系属性" class="headerlink" title="全局笛卡尔 4 坐标系属性"></a>全局笛卡尔 4 坐标系属性</h3><p>为所有要素定义全局 4 组分数值属性值的对象。</p>
+<hr>
+<p><a id="r全局标量属性" name="r全局标量属性"></a></p>
+<h3 id="全局标量属性"><a href="#全局标量属性" class="headerlink" title="全局标量属性"></a>全局标量属性</h3><p>为所有要素定义全局数值属性值的对象。</p>
+<hr>
+<p><a id="r属性" name="r属性"></a></p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>用户自定义的属性，用来在数据中指定每个要素的应用程序特定的元数据。值可以直接在 JSON 中定义为数组，也可以引用<a href="#r二进制体引用" class="self">二进制体</a>中的部分。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CesiumGS/3d-tiles/blob/master/specification/schema/featureTable.schema.json">JSON 定义示例</a></p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"http://json-schema.org/draft-04/schema"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"featureTable.schema.json"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Feature Table"</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A set of semantics containing per-tile and per-feature values defining the position and appearance properties for features in a tile."</span><span class="token punctuation">,</span>
+  <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"binaryBodyReference"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"BinaryBodyReference"</span><span class="token punctuation">,</span>
+      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining the reference to a section of the binary body of the features table where the property values are stored if not defined directly in the JSON."</span><span class="token punctuation">,</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+          <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"componentType"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The datatype of components in the property. This is defined only if the semantic allows for overriding the implicit component type. These cases are specified in each tile format."</span><span class="token punctuation">,</span>
+          <span class="token property">"enum"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"BYTE"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_BYTE"</span><span class="token punctuation">,</span>
+            <span class="token string">"SHORT"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_SHORT"</span><span class="token punctuation">,</span>
+            <span class="token string">"INT"</span><span class="token punctuation">,</span>
+            <span class="token string">"UNSIGNED_INT"</span><span class="token punctuation">,</span>
+            <span class="token string">"FLOAT"</span><span class="token punctuation">,</span>
+            <span class="token string">"DOUBLE"</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"numericArray"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+      <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"property"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Property"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A user-defined property which specifies per-feature application-specific metadata in a tile. Values either can be defined directly in the JSON as an array, or can refer to sections in the binary body with a `BinaryBodyReference` object."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/binaryBodyReference"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyBoolean"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyBoolean"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global boolean property value for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"boolean"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyScalar"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyScalar"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global numeric property value for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+              <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+              <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">1</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+          <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyCartesian3"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyCartesian3"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global 3-component numeric property values for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+              <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+              <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"globalPropertyCartesian4"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"GlobalPropertyCartesian4"</span><span class="token punctuation">,</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"An object defining a global 4-component numeric property values for all features."</span><span class="token punctuation">,</span>
+      <span class="token property">"oneOf"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"byteOffset"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span><span class="token punctuation">,</span>
+              <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"The offset into the buffer in bytes."</span><span class="token punctuation">,</span>
+              <span class="token property">"minimum"</span><span class="token operator">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"required"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"byteOffset"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+          <span class="token property">"items"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"number"</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"minItems"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+          <span class="token property">"maxItems"</span><span class="token operator">:</span> <span class="token number">4</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"extensions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extension.schema.json"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"extras"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"extras.schema.json"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"additionalProperties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"$ref"</span><span class="token operator">:</span> <span class="token string">"#/definitions/property"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><em>版权声明：</em><br><em>除非注明，本博文章均为原创，转载请以链接形式标明本文地址。</em></p>
+<hr>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《3D Tiles点云(Point Cloud)数据格式标准规范》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/04/23/2021-3d-tiles-2021-04-23-3d-tiles-point-cloud-specification/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Jackie Tang(唐浩桀)
+            </a> 采用
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/04/23/2021-3d-tiles-2021-04-23-3d-tiles-c1om2posite-specification/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="3D Tiles复合对象(Composite)数据格式标准规范">
+                        
+                        <span class="card-title">3D Tiles复合对象(Composite)数据格式标准规范</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            导航
+引
+
+概述
+
+文件结构
+
+结构填充
+
+
+文件头
+
+内部瓦片
+
+文件扩展名和 MIME 类型
+
+实现示例
+
+
+
+
+引官网文档
+
+概述复合对象格式允许拼接的不同格式的数据变成一个区块。
+3D 瓦片和复合对象瓦片为流式异构数据集提供了灵活性
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/3D-Tiles/" class="post-category" target="_blank">
+                                    3D Tiles
+                                </a>
+                            
+                            <a href="/categories/3D-Tiles/specification/" class="post-category" target="_blank">
+                                    specification
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/specification/" target="_blank">
+                        <span class="chip bg-color">specification</span>
+                    </a>
+                    
+                    <a href="/tags/3D-Tiles/" target="_blank">
+                        <span class="chip bg-color">3D Tiles</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/23/2021-3d-tiles-2021-04-23-3d-tiles-instanced-3d-model-specification/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="3D Tiles实例3D模型(Instanced 3D Model)数据格式标准规范">
+                        
+                        <span class="card-title">3D Tiles实例3D模型(Instanced 3D Model)数据格式标准规范</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            导航
+引
+
+概述
+
+文件结构
+
+结构填充
+
+
+文件头
+
+要素表
+
+语法定义
+
+实例语法
+全局语法
+
+
+实例方向
+
+八进制编码的法向向量
+默认方向
+
+
+实例位置
+
+RTC_CENTER
+量化位置
+
+
+实例缩放
+
+例子
+
+仅位置
+量化位置和八进
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/3D-Tiles/" class="post-category" target="_blank">
+                                    3D Tiles
+                                </a>
+                            
+                            <a href="/categories/3D-Tiles/specification/" class="post-category" target="_blank">
+                                    specification
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/specification/" target="_blank">
+                        <span class="chip bg-color">specification</span>
+                    </a>
+                    
+                    <a href="/tags/3D-Tiles/" target="_blank">
+                        <span class="chip bg-color">3D Tiles</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 本站由&nbsp;&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>&nbsp;基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>&nbsp;主题搭建
+            <br> -->
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">55.7k</span>&nbsp;字
+            
+            <br>
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="fa fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fa fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            <br>
+            &copy;Copy Right <a href="#" target="_blank">桀士</a> 保留所有权利
+            <!-- <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span> -->
+            <script>
+                // var now = new Date();
+
+                // function createtime() {
+                //     var grt = new Date("06/28/2019 00:00:00");
+                //     now.setTime(now.getTime() + 250);
+                //     days = (now - grt) / 1000 / 60 / 60 / 24;
+                //     dnum = Math.floor(days);
+                //     hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                //     hnum = Math.floor(hours);
+                //     if (String(hnum).length == 1) {
+                //         hnum = "0" + hnum;
+                //     }
+                //     minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                //     mnum = Math.floor(minutes);
+                //     if (String(mnum).length == 1) {
+                //         mnum = "0" + mnum;
+                //     }
+                //     seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                //     snum = Math.round(seconds);
+                //     if (String(snum).length == 1) {
+                //         snum = "0" + snum;
+                //     }
+                //     document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                //     document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+                // }
+                // setInterval("createtime()", 250);
+            </script>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/tanghaojie" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:thj_3360016@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=495473393" class="tooltipped" data-tooltip="QQ联系我: 495473393" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tanghaojie/activities" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tanghaojie/activities" data-position="top" data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<script type="text/javascript">
+WIDGET = {FID: 'dQjyokrikj'}
+</script>
+<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
