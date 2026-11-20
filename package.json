@@ -12,9 +12,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vue": "^5.0.0",
+    "@astrojs/vue": "^7.1.6",
     "@tailwindcss/vite": "^4.0.0",
-    "astro": "^5.5.0",
+    "astro": "^7.4.13",
     "gsap": "^3.12.7",
     "katex": "^0.16.21",
     "lenis": "^1.2.3",
