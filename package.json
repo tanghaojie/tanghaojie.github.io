@@ -16,7 +16,7 @@
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^5.5.0",
     "gsap": "^3.12.7",
-    "katex": "^0.16.21",
+    "katex": "^0.18.2",
     "lenis": "^1.2.3",
     "lucide-vue-next": "^0.475.0",
     "rehype-katex": "^7.0.1",
