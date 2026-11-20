@@ -1,0 +1,126 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.vue';
+import TerminalFooter from '../components/TerminalFooter.vue';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  title?: string;
+  description?: string;
+  enableMath?: boolean;
+  hideFooter?: boolean;
+}
+
+const {
+  title = '桀士 Jackie Tang · AI Agent, Full-Stack & 3D GIS Spatial Architect',
+  description = '唐浩桀 (Jackie Tang / 桀士AI实验室) — 全栈研发工程师、AI 智能体探索者与 3D GIS 数字城市架构师个人主页与历史技术文库。',
+  enableMath = false,
+  hideFooter = false,
+} = Astro.props;
+
+if (enableMath) {
+  await import('katex/dist/katex.min.css');
+}
+
+const allPosts = await getCollection('posts');
+const postCount = allPosts.length;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Jackie Tang (唐浩桀)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono + Noto Sans SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pre-paint Language Sync -->
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem('jt-lang');
+          if (saved === 'en' || saved === 'zh') {
+            document.documentElement.dataset.lang = saved;
+            document.documentElement.lang = saved === 'zh' ? 'zh-CN' : 'en';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body class="min-h-screen flex flex-col jt-spatial-grid selection:bg-[#e5b66a] selection:text-[#07090d]">
+    <Navbar client:load currentPath={currentPath} postCount={postCount} />
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    {!hideFooter && <TerminalFooter client:load />}
+
+    <!-- Global Cursor Spotlight Specular Tracker + Smooth Inertia Scroll -->
+    <script>
+      import Lenis from 'lenis';
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isStageHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+      if (!prefersReduced && !isStageHome) {
+        const lenis = new Lenis({
+          duration: 1.05,
+          smoothWheel: true,
+          wheelMultiplier: 0.95,
+        });
+
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+      }
+
+      // High-efficiency rAF spotlight coordinate updater for .jt-spotlight-card
+      let pendingSpot = false;
+      let clientX = -999;
+      let clientY = -999;
+
+      window.addEventListener(
+        'pointermove',
+        (e) => {
+          clientX = e.clientX;
+          clientY = e.clientY;
+          if (!pendingSpot) {
+            pendingSpot = true;
+            requestAnimationFrame(() => {
+              pendingSpot = false;
+              const cards = document.querySelectorAll<HTMLElement>('.jt-spotlight-card');
+              cards.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.bottom < -120 || rect.top > window.innerHeight + 120) {
+                  return;
+                }
+                card.style.setProperty('--spot-x', `${clientX - rect.left}px`);
+                card.style.setProperty('--spot-y', `${clientY - rect.top}px`);
+              });
+            });
+          }
+        },
+        { passive: true }
+      );
+    </script>
+  </body>
+</html>

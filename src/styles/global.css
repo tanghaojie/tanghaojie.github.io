@@ -1,0 +1,442 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   桀士 AI 实验室 · 个人 IP 视觉系统 v1 (Titanium Gold & Obsidian Spatial Lab)
+   Global Design Tokens, Spotlight Shaders, Matrix Animations & Prose Styles
+   ========================================================================== */
+
+:root {
+  /* Core Titanium Gold Palette */
+  --jt-gold-primary: #e5b66a;
+  --jt-gold-bright: #f2c97e;
+  --jt-gold-deep: #a87c38;
+  --jt-gold-line: #8a5f19;
+  --jt-gold-glow: rgba(229, 182, 106, 0.16);
+
+  /* Obsidian Void & Workbench Surfaces */
+  --jt-bg-void: #07090d;
+  --jt-surface: #0f131b;
+  --jt-surface-sub: #151a24;
+  --jt-border: rgba(236, 219, 183, 0.12);
+  --jt-border-gold: rgba(229, 182, 106, 0.32);
+
+  /* WCAG AAA Typography */
+  --jt-text-ivory: #f4ecdb;
+  --jt-text-sand: #a69d8b;
+  --jt-text-dim: #6e6759;
+
+  /* Functional & Product Ecosystem Beacons */
+  --jt-up-a-share: #ff9384;
+  --jt-down-safe: #63cfa1;
+  --jt-accent-finance: #ee2500;
+  --jt-accent-markdown: #2263ec;
+  --jt-accent-chrome: #2263ec;
+  --jt-accent-cesium: #338aaf;
+  --jt-accent-portal: #ffffff;
+
+  /* Font Stacks */
+  --jt-font-sans: "Plus Jakarta Sans", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --jt-font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+  --jt-font-display: "Plus Jakarta Sans", "Bahnschrift", "DIN Alternate", "Noto Sans SC", sans-serif;
+
+  /* Dynamic Loader Speed */
+  --loader-speed: 1.8s;
+}
+
+/* Xuan-Paper Light Theme (Long-Form Article Reading Mode) */
+[data-theme="light"] {
+  --jt-gold-primary: #8a5a10;
+  --jt-gold-bright: #a8701a;
+  --jt-gold-deep: #6e470b;
+  --jt-gold-line: #b8893d;
+  --jt-gold-glow: rgba(138, 90, 16, 0.08);
+
+  --jt-bg-void: #faf8f4;
+  --jt-surface: #ffffff;
+  --jt-surface-sub: #f3efe6;
+  --jt-border: rgba(20, 23, 31, 0.11);
+  --jt-border-gold: rgba(138, 90, 16, 0.30);
+
+  --jt-text-ivory: #14171f;
+  --jt-text-sand: #5c5649;
+  --jt-text-dim: #8a8273;
+
+  --jt-up-a-share: #d9363e;
+  --jt-down-safe: #0f8a5f;
+}
+
+html {
+  background-color: var(--jt-bg-void);
+  color: var(--jt-text-ivory);
+  font-family: var(--jt-font-sans);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--jt-bg-void);
+  color: var(--jt-text-ivory);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: #e5b66a;
+  color: #07090d;
+}
+
+/* Custom Titanium Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--jt-bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(229, 182, 106, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 182, 106, 0.55);
+}
+
+/* ==========================================================================
+   Visual DNA Utilities: Spatial Grid, Reticles & Metallic Gradients
+   ========================================================================== */
+
+.font-mono-tech {
+  font-family: var(--jt-font-mono);
+}
+
+.jt-spatial-grid {
+  background-size: 24px 24px;
+  background-image:
+    linear-gradient(to right, rgba(229, 182, 106, 0.042) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 182, 106, 0.042) 1px, transparent 1px);
+}
+
+[data-theme="light"] .jt-spatial-grid {
+  background-image:
+    linear-gradient(to right, rgba(138, 90, 16, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 90, 16, 0.055) 1px, transparent 1px);
+}
+
+.jt-gold-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fff4dc 28%, #f2c97e 65%, #b8822e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .jt-gold-text {
+  background: linear-gradient(135deg, #5c3906 0%, #8a5a10 52%, #b87c1e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Cursor-Tracked Proximity Spotlight Card (Linear / Apple Titanium Specular)
+   ========================================================================== */
+
+.jt-spotlight-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(19, 24, 35, 0.88) 0%, rgba(11, 14, 21, 0.94) 100%);
+  border: 1px solid var(--jt-border);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="light"] .jt-spotlight-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 245, 238, 0.98) 100%);
+}
+
+/* Specular Border Highlight Masked to Cursor */
+.jt-spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    420px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    rgba(242, 201, 126, 0.65),
+    rgba(229, 182, 106, 0.16) 40%,
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Ambient Surface Sheen Following Cursor */
+.jt-spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    rgba(229, 182, 106, 0.075),
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.jt-spotlight-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+.jt-spotlight-card:hover {
+  box-shadow: 0 18px 45px -15px rgba(0, 0, 0, 0.65), 0 0 30px rgba(229, 182, 106, 0.08);
+}
+
+[data-theme="light"] .jt-spotlight-card:hover {
+  box-shadow: 0 16px 36px -12px rgba(20, 23, 31, 0.10);
+}
+
+/* Reticle Corner Crosshairs (+) */
+.jt-reticle-tl::before {
+  content: "+";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-family: var(--jt-font-mono);
+  font-size: 11px;
+  line-height: 1;
+  color: var(--jt-gold-primary);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Industrial Delivery Badge */
+.jt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.5rem;
+  font-family: var(--jt-font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(229, 182, 106, 0.10);
+  color: var(--jt-gold-primary);
+  border: 1px solid rgba(229, 182, 106, 0.26);
+}
+
+/* ==========================================================================
+   09 Silicon Matrix Cascade Loaders (For Interactive IP Design Lab)
+   ========================================================================== */
+
+@keyframes jtCascadeTL {
+  0% { opacity: 0.28; transform: scale(0.985); }
+  15% { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 12px rgba(242,201,126,0.75)); }
+  32%, 100% { opacity: 0.28; transform: scale(0.985); }
+}
+@keyframes jtCascadeTR {
+  0%, 20% { opacity: 0.26; transform: scale(0.985); }
+  40% { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 12px rgba(242,201,126,0.75)); }
+  57%, 100% { opacity: 0.26; transform: scale(0.985); }
+}
+@keyframes jtCascadeBR {
+  0%, 45% { opacity: 0.28; transform: scale(0.985); }
+  65% { opacity: 1; transform: scale(1.035); filter: drop-shadow(0 0 14px rgba(255,249,236,0.9)); }
+  82%, 100% { opacity: 0.28; transform: scale(0.985); }
+}
+@keyframes jtCascadeBL {
+  0%, 70% { opacity: 0.26; transform: scale(0.985); }
+  90% { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 12px rgba(242,201,126,0.75)); }
+  100% { opacity: 0.28; transform: scale(0.985); }
+}
+@keyframes jtBusDash {
+  0% { stroke-dashoffset: 16; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes jtSparkPulse {
+  0%, 45% { transform: scale(0.9); opacity: 0.5; }
+  65% { transform: scale(1.65); opacity: 1; filter: drop-shadow(0 0 8px #ffffff); }
+  82%, 100% { transform: scale(0.9); opacity: 0.5; }
+}
+@keyframes jtRingSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.jt-anim-tl { animation: jtCascadeTL var(--loader-speed) infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 76px 78px; }
+.jt-anim-tr { animation: jtCascadeTR var(--loader-speed) infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 140px 78px; }
+.jt-anim-br { animation: jtCascadeBR var(--loader-speed) infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 140px 140px; }
+.jt-anim-bl { animation: jtCascadeBL var(--loader-speed) infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 76px 140px; }
+.jt-anim-bus { animation: jtBusDash calc(var(--loader-speed) * 0.5) linear infinite; }
+.jt-anim-spark { animation: jtSparkPulse var(--loader-speed) infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 140px 140px; }
+.jt-anim-ring { animation: jtRingSpin 24s linear infinite; transform-origin: 100px 100px; }
+
+/* ==========================================================================
+   Historical Technical Articles Prose Typography (.jt-prose)
+   ========================================================================== */
+
+.jt-prose {
+  color: var(--jt-text-ivory);
+  font-size: 1.025rem;
+  line-height: 1.85;
+  word-break: break-word;
+}
+
+.jt-prose h1,
+.jt-prose h2,
+.jt-prose h3,
+.jt-prose h4 {
+  color: var(--jt-text-ivory);
+  font-weight: 700;
+  line-height: 1.35;
+  scroll-margin-top: 6rem;
+}
+
+.jt-prose h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--jt-border);
+  position: relative;
+}
+
+.jt-prose h2::before {
+  content: "// ";
+  font-family: var(--jt-font-mono);
+  font-size: 0.95em;
+  color: var(--jt-gold-primary);
+}
+
+.jt-prose h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.jt-prose h4 {
+  font-size: 1.08rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--jt-gold-primary);
+}
+
+.jt-prose p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.jt-prose a {
+  color: var(--jt-gold-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  decoration-color: rgba(229, 182, 106, 0.4);
+  transition: color 0.2s ease;
+}
+.jt-prose a:hover {
+  color: var(--jt-gold-bright);
+}
+
+.jt-prose ul,
+.jt-prose ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+.jt-prose ul { list-style-type: disc; }
+.jt-prose ol { list-style-type: decimal; }
+.jt-prose li { margin: 0.35rem 0; }
+.jt-prose li::marker { color: var(--jt-gold-primary); }
+
+.jt-prose blockquote {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.25rem;
+  border-left: 3px solid var(--jt-gold-primary);
+  background: var(--jt-surface-sub);
+  border-radius: 0 0.75rem 0.75rem 0;
+  color: var(--jt-text-sand);
+}
+
+.jt-prose :not(pre) > code {
+  font-family: var(--jt-font-mono);
+  font-size: 0.875em;
+  padding: 0.18rem 0.45rem;
+  border-radius: 0.375rem;
+  background: var(--jt-surface-sub);
+  color: var(--jt-gold-primary);
+  border: 1px solid var(--jt-border);
+}
+
+.jt-prose pre.astro-code {
+  margin: 1.4rem 0;
+  padding: 1.15rem 1.25rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--jt-border);
+  font-family: var(--jt-font-mono);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow-x: auto;
+  background-color: #0b0e15 !important;
+}
+
+[data-theme="light"] .jt-prose pre.astro-code,
+[data-theme="light"] .jt-prose pre.astro-code span {
+  color: var(--shiki-light) !important;
+  background-color: #f6f3ec !important;
+}
+
+.jt-prose img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 0.875rem;
+  border: 1px solid var(--jt-border);
+}
+
+.jt-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+  display: block;
+  overflow-x: auto;
+}
+.jt-prose th,
+.jt-prose td {
+  border: 1px solid var(--jt-border);
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+}
+.jt-prose th {
+  background: var(--jt-surface-sub);
+  color: var(--jt-gold-primary);
+  font-weight: 600;
+}
+
+.jt-prose hr {
+  border: 0;
+  border-top: 1px solid var(--jt-border);
+  margin: 2.25rem 0;
+}
+
+/* KaTeX Overflow Safety */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

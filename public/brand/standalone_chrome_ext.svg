@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Deep Obsidian Studio Chassis -->
+    <radialGradient id="stExtBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#131C31"/>
+      <stop offset="58%" stop-color="#080C16"/>
+      <stop offset="100%" stop-color="#04060B"/>
+    </radialGradient>
+
+    <!-- Cobalt Ambient Studio Aura -->
+    <radialGradient id="stExtAura" cx="54%" cy="54%" r="58%">
+      <stop offset="0%" stop-color="#2263EC" stop-opacity="0.38"/>
+      <stop offset="62%" stop-color="#2263EC" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#2263EC" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Squircle Precision Rim -->
+    <linearGradient id="stExtRim" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#2263EC" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#E5B66A" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <!-- Frosted Source Web Browser Card -->
+    <linearGradient id="stExtWebGlass" x1="32" y1="34" x2="124" y2="126" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2B6BF3" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#133894" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <!-- Foreground 3D Cobalt-Sapphire Imported Article Card (#2263EC 主色) -->
+    <linearGradient id="stExtDocCard" x1="64" y1="62" x2="168" y2="166" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4F8FFF"/>
+      <stop offset="44%" stop-color="#2263EC"/>
+      <stop offset="100%" stop-color="#0E3290"/>
+    </linearGradient>
+
+    <!-- Foreground Card Specular Bevel -->
+    <linearGradient id="stExtDocRim" x1="64" y1="62" x2="168" y2="166" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BFDBFE" stop-opacity="0.85"/>
+      <stop offset="48%" stop-color="#60A5FA" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#F2C97E" stop-opacity="0.48"/>
+    </linearGradient>
+
+    <!-- Aerospace Titanium Gold Leap Arrow (userSpaceOnUse) -->
+    <linearGradient id="stExtGold" x1="52" y1="48" x2="132" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFDF7"/>
+      <stop offset="36%" stop-color="#F7D388"/>
+      <stop offset="76%" stop-color="#E5B66A"/>
+      <stop offset="100%" stop-color="#B88028"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base Chassis -->
+  <rect width="200" height="200" rx="46" fill="url(#stExtBg)"/>
+  <rect width="198" height="198" x="1" y="1" rx="45" stroke="url(#stExtRim)" stroke-width="1.5"/>
+
+  <!-- Calibration Ring & Aura -->
+  <circle cx="100" cy="100" r="84" fill="url(#stExtAura)"/>
+  <circle cx="100" cy="100" r="84" stroke="#2263EC" stroke-opacity="0.14" stroke-dasharray="3 6"/>
+  <circle cx="100" cy="100" r="92" stroke="#FFFFFF" stroke-opacity="0.03"/>
+
+  <!-- ==================== [BACK LAYER] SOURCE WEB BROWSER WINDOW (32..124) ==================== -->
+  <rect x="32" y="34" width="92" height="92" rx="20" fill="#081226"/>
+  <rect x="32" y="34" width="92" height="92" rx="20" fill="url(#stExtWebGlass)" stroke="#60A5FA" stroke-opacity="0.48" stroke-width="1.6"/>
+  <!-- Browser Header Chrome -->
+  <circle cx="47" cy="48" r="2.6" fill="#93C5FD" fill-opacity="0.85"/>
+  <circle cx="57" cy="48" r="2.6" fill="#F2C97E" fill-opacity="0.85"/>
+  <rect x="68" y="45.5" width="38" height="5" rx="2.5" fill="#93C5FD" fill-opacity="0.22"/>
+  <line x1="33" y1="59" x2="123" y2="59" stroke="#60A5FA" stroke-opacity="0.22" stroke-width="1.2"/>
+
+  <!-- ==================== [FOREGROUND] CLEAN IMPORTED ARTICLE CARD (64..168, Center X=116) ==================== -->
+  <!-- Deep Separation Shadow Over Web Card -->
+  <rect x="60" y="60" width="108" height="108" rx="24" fill="#03060E" fill-opacity="0.72"/>
+  <rect x="64" y="65" width="104" height="104" rx="23" fill="#091E58"/>
+
+  <!-- Main 3D Cobalt-Sapphire Article Card -->
+  <rect x="64" y="62" width="104" height="104" rx="23" fill="url(#stExtDocCard)"/>
+  <rect x="64.75" y="62.75" width="102.5" height="102.5" rx="22.25" stroke="url(#stExtDocRim)" stroke-width="1.5"/>
+
+  <!-- Structured Pure-Ivory Article Typography Bars -->
+  <rect x="85" y="123" width="62" height="8.5" rx="4.25" fill="#FFFFFF"/>
+  <rect x="85" y="139" width="42" height="7" rx="3.5" fill="#FFFFFF" fill-opacity="0.72"/>
+
+  <!-- ==================== [HERO ACTION] 3D TITANIUM-GOLD LEAP IMPORT ARROW ==================== -->
+  <!-- Subtle Depth Halo Across Card Threshold -->
+  <path d="M 52 88 C 52 46, 116 46, 116 103" stroke="#06143D" stroke-width="13.5" stroke-linecap="round" stroke-opacity="0.52"/>
+  <!-- 100% Vertical-Tangent Bezier Leap Trajectory (Origin x=52 -> Peak -> Target x=116) -->
+  <path d="M 52 88 C 52 46, 116 46, 116 103" stroke="url(#stExtGold)" stroke-width="9.2" stroke-linecap="round"/>
+  <!-- Symmetrical Vertical-Axis Arrowhead -->
+  <path d="M 102.5 90 L 116 103.5 L 129.5 90" stroke="url(#stExtGold)" stroke-width="9.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

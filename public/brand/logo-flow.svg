@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Master Titanium Gold Gradient -->
+    <linearGradient id="flowGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9EC"/>
+      <stop offset="45%" stop-color="#F2C97E"/>
+      <stop offset="100%" stop-color="#A67426"/>
+    </linearGradient>
+    <linearGradient id="flowMutedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C28E3A"/>
+      <stop offset="100%" stop-color="#5E3F12"/>
+    </linearGradient>
+
+    <!-- Subtle Restrained Soft Glow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      /* 4-Beat Sequential Pipeline Cascade Flow:
+         TL (0%~30%) -> TR (25%~55%) -> BR (50%~80%) -> BL (75%~100%)
+         Restrained contrast: Rest at 0.28 opacity, Peaks at 1.0 with soft gold aura
+      */
+      @keyframes blockTL {
+        0% { opacity: 0.30; transform: scale(0.985); }
+        15% { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 12px rgba(242,201,126,0.7)); }
+        32% { opacity: 0.30; transform: scale(0.985); }
+        100% { opacity: 0.30; transform: scale(0.985); }
+      }
+
+      @keyframes blockTR {
+        0%, 20% { opacity: 0.28; transform: scale(0.985); }
+        40% { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 12px rgba(242,201,126,0.7)); }
+        57% { opacity: 0.28; transform: scale(0.985); }
+        100% { opacity: 0.28; transform: scale(0.985); }
+      }
+
+      @keyframes blockBR {
+        0%, 45% { opacity: 0.30; transform: scale(0.985); }
+        65% { opacity: 1; transform: scale(1.03); filter: drop-shadow(0 0 14px rgba(255,249,236,0.85)); }
+        82% { opacity: 0.30; transform: scale(0.985); }
+        100% { opacity: 0.30; transform: scale(0.985); }
+      }
+
+      @keyframes blockBL {
+        0%, 70% { opacity: 0.28; transform: scale(0.985); }
+        90% { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 12px rgba(242,201,126,0.7)); }
+        100% { opacity: 0.30; transform: scale(0.985); }
+      }
+
+      /* Synchronized Bus Data Transmission */
+      @keyframes busDash {
+        0% { stroke-dashoffset: 16; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      /* Quantum Singularity Pulse */
+      @keyframes sparkPulse {
+        0%, 45% { transform: scale(0.9); opacity: 0.5; }
+        65% { transform: scale(1.6); opacity: 1; filter: drop-shadow(0 0 6px #FFFFFF); }
+        82% { transform: scale(0.9); opacity: 0.5; }
+        100% { transform: scale(0.9); opacity: 0.5; }
+      }
+
+      @keyframes sparkWave {
+        0%, 45% { r: 3.5px; opacity: 0; stroke-width: 2px; }
+        65% { opacity: 0.9; }
+        82% { r: 18px; opacity: 0; stroke-width: 0.5px; }
+        100% { opacity: 0; }
+      }
+
+      /* Background Calibration Track Slow Spin */
+      @keyframes ringRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .node-tl { animation: blockTL 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 76px 78px; }
+      .node-tr { animation: blockTR 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 140px 78px; }
+      .node-br { animation: blockBR 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 140px 140px; }
+      .node-bl { animation: blockBL 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 76px 140px; }
+
+      .bus-anim { animation: busDash 0.9s linear infinite; }
+      .spark-anim { animation: sparkPulse 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 140px 140px; }
+      .wave-anim { animation: sparkWave 1.8s infinite cubic-bezier(0, 0, 0.2, 1); }
+      .track-spin { animation: ringRotate 24s linear infinite; transform-origin: 100px 100px; }
+    </style>
+  </defs>
+
+  <!-- Obsidian Base Chassis -->
+  <rect width="200" height="200" rx="46" fill="#0b0f17"/>
+  <rect width="198" height="198" x="1" y="1" rx="45" stroke="#E5B66A" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Rotating Calibration Track -->
+  <circle cx="100" cy="100" r="82" stroke="#E5B66A" stroke-opacity="0.14" stroke-dasharray="4 8" class="track-spin"/>
+  <circle cx="100" cy="100" r="90" stroke="#FFFFFF" stroke-opacity="0.04"/>
+
+  <!-- ==================== 09 SILICON MATRIX SYSTEM ==================== -->
+
+  <!-- [TOP-LEFT] Main Core Block: 72x72 Square (1.8 x 1.8) -->
+  <g class="node-tl">
+    <rect x="40" y="42" width="72" height="72" rx="10" fill="url(#flowGoldGrad)"/>
+  </g>
+
+  <!-- [TOP-RIGHT] Communication Bus: 40x72 (1.0 x 1.8) -->
+  <g class="node-tr">
+    <rect x="120" y="42" width="40" height="72" rx="10" fill="url(#flowMutedGrad)"/>
+    <line x1="140" y1="56" x2="140" y2="100" stroke="#FFF9EC" stroke-width="2.5" stroke-opacity="0.65" stroke-dasharray="4 4" class="bus-anim"/>
+  </g>
+
+  <!-- [BOTTOM-LEFT] Memory Buffer: 72x36 (1.8 x 0.9) -->
+  <g class="node-bl">
+    <rect x="40" y="122" width="72" height="36" rx="8" fill="url(#flowMutedGrad)"/>
+    <line x1="56" y1="140" x2="96" y2="140" stroke="#FFF9EC" stroke-width="2.5" stroke-opacity="0.65" stroke-dasharray="4 4" class="bus-anim"/>
+  </g>
+
+  <!-- [BOTTOM-RIGHT] AI Accelerator: 40x36 (1.0 x 0.9) -->
+  <g class="node-br">
+    <rect x="120" y="122" width="40" height="36" rx="8" fill="url(#flowGoldGrad)"/>
+    <!-- Expanding Singularity Quantum Wave -->
+    <circle cx="140" cy="140" r="3.5" stroke="#FFFFFF" fill="none" class="wave-anim"/>
+    <!-- Singularity Spark Core -->
+    <circle cx="140" cy="140" r="4" fill="#FFFFFF" class="spark-anim" filter="url(#softGlow)"/>
+  </g>
+</svg>

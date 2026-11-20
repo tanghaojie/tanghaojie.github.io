@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Deep Obsidian Studio Background (Family Unified) -->
+    <radialGradient id="crxBgGrad" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#141a26"/>
+      <stop offset="58%" stop-color="#0b0f17"/>
+      <stop offset="100%" stop-color="#06080d"/>
+    </radialGradient>
+
+    <!-- Master Titanium Gold Gradient (Family Unified) -->
+    <linearGradient id="crxGoldGrad" x1="12%" y1="8%" x2="88%" y2="92%">
+      <stop offset="0%" stop-color="#FFF9EC"/>
+      <stop offset="30%" stop-color="#F7D388"/>
+      <stop offset="62%" stop-color="#E5B66A"/>
+      <stop offset="100%" stop-color="#9E6D20"/>
+    </linearGradient>
+
+    <linearGradient id="crxMutedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C28E3A"/>
+      <stop offset="100%" stop-color="#5E3F12"/>
+    </linearGradient>
+
+    <!-- Extension Cobalt Blue Gradient (#2263EC 主色 · userSpaceOnUse) -->
+    <linearGradient id="crxBlueGrad" x1="48" y1="52" x2="104" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2E6FF2"/>
+      <stop offset="50%" stop-color="#2263EC"/>
+      <stop offset="100%" stop-color="#113CA3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Obsidian Base Chassis -->
+  <rect width="200" height="200" rx="46" fill="url(#crxBgGrad)"/>
+  <rect width="198" height="198" x="1" y="1" rx="45" stroke="#E5B66A" stroke-opacity="0.22" stroke-width="1.5"/>
+
+  <!-- Matrix Grid Proportions (1.8:1, 1.8:0.9) -->
+  <circle cx="100" cy="100" r="82" stroke="#E5B66A" stroke-opacity="0.12" stroke-dasharray="3 6"/>
+  <circle cx="100" cy="100" r="92" stroke="#FFFFFF" stroke-opacity="0.04"/>
+
+  <!-- ==================== [TOP-LEFT] Main Core Block: 72x72 (1.8 x 1.8) ==================== -->
+  <!-- Product 03: 文章导入 Chrome 插件 (Solid Gold Die · Dual-Card Web->Article Leap) -->
+  <rect x="40" y="42" width="72" height="72" rx="10" fill="url(#crxGoldGrad)"/>
+
+  <!-- [Back] Source Web Browser Frame (Obsidian Precision Reference Line · Clean Gap Before Arc) -->
+  <path d="M 58 84.5 H 55 C 51.96 84.5, 49.5 82.04, 49.5 79 V 58 C 49.5 54.96, 51.96 52.5, 55 52.5 H 69"
+        stroke="#0b0f17" stroke-width="2" stroke-linecap="round" stroke-opacity="0.48"/>
+
+  <!-- [Front] Imported Article Card Tint & Precision Entry-Gap Outline (x=63..102, y=65..103) -->
+  <rect x="63" y="65" width="39" height="38" rx="7.5" fill="#2263EC" fill-opacity="0.13"/>
+  <path d="M 76.5 65 H 70.5 C 66.36 65, 63 68.36, 63 72.5 V 95.5 C 63 99.64, 66.36 103, 70.5 103 H 94.5 C 98.64 103, 102 99.64, 102 95.5 V 72.5 C 102 68.36, 98.64 65, 94.5 65 H 88.5"
+        stroke="url(#crxBlueGrad)" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Structured Article Lines Inside Card -->
+  <line x1="71.5" y1="89" x2="93.5" y2="89" stroke="url(#crxBlueGrad)" stroke-width="2.7" stroke-linecap="round"/>
+  <line x1="71.5" y1="95.5" x2="86.5" y2="95.5" stroke="#1D56D8" stroke-width="2.3" stroke-linecap="round" stroke-opacity="0.78"/>
+
+  <!-- [Hero] 100% Vertical-Tangent Leap Import Arrow Diving Cleanly Through Entry Gap -->
+  <path d="M 58 73.5 C 58 54.5, 82.5 54.5, 82.5 80" stroke="url(#crxBlueGrad)" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M 77 74.5 L 82.5 80.5 L 88 74.5" stroke="url(#crxBlueGrad)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ==================== [TOP-RIGHT] Communication Bus: 40x72 (1.0 x 1.8) ==================== -->
+  <rect x="120" y="42" width="40" height="72" rx="10" fill="url(#crxMutedGrad)" opacity="0.85"/>
+  <line x1="140" y1="58" x2="140" y2="98" stroke="#FFF9EC" stroke-width="2" stroke-opacity="0.4" stroke-dasharray="4 4"/>
+
+  <!-- ==================== [BOTTOM-LEFT] Memory Buffer: 72x36 (1.8 x 0.9) ==================== -->
+  <rect x="40" y="122" width="72" height="36" rx="8" fill="url(#crxMutedGrad)" opacity="0.85"/>
+  <line x1="58" y1="140" x2="94" y2="140" stroke="#FFF9EC" stroke-width="2" stroke-opacity="0.4" stroke-dasharray="4 4"/>
+
+  <!-- ==================== [BOTTOM-RIGHT] AI Accelerator: 40x36 (1.0 x 0.9) ==================== -->
+  <rect x="120" y="122" width="40" height="36" rx="8" fill="url(#crxGoldGrad)"/>
+  <!-- Status Indicator: Sync-Socket Blue Ring + Titanium Gold Core (与 02 Markdown 纯蓝白芯形成微区分) -->
+  <circle cx="140" cy="140" r="6" stroke="#2263EC" stroke-width="1.2" stroke-opacity="0.65"/>
+  <circle cx="140" cy="140" r="3.8" fill="#0b0f17" stroke="#2263EC" stroke-width="1.5"/>
+  <circle cx="140" cy="140" r="1.6" fill="#F2C97E"/>
+</svg>

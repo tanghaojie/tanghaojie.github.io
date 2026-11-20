@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleReaderBar from '../components/ArticleReaderBar.vue';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const sorted = [...posts].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  return sorted.map((entry, idx) => ({
+    params: { slug: entry.data.legacyPath },
+    props: {
+      entry,
+      prevPost: sorted[idx + 1] ?? null,
+      nextPost: sorted[idx - 1] ?? null,
+    },
+  }));
+}
+
+const { entry, prevPost, nextPost } = Astro.props;
+const { Content, headings } = await render(entry);
+
+const d = entry.data.date;
+const dateFormatted = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const tocItems = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+<BaseLayout
+  title={`${entry.data.title} · 桀士 Jackie Tang`}
+  description={entry.data.excerpt || entry.data.title}
+  enableMath={entry.data.math}
+>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-28 sm:pt-32 pb-24">
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-start">
+      <!-- Main Article Column -->
+      <article class="xl:col-span-9 min-w-0 jt-spotlight-card p-6 sm:p-10 md:p-12">
+        <ArticleReaderBar client:load />
+
+        <!-- Article Header -->
+        <header class="space-y-4 pb-8 mb-8 border-b border-[var(--jt-border)]">
+          <div class="flex flex-wrap items-center gap-2.5 font-mono-tech text-xs text-[var(--jt-text-sand)]">
+            <time datetime={entry.data.date.toISOString()} class="text-[var(--jt-gold-primary)] font-semibold">
+              {dateFormatted}
+            </time>
+            {entry.data.categories.length > 0 && (
+              <>
+                <span>·</span>
+                <span>{entry.data.categories.join(' / ')}</span>
+              </>
+            )}
+            {entry.data.math && (
+              <span class="px-2 py-0.5 rounded bg-[var(--jt-surface-sub)] text-[var(--jt-gold-primary)] text-[10px]">
+                KaTeX Math
+              </span>
+            )}
+          </div>
+
+          <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-snug text-[var(--jt-text-ivory)]">
+            {entry.data.title}
+          </h1>
+
+          {entry.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              {entry.data.tags.map((tag) => (
+                <span class="px-2.5 py-0.5 rounded-md bg-[var(--jt-surface-sub)] border border-[var(--jt-border)] font-mono-tech text-[11px] text-[var(--jt-text-sand)]">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <!-- Rendered Markdown Body -->
+        <div class="jt-prose">
+          <Content />
+        </div>
+
+        <!-- Prev / Next Article Navigation -->
+        <nav class="mt-14 pt-8 border-t border-[var(--jt-border)] grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {prevPost ? (
+            <a
+              href={`/${prevPost.data.legacyPath}/`}
+              class="p-4 rounded-xl bg-[var(--jt-surface-sub)] border border-[var(--jt-border)] hover:border-[var(--jt-border-gold)] transition-all group"
+            >
+              <div class="font-mono-tech text-[10px] text-[var(--jt-text-sand)] mb-1">
+                ← OLDER ARTICLE
+              </div>
+              <div class="text-sm font-semibold text-[var(--jt-text-ivory)] group-hover:text-[var(--jt-gold-primary)] line-clamp-1">
+                {prevPost.data.title}
+              </div>
+            </a>
+          ) : (
+            <div />
+          )}
+
+          {nextPost && (
+            <a
+              href={`/${nextPost.data.legacyPath}/`}
+              class="p-4 rounded-xl bg-[var(--jt-surface-sub)] border border-[var(--jt-border)] hover:border-[var(--jt-border-gold)] transition-all sm:text-right group"
+            >
+              <div class="font-mono-tech text-[10px] text-[var(--jt-text-sand)] mb-1">
+                NEWER ARTICLE →
+              </div>
+              <div class="text-sm font-semibold text-[var(--jt-text-ivory)] group-hover:text-[var(--jt-gold-primary)] line-clamp-1">
+                {nextPost.data.title}
+              </div>
+            </a>
+          )}
+        </nav>
+      </article>
+
+      <!-- Desktop Sticky Table of Contents -->
+      {tocItems.length > 0 && (
+        <aside class="hidden xl:block xl:col-span-3 sticky top-24">
+          <div class="jt-spotlight-card p-5 space-y-3 max-h-[calc(100vh-7.5rem)] overflow-y-auto">
+            <div class="font-mono-tech text-[11px] font-bold tracking-widest text-[var(--jt-gold-primary)] uppercase pb-2 border-b border-[var(--jt-border)]">
+              // ON THIS PAGE
+            </div>
+            <ul class="space-y-2 text-xs">
+              {tocItems.map((h) => (
+                <li class={h.depth === 3 ? 'pl-3.5' : ''}>
+                  <a
+                    href={`#${h.slug}`}
+                    class="block text-[var(--jt-text-sand)] hover:text-[var(--jt-gold-primary)] transition-colors leading-snug"
+                  >
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      )}
+    </div>
+  </div>
+</BaseLayout>

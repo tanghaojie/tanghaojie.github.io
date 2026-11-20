@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" fill="none">
+  <defs>
+    <!-- Deep Obsidian Studio Background -->
+    <radialGradient id="jtBgH" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#161c28"/>
+      <stop offset="55%" stop-color="#0b0e15"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </radialGradient>
+
+    <!-- Master Aerospace Titanium Gold Gradient -->
+    <linearGradient id="titaniumGoldH" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#FFF8E8"/>
+      <stop offset="25%" stop-color="#F7D388"/>
+      <stop offset="60%" stop-color="#E5B562"/>
+      <stop offset="85%" stop-color="#B8822E"/>
+      <stop offset="100%" stop-color="#7A5218"/>
+    </linearGradient>
+
+    <linearGradient id="structGoldH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8822E"/>
+      <stop offset="100%" stop-color="#5E3F12"/>
+    </linearGradient>
+
+    <filter id="coreGlowH" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Left: 09 Silicon Matrix Master Mark (180 × 180, aligned 1:1 with 512px Master) -->
+  <g transform="translate(30, 30)">
+    <g transform="scale(0.3515625)">
+      <!-- Squircle Base Chassis -->
+      <rect x="8" y="8" width="496" height="496" rx="124" fill="url(#jtBgH)"/>
+      <rect x="18" y="18" width="476" height="476" rx="114" stroke="url(#titaniumGoldH)" stroke-width="2" stroke-opacity="0.25"/>
+      <circle cx="256" cy="256" r="210" stroke="url(#titaniumGoldH)" stroke-width="1.2" stroke-opacity="0.12" stroke-dasharray="4 8"/>
+      <circle cx="256" cy="256" r="226" stroke="#FFFFFF" stroke-width="0.8" stroke-opacity="0.04"/>
+
+      <!-- Matrix Grid: 1.8:1, 1.8:0.9 -->
+      <!-- [TOP-LEFT] Main Core Block: 180x180 (1.8 x 1.8) -->
+      <rect x="106" y="111" width="180" height="180" rx="24" fill="url(#titaniumGoldH)"/>
+
+      <!-- [TOP-RIGHT] Communication Bus: 100x180 (1.0 x 1.8) -->
+      <rect x="306" y="111" width="100" height="180" rx="24" fill="url(#structGoldH)" opacity="0.85"/>
+      <line x1="356" y1="151" x2="356" y2="251" stroke="#FFF8E8" stroke-width="3" stroke-opacity="0.35" stroke-dasharray="6 6"/>
+
+      <!-- [BOTTOM-LEFT] Memory Buffer: 180x90 (1.8 x 0.9) -->
+      <rect x="106" y="311" width="180" height="90" rx="20" fill="url(#structGoldH)" opacity="0.85"/>
+      <line x1="151" y1="356" x2="241" y2="356" stroke="#FFF8E8" stroke-width="3" stroke-opacity="0.35" stroke-dasharray="6 6"/>
+
+      <!-- [BOTTOM-RIGHT] AI Accelerator: 100x90 (1.0 x 0.9) -->
+      <rect x="306" y="311" width="100" height="90" rx="20" fill="url(#titaniumGoldH)"/>
+      <circle cx="356" cy="356" r="8" fill="#FFFFFF" filter="url(#coreGlowH)"/>
+      <circle cx="356" cy="356" r="14" stroke="#FFF8E8" stroke-width="2" stroke-opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="244" y1="46" x2="244" y2="194" stroke="#E5B66A" stroke-width="1.2" stroke-opacity="0.24" stroke-dasharray="2 4"/>
+
+  <!-- Right: Professional Typography Lockup (Pre-installed geometric fallbacks for <img> sandbox) -->
+  <!-- Primary Brand Name -->
+  <text x="278" y="104" font-family="'Bahnschrift', 'DIN Alternate', 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="44" font-weight="800" letter-spacing="4" fill="#F4ECDB">
+    JACKIE TANG
+  </text>
+
+  <!-- Chinese Subtitle & Official Lab Title -->
+  <text x="280" y="146" font-family="'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif"
+        font-size="22" font-weight="700" letter-spacing="6" fill="url(#titaniumGoldH)">
+    桀士 AI 实验室
+  </text>
+
+  <!-- Technical Domain / Tagline -->
+  <text x="282" y="184" font-family="'JetBrains Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace"
+        font-size="13" font-weight="600" letter-spacing="1.5" fill="#A69D8B">
+    AI AGENT · FULL-STACK ENGINEERING · 3D GIS · JTLAB.SPACE
+  </text>
+</svg>

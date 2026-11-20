@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Deep Obsidian Studio Background (Family Unified) -->
+    <radialGradient id="mdBgGrad" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#141a26"/>
+      <stop offset="58%" stop-color="#0b0f17"/>
+      <stop offset="100%" stop-color="#06080d"/>
+    </radialGradient>
+
+    <!-- Master Titanium Gold Gradient (Family Unified) -->
+    <linearGradient id="mdGoldGrad" x1="12%" y1="8%" x2="88%" y2="92%">
+      <stop offset="0%" stop-color="#FFF9EC"/>
+      <stop offset="30%" stop-color="#F7D388"/>
+      <stop offset="62%" stop-color="#E5B66A"/>
+      <stop offset="100%" stop-color="#9E6D20"/>
+    </linearGradient>
+
+    <linearGradient id="mdMutedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C28E3A"/>
+      <stop offset="100%" stop-color="#5E3F12"/>
+    </linearGradient>
+
+    <!-- WeChat Editor Blue Gradient (#2263EC · userSpaceOnUse prevents vertical-line vanish) -->
+    <linearGradient id="mdBlueGrad" x1="48" y1="56" x2="104" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2E6FF2"/>
+      <stop offset="52%" stop-color="#2263EC"/>
+      <stop offset="100%" stop-color="#123EA6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Obsidian Base Chassis -->
+  <rect width="200" height="200" rx="46" fill="url(#mdBgGrad)"/>
+  <rect width="198" height="198" x="1" y="1" rx="45" stroke="#E5B66A" stroke-opacity="0.22" stroke-width="1.5"/>
+
+  <!-- Matrix Grid Proportions (1.8:1, 1.8:0.9) -->
+  <circle cx="100" cy="100" r="82" stroke="#E5B66A" stroke-opacity="0.12" stroke-dasharray="3 6"/>
+  <circle cx="100" cy="100" r="92" stroke="#FFFFFF" stroke-opacity="0.04"/>
+
+  <!-- ==================== [TOP-LEFT] Main Core Block: 72x72 (1.8 x 1.8) ==================== -->
+  <!-- Product 02: Markdown 编辑器 (Solid Titanium Gold Die · ~84% Gold Exposure) -->
+  <rect x="40" y="42" width="72" height="72" rx="10" fill="url(#mdGoldGrad)"/>
+
+  <!-- Iconic [ M | ↓ ] Dual-Pane Typesetting Emblem on Gold Die -->
+  <rect x="48" y="58" width="56" height="40" rx="8" fill="#2263EC" fill-opacity="0.12" stroke="url(#mdBlueGrad)" stroke-width="2.6"/>
+
+  <!-- Subtle Split-Pane Calibration Divider -->
+  <line x1="79.5" y1="64" x2="79.5" y2="92" stroke="#0b0f17" stroke-width="1.2" stroke-opacity="0.24" stroke-dasharray="2 2.5" stroke-linecap="round"/>
+
+  <!-- Architectural Markdown 'M' Glyph -->
+  <path d="M 55.5 86 V 70 L 64.5 79.5 L 73.5 70 V 86"
+        stroke="url(#mdBlueGrad)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Formatting Downward Arrow '↓' -->
+  <path d="M 89 70 V 85" stroke="url(#mdBlueGrad)" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M 83.5 79.5 L 89 85.5 L 94.5 79.5" stroke="url(#mdBlueGrad)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ==================== [TOP-RIGHT] Communication Bus: 40x72 (1.0 x 1.8) ==================== -->
+  <rect x="120" y="42" width="40" height="72" rx="10" fill="url(#mdMutedGrad)" opacity="0.85"/>
+  <line x1="140" y1="58" x2="140" y2="98" stroke="#FFF9EC" stroke-width="2" stroke-opacity="0.4" stroke-dasharray="4 4"/>
+
+  <!-- ==================== [BOTTOM-LEFT] Memory Buffer: 72x36 (1.8 x 0.9) ==================== -->
+  <rect x="40" y="122" width="72" height="36" rx="8" fill="url(#mdMutedGrad)" opacity="0.85"/>
+  <line x1="58" y1="140" x2="94" y2="140" stroke="#FFF9EC" stroke-width="2" stroke-opacity="0.4" stroke-dasharray="4 4"/>
+
+  <!-- ==================== [BOTTOM-RIGHT] AI Accelerator: 40x36 (1.0 x 0.9) ==================== -->
+  <rect x="120" y="122" width="40" height="36" rx="8" fill="url(#mdGoldGrad)"/>
+  <!-- Status Indicator: WeChat Editor Blue Spark (#2263EC) -->
+  <circle cx="140" cy="140" r="5.5" stroke="#2263EC" stroke-width="1.2" stroke-opacity="0.55"/>
+  <circle cx="140" cy="140" r="3.2" fill="#2263EC"/>
+  <circle cx="140" cy="140" r="1.2" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArchiveExplorer, { type PostSummaryItem } from '../../components/ArchiveExplorer.vue';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const sorted = [...allPosts].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const postItems: PostSummaryItem[] = sorted.map((p) => {
+  const d = p.data.date;
+  const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  return {
+    title: p.data.title,
+    dateStr,
+    year: String(d.getFullYear()),
+    href: `/${p.data.legacyPath}/`,
+    tags: p.data.tags,
+    excerpt: p.data.excerpt,
+    math: p.data.math,
+  };
+});
+---
+
+<BaseLayout
+  title="历史文章 · 桀士 Jackie Tang"
+  description="唐浩桀 (Jackie Tang) 2019–2024 原创工程实践、GIS 空间计算、3D Tiles 规范与全栈开发历史文章归档。"
+>
+  <ArchiveExplorer client:load posts={postItems} />
+</BaseLayout>

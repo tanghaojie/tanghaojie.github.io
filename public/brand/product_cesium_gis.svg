@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Deep Obsidian Studio Background (Family Unified) -->
+    <radialGradient id="gisBgGrad" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#141a26"/>
+      <stop offset="58%" stop-color="#0b0f17"/>
+      <stop offset="100%" stop-color="#06080d"/>
+    </radialGradient>
+
+    <!-- Master Titanium Gold Gradient (Family Unified) -->
+    <linearGradient id="gisGoldGrad" x1="12%" y1="8%" x2="88%" y2="92%">
+      <stop offset="0%" stop-color="#FFF9EC"/>
+      <stop offset="30%" stop-color="#F7D388"/>
+      <stop offset="62%" stop-color="#E5B66A"/>
+      <stop offset="100%" stop-color="#9E6D20"/>
+    </linearGradient>
+
+    <linearGradient id="gisMutedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C28E3A"/>
+      <stop offset="100%" stop-color="#5E3F12"/>
+    </linearGradient>
+
+    <!-- High-Contrast Cesium Earth Ocean Gradient on Gold Die (#338AAF Family) -->
+    <linearGradient id="gisEarthGrad" x1="54" y1="56" x2="98" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#288BB5"/>
+      <stop offset="52%" stop-color="#196E94"/>
+      <stop offset="100%" stop-color="#0D4B69"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Obsidian Base Chassis -->
+  <rect width="200" height="200" rx="46" fill="url(#gisBgGrad)"/>
+  <rect width="198" height="198" x="1" y="1" rx="45" stroke="#E5B66A" stroke-opacity="0.22" stroke-width="1.5"/>
+
+  <!-- Matrix Grid Proportions (1.8:1, 1.8:0.9) -->
+  <circle cx="100" cy="100" r="82" stroke="#E5B66A" stroke-opacity="0.12" stroke-dasharray="3 6"/>
+  <circle cx="100" cy="100" r="92" stroke="#FFFFFF" stroke-opacity="0.04"/>
+
+  <!-- ==================== [TOP-LEFT] Main Core Block: 72x72 (1.8 x 1.8) ==================== -->
+  <!-- Product 04: Cesium 三维工作台 (Solid Titanium Gold Die · Tilted 3D Sphere + Seamless Geodesic Ring) -->
+  <rect x="40" y="42" width="72" height="72" rx="10" fill="url(#gisGoldGrad)"/>
+
+  <!-- GIS Spatial Calibration Reticles (+) -->
+  <path d="M 51 51 V 55 M 49 53 H 53" stroke="#0b0f17" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.42"/>
+  <path d="M 101 101 V 105 M 99 103 H 103" stroke="#0b0f17" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.42"/>
+
+  <!-- [Back Orbit] Left & Right Outer Wings Behind Globe -->
+  <g transform="rotate(-24 76 78)">
+    <path d="M 48 78 A 28 9.2 0 0 1 57.5 71.1" stroke="#0b0f17" stroke-width="2.4" stroke-opacity="0.52" stroke-linecap="round"/>
+    <path d="M 94.5 71.1 A 28 9.2 0 0 1 104 78" stroke="#0b0f17" stroke-width="2.4" stroke-opacity="0.52" stroke-linecap="round"/>
+  </g>
+
+  <!-- [3D Globe] Crisp Tilted Digital-Twin Sphere (r=18.5, centered at 76, 78) -->
+  <circle cx="76" cy="78" r="18.5" fill="#338AAF" fill-opacity="0.18" stroke="url(#gisEarthGrad)" stroke-width="2.8"/>
+  <g transform="rotate(-24 76 78)">
+    <ellipse cx="76" cy="78" rx="8.5" ry="18.5" stroke="url(#gisEarthGrad)" stroke-width="1.9" fill="none"/>
+    <path d="M 59 71 Q 76 66 93 71" stroke="#196E94" stroke-width="1.6" stroke-linecap="round" stroke-opacity="0.78" fill="none"/>
+  </g>
+
+  <!-- [Fore Orbit] Seamless Bold 3D Geodesic Ring + Trigonometric Satellite Beacon -->
+  <g transform="rotate(-24 76 78)">
+    <path d="M 48 78 A 28 9.2 0 0 0 104 78" stroke="#0b0f17" stroke-width="3" stroke-linecap="round" stroke-opacity="0.82"/>
+    <g transform="translate(94.7, 84.8)">
+      <circle cx="0" cy="0" r="4.6" fill="#196E94"/>
+      <circle cx="0" cy="0" r="1.8" fill="#FFFFFF"/>
+    </g>
+  </g>
+
+  <!-- ==================== [TOP-RIGHT] Communication Bus: 40x72 (1.0 x 1.8) ==================== -->
+  <rect x="120" y="42" width="40" height="72" rx="10" fill="url(#gisMutedGrad)" opacity="0.85"/>
+  <line x1="140" y1="58" x2="140" y2="98" stroke="#FFF9EC" stroke-width="2" stroke-opacity="0.4" stroke-dasharray="4 4"/>
+
+  <!-- ==================== [BOTTOM-LEFT] Memory Buffer: 72x36 (1.8 x 0.9) ==================== -->
+  <rect x="40" y="122" width="72" height="36" rx="8" fill="url(#gisMutedGrad)" opacity="0.85"/>
+  <line x1="58" y1="140" x2="94" y2="140" stroke="#FFF9EC" stroke-width="2" stroke-opacity="0.4" stroke-dasharray="4 4"/>
+
+  <!-- ==================== [BOTTOM-RIGHT] AI Accelerator: 40x36 (1.0 x 0.9) ==================== -->
+  <rect x="120" y="122" width="40" height="36" rx="8" fill="url(#gisGoldGrad)"/>
+  <!-- Status Indicator: Cesium Earth Blue Spark (#338AAF) -->
+  <circle cx="140" cy="140" r="5.5" stroke="#338AAF" stroke-width="1.2" stroke-opacity="0.55"/>
+  <circle cx="140" cy="140" r="3.2" fill="#338AAF"/>
+  <circle cx="140" cy="140" r="1.2" fill="#FFFFFF"/>
+</svg>

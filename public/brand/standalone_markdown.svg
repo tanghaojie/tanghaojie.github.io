@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Deep Obsidian Studio Chassis -->
+    <radialGradient id="stMdBg" cx="50%" cy="44%" r="70%">
+      <stop offset="0%" stop-color="#131C31"/>
+      <stop offset="58%" stop-color="#080C16"/>
+      <stop offset="100%" stop-color="#04060B"/>
+    </radialGradient>
+
+    <!-- Ambient Cobalt Studio Glow -->
+    <radialGradient id="stMdAura" cx="50%" cy="50%" r="58%">
+      <stop offset="0%" stop-color="#2263EC" stop-opacity="0.36"/>
+      <stop offset="62%" stop-color="#2263EC" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#2263EC" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Precision Dual-Tone Squircle Rim -->
+    <linearGradient id="stMdRim" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.42"/>
+      <stop offset="50%" stop-color="#2263EC" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#E5B66A" stop-opacity="0.34"/>
+    </linearGradient>
+
+    <!-- 3D Anodized Cobalt-Sapphire Keycap (#2263EC Core) -->
+    <linearGradient id="stMdPlaque" x1="36" y1="56" x2="164" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4D8EFF"/>
+      <stop offset="44%" stop-color="#2263EC"/>
+      <stop offset="100%" stop-color="#0E3394"/>
+    </linearGradient>
+
+    <!-- Specular Glass Bevel -->
+    <linearGradient id="stMdBevel" x1="36" y1="56" x2="164" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BFDBFE" stop-opacity="0.82"/>
+      <stop offset="48%" stop-color="#60A5FA" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#F2C97E" stop-opacity="0.48"/>
+    </linearGradient>
+
+    <!-- Aerospace Titanium Gold Accent (userSpaceOnUse ensures crisp vertical shaft) -->
+    <linearGradient id="stMdGold" x1="120" y1="76" x2="152" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFDF7"/>
+      <stop offset="36%" stop-color="#F7D388"/>
+      <stop offset="76%" stop-color="#E5B66A"/>
+      <stop offset="100%" stop-color="#B88028"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base Chassis -->
+  <rect width="200" height="200" rx="46" fill="url(#stMdBg)"/>
+  <rect width="198" height="198" x="1" y="1" rx="45" stroke="url(#stMdRim)" stroke-width="1.5"/>
+
+  <!-- Optical Calibration Track & Aura -->
+  <circle cx="100" cy="100" r="84" fill="url(#stMdAura)"/>
+  <circle cx="100" cy="100" r="84" stroke="#2263EC" stroke-opacity="0.14" stroke-dasharray="3 6"/>
+  <circle cx="100" cy="100" r="92" stroke="#FFFFFF" stroke-opacity="0.03"/>
+
+  <!-- Symmetrical Typesetting Crop Marks (排版裁切角标 · 四角等距 8px 光学锁合) -->
+  <path d="M 28 58 V 48 H 38" stroke="#E5B66A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.58"/>
+  <path d="M 162 48 H 172 V 58" stroke="#E5B66A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.58"/>
+  <path d="M 28 141 V 151 H 38" stroke="#E5B66A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.58"/>
+  <path d="M 162 151 H 172 V 141" stroke="#E5B66A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.58"/>
+
+  <!-- ==================== HERO 3D DUAL-PANE [ M | ↓ ] TYPESETTING KEYCAP ==================== -->
+  <!-- Keycap Deep Shadow & Physical Anodized Lower Lip -->
+  <rect x="36" y="62" width="128" height="84" rx="21" fill="#03060E" fill-opacity="0.82"/>
+  <rect x="36" y="59" width="128" height="84" rx="21" fill="#091E58"/>
+
+  <!-- Main Cobalt-Sapphire Keycap Body (128 x 84, centered at 100, 98) -->
+  <rect x="36" y="56" width="128" height="84" rx="21" fill="url(#stMdPlaque)"/>
+
+  <!-- Asymmetric Split-Editor Glass Pane (Left 72px Source Code | Right 56px Live Layout) -->
+  <path d="M 57 56 H 108 V 140 H 57 C 45.4 140, 36 130.6, 36 119 V 77 C 36 65.4, 45.4 56, 57 56 Z"
+        fill="#061440" fill-opacity="0.28"/>
+  <line x1="108" y1="57" x2="108" y2="139" stroke="#FFFFFF" stroke-width="1.2" stroke-opacity="0.16"/>
+
+  <!-- Precision Specular Rim & Top Highlight -->
+  <rect x="36.75" y="56.75" width="126.5" height="82.5" rx="20.25" stroke="url(#stMdBevel)" stroke-width="1.5"/>
+  <line x1="58" y1="58.2" x2="142" y2="58.2" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-opacity="0.48"/>
+
+  <!-- Left Pane: Monumental Pure-Ivory 'M' (Centered at x=73, y=78..118) -->
+  <path d="M 53 118 V 78 L 73 99.5 L 93 78 V 118"
+        stroke="#FFFFFF" stroke-width="8.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right Pane: Sculptural Titanium-Gold '↓' (Centered at x=135.5, y=78..118) -->
+  <path d="M 135.5 78 V 117" stroke="url(#stMdGold)" stroke-width="8.8" stroke-linecap="round"/>
+  <path d="M 122.5 104.5 L 135.5 118 L 148.5 104.5" stroke="url(#stMdGold)" stroke-width="8.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
